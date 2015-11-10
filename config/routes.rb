@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users, only: [] do
     resources :goals, only: [:index]
   end
-  # root to: "goals#index"
+  resources :goals, only: [:new, :create, :destroy]
+  root 'goals#index'
 end
