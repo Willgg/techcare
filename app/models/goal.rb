@@ -6,11 +6,12 @@
 #  measure_type_id :integer
 #  user_id         :integer
 #  adviser_id      :integer
-#  end_value       :datetime
 #  title           :string
 #  cumulative      :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  end_value       :integer
+#  end_date        :datetime
 #
 # Indexes
 #
@@ -21,11 +22,12 @@
 class Goal < ActiveRecord::Base
   belongs_to :measure_type
   belongs_to :user
+  belongs_to :adviser
   validates :measure_type_id, presence: true
   validates :user_id, presence: true
   validates :adviser_id, presence: true
   validates :end_value, presence: true
-  validates :end_time, presence: true
-  validates :title, presence: true, length: { in: 1..10 }
+  validates :end_date, presence: true
+  validates :title, presence: true, length: { in: 1..30 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 end

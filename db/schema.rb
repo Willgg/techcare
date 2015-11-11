@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110150156) do
+ActiveRecord::Schema.define(version: 20151111101805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20151110150156) do
     t.integer  "measure_type_id"
     t.integer  "user_id"
     t.integer  "adviser_id"
-    t.datetime "end_value"
     t.string   "title"
     t.boolean  "cumulative"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "end_value"
+    t.datetime "end_date"
   end
 
   add_index "goals", ["measure_type_id"], name: "index_goals_on_measure_type_id", using: :btree
@@ -69,23 +70,28 @@ ActiveRecord::Schema.define(version: 20151110150156) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "adviser_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "adviser_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "sexe"
+    t.datetime "birthday"
+    t.boolean  "is_adviser",             default: false, null: false
   end
 
   add_index "users", ["adviser_id"], name: "index_users_on_adviser_id", using: :btree
