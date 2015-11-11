@@ -1,0 +1,15 @@
+.coach-card{
+  float: left;
+  .picture{
+  height: 150px;
+  width: 150px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  float: left;
+  margin-right: 20px;
+  }
+  .info{
+    float: left
+  }
+}

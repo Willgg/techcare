@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'goals#index'
+  # root 'goals#index'
 
   devise_for :users, controllers: { registrations: "registrations" }
 

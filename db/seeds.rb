@@ -66,7 +66,7 @@ end
     measure = Measure.new(
       value: 50,
       date: Time.new(2015, 11, 9) + delay,
-      user_id: [2,3].sample,
+      user_id: 2,
       source: "Withings",
       measure_type_id: measure_type.id
     )
