@@ -22,7 +22,6 @@ coach_adviser = Adviser.new(
   user_id: coach_user.id
 )
 coach_adviser.save
-<<<<<<< HEAD
 ​
 patient_user = User.new(
   email: "ous@mail.com",
