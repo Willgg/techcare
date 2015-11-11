@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <h1>Your trainees</h1>
+      <% @users.each do |user| %>
+        <div class="cols-xs-12 col-md-4">
+          <%= image_tag user.picture.url(:square), class: "avatar avatar-bordered" %>
+          <%= link_to user.first_name, user_goals_path(user)%>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <h2>Chat zone</h2>
+    </div>
+  </div>
+</div>
