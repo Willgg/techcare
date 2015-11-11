@@ -8,6 +8,10 @@
         <%= f.input :email, required: true, autofocus: true %>
         <%= f.input :password, required: true %>
         <%= f.input :picture %>
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :sexe %>
+        <%= f.input :birthday %>
         <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
       <% end %>
 
