@@ -81,11 +81,11 @@ ActiveRecord::Schema.define(version: 20151110150156) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "adviser_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "adviser_id"
   end
 
   add_index "users", ["adviser_id"], name: "index_users_on_adviser_id", using: :btree

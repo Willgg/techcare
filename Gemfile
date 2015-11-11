@@ -32,6 +32,7 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "letter_opener"
+  gem 'faker'
 end
 
 group :production do
