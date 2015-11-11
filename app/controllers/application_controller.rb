@@ -11,6 +11,15 @@ class ApplicationController < ActionController::Base
   # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_or_admin_controller?
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  # def after_sign_in_path_for(resource)
+  #   raise
+  #   if resource.persisted? && resource.first_name.blank?
+  #     edit_user_registration_path
+  #   else
+  #     root_path
+  #   end
+  # end
+
   private
 
   def devise_or_pages_or_admin_controller?
@@ -26,5 +35,9 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :picture
+    devise_parameter_sanitizer.for(:sign_up) << :first_name
+    devise_parameter_sanitizer.for(:sign_up) << :last_name
+    devise_parameter_sanitizer.for(:sign_up) << :birthday
+    devise_parameter_sanitizer.for(:sign_up) << :sexe
   end
 end
