@@ -14,4 +14,5 @@ class MeasureType < ActiveRecord::Base
   has_many :goals
   has_many :measures
   validates :unit, presence: true
+  validates :name, presence: true
 end

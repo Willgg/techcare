@@ -15,11 +15,16 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  adviser_id             :integer
 #  picture_file_name      :string
 #  picture_content_type   :string
 #  picture_file_size      :integer
 #  picture_updated_at     :datetime
+#  adviser_id             :integer
+#  first_name             :string
+#  last_name              :string
+#  sexe                   :string
+#  birthday               :datetime
+#  is_adviser             :boolean          default(FALSE), not null
 #
 # Indexes
 #
@@ -31,6 +36,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  SEXE = ["male", "female"]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -39,6 +45,9 @@ class User < ActiveRecord::Base
   has_many :goals
   has_one :coach, class_name: "Adviser"
   belongs_to :adviser
+  validates :first_name, presence: true
+  validates :sexe, presence: true, inclusion: { in: SEXE }
+  validates :birthday, presence: true
 
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
