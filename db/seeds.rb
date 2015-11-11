@@ -6,7 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# require 'faker'
+########################################
+#   3 user dont un adviser             #
+#   2 measure_type: poids et tension   #
+#   2 mesure pour chaque measure type  #
+# ######################################
+
+
 1.times do
   coach_user = User.new(
     email: "remi@mail.com",
@@ -45,6 +51,8 @@
 
 end
 
+# Nouveau measure_type: poids avec 2 measures et 1 goal
+
 1.times do
   measure_type = MeasureType.new(
     name: "poids",
@@ -65,4 +73,49 @@ end
     delay += 200000
     measure.save
   end
+
+  goal = Goal.new(
+    measure_type_id: 1,
+    user_id: 2,
+    adviser_id: 1,
+    end_value: 80,
+    end_date: Time.new(2015, 11, 20),
+    title: "Maintenez votre poids à 80kg",
+    cumulative: false
+  )
+  goal.save
+end
+
+# Nouveau measure_type: poids avec 2 measures et 1 goal
+
+1.times do
+  measure_type = MeasureType.new(
+    name: "tension",
+    unit: "mmHg",
+    data_type: "tensiontest"
+  )
+  measure_type.save
+
+  delay = 0
+  2.times do
+    measure = Measure.new(
+      value: 140,
+      date: Time.new(2015, 11, 8) + delay,
+      user_id: 2,
+      source: "Withings",
+      measure_type_id: measure_type.id
+    )
+    delay += 200000
+    measure.save
+  end
+  goal = Goal.new(
+    measure_type_id: 2,
+    user_id: 2,
+    adviser_id: 1,
+    end_value: 80,
+    end_date: Time.new(2015, 12, 29),
+    title: "Diminuez votre tension à 140mmHg",
+    cumulative: false
+  )
+  goal.save
 end
