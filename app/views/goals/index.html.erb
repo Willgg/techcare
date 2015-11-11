@@ -6,10 +6,14 @@
       <div>
         <% @goals.each do |goal| %>
           <h2><%= goal.title %></h2>
-          <p><strong>last user measure:</strong></p>
-          <p><strong>end_value:</strong> <%= goal.end_value %></p>
+          <p><strong>last user measure:</strong>
+            <%= goal.measure_type.measures.where(user_id: @user).last.value %></p>
+          <p><strong>end_value:</strong>
+            <%= goal.end_value %></p>
           <p><strong>Time remaining:</strong>
-            <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %></p>
+            <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
+          </p>
+
         <% end %>
       </div>
     </div>
