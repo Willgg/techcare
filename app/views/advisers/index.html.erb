@@ -1,0 +1,13 @@
+<h1>Select an advisers</h1>
+<ul>
+  <% @advisers.each do |adviser|  %>
+    <li>
+    <%= image_tag adviser.user.picture.url(:medium) %>
+    <%= adviser.user.first_name %> <%= adviser.user.last_name %><br />
+    <%= adviser.title %><br />
+    <%= link_to("Select", adviser_selection_path(adviser), method: :post) %>
+    </li>
+  <% end %>
+</ul>
+
+
