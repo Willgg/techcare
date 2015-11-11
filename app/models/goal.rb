@@ -28,6 +28,6 @@ class Goal < ActiveRecord::Base
   validates :adviser_id, presence: true
   validates :end_value, presence: true
   validates :end_date, presence: true
-  validates :title, presence: true, length: { in: 1..30 }
+  validates :title, presence: true, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 end

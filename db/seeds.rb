@@ -5,42 +5,117 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require 'faker'
 
-# Goal.destroy_all
-# Adviser.destroy_all
-# User.destroy_all
+########################################
+#   3 user dont un adviser             #
+#   2 measure_type: poids et tension   #
+#   2 mesure pour chaque measure type  #
+# ######################################
 
-coach_user = User.new(
-  email: "remi@mail.com",
-  password: "12345678"
-)
-coach_user.save
-coach_adviser = Adviser.new(
-  title: "Docteur nutritionniste",
-  user_id: coach_user.id
-)
-coach_adviser.save
 
-patient_user = User.new(
-  email: "test@mail.com",
-  password: "12345678",
-  adviser_id: coach_adviser.id
-)
-patient_user.save
+1.times do
+  coach_user = User.new(
+    email: "remi@mail.com",
+    password: "remremrem",
+    first_name: "Remi",
+    birthday: Time.new(1985, 10, 20),
+    sexe: "male"
+  )
+  coach_user.save
 
-measure_type = MeasureType.new(
+  coach_adviser = Adviser.new(
+    title: "Docteur nutritionniste",
+    user_id: coach_user.id
+  )
+  coach_adviser.save
+
+  patient_user = User.new(
+    email: "ous@mail.com",
+    password: "ousousous",
+    adviser_id: coach_adviser.id,
+    first_name: "Ousmane",
+    birthday: Time.new(1990, 05, 12),
+    sexe: "male"
+  )
+  patient_user.save
+
+  patient_user = User.new(
+    email: "will@mail.com",
+    password: "wilwilwil",
+    adviser_id: coach_adviser.id,
+    first_name: "William",
+    birthday: Time.new(1985, 7, 16),
+    sexe: "male"
+  )
+  patient_user.save
+
+end
+
+# Nouveau measure_type: poids avec 2 measures et 1 goal
+
+1.times do
+  measure_type = MeasureType.new(
     name: "poids",
     unit: "kg",
     data_type: "test"
   )
-measure_type.save
+  measure_type.save
 
-measure = Measure.new(
+  delay = 0
+  2.times do
+    measure = Measure.new(
       value: 50,
-      date: Time.now,
-      user_id: 1,
+      date: Time.new(2015, 11, 9) + delay,
+      user_id: [2,3].sample,
       source: "Withings",
       measure_type_id: measure_type.id
     )
-measure.save
+    delay += 200000
+    measure.save
+  end
+
+  goal = Goal.new(
+    measure_type_id: 1,
+    user_id: 2,
+    adviser_id: 1,
+    end_value: 80,
+    end_date: Time.new(2015, 11, 20),
+    title: "Maintenez votre poids à 80kg",
+    cumulative: false
+  )
+  goal.save
+end
+
+# Nouveau measure_type: poids avec 2 measures et 1 goal
+
+1.times do
+  measure_type = MeasureType.new(
+    name: "tension",
+    unit: "mmHg",
+    data_type: "tensiontest"
+  )
+  measure_type.save
+
+  delay = 0
+  2.times do
+    measure = Measure.new(
+      value: 140,
+      date: Time.new(2015, 11, 8) + delay,
+      user_id: 2,
+      source: "Withings",
+      measure_type_id: measure_type.id
+    )
+    delay += 200000
+    measure.save
+  end
+  goal = Goal.new(
+    measure_type_id: 2,
+    user_id: 2,
+    adviser_id: 1,
+    end_value: 80,
+    end_date: Time.new(2015, 12, 29),
+    title: "Diminuez votre tension à 140mmHg",
+    cumulative: false
+  )
+  goal.save
+end
