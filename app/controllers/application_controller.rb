@@ -11,6 +11,16 @@ class ApplicationController < ActionController::Base
   # after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_or_admin_controller?
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def after_sign_in_path_for(resource)
+​
+    if resource.persisted? && resource.first_name.blank?
+      edit_user_registration_path
+    # "http://www.google.com"
+    else
+      root_path
+    end
+  end
+
   private
 
   def devise_or_pages_or_admin_controller?
