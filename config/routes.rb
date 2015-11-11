@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  root 'goals#index'
+
+  devise_for :users, controllers: { registrations: "registrations" }
 
   resources :users, only: [:index] do
     resources :goals, only: [:index]
@@ -8,5 +10,7 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:create, :destroy]
 
-  root 'goals#index'
+  resources :advisers, only: [:index] do
+    resource :selection, only: [:create], module: 'advisers' # module permet d'indique que le controller se trouve dans le dossier adviser, on neste pour garder le id de adviser
+  end
 end
