@@ -7,44 +7,62 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # require 'faker'
+1.times do
+  coach_user = User.new(
+    email: "remi@mail.com",
+    password: "remremrem",
+    first_name: "Remi",
+    birthday: Time.new(1985, 10, 20),
+    sexe: "male"
+  )
+  coach_user.save
 
-coach_user = User.new(
-  email: "remi@mail.com",
-  password: "ousousous",
-  first_name: "Remi",
-  birthday: Time.new(1985, 10, 20),
-  sexe: "male"
-)
-coach_user.save
+  coach_adviser = Adviser.new(
+    title: "Docteur nutritionniste",
+    user_id: coach_user.id
+  )
+  coach_adviser.save
 
-coach_adviser = Adviser.new(
-  title: "Docteur nutritionniste",
-  user_id: coach_user.id
-)
-coach_adviser.save
-​
-patient_user = User.new(
-  email: "ous@mail.com",
-  password: "ousousous",
-  adviser_id: coach_adviser.id,
-  first_name: "Ousmane",
-  birthday: Time.new(1990, 05, 12),
-  sexe: "male"
-)
-patient_user.save
+  patient_user = User.new(
+    email: "ous@mail.com",
+    password: "ousousous",
+    adviser_id: coach_adviser.id,
+    first_name: "Ousmane",
+    birthday: Time.new(1990, 05, 12),
+    sexe: "male"
+  )
+  patient_user.save
 
-measure_type = MeasureType.new(
-  name: "poids",
-  unit: "kg",
-  data_type: "test"
-)
-measure_type.save
-​
-measure = Measure.new(
-  value: 50,
-  date: Time.new(2015, 11, 9),
-  user_id: 2,
-  source: "Withings",
-  measure_type_id: measure_type.id
-)
-measure.save
+  patient_user = User.new(
+    email: "will@mail.com",
+    password: "wilwilwil",
+    adviser_id: coach_adviser.id,
+    first_name: "William",
+    birthday: Time.new(1985, 7, 16),
+    sexe: "male"
+  )
+  patient_user.save
+
+end
+
+1.times do
+  measure_type = MeasureType.new(
+    name: "poids",
+    unit: "kg",
+    data_type: "test"
+  )
+  measure_type.save
+
+  delay = 0
+  2.times do
+    measure = Measure.new(
+      value: 50,
+      date: Time.new(2015, 11, 9) + delay,
+      user_id: [2,3].sample,
+      source: "Withings",
+      measure_type_id: measure_type.id
+    )
+    delay += 200000
+    measure.save
+  end
+end
