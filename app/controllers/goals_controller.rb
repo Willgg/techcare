@@ -3,6 +3,10 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.where(user: @user)
+    # trouver les mesures du user
+    @measure = Measure.where(user_id: @user)
+    # trouver les mesures qui ont le meme measure_type
+
   end
 
   def new

@@ -30,4 +30,5 @@ class Goal < ActiveRecord::Base
   validates :end_date, presence: true
   validates :title, presence: true, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
+
 end
