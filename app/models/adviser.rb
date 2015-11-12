@@ -16,6 +16,8 @@
 class Adviser < ActiveRecord::Base
   belongs_to :user
   has_many :users
+  alias_attribute :trainees, :users
+
   has_many :goals
   validates :user_id, presence: true
   validates :title, presence: true
