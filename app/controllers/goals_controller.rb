@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.where(user: @user)
+    @message = Message.new
   end
 
   def new
