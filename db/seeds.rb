@@ -62,11 +62,11 @@ end
   )
   measure_type.save
 
-  delay = 0
+  delay = 400000
   2.times do
     measure = Measure.new(
       value: 92,
-      date: (Time.now) + delay,
+      date: (Time.now) - delay,
       user_id: 2,
       source: "Withings",
       measure_type_id: measure_type.id
@@ -80,7 +80,7 @@ end
     user_id: 2,
     adviser_id: 1,
     end_value: 80,
-    end_date: (Time.now) + 100000,
+    end_date: (Time.now) - 300000,
     title: "Maintenez votre poids à 80kg",
     cumulative: false
   )
@@ -97,11 +97,11 @@ end
   )
   measure_type.save
 
-  delay = 0
+  delay = 400000
   2.times do
     measure = Measure.new(
       value: 150,
-      date: Time.new(2015, 11, 8) + delay,
+      date: (Time.now) - delay,
       user_id: 2,
       source: "Withings",
       measure_type_id: measure_type.id
@@ -109,12 +109,13 @@ end
     delay += 200000
     measure.save
   end
+
   goal = Goal.new(
     measure_type_id: 2,
     user_id: 2,
     adviser_id: 1,
     end_value: 140,
-    end_date: Time.new(2015, 11, 29),
+    end_date: (Time.now) - 300000,
     title: "Diminuez votre tension à 140mmHg",
     cumulative: false
   )
