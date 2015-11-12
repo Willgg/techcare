@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
     else
       @message.recipient = @user
       @message.save
-      redirect_to user_path(@user)
+      redirect_to users_path
     end
 
   end

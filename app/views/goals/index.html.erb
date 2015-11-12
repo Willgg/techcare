@@ -28,6 +28,11 @@
     </div>
     <div class="col-xs-12 col-md-4">
       <h2>Chat Area</h2>
+
+    <%= @messages %>
+
+
+
       <%= simple_form_for [@user, @message] do |f| %>
         <%= f.error_notification %>
         <%= f.input :content %>

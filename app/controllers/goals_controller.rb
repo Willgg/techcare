@@ -4,6 +4,8 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.where(user: @user)
     @message = Message.new
+    @messages = User.find(params[user_id]).sent_messages
+    raise
   end
 
   def new

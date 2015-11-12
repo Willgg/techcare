@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
-    # Check if user is coach
-
+    @users = User.where(adviser_id: current_user.id)
   end
 
 end
