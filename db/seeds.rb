@@ -19,7 +19,8 @@
     password: "remremrem",
     first_name: "Remi",
     birthday: Time.new(1985, 10, 20),
-    sexe: "male"
+    sexe: "male",
+    is_adviser: true
   )
   coach_user.save
 
@@ -64,9 +65,9 @@ end
   delay = 0
   2.times do
     measure = Measure.new(
-      value: 50,
+      value: 92,
       date: Time.new(2015, 11, 9) + delay,
-      user_id: [2,3].sample,
+      user_id: 2,
       source: "Withings",
       measure_type_id: measure_type.id
     )
@@ -99,7 +100,7 @@ end
   delay = 0
   2.times do
     measure = Measure.new(
-      value: 140,
+      value: 150,
       date: Time.new(2015, 11, 8) + delay,
       user_id: 2,
       source: "Withings",
@@ -112,7 +113,7 @@ end
     measure_type_id: 2,
     user_id: 2,
     adviser_id: 1,
-    end_value: 80,
+    end_value: 140,
     end_date: Time.new(2015, 12, 29),
     title: "Diminuez votre tension à 140mmHg",
     cumulative: false

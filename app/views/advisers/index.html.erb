@@ -1,13 +1,24 @@
-<h1>Select an advisers</h1>
-<ul>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1>Select an adviser to get help</h1>
+    </div>
+  </div>
   <% @advisers.each do |adviser|  %>
-    <li>
-    <%= image_tag adviser.user.picture.url(:medium) %>
-    <%= adviser.user.first_name %> <%= adviser.user.last_name %><br />
-    <%= adviser.title %><br />
-    <%= link_to("Select", adviser_selection_path(adviser), method: :post) %>
-    </li>
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-3 col-md-6">
+      <div class="coach-card">
+        <div class="picture" style="background-image:url('<%= adviser.user.picture.url(:medium) %>')">
+        </div>
+        <div class="info">
+          <h2><%= adviser.user.first_name %> <%= adviser.user.last_name %></h2>
+          <p><%= adviser.title %><p>
+          <%= link_to "Select", adviser_selection_path(adviser), method: :post, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
 
 
