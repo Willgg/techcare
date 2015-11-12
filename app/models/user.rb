@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :messages
+  has_many :sent_messages, foreign_key: "sender_id", class_name: "Message"
+  has_many :received_messages, foreign_key: "recipient_id", class_name: "Message"
+
   has_many :measures
   has_many :goals
   has_one :coach, class_name: "Adviser"
@@ -55,4 +57,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+  def messages
+    sent_messages + received_messages
+  end
 end
