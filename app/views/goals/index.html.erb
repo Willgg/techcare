@@ -1,20 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <h1>Dashboard</h1>
+      <h1>Goals dashboard</h1>
       <p>Find me in app/views/goals/index.html.erb</p>
-      <div>
-        <% @goals.each do |goal| %>
+      <% @goals.each do |goal| %>
+        <div class="goal-card">
           <h2><%= goal.title %></h2>
+          <p><strong>User measure at goal creation date:</strong></p>
           <p><strong>last user measure:</strong>
-            <%= goal.measure_type.measures.where(user_id: @user).last.value %></p>
+            <%= goal.measure_type.measures.where(user_id: @user, measure_type_id: goal.measure_type_id).order(date: :asc).last.value %></p>
           <p><strong>end_value:</strong>
             <%= goal.end_value %></p>
           <p><strong>Time remaining:</strong>
             <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
           </p>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <div class="col-xs-12 col-md-4">
       <p>Chat Area</p>
