@@ -21,6 +21,7 @@
 
 class Goal < ActiveRecord::Base
   belongs_to :measure_type
+  has_many :measures, through: :measure_type
   belongs_to :user
   belongs_to :adviser
   validates :measure_type_id, presence: true
@@ -31,4 +32,20 @@ class Goal < ActiveRecord::Base
   validates :title, presence: true, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 
+  def last_measure_for_user(user, &block)
+    query = self.measures.where(user: user)
+    query = block.call(query) if block_given?
+    query.order(date: :asc).last.value
+    # goal.measure_type.measures.where(user_id: @user, measure_type_id: self.measure_type_id).order(date: :asc).last.value
+  end
+
+  def progression_for_user(user)
+    origin_measure  = self.last_measure_for_user(user) { |m| m.where("date < ?", self.created_at) }
+    origin_measure  = origin_measure.to_f
+    last_measure    = self.last_measure_for_user(user)
+    last_measure    = last_measure.to_f
+    goal_measure    = self.end_value.to_f
+    ratio = (origin_measure.to_f - last_measure.to_f) / (origin_measure - goal_measure)
+    ratio = (ratio * 100).round
+  end
 end

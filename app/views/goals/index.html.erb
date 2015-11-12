@@ -1,19 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <h1>Goals dashboard</h1>
-      <p>Find me in app/views/goals/index.html.erb</p>
+      <h1 class="text-center">Goals dashboard</h1>
+      <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
       <% @goals.each do |goal| %>
-        <div class="goal-card">
+        <div class="goal-card text-center">
           <h2><%= goal.title %></h2>
-          <p><strong>User measure at goal creation date:</strong></p>
+          <!--
+          <p><strong>User measure at goal creation date:</strong>
+            <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.created_at) } %>
+          </p>
           <p><strong>last user measure:</strong>
-            <%= goal.measure_type.measures.where(user_id: @user, measure_type_id: goal.measure_type_id).order(date: :asc).last.value %></p>
+            <%= goal.last_measure_for_user(@user) %></p>
           <p><strong>end_value:</strong>
-            <%= goal.end_value %></p>
-          <p><strong>Time remaining:</strong>
+            <%= goal.end_value %>
+          </p>
+          -->
+          <p><strong>Due date:</strong>
             <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
           </p>
+          <div class="fullbar">
+            <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%"></div>
+          </div>
         </div>
       <% end %>
       <div class="goal-card">

@@ -16,9 +16,22 @@
 
 .goal-card{
   background: white;
-  padding: 20px;
+  padding: 40px;
   margin-bottom: 30px;
   h2{
     margin: 10px 0,
+  }
+  .fullbar{
+    height: 12px;
+    width: 100%;
+    border-radius: 6px;
+    background-color: #ebebeb;
+    margin-bottom: 10px;
+    .fillbar{
+    height: 12px;
+    background: #01D48F;
+    width:10%;
+    border-radius: 6px;
+    }
   }
 }
