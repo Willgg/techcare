@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new(messages_params)
     @message.sender = current_user
     if @user == current_user
-      @message.recipient = current_user.adviser
+      @message.recipient = current_user.adviser.user
     else
       @message.recipient = @user
     end
