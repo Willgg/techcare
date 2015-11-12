@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
 
   resources :users, only: [:index] do
-    resources :goals, only: [:index, :new, :create]
+    resources :goals, only: [:index, :new, :create, :destroy]
   end
-  resources :goals, only: [:destroy]
 
   resources :messages, only: [:create, :destroy]
 

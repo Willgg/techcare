@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :messages
   has_many :measures
   has_many :goals
+  has_many :measure_types, through: :measures
   has_one :coach, class_name: "Adviser"
   belongs_to :adviser
   validates :first_name, presence: true
@@ -64,10 +65,4 @@ class User < ActiveRecord::Base
 #     end
 #     @measure_types.uniq!
 # end
-
-def measure_types_of_user
-    measure_types = Self.measures_types.uniq!
-end
-
-
 end

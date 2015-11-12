@@ -6,15 +6,8 @@ class GoalsController < ApplicationController
   end
 
   def new
-    #----- put un the model
-    # @measure_types = []
-    # @measures = User.find(params[:user_id]).measures
-    # @measures.each do |measure|
-    # @measure_types << measure.measure_type
-    # end
-    # @measure_types.uniq!
-    #-------
     @user = User.find(params[:user_id])
+    @measure_types_of_user = @user.measure_types.uniq
     @goal = Goal.new
   end
 
@@ -30,6 +23,9 @@ class GoalsController < ApplicationController
   end
 
   def destroy
+    @goal = Goal.find(params[:id])
+    @goal.delete
+    redirect_to user_goals_path()
   end
 
   private
