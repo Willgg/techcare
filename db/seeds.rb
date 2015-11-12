@@ -66,7 +66,7 @@ end
   2.times do
     measure = Measure.new(
       value: 92,
-      date: Time.new(2015, 11, 9) + delay,
+      date: (Time.now) + delay,
       user_id: 2,
       source: "Withings",
       measure_type_id: measure_type.id
@@ -80,7 +80,7 @@ end
     user_id: 2,
     adviser_id: 1,
     end_value: 80,
-    end_date: Time.new(2015, 11, 20),
+    end_date: (Time.now) + 100000,
     title: "Maintenez votre poids à 80kg",
     cumulative: false
   )
@@ -114,7 +114,7 @@ end
     user_id: 2,
     adviser_id: 1,
     end_value: 140,
-    end_date: Time.new(2015, 12, 29),
+    end_date: Time.new(2015, 11, 29),
     title: "Diminuez votre tension à 140mmHg",
     cumulative: false
   )
