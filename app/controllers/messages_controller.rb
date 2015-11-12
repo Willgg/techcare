@@ -6,11 +6,13 @@ class MessagesController < ApplicationController
     @message.sender = current_user
     if @user == current_user
       @message.recipient = current_user.adviser.user
+      @message.save
+      redirect_to user_goals_path(@user)
     else
       @message.recipient = @user
+      @message.save
+      redirect_to user_path(@user)
     end
-    @message.save
-    redirect_to user_goals_path(@user)
 
   end
 
