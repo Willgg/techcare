@@ -55,4 +55,19 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+# def measure_types_of_user(user_id)
+#     @measure_types = []
+#     @measures = User.find(user_id).measures
+#     @measures.each do |measure|
+#     @measure_types << measure.measure_type
+#     end
+#     @measure_types.uniq!
+# end
+
+def measure_types_of_user
+    measure_types = Self.measures_types.uniq!
+end
+
+
 end
