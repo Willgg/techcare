@@ -1,1 +1,47 @@
 // Your footer style
+@import url('http://weloveiconfonts.com/api/?family=entypo');
+
+footer {
+  background-color: #3E3E3E;
+  margin-top:30px;
+  margin:relative;
+  ul {
+      margin :20px;
+  }
+}
+.text-footer{
+  margin: 1% auto;
+  width: 183px;
+  color: white;
+}
+footer ul li a{
+  border: none;
+  color: inherit;
+  text-decoration: none;
+  adding-bottom: 1px;
+  cursor: pointer;
+  }
+.social-ul{
+  margin: 0 auto;
+  width: 350px;
+  margin-top: -39px;
+}
+.social {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+  line-height: 40px;
+  font-family: Entypo;
+  font-size: 20px;
+  text-align: center;
+  color: #555;
+  border-radius: 50%;
+  background: #fff;
+  overflow: hidden;
+  transition: color .3s;
+}
+.social:hover {
+  color: #D23333;
+  cursor: pointer;
+}
