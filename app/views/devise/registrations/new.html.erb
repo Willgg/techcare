@@ -11,12 +11,10 @@
           <%= f.input :picture %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
-          <%= f.input :sexe %>
+          <%= f.input :sexe, collection: User::SEXE %>
           <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 12,
                               order: [:day, :month, :year] %>
-
-
           <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
         <% end %>
 
