@@ -38,22 +38,29 @@
     </div>
 
     <div class="col-xs-12 col-md-4">
-      <h2>Chat Area</h2>
-   <ul>
-      <% @messages.each do |message| %>
-        <li>
-          <%=message.content%>
-          <%=message.created_at%>
-        </li>
-      <%end%>
-  </ul>
+      <div class="chat-card text-center">
+        <div class="coach-info">
+          <%= image_tag current_user.picture.url(:thumb) %>
+          nom du coach
+          titre du coach
+        </div>
+        <!-- Affichage des messages  -->
+        <% @messages.each do |message| %>
+          <div class="message">
+            <p><%= image_tag current_user.picture.url(:thumb) %>
+              <strong><%=message.sender.first_name%></strong> à <small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small>
+            </p>
+            <p><%=message.content%></p>
+          </div>
+        <%end%>
 
-
-      <%= simple_form_for [@user, @message] do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :content %>
-        <%= f.button :submit  %>
-      <% end %>
+        <!-- Saisie du message -->
+        <%= simple_form_for [@user, @message] do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :content %>
+          <%= f.button :submit  %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
