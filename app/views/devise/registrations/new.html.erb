@@ -11,7 +11,7 @@
           <%= f.input :picture %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
-          <%= f.input :sexe %>
+          <%= f.input :sexe, collection: User::SEXE %>
           <%= f.input :birthday %>
           <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
         <% end %>
