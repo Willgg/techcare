@@ -7,7 +7,7 @@
         <div class="goal-card text-center">
           <h2><%= goal.title %></h2>
 
-          <p><strong>User measure at goal creation date:</strong>
+          <!-- <p><strong>User measure at goal creation date:</strong>
             <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.start_date) } %>
           </p>
           <p><strong>last user measure:</strong>
@@ -15,7 +15,7 @@
 
           <p><strong>end_value:</strong>
             <%= goal.end_value %>
-          </p>
+          </p> -->
 
           <p><strong>Due date:</strong>
             <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
@@ -30,7 +30,7 @@
       <% end %>
 
       <% if current_user.coach == @user.adviser %>
-        <div class="goal-card">
+        <div class="text-center">
           <%= link_to "+ Add a new goal", new_user_goal_path, class: "btn btn-primary" %>
         </div>
       <% end %>
@@ -38,16 +38,16 @@
     </div>
 
     <div class="col-xs-12 col-md-4">
-      <div class="chat-card text-center">
+      <div class="chat-card">
         <div class="coach-info">
-          <%= image_tag current_user.picture.url(:thumb) %>
-          nom du coach
-          titre du coach
+          <%= image_tag @user.adviser.user.picture.url(:thumb) %>
+          <strong><%= @user.adviser.user.first_name %> <%= @user.adviser.user.last_name %></strong>
+          <%= @user.adviser.title %>
         </div>
         <!-- Affichage des messages  -->
         <% @messages.each do |message| %>
           <div class="message">
-            <p><%= image_tag current_user.picture.url(:thumb) %>
+            <p><%= image_tag message.sender.picture.url(:thumb) %>
               <strong><%=message.sender.first_name%></strong> à <small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small>
             </p>
             <p><%=message.content%></p>
@@ -57,8 +57,8 @@
         <!-- Saisie du message -->
         <%= simple_form_for [@user, @message] do |f| %>
           <%= f.error_notification %>
-          <%= f.input :content %>
-          <%= f.button :submit  %>
+          <%= f.input :content, label: false, placeholder: 'Your message', input_html: { type: 'text-area' } %>
+          <%= f.button :submit, class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>
