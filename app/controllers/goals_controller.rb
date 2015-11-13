@@ -9,8 +9,7 @@ class GoalsController < ApplicationController
     @messages = []
     @sent_messages.each { |message| @messages << message}
     @received_messages.each { |message| @messages << message}
-    # @messages.order(created_date: :asc).last.value
-    # @messages.find(:all, :order => "created_at ASC")
+    @messages.sort!
 
   end
 
