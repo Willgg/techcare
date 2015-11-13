@@ -19,6 +19,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params_goals)
+    @goal.start_date = Time.now
     if @goal.save
       redirect_to user_goals(@user)
     else
