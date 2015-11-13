@@ -16,6 +16,7 @@
     email: "remi@mail.com",
     password: "remremrem",
     first_name: "Remi",
+    last_name: "Ballot Flurin",
     birthday: Time.new(1985, 10, 20),
     sexe: "male",
     is_adviser: true
@@ -29,20 +30,22 @@
   coach_adviser.save
 
   patient_user = User.new(
-    email: "ous@mail.com",
+    email: "ousmane@mail.com",
     password: "ousousous",
     adviser_id: coach_adviser.id,
     first_name: "Ousmane",
+    last_name: "Sakho",
     birthday: Time.new(1990, 05, 12),
     sexe: "male"
   )
   patient_user.save
 
   patient_user = User.new(
-    email: "will@mail.com",
+    email: "william@mail.com",
     password: "wilwilwil",
     adviser_id: coach_adviser.id,
     first_name: "William",
+    last_name: "Godard",
     birthday: Time.new(1985, 7, 16),
     sexe: "male"
   )
@@ -62,7 +65,7 @@ end
 
   measure = Measure.new(
     value: 92,
-    date: (Time.now) - 400000,
+    date: (Time.now) - 800000,
     user_id: 2,
     source: "Withings",
     measure_type_id: measure_type.id
@@ -73,7 +76,7 @@ end
     measure_type_id: 1,
     user_id: 2,
     adviser_id: 1,
-    start_date: (Time.now) - 200000,
+    start_date: (Time.now) - 400000,
     end_value: 80,
     end_date: (Time.now) + 300000,
     title: "Maintenez votre poids à 80kg",
