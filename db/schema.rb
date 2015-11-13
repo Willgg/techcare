@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111101805) do
+ActiveRecord::Schema.define(version: 20151112220130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151111101805) do
     t.datetime "updated_at",      null: false
     t.integer  "end_value"
     t.datetime "end_date"
+    t.datetime "start_date"
   end
 
   add_index "goals", ["measure_type_id"], name: "index_goals_on_measure_type_id", using: :btree

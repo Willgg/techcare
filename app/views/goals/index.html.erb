@@ -8,7 +8,7 @@
           <h2><%= goal.title %></h2>
           <!--
           <p><strong>User measure at goal creation date:</strong>
-            <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.created_at) } %>
+            <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.start_date) } %>
           </p>
           <p><strong>last user measure:</strong>
             <%= goal.last_measure_for_user(@user) %></p>

@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.where(user: @user)
+    @message = Message.new
   end
 
   def new
@@ -10,6 +11,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params_goals)
+    @goal.start_date = Time.now
     if @goal.save
       redirect_to user_goals(@user)
     else

@@ -12,6 +12,7 @@
 #  updated_at      :datetime         not null
 #  end_value       :integer
 #  end_date        :datetime
+#  start_date      :datetime
 #
 # Indexes
 #
@@ -29,6 +30,7 @@ class Goal < ActiveRecord::Base
   validates :adviser_id, presence: true
   validates :end_value, presence: true
   validates :end_date, presence: true
+  validates :start_date, presence: true
   validates :title, presence: true, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 
@@ -40,7 +42,7 @@ class Goal < ActiveRecord::Base
   end
 
   def progression_for_user(user)
-    origin_measure  = self.last_measure_for_user(user) { |m| m.where("date < ?", self.created_at) }
+    origin_measure  = self.last_measure_for_user(user) { |m| m.where("date < ?", self.start_date) }
     origin_measure  = origin_measure.to_f
     last_measure    = self.last_measure_for_user(user)
     last_measure    = last_measure.to_f
