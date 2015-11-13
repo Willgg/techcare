@@ -20,8 +20,14 @@
           <i class="fa fa-envelope-o"></i>
           <div class="icon-badge icon-badge-blue">3</div>
         </div>
+      <% end %>-->
+      <% if current_user.is_adviser %>
+        <%= link_to "My trainees", users_path %>
+      <% else %>
+        <%= link_to "My goals", user_goals_path(current_user) %>
       <% end %>
-      <hr> -->
+      <hr>
+      <%= current_user.first_name %>
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag current_user.picture.url(:thumb), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -44,10 +50,13 @@
           </ul>
         </div>
       </div>
+      <% if !current_user.is_adviser %>
+      <hr>
+      <%= link_to t(".top_call_to_action", default: "Add Data Source"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+      <% end %>
     <% else %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-<!--     <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %> -->
+
   </div>
 </nav>

@@ -6,16 +6,16 @@
       <% @goals.each do |goal| %>
         <div class="goal-card text-center">
           <h2><%= goal.title %></h2>
-
-          <!-- <p><strong>User measure at goal creation date:</strong>
+          <p><strong>User measure at goal creation date:</strong>
             <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.start_date) } %>
           </p>
+
           <p><strong>last user measure:</strong>
             <%= goal.last_measure_for_user(@user) %></p>
 
           <p><strong>end_value:</strong>
             <%= goal.end_value %>
-          </p> -->
+          </p>
 
           <p><strong>Due date:</strong>
             <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
@@ -57,7 +57,7 @@
         <!-- Saisie du message -->
         <%= simple_form_for [@user, @message] do |f| %>
           <%= f.error_notification %>
-          <%= f.input :content, label: false, placeholder: 'Your message', input_html: { type: 'text-area' } %>
+          <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
           <%= f.button :submit, class: "btn btn-primary"  %>
         <% end %>
       </div>
