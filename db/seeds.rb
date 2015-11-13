@@ -7,10 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ########################################
-#   3 user dont un adviser             #
-#   2 measure_type: poids et tension   #
-#   2 mesure pour chaque measure type  #
-# ######################################
+#   start_date added to Goal
+########################################
 
 
 1.times do
@@ -52,7 +50,7 @@
 
 end
 
-# Nouveau measure_type: poids avec 2 measures et 1 goal
+# measure_type: poids avec 2 measures et 1 goal
 
 1.times do
   measure_type = MeasureType.new(
@@ -62,32 +60,38 @@ end
   )
   measure_type.save
 
-  delay = 0
-  2.times do
-    measure = Measure.new(
-      value: 92,
-      date: Time.new(2015, 11, 9) + delay,
-      user_id: 2,
-      source: "Withings",
-      measure_type_id: measure_type.id
-    )
-    delay += 200000
-    measure.save
-  end
+  measure = Measure.new(
+    value: 92,
+    date: (Time.now) - 400000,
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
 
   goal = Goal.new(
     measure_type_id: 1,
     user_id: 2,
     adviser_id: 1,
+    start_date: (Time.now) - 200000,
     end_value: 80,
-    end_date: Time.new(2015, 11, 20),
+    end_date: (Time.now) + 300000,
     title: "Maintenez votre poids à 80kg",
     cumulative: false
   )
   goal.save
+
+  measure = Measure.new(
+    value: 83,
+    date: (Time.now),
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
 end
 
-# Nouveau measure_type: poids avec 2 measures et 1 goal
+# measure_type: tension avec 2 measures et 1 goal
 
 1.times do
   measure_type = MeasureType.new(
@@ -97,26 +101,35 @@ end
   )
   measure_type.save
 
-  delay = 0
-  2.times do
-    measure = Measure.new(
-      value: 150,
-      date: Time.new(2015, 11, 8) + delay,
-      user_id: 2,
-      source: "Withings",
-      measure_type_id: measure_type.id
-    )
-    delay += 200000
-    measure.save
-  end
+  measure = Measure.new(
+    value: 155,
+    date: (Time.now) - 400000,
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
+
   goal = Goal.new(
     measure_type_id: 2,
     user_id: 2,
     adviser_id: 1,
+    start_date: (Time.now) - 200000,
     end_value: 140,
-    end_date: Time.new(2015, 12, 29),
+    end_date: (Time.now) + 300000,
     title: "Diminuez votre tension à 140mmHg",
     cumulative: false
   )
   goal.save
+
+  measure = Measure.new(
+    value: 152,
+    date: (Time.now),
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
+
+
 end

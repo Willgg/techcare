@@ -14,18 +14,27 @@ class GoalsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
+    @measure_types_of_user = @user.measure_types.uniq
+    @goal = Goal.new
   end
 
   def create
     @goal = Goal.new(params_goals)
+    @goal.user_id = params[:user_id] # Je rentre le user_id séparement car il ne passe pas dans les params_goals ???
+    @goal.adviser = current_user.coach
+    @goal.start_date = Time.now
     if @goal.save
-      redirect_to user_goals(@user)
+      redirect_to user_goals_path(@user)
     else
       render :new
     end
   end
 
   def destroy
+    @goal = Goal.find(params[:id])
+    @goal.delete
+    redirect_to user_goals_path()
   end
 
   private
@@ -34,6 +43,6 @@ class GoalsController < ApplicationController
     @user = User.find(params[:user_id])
   end
   def params_goals
-    params.require(:goal).permit(:measure_type_id, :user_id, :end_value, :end_time, :title, :cumulative)
+    params.require(:goal).permit(:measure_type_id, :user_id, :end_value, :end_date, :title, :cumulative)
   end
 end
