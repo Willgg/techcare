@@ -27,22 +27,27 @@
       <% end %>
     </div>
     <div class="col-xs-12 col-md-4">
-      <h2>Chat Area</h2>
-   <ul>
-      <% @messages.each do |message| %>
-        <li>
-          <%=message.content%>
-          <%=message.created_at%>
-        </li>
-      <%end%>
-  </ul>
+      <div class="goal-card text-center">
+        <div class="chat_aera">
+  <!-- Affichage des messages  -->
+              <% @messages.each do |message| %>
+                <div>
+                  <p>
+                    <strong><%=message.sender.first_name%> : </strong>
+                    <%=message.content%>
+                    <%=message.created_at%>
+                  </p>
+                </div>
+              <%end%>
 
-
-      <%= simple_form_for [@user, @message] do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :content %>
-        <%= f.button :submit  %>
-      <% end %>
+  <!--  Saisie du message -->
+            <%= simple_form_for [@user, @message] do |f| %>
+              <%= f.error_notification %>
+              <%= f.input :content %>
+              <%= f.button :submit  %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
