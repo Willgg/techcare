@@ -5,8 +5,11 @@
 
       <% @users.each do |user| %>
         <div class="cols-xs-12 col-md-4">
-          <%= image_tag user.picture.url(:square), class: "avatar avatar-bordered" %>
-          <%= link_to user.first_name, user_goals_path(user)%>
+          <div class="trainee-card text-center">
+            <%= image_tag user.picture.url(:medium) %>
+            <p><%= link_to user.first_name, user_goals_path(user)%></p>
+          </div>
+
         </div>
       <% end %>
 
