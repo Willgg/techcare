@@ -40,7 +40,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :messages
+  has_many :sent_messages, foreign_key: "sender_id", class_name: "Message"
+  has_many :received_messages, foreign_key: "recipient_id", class_name: "Message"
+
   has_many :measures
   has_many :goals
   has_many :measure_types, through: :measures
@@ -56,13 +58,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-
-# def measure_types_of_user(user_id)
-#     @measure_types = []
-#     @measures = User.find(user_id).measures
-#     @measures.each do |measure|
-#     @measure_types << measure.measure_type
-#     end
-#     @measure_types.uniq!
-# end
+  def messages
+    sent_messages + received_messages
+  end
 end
