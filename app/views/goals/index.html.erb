@@ -7,7 +7,7 @@
         <div class="goal-card text-center">
           <h2><%= goal.title %></h2>
 
-          <p><strong>User measure at goal creation date:</strong>
+          <!-- <p><strong>User measure at goal creation date:</strong>
             <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.start_date) } %>
           </p>
           <p><strong>last user measure:</strong>
@@ -15,7 +15,7 @@
 
           <p><strong>end_value:</strong>
             <%= goal.end_value %>
-          </p>
+          </p> -->
 
           <p><strong>Due date:</strong>
             <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
