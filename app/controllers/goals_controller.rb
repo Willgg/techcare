@@ -3,6 +3,15 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.where(user: @user)
+    @message = Message.new
+    @sent_messages = User.find(params[:user_id]).sent_messages
+    @received_messages = User.find(params[:user_id]).received_messages
+    @messages = []
+    @sent_messages.each { |message| @messages << message}
+    @received_messages.each { |message| @messages << message}
+    # @messages.order(created_date: :asc).last.value
+    # @messages.find(:all, :order => "created_at ASC")
+
   end
 
   def new
