@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :measures
   has_many :goals
+  has_many :measure_types, through: :measures
   has_one :coach, class_name: "Adviser"
   belongs_to :adviser
   validates :first_name, presence: true
@@ -56,7 +57,6 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
-
 
   def messages
     sent_messages + received_messages
