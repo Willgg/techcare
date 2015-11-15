@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8">
-      <h1 class="text-center">Goals dashboard</h1>
+      <!-- <h1 class="text-center">Goals dashboard</h1> -->
       <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
       <% @goals.each do |goal| %>
         <div class="goal-card text-center">
@@ -41,8 +41,10 @@
       <div class="chat-card">
         <div class="coach-info">
           <%= image_tag @user.adviser.user.picture.url(:thumb) %>
-          <strong><%= @user.adviser.user.first_name %> <%= @user.adviser.user.last_name %></strong>
-          <%= @user.adviser.title %>
+          <span class="coach-info-name">
+            <strong><%= @user.adviser.user.first_name %> <%= @user.adviser.user.last_name %></strong><br />
+            <%= @user.adviser.title %>
+          </span>
         </div>
         <!-- Affichage des messages  -->
         <% @messages.each do |message| %>

@@ -21,27 +21,36 @@
           <div class="icon-badge icon-badge-blue">3</div>
         </div>
       <% end %>-->
-      <% if current_user.is_adviser %>
-        <%= link_to "My trainees", users_path %>
-      <% else %>
-        <%= link_to "My goals", user_goals_path(current_user) %>
+      <% if !current_user.is_adviser %>
+        <%= link_to t(".top_call_to_action", default: "Add Data Source"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+        <hr>
       <% end %>
-      <hr>
-      <%= current_user.first_name %>
+      <span class="navbar-wagon-link"><%= current_user.first_name %> <%= current_user.last_name %></span>
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag current_user.picture.url(:thumb), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
+              <% if current_user.is_adviser %>
+                <%= link_to users_path do%>
+                  <i class="fa fa-users"></i><%= t ".profile", default: "My trainees" %>
+                <% end %>
+              <% else %>
+                <%= link_to user_goals_path(current_user) do %>
+                  <i class="fa fa-calendar-check-o"></i><%= t ".profile", default: "Dashboard" %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
               <%= link_to edit_user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
               <% end %>
             </li>
-            <li>
+      <!--  <li>
               <%= link_to "#" do %>
                 <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
               <% end %>
-            </li>
+            </li> -->
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
@@ -50,12 +59,9 @@
           </ul>
         </div>
       </div>
-      <% if !current_user.is_adviser %>
-      <hr>
-      <%= link_to t(".top_call_to_action", default: "Add Data Source"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
-      <% end %>
     <% else %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
 
   </div>
