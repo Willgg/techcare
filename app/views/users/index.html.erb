@@ -8,8 +8,11 @@
           <div class="trainee-card text-center">
             <%= image_tag user.picture.url(:medium) %>
             <p><%= link_to user.first_name, user_goals_path(user)%></p>
+            <!-- affichier le nombre de message avec read_at = nil -->
+            <%if @unread_messages.where(sender: user).count > 0%>
+              <p><i class="fa fa-envelope"></i> <%= @unread_messages.where(sender: user).count  %></p>
+            <%end%>
           </div>
-
         </div>
       <% end %>
 

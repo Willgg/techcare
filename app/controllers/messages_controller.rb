@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :find_user, only: [:create]
+  respond_to :js, only: [:create]
 
   def create
     @message = Message.new(messages_params)
@@ -7,11 +8,9 @@ class MessagesController < ApplicationController
     if @user == current_user
       @message.recipient = current_user.adviser.user
       @message.save
-      redirect_to user_goals_path(@user)
     else
       @message.recipient = @user
       @message.save
-      redirect_to user_goals_path
     end
 
   end

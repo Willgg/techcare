@@ -26,6 +26,9 @@
   padding: 40px;
   margin: 40px 0;
   box-shadow: 0px 2px 2px $gray-very-light;
+
+  &:last-child { margin-bottom: 0 }
+
   h2{
     margin: 10px 0;
     font-family: 'Lato', 'Open sans', 'sans-serif';
@@ -94,4 +97,18 @@
     width: 60%;
     margin-bottom: 20px;
   }
+  i {
+    color: red;
+  }
+}
+
+.chat-form {
+
+}
+
+.messages {
+  position: relative;
+  height: 100%;
+  overflow: scroll;
+  width: 100%;
 }
