@@ -1,15 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h2>Add a goal</h2>
-      <%= simple_form_for [@user, @goal] do |f| %>
-        <%= f.association :measure_type, collection: @measure_types_of_user%>
-        <%= f.input :title %>
-        <%= f.input :cumulative %>
-        <%= f.input :end_date %>
-        <%= f.input :end_value %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-      <% end %>
+      <div class="white-card">
+        <h2>Add a goal</h2>
+        <%= simple_form_for [@user, @goal] do |f| %>
+          <%= f.association :measure_type, collection: @measure_types_of_user%>
+          <%= f.input :title %>
+          <%= f.input :cumulative %>
+          <%= f.input :end_date %>
+          <%= f.input :end_value %>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
