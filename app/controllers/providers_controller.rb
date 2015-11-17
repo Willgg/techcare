@@ -61,7 +61,7 @@ class ProvidersController < ApplicationController
     #user.measurement_groups(measurement_type: 1)
 
     # Redirection to dashboard
-    if current_user.is_adviser || !current_user.measures.empty?
+    if !current_user.is_adviser || !current_user.measures.empty?
         flash[:notice] = "Your withings data has been synchronized"
         redirect_to user_goals_path(current_user)
     else
