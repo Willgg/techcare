@@ -5,7 +5,7 @@ module Advisers
 
       if current_user.update(adviser: @adviser)
         flash[:notice] = "Adviser successfully selected"
-        redirect_to user_goals_path(current_user)
+        redirect_to providers_path
       else
         flash[:alert] = "Unable to select adviser"
         redirect_to advisers_path
