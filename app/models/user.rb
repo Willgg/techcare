@@ -25,6 +25,10 @@
 #  sexe                   :string
 #  birthday               :datetime
 #  is_adviser             :boolean          default(FALSE), not null
+#  api_provider           :string
+#  api_consumer_key       :string
+#  api_consumer_secret    :string
+#  api_user_id            :string
 #
 # Indexes
 #

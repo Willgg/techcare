@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
+  get 'providers', to: 'providers#index'
+  post 'providers', to: 'providers#create'
+  get 'providers/callback' , to: 'providers#save_token'
+
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
 
   resources :users, only: [:index] do

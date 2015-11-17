@@ -3,7 +3,7 @@
 # Table name: measures
 #
 #  id              :integer          not null, primary key
-#  value           :integer
+#  value           :decimal(, )
 #  date            :datetime
 #  user_id         :integer
 #  source          :string

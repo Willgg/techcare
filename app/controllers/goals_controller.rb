@@ -28,6 +28,10 @@ class GoalsController < ApplicationController
     @received_messages.each { |message| @messages << message}
     @messages.sort!
 
+    # modal goal new
+    @goal = Goal.new
+    @measure_types_of_user = @user.measure_types.uniq
+
   end
 
   def new
