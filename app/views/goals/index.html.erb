@@ -1,6 +1,6 @@
-<div class="container">
+  <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-8 goals-column">
       <!-- <h1 class="text-center">Goals dashboard</h1> -->
       <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
       <% @goals.each do |goal| %>
@@ -37,7 +37,7 @@
 
     </div>
 
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-4 chat-column">
       <div class="chat-card">
         <div class="coach-info">
           <%= image_tag @user.adviser.user.picture.url(:thumb) %>
@@ -47,25 +47,21 @@
           </span>
         </div>
         <!-- Affichage des messages  -->
-        <% @messages.each do |message| %>
-          <div class="message">
-            <p><%= image_tag message.sender.picture.url(:thumb) %>
-              <strong><%=message.sender.first_name%></strong> à <small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small>
-            </p>
-            <p><%=message.content%></p>
-          </div>
-        <%end%>
-
-        <!-- Saisie du message -->
-        <%= simple_form_for [@user, @message] do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
-          <%= f.button :submit, class: "btn btn-primary"  %>
-        <% end %>
+        <div class="messages">
+          <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <%end%>
+        </div>
+      <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
+        <%= f.button :submit, class: "btn btn-primary"  %>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -107,3 +103,4 @@ $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
 </script>
+

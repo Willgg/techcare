@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
-  before_action :find_user, only: [:create]
+  before_action :find_user, only: [:create, :index]
+  respond_to :js, only: [:create, :index, :read]
 
   def create
     @message = Message.new(messages_params)
@@ -7,13 +8,10 @@ class MessagesController < ApplicationController
     if @user == current_user
       @message.recipient = current_user.adviser.user
       @message.save
-      redirect_to user_goals_path(@user)
     else
       @message.recipient = @user
       @message.save
-      redirect_to user_goals_path
     end
-
   end
 
   def destroy
@@ -21,15 +19,37 @@ class MessagesController < ApplicationController
     @message.destroy
   end
 
+  def index
+    messages_sent_by_coach   = Message.where(recipient: @user, sender: current_user)
+    messages_sent_by_patient = Message.where(recipient: current_user, sender: @user)
+    @messages                = (messages_sent_by_coach + messages_sent_by_patient).sort_by {|m| - m.created_at.to_i }
+  end
+
+  def read
+    @messages = Message.where(recipient: current_user, read_at: nil)
+    @messages.each do |message|
+      message.read_at = Time.now
+      message.save
+    end
+
+  end
 
   private
 
   def find_user
-    @user = User.find(params[:user_id])
+    if params[:message]
+      if params[:message].count == 2
+        @user = User.find(params[:message][:recipient_id])
+      else
+        @user = User.find(params[:user_id])
+      end
+    else
+      @user = User.find(params[:user_id])
+    end
   end
 
   def messages_params
-    params.require(:message).permit(:content, :user)
+    params.require(:message).permit(:content, :user, :recipient_id)
   end
 
 end
