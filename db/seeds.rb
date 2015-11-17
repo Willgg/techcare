@@ -153,7 +153,7 @@ end
   measure.save
 
   goal = Goal.new(
-    measure_type_id: measure_type_id,
+    measure_type_id: measure_type.id,
     user_id: 2,
     adviser_id: 1,
     start_date: (Time.now) - 400000,
@@ -172,4 +172,4 @@ end
     measure_type_id: measure_type.id
   )
   measure.save
-end_date
+end
