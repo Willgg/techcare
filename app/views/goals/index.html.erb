@@ -50,7 +50,7 @@
         <div class="messages">
           <% @messages.each do |message| %>
             <%= render 'messages/message', message: message %>
-        <%end%>
+          <%end%>
         </div>
       <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
         <%= f.error_notification %>
@@ -64,9 +64,7 @@
 
 <%= content_for(:after_js) do %>
   <script>
-
     var height = $('.goals-column').outerHeight() - 40*2 - $('.coach-info').outerHeight() - 60 - $('#new_message').outerHeight()
-
     $('.messages').height(height)
     $('.messages')[0].scrollTop = $('.messages')[0].scrollHeight
   </script>

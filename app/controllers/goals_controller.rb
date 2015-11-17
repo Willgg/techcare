@@ -19,8 +19,6 @@ class GoalsController < ApplicationController
     #Est-ce que le current_user est le coach ? avec else
     # Selectionner et marquer les message du patient comme lu read_at = Time.now
 
-
-
     @goals = Goal.where(user: @user)
     @message = Message.new
     @sent_messages = User.find(params[:user_id]).sent_messages

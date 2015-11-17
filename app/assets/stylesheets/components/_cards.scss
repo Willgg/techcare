@@ -71,6 +71,15 @@
       margin-top: 16px;
     }
   }
+  .messages {
+    position: relative;
+    min-height: 350px;
+    max-height: 600px;
+    height: 100%;
+    overflow: scroll;
+    width: 100%;
+  }
+
   .message{
     clear: both;
     border-bottom: 1px solid #F1F1F1;
@@ -83,32 +92,33 @@
   }
   #new_message{
     margin-top: 20px;
+    select{
+      margin-bottom: 10px;
+    }
   }
 
 }
 
 .trainee-card{
   background: white;
-  padding: 40px;
-  margin-bottom: 30px;
-  min-height: 218px;
+  margin-bottom: 5px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  &:hover {
+    background: #E6E6E6;
+    cursor: pointer;
+  }
   img {
     border-radius: 50%;
-    width: 60%;
-    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
   }
   i {
     color: red;
+    font: 100px;
   }
 }
 
-.chat-form {
-
-}
-
-.messages {
-  position: relative;
-  height: 100%;
-  overflow: scroll;
-  width: 100%;
-}
