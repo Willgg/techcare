@@ -91,6 +91,7 @@
     height: 100%;
     overflow: scroll;
     width: 100%;
+    margin-top: 15px;
   }
 
   .message{
@@ -102,6 +103,10 @@
       border-radius: 50%;
     }
     small{  }
+    span{
+    display: flex;
+    float: right;
+     }
   }
   #new_message{
     margin-top: 20px;
