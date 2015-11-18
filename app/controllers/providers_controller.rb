@@ -69,6 +69,17 @@ class ProvidersController < ApplicationController
         m.user             = current_user
         m.source           = "withings"
         m.save
+        if goal.where(measure_type_id: 1).empty?
+        g = Goal.new
+        g.measure_type_id = 1
+        g.end_value       = 25 * ( current_user.height ** 2 ) # height in meter
+        g.user_id         = current_user
+        g.adviser_id      = current_user.adviser.id
+        g.title           = "Keep your weight under #{end_value} kg"
+        g.cumulative      = false
+        end_date          = # weight to loose / 2 = length of diet (in months)
+        start_date        = Time.now
+
       end
       if measure.ratio
         m = Measure.new
@@ -89,6 +100,9 @@ class ProvidersController < ApplicationController
         m.save
       end
     end
+
+    # parcourir les measures
+
 
     # Redirection to dashboard
     if current_user.is_adviser || !current_user.measures.empty?
