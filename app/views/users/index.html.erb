@@ -6,12 +6,13 @@
         <!-- Affichage des messages  -->
         <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
           <%= f.error_notification %>
+            <%= hidden_field_tag :recipient_id, @default_trainee.id, class: 'js-message-recipient-id' %>
             <%= f.input :content, label: false, placeholder: 'Your message', as: :text, class: "form-control" %>
             <%#= f.association :recipient, collection: @user_names, value_method: :id %>
 
           <%= f.button :submit, class: "btn btn-primary"  %>
         <% end %>
-        <%= render 'messages/index', messages: @messages %>
+        <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
@@ -38,15 +39,20 @@
 <%= content_for(:after_js) do %>
   <script>
     $(document).ready(function() {
-      $.get('/messages?user_id=' + <%= current_user.coach.users.first.id %>, function(data) {})
+      $.get('/messages?user_id=' + <%= @default_trainee.id %>, function(data) {})
     });
 
+    setInterval(function() {
+      var trainee_id = $('.js-user-messages').data('trainee-id');
+      $.get('/messages?user_id=' + trainee_id, function(data) {})
+    }, 10000);
 
     $(".trainee-card").on("click", function(){
       var user_id = $(this).data("user-id");
       $.get('/messages?user_id=' + user_id, function(data) {});
       $(this).find(".notification").hide();
       $.get('/messages/read', function(data) {});
+      $('.js-message-recipient-id').val(user_id);
     });
 
     var height = $('.trainee').outerHeight();

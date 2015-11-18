@@ -1,14 +1,5 @@
-<div class="messages">
+<div class="messages js-user-messages" data-trainee-id="<%= trainee.id %>">
   <% messages.each do |message| %>
     <%= render 'messages/message', message: message %>
   <%end%>
 </div>
-
-
-<%= content_for(:after_js) do %>
-  <script>
-    setInterval(function() {
-      $.get('/messages?user_id=' + user_id, function(data) {})
-    }, 10000);
-  </script>
-<% end %>
