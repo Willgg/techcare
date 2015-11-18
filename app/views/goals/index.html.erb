@@ -23,8 +23,8 @@
           <div class="fullbar">
             <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%"></div>
           </div>
-          <% if current_user.coach == @user.adviser %>
-            <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger" %>
+            <% if current_user.coach == @user.adviser %>
+              <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger" %>
           <% end %>
         </div>
       <% end %>
