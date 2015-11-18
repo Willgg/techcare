@@ -28,7 +28,7 @@ class ProvidersController < ApplicationController
   def save_token
 
     # Settings request_token and consumer_token
-    callback_url    = "http://localhost:3000" + providers_callback_path
+    callback_url    = ENV['HOST'] + providers_callback_path
     request_token   = Withings::Api::RequestToken.new(current_user.api_consumer_key , current_user.api_consumer_secret)
     consumer_key    = ENV['WITHINGS_OAUTH_CONSUMER_KEY']
     consumer_secret = ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
@@ -57,9 +57,11 @@ class ProvidersController < ApplicationController
 
 
     # Get data from scale device
-    data = user.measurement_groups(device: Withings::SCALE)
+    data = user.measurement_groups
     #user.measurement_groups(measurement_type: 1)
+    #user.measurement_groups(device: Withings::SCALE)
 
+    # Measures Creation
     data.each do |measure|
       if measure.weight
         m = Measure.new
@@ -70,15 +72,7 @@ class ProvidersController < ApplicationController
         m.source           = "withings"
         m.save
       end
-      if measure.ratio
-        m = Measure.new
-        m.measure_type_id  = 3
-        m.value            = measure.ratio
-        m.date             = measure.taken_at
-        m.user             = current_user
-        m.source           = "withings"
-        m.save
-      end
+
       if measure.systolic_blood_pressure
         m = Measure.new
         m.measure_type_id  = 2
@@ -88,10 +82,60 @@ class ProvidersController < ApplicationController
         m.source           = "withings"
         m.save
       end
+
+      if measure.ratio
+        m = Measure.new
+        m.measure_type_id  = 3
+        m.value            = measure.ratio
+        m.date             = measure.taken_at
+        m.user             = current_user
+        m.source           = "withings"
+        m.save
+      end
+    end
+
+    # Default Goals Creation
+    if ((Measure.find_by measure_type_id: 1) != nil) && (Measure.where(user_id: current_user.id, measure_type_id: 1 ).order(date: :desc).first.value > ( 25 * ( ( current_user.height.to_f / 100 ) ** 2 ) ).round(1)) && ((Goal.find_by measure_type_id: 1) != nil)
+      g = Goal.new
+      g.measure_type_id = 1
+      g.end_value       = ( 25 * ( ( current_user.height.to_f / 100 ) ** 2 ) ).round(1) # height in meter
+      g.user            = current_user
+      g.adviser_id      = current_user.adviser.id
+      g.title           = "Keep your weight under #{g.end_value} kg"
+      g.cumulative      = false
+      last_weight       = Measure.where(user_id: current_user.id, measure_type_id: g.measure_type_id ).order(date: :desc)
+      weight_to_lose    = last_weight.first.value - g.end_value
+      g.end_date        = Time.now + ( ( weight_to_lose / ( 0.5 / 7 ) ).round(2).to_f.days ) # Total loss / loss per day = Goal length
+      g.start_date      = Time.now
+      g.save
+    end
+    if ((Measure.find_by measure_type_id: 2) != nil ) && (Measure.where(user_id: current_user.id, measure_type_id: 2 ).order(date: :desc).first.value > 140 ) && ((Goal.find_by measure_type_id: 2) != nil )
+      g = Goal.new
+      g.measure_type_id = 2
+      g.end_value       = 140
+      g.user            = current_user
+      g.adviser_id      = current_user.adviser.id
+      g.title           = "Low your blood pressure to #{g.end_value.to_i} mmHg"
+      g.cumulative      = false
+      g.end_date        = Time.now + 30.days
+      g.start_date      = Time.now
+      g.save
+    end
+    if ( (Measure.find_by measure_type_id: 3) != nil ) && ( Measure.where(user_id: current_user.id, measure_type_id: 3 ).order(date: :desc).first.value > 25 ) && ( (Goal.find_by measure_type_id: 3) != nil )
+      g = Goal.new
+      g.measure_type_id = 3
+      g.end_value       = 25
+      g.user            = current_user
+      g.adviser_id      = current_user.adviser.id
+      g.title           = "Reach 25% fat mass ratio"
+      g.cumulative      = false
+      g.end_date        = Time.now + 30.days
+      g.start_date      = Time.now
+      g.save
     end
 
     # Redirection to dashboard
-    if current_user.is_adviser || !current_user.measures.empty?
+    if !current_user.is_adviser && current_user.measures.exists?
         flash[:notice] = "Your withings data has been synchronized"
         redirect_to user_goals_path(current_user)
     else

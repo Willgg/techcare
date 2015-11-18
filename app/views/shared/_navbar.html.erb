@@ -22,7 +22,7 @@
         </div>
       <% end %>-->
       <% if !current_user.is_adviser %>
-        <%= link_to t(".top_call_to_action", default: "Add Data Source"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+        <%= link_to t(".top_call_to_action", default: "Add Data Source"), providers_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
         <hr>
       <% end %>
       <span class="navbar-wagon-link"><%= current_user.first_name %> <%= current_user.last_name %></span>
