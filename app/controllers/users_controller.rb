@@ -20,6 +20,6 @@ class UsersController < ApplicationController
       @user_names << user
     end
 
+    @default_trainee = @users.first
   end
-
 end

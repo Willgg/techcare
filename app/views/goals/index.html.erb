@@ -47,16 +47,17 @@
           </span>
         </div>
         <!-- Affichage des messages  -->
+        <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
+        <%= f.button :submit, class: "btn btn-primary"  %>
+        <% end %>
         <div class="messages">
           <% @messages.each do |message| %>
             <%= render 'messages/message', message: message %>
           <%end%>
         </div>
-      <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
-        <%= f.button :submit, class: "btn btn-primary"  %>
-      <% end %>
+
       </div>
     </div>
   </div>

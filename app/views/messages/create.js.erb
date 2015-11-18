@@ -1,4 +1,4 @@
-$('.messages').append("<%= j render 'messages/message', message: @message %>");
-$('.messages')[0].scrollTop = $('.messages')[0].scrollHeight
-$('.message').last().addClass('fadeInUp animated');
+$('.messages').prepend("<%= j render 'messages/message', message: @message %>");
+// $('.messages')[0].scrollTop = $('.messages')[0].scrollHeight
+$('.message').first().addClass('fadeInDown animated');
 $('.chat-card textarea').val('');

@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(messages_params)
     @message.sender = current_user
+
     if @user == current_user
       @message.recipient = current_user.adviser.user
       @message.save
@@ -31,18 +32,14 @@ class MessagesController < ApplicationController
       message.read_at = Time.now
       message.save
     end
-
+    head :ok
   end
 
   private
 
   def find_user
-    if params[:message]
-      if params[:message].count == 2
-        @user = User.find(params[:message][:recipient_id])
-      else
-        @user = User.find(params[:user_id])
-      end
+    if params[:recipient_id].present?
+      @user = User.find(params[:recipient_id])
     else
       @user = User.find(params[:user_id])
     end
@@ -51,5 +48,4 @@ class MessagesController < ApplicationController
   def messages_params
     params.require(:message).permit(:content, :user, :recipient_id)
   end
-
 end

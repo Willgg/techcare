@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
     @messages = []
     @sent_messages.each { |message| @messages << message}
     @received_messages.each { |message| @messages << message}
-    @messages.sort!
+    @messages.sort!{ |x,y| y <=> x }
 
     # modal goal new
     @goal = Goal.new
