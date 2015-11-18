@@ -38,7 +38,7 @@ module Trainees
       end
 
       def measure_type
-        @measure_type ||= Measure.find_by(measure_type_id: 1) # FIXME: we can't have static IDs !!!
+        @measure_type ||= MeasureType.find(1) # FIXME: we can't have static IDs !!!
       end
     end
   end
