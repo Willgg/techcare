@@ -31,7 +31,7 @@
 
       <% if current_user.coach == @user.adviser %>
         <div class="text-center">
-          <%= link_to "+ Add a new goal", new_user_goal_path, class: "btn btn-primary" %>
+          <%= link_to "+ Add a new goal", '#', class: "btn btn-primary ", data: { toggle: "modal", target: "#myModal" } %>
         </div>
       <% end %>
 
@@ -64,10 +64,6 @@
 </div>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a new goal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -86,15 +82,11 @@
           <%= f.input :end_value %>
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
-
-
-
-
       </div>
-      <div class="modal-footer">
+      <!-- <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
