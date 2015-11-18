@@ -19,7 +19,8 @@
     last_name: "Ballot Flurin",
     birthday: Time.new(1985, 10, 20),
     sexe: "male",
-    is_adviser: true
+    is_adviser: true,
+    height: 188
   )
   coach_user.save
 
@@ -36,7 +37,8 @@
     first_name: "Ousmane",
     last_name: "Sakho",
     birthday: Time.new(1990, 05, 12),
-    sexe: "male"
+    sexe: "male",
+    height: 172
   )
   patient_user.save
 
@@ -47,7 +49,8 @@
     first_name: "William",
     last_name: "Godard",
     birthday: Time.new(1985, 7, 16),
-    sexe: "male"
+    sexe: "male",
+    height: 180
   )
   patient_user.save
 

@@ -12,6 +12,7 @@
           <%= f.input :first_name %>
           <%= f.input :last_name %>
           <%= f.input :sexe, collection: User::SEXE %>
+          <%= f.input :height, placeholder: "ex: 170cm" %>
           <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
                               end_year: Date.today.year - 12,
                               order: [:day, :month, :year] %>

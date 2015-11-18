@@ -29,6 +29,7 @@
 #  api_consumer_key       :string
 #  api_consumer_secret    :string
 #  api_user_id            :string
+#  height                 :integer
 #
 # Indexes
 #
@@ -55,6 +56,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :sexe, presence: true, inclusion: { in: SEXE }
   validates :birthday, presence: true
+  validates :height, presence: true
 
   has_attached_file :picture,
     styles: { medium: "300x300#", thumb: "100x100#" }
