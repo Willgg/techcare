@@ -3,8 +3,18 @@
   background-color: #FFF;
   padding: 20px;
   margin: 20px 0;
-  .provider {
-
+  .logo {
+    display: block;
+    float:left;
+    height: 150px;
+    width: 150px;
+    border: 1px solid #000;
+    margin: 10px;
+    background-size: cover;
+    &:hover{
+      border: 1px solid darken($brand-color,10%);
+      box-shadow: 0px 0px 8px lighten($brand-color,25%);
+    }
   }
 }
 
@@ -29,6 +39,9 @@
   padding: 40px;
   margin: 40px 0;
   box-shadow: 0px 2px 2px $gray-very-light;
+
+  &:last-child { margin-bottom: 0 }
+
   h2{
     margin: 10px 0;
     font-family: 'Lato', 'Open sans', 'sans-serif';
@@ -71,6 +84,15 @@
       margin-top: 16px;
     }
   }
+  .messages {
+    position: relative;
+    min-height: 350px;
+    max-height: 600px;
+    height: 100%;
+    overflow: scroll;
+    width: 100%;
+  }
+
   .message{
     clear: both;
     border-bottom: 1px solid #F1F1F1;
@@ -90,12 +112,24 @@
 
 .trainee-card{
   background: white;
-  padding: 40px;
-  margin-bottom: 30px;
-  min-height: 218px;
+  margin-bottom: 5px;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  &:hover {
+    background: #E6E6E6;
+    cursor: pointer;
+  }
   img {
     border-radius: 50%;
-    width: 60%;
-    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  i {
+    color: red;
+    font: 100px;
   }
 }
+

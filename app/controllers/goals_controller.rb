@@ -2,6 +2,23 @@ class GoalsController < ApplicationController
   before_action :find_user, only: [:index, :create]
 
   def index
+    # Est-ce que le current_user est le patient ? avec un if
+    # Selectionner les messages du coach et les marque comme read_at = Time.now
+    # if current_user == @user
+    # Aller chercher les message où read_at est nil
+    # Aller chercher les messages dont le destinaire est @user (patient)
+      @messages = Message.where(read_at: nil)
+      @messages = @messages.where(recipient: current_user)
+      @messages.each do |message|
+        message.read_at = Time.now
+        message.save
+      end
+    # end
+
+
+    #Est-ce que le current_user est le coach ? avec else
+    # Selectionner et marquer les message du patient comme lu read_at = Time.now
+
     @goals = Goal.where(user: @user)
     @message = Message.new
     @sent_messages = User.find(params[:user_id]).sent_messages
