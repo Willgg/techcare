@@ -21,7 +21,7 @@
           <div class="icon-badge icon-badge-blue">3</div>
         </div>
       <% end %>-->
-      <% if !current_user.is_adviser %>
+      <% if !current_user.is_adviser && current_user.adviser.present? %>
         <%= link_to t(".top_call_to_action", default: "Add Data Source"), providers_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
         <hr>
       <% end %>
