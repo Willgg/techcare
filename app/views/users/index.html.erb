@@ -42,10 +42,11 @@
       $.get('/messages?user_id=' + <%= @default_trainee.id %>, function(data) {})
     });
 
-    setInterval(function() {
-      var trainee_id = $('.js-user-messages').data('trainee-id');
-      $.get('/messages?user_id=' + trainee_id, function(data) {})
-    }, 10000);
+// permet de rafraichir la liste de message mais je comment car pas pratique pour lecture
+    // setInterval(function() {
+    //   var trainee_id = $('.js-user-messages').data('trainee-id');
+    //   $.get('/messages?user_id=' + trainee_id, function(data) {})
+    // }, 10000);
 
     $(".trainee-card").on("click", function(){
       var user_id = $(this).data("user-id");

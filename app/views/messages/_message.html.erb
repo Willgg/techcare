@@ -1,6 +1,7 @@
 <div class="message">
-  <p><%= image_tag message.sender.picture.url(:thumb) %>
-    <strong><%=message.sender.first_name%></strong> à <small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small>
-  </p>
-  <p><%=message.content%></p>
+ <span><small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small></span>
+<p><%= image_tag message.sender.picture.url(:thumb) %>
+  <strong><%=message.sender.first_name%></strong>
+</p>
+<p><%=message.content%></p>
 </div>

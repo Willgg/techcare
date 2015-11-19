@@ -19,7 +19,8 @@
     last_name: "Ballot Flurin",
     birthday: Time.new(1985, 10, 20),
     sexe: "male",
-    is_adviser: true
+    is_adviser: true,
+    height: 188
   )
   coach_user.save
 
@@ -36,7 +37,8 @@
     first_name: "Ousmane",
     last_name: "Sakho",
     birthday: Time.new(1990, 05, 12),
-    sexe: "male"
+    sexe: "male",
+    height: 172
   )
   patient_user.save
 
@@ -47,7 +49,8 @@
     first_name: "William",
     last_name: "Godard",
     birthday: Time.new(1985, 7, 16),
-    sexe: "male"
+    sexe: "male",
+    height: 180
   )
   patient_user.save
 
@@ -133,6 +136,43 @@ end
     measure_type_id: measure_type.id
   )
   measure.save
+end
 
+1.times do
+  measure_type = MeasureType.new(
+    name: "Fat ratio",
+    unit: "%",
+    data_type: "FatRatioTest"
+  )
+  measure_type.save
 
+  measure = Measure.new(
+    value: 40,
+    date: (Time.now) - 800000,
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
+
+  goal = Goal.new(
+    measure_type_id: measure_type.id,
+    user_id: 2,
+    adviser_id: 1,
+    start_date: (Time.now) - 400000,
+    end_value: 25,
+    end_date: (Time.now) + 300000,
+    title: "Atteignez une masse grasse de 25%",
+    cumulative: false
+  )
+  goal.save
+
+  measure = Measure.new(
+    value: 35,
+    date: (Time.now),
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
 end
