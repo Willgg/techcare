@@ -16,10 +16,16 @@
       box-shadow: 0px 0px 8px lighten($brand-color,25%);
     }
   }
+  h1{
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 34px;
+    color: $brand-color;
+  }
 }
 
 .coach-card{
-  float: left;
+  padding: 20px 0;
   .picture{
   height: 150px;
   width: 150px;
@@ -30,7 +36,13 @@
   margin-right: 20px;
   }
   .info{
-    float: left
+    float: left;
+    h2 {
+      color: $brand-color;
+    }
+  }
+  &:last-child{
+    padding-bottom: 40px;
   }
 }
 
@@ -46,18 +58,36 @@
     margin: 10px 0;
     font-family: 'Lato', 'Open sans', 'sans-serif';
     font-weight: 300;
+    color: $brand-color;
+  }
+  .start-end-value {
+    display: flex;
+    justify-content: space-between;
   }
   .fullbar{
     height: 12px;
     width: 100%;
     border-radius: 6px;
     background-color: #ebebeb;
-    margin-bottom: 10px;
     .fillbar{
-    height: 12px;
-    background: #01D48F;
-    width:10%;
-    border-radius: 6px;
+      height: 12px;
+      background: #01D48F;
+      width:10%;
+      border-radius: 6px;
+      position: relative;
+      .current-measure{
+        position: absolute;
+        right: -25px;
+        width: 64px;
+        border-radius: 6px;
+        color: $brand-color;
+        line-height: 10px;
+        font-size: 12px;
+        height: 32px;
+        padding: 10px;
+        top: 18px;
+        border: 1px solid $brand-color;
+      }
     }
   }
 }
@@ -109,7 +139,6 @@
      }
   }
   #new_message{
-    margin-top: 20px;
     clear: both;
   }
 
@@ -117,7 +146,7 @@
 
 .trainee-card{
   background: white;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
   height: 120px;
   display: flex;
   justify-content: space-between;

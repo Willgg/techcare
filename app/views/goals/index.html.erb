@@ -4,29 +4,37 @@
       <!-- <h1 class="text-center">Goals dashboard</h1> -->
       <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
       <% @goals.each do |goal| %>
+
+        <% if goal.end_date >= Time.current %>
+
         <div class="goal-card text-center">
+
           <h2><%= goal.title %></h2>
-          <p><strong>User measure at goal creation date:</strong>
-            <%= goal.last_measure_for_user(@user) { |m| m.where("date < ?", goal.start_date) } %>
-          </p>
 
-          <p><strong>last user measure:</strong>
-            <%= goal.last_measure_for_user(@user) %></p>
+          <p><strong><%= (goal.end_date.to_date - Time.current.to_date).to_i %></strong> days left</p>
 
-          <p><strong>end_value:</strong>
-            <%= goal.end_value %>
-          </p>
-
-          <p><strong>Due date:</strong>
-            <%= goal.end_date.day %>/<%= goal.end_date.month %>/<%= goal.end_date.year %>
-          </p>
           <div class="fullbar">
-            <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%"></div>
+            <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%">
+              <div class="current-measure">
+                <strong><%= goal.last_measure_for_user(@user) %></strong>
+              </div>
+            </div>
           </div>
-            <% if current_user.coach == @user.adviser %>
-              <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger" %>
+
+          <p class="start-end-value">
+            <span><%= (goal.last_measure_for_user(@user){ |m| m.where("date < ?", goal.start_date) }).round(2) %><%= goal.measure_type.unit%></span>
+            </span><%= goal.last_measure_for_user(@user).round(2) %><%= goal.measure_type.unit %></span>
+            <span><%= goal.end_value.round(2) %><%= goal.measure_type.unit %></span>
+          </p>
+
+          <% if current_user.coach == @user.adviser %>
+            <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger" %>
           <% end %>
+
         </div>
+
+        <% end %>
+
       <% end %>
 
       <% if current_user.coach == @user.adviser %>
