@@ -13,20 +13,21 @@
 
 1.times do
   coach_user = User.new(
-    email: "remi@mail.com",
-    password: "remremrem",
-    first_name: "Remi",
-    last_name: "Ballot Flurin",
-    birthday: Time.new(1985, 10, 20),
-    sexe: "male",
+    email: "estelle@mail.com",
+    password: "estestest",
+    first_name: "Estelle",
+    last_name: "Landreau",
+    birthday: Time.new(1975, 10, 20),
+    sexe: "female",
     is_adviser: true,
-    height: 188
+    height: 170
   )
   coach_user.save
 
   coach_adviser = Adviser.new(
-    title: "Docteur nutritionniste",
-    user_id: coach_user.id
+    title: "Nutritionist",
+    user_id: coach_user.id,
+    description: "I'm here to provide support, information, and encouragement to help facilitate your success. I know by the end of this journey, you will have lots of new tools and strategies that you can use in your everyday life."
   )
   coach_adviser.save
 
@@ -35,8 +36,20 @@
     password: "ousousous",
     adviser_id: coach_adviser.id,
     first_name: "Ousmane",
-    last_name: "Sakho",
-    birthday: Time.new(1990, 05, 12),
+    last_name: "Medhanie",
+    birthday: Time.new(1990, 12, 12),
+    sexe: "male",
+    height: 172
+  )
+  patient_user.save
+
+  patient_user = User.new(
+    email: "remi@mail.com",
+    password: "remremrem",
+    adviser_id: coach_adviser.id,
+    first_name: "Remi",
+    last_name: "Tremblay",
+    birthday: Time.new(1987, 10, 8),
     sexe: "male",
     height: 172
   )
@@ -47,13 +60,31 @@
     password: "wilwilwil",
     adviser_id: coach_adviser.id,
     first_name: "William",
-    last_name: "Godard",
+    last_name: "Chauvel",
     birthday: Time.new(1985, 7, 16),
     sexe: "male",
     height: 180
   )
   patient_user.save
 
+  coach_user = User.new(
+    email: "mike@mail.com",
+    password: "mikmikmik",
+    first_name: "Michael",
+    last_name: "Taylor",
+    birthday: Time.new(1955, 10, 20),
+    sexe: "male",
+    is_adviser: true,
+    height: 170
+  )
+  coach_user.save
+
+  coach_adviser = Adviser.new(
+    title: "Docteur nutritionniste",
+    user_id: coach_user.id,
+    description: "I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve mental health outcomes. Lantern combines both within their unique service."
+  )
+  coach_adviser.save
 end
 
 # measure_type: poids avec 2 measures et 1 goal
