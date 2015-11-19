@@ -22,9 +22,9 @@
           </div>
 
           <p class="start-end-value">
-            <span><%= (goal.last_measure_for_user(@user){ |m| m.where("date < ?", goal.start_date) }).round(2) %><%= goal.measure_type.unit%></span>
+      <!-- <span><%= (goal.last_measure_for_user(@user){ |m| m.where("date < ?", goal.start_date) }).round(2) %><%= goal.measure_type.unit%></span>
             </span><%= goal.last_measure_for_user(@user).round(2) %><%= goal.measure_type.unit %></span>
-            <span><%= goal.end_value.round(2) %><%= goal.measure_type.unit %></span>
+            <span><%= goal.end_value.round(2) %><%= goal.measure_type.unit %></span> -->
           </p>
 
           <% if current_user.coach == @user.adviser %>

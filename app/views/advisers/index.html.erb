@@ -9,12 +9,12 @@
               <% @advisers.each do |adviser|  %>
                 <div class="coach-detail">
                   <div class="picture">
-                  <%= image_tag adviser.user.picture.url(:thumb), style: "width: 100%" %>
+                  <%= image_tag adviser.user.picture.url(:medium), style: "width: 100%" %>
                   </div>
                   <div class="info">
                     <h2><%= adviser.user.first_name %> <%= adviser.user.last_name %></h2>
                     <p><%= adviser.title %><p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p><%= adviser.description %></p>
                     <%= link_to "Select this coach", adviser_selection_path(adviser), method: :post, class: "btn btn-primary" %>
                   </div>
                 </div>
