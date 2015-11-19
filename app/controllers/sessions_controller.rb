@@ -6,7 +6,10 @@ class SessionsController < Devise::SessionsController
     if resource.is_adviser
       users_path # Or :prefix_to_your_route
     else
-      Trainees::FetchMeasuresService.new(resource).fetch!
+      if resource.api_consumer_key
+        Trainees::FetchMeasuresService.new(resource).fetch!
+      end
+
       user_goals_path(resource)
     end
   end
