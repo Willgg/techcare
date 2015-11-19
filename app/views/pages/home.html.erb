@@ -6,52 +6,92 @@
     <h1>Feel better today</h1>
     <!-- <p>Very cool stuff, useful and smart</p> -->
     <%= link_to "Change now", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    <div class = "icon-section">
+  <div class="container">
+    <div class="row">
+      <!-- Qu'est ce que l'on propose BANNER  -->
+      <!-- <div class="col-xs-12">
+        <h1>Changer vos habitudes et préservez votre santé.</h1>
+        <%= link_to "Change now", new_user_registration_path, class: "btn btn-primary" %>
+      </div> -->
+    </div>
+    <!-- Pourquoi on le propose -->
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center">
+        <i class="fa fa-heartbeat fa-3x"></i>
+        <h3>Personal follow-up</h3>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center">
+        <i class="fa fa-line-chart fa-3x"></i>
+        <h3>Based on actionable metrics</h3>
+      </div>
+      <div class="col-xs-12 col-sm-4 text-center">
+        <i class="fa fa-eye fa-3x"></i>
+        <h3>Get helped by an expert</h3>
+      </div>
+    </div>
+  ​</div>
+</div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <!-- Qu'est ce que l'on propose BANNER  -->
-    <!-- <div class="col-xs-12">
-      <h1>Changer vos habitudes et préservez votre santé.</h1>
-      <%= link_to "Change now", new_user_registration_path, class: "btn btn-primary" %>
-    </div> -->
-  </div>
-​
-  <!-- Pourquoi on le propose -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <i class="fa fa-heartbeat"></i>
-      <h3>Personal follow-up</h3>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <i class="fa fa-line-chart"></i>
-      <h3>Based on actionable metrics</h3>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <i class="fa fa-eye"></i>
-      <h3>Get helped by an expert</h3>
-    </div>
-  </div>
-​</div>
-<div class="detail-section">
+
+ <!-- Product section -->
+<div class="product-section">
   <div class="container">
-    <!-- Features en detail -->
     <div class="row">
-      <div class="col-xs-12">
-          <div class="col-xs-12">
-            <h3>Scan your groceries</h3>
-            <p>Logged in your diet may be very long and painful. Thats'why GROCERX offers use your smartphone as a scanner to let your save your entire shop in a minute.</p>
-          </div>
-          <div class="col-xs-12 text-right">
-            <h3>Get data about your diet</h3>
-            <p>Gnothi seauton Know thyself is the best way to change bad habits and change your life. What you can measure you can change it. Studies show that people who log data about them double their chance to reach their goal.</p>
-          </div>
-          <div class="col-xs-12">
-            <h3>Intelligent personal assistant</h3>
-            <p>The GROCERX app learns about your diet and activity. Like what quantity you eat, how well balanced it is, how long do you walk in a day and what the season.</p>
-          </div>
+      <div class="col-xs-6">
+        <h2>A unique interface.</h2>
+        <p>Share your data with your personnal assistant
+           Improve your goals in order to have better health condiction.
+           You will feel better days after days</p>
       </div>
+      <div class="col-xs-6">
+        <%= image_tag "screen-app.png", class: "screen-app" %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Tools section  -->
+  <div class="tools-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+            <%= image_tag "slice-app.png", class: "slice-app" %>
+        </div>
+        <div class="col-xs-6">
+          <div class="text-tools">
+            <h2>All your health data in one place.</h2>
+            <p> Intergrate every device you use. By connectin your health data to Techcare, improve your health metrics. The integration of a personnal coaching, will guide you in order to acheive your goals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Coach section  -->
+  <div class="coach-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h2>Our coachs</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag "coach1.png", class: "img-circle"   %>
+          <h3>John</h3>
+          <p>After 10 years as a doctor..</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag "coach2.png", class: "img-circle" %>
+          <h3>Melissa</h3>
+          <p>Melissa is our nutritionist doctor..</p>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag "coach3.jpg", class: "img-circle" %>
+          <h3>Mike</h3>
+          <p>Mike is well know docteur. For the last 20 years, he works with profesionnals athlets in order to prepare world class competition.</p>
+        </div>
       </div>
     </div>
   </div>
