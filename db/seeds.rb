@@ -80,9 +80,28 @@
   coach_user.save
 
   coach_adviser = Adviser.new(
-    title: "Docteur nutritionniste",
+    title: "Diabetes Specialist",
     user_id: coach_user.id,
-    description: "I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve mental health outcomes. Lantern combines both within their unique service."
+    description: "I believe people’s paths cross for a purpose and as your techcare coach, my mission is to support you to reach your goals and make positive changes in your life."
+  )
+  coach_adviser.save
+
+  coach_user = User.new(
+    email: "john@mail.com",
+    password: "johjohjoh",
+    first_name: "John",
+    last_name: "Moore",
+    birthday: Time.new(1975, 10, 20),
+    sexe: "male",
+    is_adviser: true,
+    height: 170
+  )
+  coach_user.save
+
+  coach_adviser = Adviser.new(
+    title: "Cardiologist",
+    user_id: coach_user.id,
+    description: "I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve mental health outcomes."
   )
   coach_adviser.save
 end
