@@ -20,15 +20,16 @@
               </div>
             </div>
           </div>
-
+          <!--
           <p class="start-end-value">
             <span><%= (goal.last_measure_for_user(@user){ |m| m.where("date < ?", goal.start_date) }).round(2) %><%= goal.measure_type.unit%></span>
             </span><%= goal.last_measure_for_user(@user).round(2) %><%= goal.measure_type.unit %></span>
             <span><%= goal.end_value.round(2) %><%= goal.measure_type.unit %></span>
+           -->
           </p>
 
           <% if current_user.coach == @user.adviser %>
-            <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger" %>
+            <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger", style: "position: relative; bottom: 76%; left: 45%" %>
           <% end %>
 
         </div>
