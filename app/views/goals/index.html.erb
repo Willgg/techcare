@@ -16,7 +16,7 @@
           <div class="fullbar">
             <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%">
               <div class="current-measure">
-                <strong><%= goal.last_measure_for_user(@user) %></strong>
+                <strong><%= goal.last_measure_for_user(@user) %></strong><br /><%= goal.measure_type.unit %>
               </div>
             </div>
           </div>
@@ -25,8 +25,8 @@
             <span><%= (goal.last_measure_for_user(@user){ |m| m.where("date < ?", goal.start_date) }).round(2) %><%= goal.measure_type.unit%></span>
             </span><%= goal.last_measure_for_user(@user).round(2) %><%= goal.measure_type.unit %></span>
             <span><%= goal.end_value.round(2) %><%= goal.measure_type.unit %></span>
+           </p>
            -->
-          </p>
 
           <% if current_user.coach == @user.adviser %>
             <%= link_to "delete", user_goal_path(@user.id, goal), method: :delete, class: "btn btn-danger", style: "position: relative; bottom: 76%; left: 45%" %>

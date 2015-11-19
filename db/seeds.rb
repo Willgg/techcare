@@ -113,7 +113,7 @@ end
     start_date: (Time.now) - 400000,
     end_value: 80,
     end_date: (Time.now) + 300000,
-    title: "Maintenez votre poids à 80kg",
+    title: "Keep your weight under 80kg",
     cumulative: false
   )
   goal.save
@@ -154,7 +154,7 @@ end
     start_date: (Time.now) - 200000,
     end_value: 140,
     end_date: (Time.now) + 300000,
-    title: "Diminuez votre tension à 140mmHg",
+    title: "Decrease your blood pressure to 140mmHg",
     cumulative: false
   )
   goal.save
@@ -193,7 +193,7 @@ end
     start_date: (Time.now) - 400000,
     end_value: 25,
     end_date: (Time.now) + 300000,
-    title: "Atteignez une masse grasse de 25%",
+    title: "Reach a fat mass ratio of 25%",
     cumulative: false
   )
   goal.save
