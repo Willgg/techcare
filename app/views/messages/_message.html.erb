@@ -1,5 +1,5 @@
 <div class="message">
- <span><small><%=message.created_at.strftime("%H:%M le %d/%m/%y")%></small></span>
+ <span><small><%=message.created_at.strftime("%b. %d %Y - %H:%M")%></small></span>
 <p><%= image_tag message.sender.picture.url(:thumb) %>
   <strong><%=message.sender.first_name%></strong>
 </p>
