@@ -25,7 +25,7 @@ module Trainees
       private
 
       def goal_value
-        @goal_value ||= 25
+        @goal_value ||= 22
       end
 
       def already_has_goal?

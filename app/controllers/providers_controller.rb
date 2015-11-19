@@ -9,7 +9,7 @@ class ProvidersController < ApplicationController
   end
 
   def create
-    callback_url   = "http://localhost:3000" + providers_callback_path
+    callback_url   = ENV['HOST'] + providers_callback_path
     consumer_token = ConsumerToken.new(
                       ENV['WITHINGS_OAUTH_CONSUMER_KEY'],
                       ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
