@@ -48,51 +48,7 @@ class ProvidersController < ApplicationController
     current_user.save
 
     # User data fetching
-    Withings.consumer_key    = consumer_key
-    Withings.consumer_secret = consumer_secret
-
-    response  = Withings::Connection.get_request('/user', oauth_token, oauth_token_secret, :action => :getbyuserid, :userid => user_id)
-    user_data = response['users'].detect { |item| item['id'] == user_id.to_i }
-    user      = Withings::User.new(user_data.merge({:oauth_token => oauth_token, :oauth_token_secret => oauth_token_secret}))
-
-
-    # Get data from scale device
-    data = user.measurement_groups
-    #user.measurement_groups(measurement_type: 1)
-    #user.measurement_groups(device: Withings::SCALE)
-
-    # Measures Creation
-    data.each do |measure|
-      if measure.weight
-        m = Measure.new
-        m.measure_type_id  = 1
-        m.value            = measure.weight
-        m.date             = measure.taken_at
-        m.user             = current_user
-        m.source           = "withings"
-        m.save
-      end
-
-      if measure.systolic_blood_pressure
-        m = Measure.new
-        m.measure_type_id  = 2
-        m.value            = measure.systolic_blood_pressure
-        m.date             = measure.taken_at
-        m.user             = current_user
-        m.source           = "withings"
-        m.save
-      end
-
-      if measure.ratio
-        m = Measure.new
-        m.measure_type_id  = 3
-        m.value            = measure.ratio
-        m.date             = measure.taken_at
-        m.user             = current_user
-        m.source           = "withings"
-        m.save
-      end
-    end
+    Trainees::FetchMeasuresService.new(current_user).fetch!
 
     # Default Goals Creation
     Trainees::CreateGoalsService.new(current_user).call
