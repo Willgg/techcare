@@ -1,3 +1,24 @@
+.pages-home {
+  .navbar-wagon {
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: none;
+
+    .navbar-wagon-item.navbar-wagon-link {
+      color: white;
+    }
+  }
+
+  .navbar-wagon-logo {
+    display: none;
+
+    &-white { display: block }
+  }
+}
+
 .navbar-wagon {
   position: relative;
   z-index: 2;
@@ -14,6 +35,11 @@
   &-logo {
     width: 146px;
   }
+
+  &-logo-white {
+    display: none;
+  }
+
   &-container {
     display: flex;
     height: 70px;

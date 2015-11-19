@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class='<%= "#{params[:controller]}-#{params[:action]}".gsub('/', '-') %>'>
 <head>
   <title><%= yield(:title).presence || "Techcare - Monitor your health" %></title>
   <meta name="description" content="<%= (yield(:description).presence || "").squish %>">
