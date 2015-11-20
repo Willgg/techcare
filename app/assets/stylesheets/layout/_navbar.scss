@@ -1,7 +1,7 @@
 .pages-home {
   .navbar-wagon {
     background: transparent;
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -10,6 +10,9 @@
     .navbar-wagon-item.navbar-wagon-link {
       color: white;
     }
+    .navbar-wagon-link{
+      color: #fff;
+    }
   }
   .navbar-wagon-logo {
     display: none;
@@ -17,7 +20,7 @@
     &-white { display: block }
   }
   .banner{
-    top: -71px;
+
   }
 }
 
