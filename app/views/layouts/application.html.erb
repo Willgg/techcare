@@ -11,12 +11,12 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='Site'>
   <%= render "shared/flashes" %>
   <%= render "shared/navbar" %>
-
-  <%= yield %>
-
+  <div class='Site-content'>
+    <%= yield %>
+  </div>
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
 
