@@ -13,8 +13,8 @@
 
             <%= f.button :submit, class: "btn btn-primary"  %>
           <% end %>
+          <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
         <% end %>
-        <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
@@ -40,9 +40,11 @@
 
 <%= content_for(:after_js) do %>
   <script>
-    $(document).ready(function() {
-      $.get('/messages?user_id=' + <%= @default_trainee.id %>, function(data) {})
-    });
+    <% if @default_trainee %>
+      $(document).ready(function() {
+        $.get('/messages?user_id=' + <%= @default_trainee.id %>, function(data) {})
+      });
+    <% end %>
 
 // permet de rafraichir la liste de message mais je comment car pas pratique pour lecture
     // setInterval(function() {
