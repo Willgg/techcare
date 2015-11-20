@@ -13,10 +13,10 @@
 
 1.times do
   coach_user = User.new(
-    email: "estelle@mail.com",
-    password: "estestest",
-    first_name: "Estelle",
-    last_name: "Landreau",
+    email: "olivia@mail.com",
+    password: "oliolioli",
+    first_name: "Olivia",
+    last_name: "Cerf",
     birthday: Time.new(1975, 10, 20),
     sexe: "female",
     is_adviser: true,
