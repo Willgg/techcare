@@ -10,12 +10,17 @@
     .navbar-wagon-item.navbar-wagon-link {
       color: white;
     }
+    .navbar-wagon-link{
+      color: #fff;
+    }
   }
-
   .navbar-wagon-logo {
     display: none;
 
     &-white { display: block }
+  }
+  .banner{
+
   }
 }
 
