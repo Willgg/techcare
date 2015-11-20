@@ -26,7 +26,7 @@ module Trainees
       private
 
       def goal_value
-        @goal_value ||= ( 25 * ( ( @trainee.height.to_f / 100 ) ** 2 ) ).round(1) # height in meter
+        @goal_value ||= ( 25 * ( ( @trainee.height.to_f / 100 ) ** 2 ) ).round # height in meter
       end
 
       def already_has_goal?
