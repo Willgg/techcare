@@ -110,6 +110,12 @@
   font-family: "Open Sans", "Helvetica", "sans-serif";
   font-size:15px;
   line-height:1.4;
+    p {
+      color: #777777;
+    }
+    h2 {
+      color: $brand-color;
+    }
 }
 
  /* -------------------------------------
@@ -124,7 +130,7 @@
     font-family: 'Lato', 'Open sans', 'sans-serif';
     font-size: 40px;
     font-weight: 700;
-    color: #000;
+    color: $brand-color;
     margin:50px;
 
   }
