@@ -11,7 +11,7 @@
  .product-section{
     background: darken($brand-color, 6%);
     overflow:hidden;
-    padding: 150px;
+    padding: 100px 150px 150px;
     border-bottom: 1px solid #EEEEEE;
 
     @media (max-width: $screen-sm) {
@@ -28,6 +28,7 @@
     p {
       color: white;
       font-weight: 200px;
+      font-size: 20px;
     }
 
     .two-columns-description{
@@ -71,13 +72,17 @@
   color: white;
   padding: 50px;
   padding-bottom: 0;
-
+  .fa {
+    font-size: 2.5em;
+  }
   h3 {
     font-family: 'Lato', 'Open sans', 'sans-serif';
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 300;
+    margin-top: 10px;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   }
+
 }
 
 
@@ -112,6 +117,7 @@
   line-height:1.4;
     p {
       color: #777777;
+      font-size: 18px;
     }
     h2 {
       color: $brand-color;
@@ -151,5 +157,36 @@
   -webkit-border-radius: 150px;
   -moz-border-radius: 150px;
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  }
+}
+
+.newsletter-section{
+  padding: 55px 0;
+  background: darken($brand-color, 6%);
+  color: white;
+  h3{
+    font-family: 'Lato', 'Open sans', 'sans-serif';
+    font-size: 36px;
+    font-weight: 300;
+    margin-top: 0;
+  }
+  .form-control{
+    height: 50px;
+    font-size: 20px;
+    color: $gray-lighter;
+    border: none;
+    float: left;
+    width: 77%;
+  }
+  .btn{
+    line-height: 38px;
+    background: darken($brand-color, 15%);
+    border: none;
+    padding: 6px 26px;
+    font-size: 14px;
+    text-transform: uppercase;
+    &:hover, &:focus{
+      background: darken($brand-color, 22%);
+    }
   }
 }
