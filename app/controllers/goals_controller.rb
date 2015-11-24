@@ -13,8 +13,6 @@ class GoalsController < ApplicationController
         message.read_at = Time.now
         message.save
       end
-    # end
-
 
     #Est-ce que le current_user est le coach ? avec else
     # Selectionner et marquer les message du patient comme lu read_at = Time.now
