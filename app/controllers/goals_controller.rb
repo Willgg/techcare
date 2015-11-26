@@ -20,10 +20,16 @@ class GoalsController < ApplicationController
     @messages.sort!{ |x,y| y <=> x }
 
     # Set goals to display
-    @goals = Goal.where(user: @user)
+    @goals = policy_scope(Goal)
     # Set goal for modal form
     @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
+
+    if current_user == @user || current_user == @user.adviser
+      authorize Goal
+    else
+      raise Pundit::NotAuthorizedError
+    end
   end
 
   # ATTENTION please confirm this method is not used anymore !!!
@@ -56,7 +62,17 @@ class GoalsController < ApplicationController
   def find_user
     @user = User.find(params[:user_id])
   end
+
   def params_goals
     params.require(:goal).permit(:measure_type_id, :user_id, :end_value, :end_date, :title, :cumulative)
+  end
+
+  def user_not_authorized
+    flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
+    if current_user.is_adviser
+      redirect_to(users_path)
+    else
+      redirect_to(user_goals_path(current_user))
+    end
   end
 end

@@ -1,13 +1,12 @@
 class GoalPolicy < ApplicationPolicy
 
   def index?
-    raise
-    user.id == params[:user_id]
+    true
   end
 
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where(user: @user)
     end
   end
 end
