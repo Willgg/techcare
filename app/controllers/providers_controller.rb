@@ -5,6 +5,9 @@ class ProvidersController < ApplicationController
   include Withings
   include Withings::Api
 
+  skip_after_action :verify_authorized, only: [:index, :create, :save_token]
+  skip_after_action :verify_policy_scoped, only: :index
+
   def index
   end
 

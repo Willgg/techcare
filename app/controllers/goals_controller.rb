@@ -2,22 +2,15 @@ class GoalsController < ApplicationController
   before_action :find_user, only: [:index, :create]
 
   def index
-    # Est-ce que le current_user est le patient ? avec un if
-    # Selectionner les messages du coach et les marque comme read_at = Time.now
-    # if current_user == @user
-    # Aller chercher les message où read_at est nil
-    # Aller chercher les messages dont le destinaire est @user (patient)
-      @messages = Message.where(read_at: nil)
-      @messages = @messages.where(recipient: current_user)
-      @messages.each do |message|
-        message.read_at = Time.now
-        message.save
-      end
+    # Set messages as read
+    @messages = policy_scope(Message)
 
-    #Est-ce que le current_user est le coach ? avec else
-    # Selectionner et marquer les message du patient comme lu read_at = Time.now
+    @messages.each do |message|
+      message.read_at = Time.now
+      message.save
+    end
 
-    @goals = Goal.where(user: @user)
+    # Set the messages to display in chat windows
     @message = Message.new
     @sent_messages = User.find(params[:user_id]).sent_messages
     @received_messages = User.find(params[:user_id]).received_messages
@@ -26,12 +19,14 @@ class GoalsController < ApplicationController
     @received_messages.each { |message| @messages << message}
     @messages.sort!{ |x,y| y <=> x }
 
-    # modal goal new
-    @goal = Goal.new
+    # Set goals to display
+    @goals = Goal.where(user: @user)
+    # Set goal for modal form
+    @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
-
   end
 
+  # ATTENTION please confirm this method is not used anymore !!!
   def new
     @user = User.find(params[:user_id])
     @measure_types_of_user = @user.measure_types.uniq
@@ -40,7 +35,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params_goals)
-    @goal.user_id = params[:user_id] # Je rentre le user_id séparement car il ne passe pas dans les params_goals ???
+    @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
     @goal.start_date = Time.now
     if @goal.save

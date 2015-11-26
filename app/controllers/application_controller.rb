@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   include Pundit
 
-  after_action :verify_authorized, except:  [:index, :home], unless: :devise_or_pages_or_admin_controller?
-  after_action :verify_policy_scoped, only: :index, unless: :devise_or_pages_or_admin_controller?
+  after_action :verify_authorized, except:  :index, unless: :devise_or_admin_controller?
+  after_action :verify_policy_scoped, only: :index, unless: :devise_or_admin_controller?
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   # def after_sign_in_path_for(resource)
@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def devise_or_pages_or_admin_controller?
-    devise_controller? || pages_controller? || params[:controller] =~ /^admin/
+  def devise_or_admin_controller?
+    devise_controller? || params[:controller] =~ /^admin/
   end
 
   def user_not_authorized
