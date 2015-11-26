@@ -1,7 +1,10 @@
 <div class="message">
- <span><small><%=message.created_at.strftime("%b. %d %Y - %H:%M")%></small></span>
-<p><%= image_tag message.sender.picture.url(:thumb) %>
-  <strong><%=message.sender.first_name%></strong>
-</p>
-<p><%=message.content%></p>
+  <span><small><%=message.created_at.strftime("%b. %d %Y - %H:%M")%></small></span>
+  <p>
+    <%= image_tag message.sender.picture.url(:thumb) %>
+    <strong><%=message.sender.first_name%></strong>
+  </p>
+  <p>
+    <%=message.content%>
+  </p>
 </div>
