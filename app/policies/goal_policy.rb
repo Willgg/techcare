@@ -4,9 +4,12 @@ class GoalPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+  end
+
   class Scope < Scope
     def resolve
-      scope.where(user: @user)
+      scope.all
     end
   end
 end

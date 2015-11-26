@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :find_user, only: [:index, :create]
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index
     # Set messages as read
@@ -20,16 +21,11 @@ class GoalsController < ApplicationController
     @messages.sort!{ |x,y| y <=> x }
 
     # Set goals to display
-    @goals = policy_scope(Goal)
+    @goals = policy_scope(Goal.where(user_id: @user))
     # Set goal for modal form
     @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
-
-    if current_user == @user || current_user == @user.adviser
-      authorize Goal
-    else
-      raise Pundit::NotAuthorizedError
-    end
+    authorize Goal if current_user == @user || current_user.coach == @user.adviser
   end
 
   # ATTENTION please confirm this method is not used anymore !!!
@@ -44,11 +40,8 @@ class GoalsController < ApplicationController
     @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
     @goal.start_date = Time.now
-    if @goal.save
-      redirect_to user_goals_path(@user)
-    else
-      render :new
-    end
+    authorize @goal
+    @goal.save ? redirect_to user_goals_path(@user) : render :new
   end
 
   def destroy
