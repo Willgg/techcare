@@ -8,21 +8,22 @@ class MessagesController < ApplicationController
 
     if @user == current_user
       @message.recipient = current_user.adviser.user
-      @message.save
     else
       @message.recipient = @user
-      @message.save
     end
+    authorize @message
+    @message.save
   end
 
   def destroy
     @message = Message.find(params[:id])
+    authorize @message
     @message.destroy
   end
 
   def index
-    messages_sent_by_coach   = Message.where(recipient: @user, sender: current_user)
-    messages_sent_by_patient = Message.where(recipient: current_user, sender: @user)
+    messages_sent_by_coach   = policy_scope(Message.where(recipient: @user, sender: current_user))
+    messages_sent_by_patient = policy_scope(Message.where(recipient: current_user, sender: @user))
     @messages                = (messages_sent_by_coach + messages_sent_by_patient).sort_by {|m| - m.created_at.to_i }
   end
 

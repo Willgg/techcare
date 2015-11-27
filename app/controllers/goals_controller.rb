@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
 
   def index
     # Set messages as read
-    @messages = policy_scope(Message)
+    @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
     @messages.each do |message|
       message.read_at = Time.now
       message.save
