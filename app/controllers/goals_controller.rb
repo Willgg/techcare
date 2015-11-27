@@ -1,18 +1,18 @@
 class GoalsController < ApplicationController
   before_action :find_user, only: [:index, :create]
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index
     # Set messages as read
     @messages = policy_scope(Message)
-
     @messages.each do |message|
       message.read_at = Time.now
       message.save
     end
 
-    # Set the messages to display in chat windows
+    # Set new message for chat form
     @message = Message.new
+
+    # Set the messages to display in chat windows
     @sent_messages = User.find(params[:user_id]).sent_messages
     @received_messages = User.find(params[:user_id]).received_messages
     @messages = []
@@ -25,7 +25,8 @@ class GoalsController < ApplicationController
     # Set goal for modal form
     @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
-    authorize Goal if current_user == @user || current_user.coach == @user.adviser
+    #custom Goal policy with 3 arguments
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).index?
   end
 
   # ATTENTION please confirm this method is not used anymore !!!
@@ -40,12 +41,18 @@ class GoalsController < ApplicationController
     @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
     @goal.start_date = Time.now
-    authorize @goal
-    @goal.save ? redirect_to user_goals_path(@user) : render :new
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).create?
+    if @goal.save
+      redirect_to user_goals_path(@user)
+    else
+      render :new
+    end
   end
 
   def destroy
     @goal = Goal.find(params[:id])
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).destroy?
+
     @goal.delete
     redirect_to user_goals_path()
   end

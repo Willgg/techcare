@@ -31,7 +31,7 @@
 
       <% end %>
 
-      <% if current_user.coach == @user.adviser %>
+      <% if GoalPolicy.new(current_user, @user, Goal).create? && current_user.coach == @user.adviser %>
         <div class="text-center">
           <%= link_to "+ Add a new goal", '#', class: "btn btn-primary ", data: { toggle: "modal", target: "#myModal" } %>
         </div>
