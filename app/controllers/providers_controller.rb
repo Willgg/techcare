@@ -58,10 +58,10 @@ class ProvidersController < ApplicationController
 
     # Redirection to dashboard
     if !current_user.is_adviser && current_user.measures.exists?
-      flash[:notice] = "Your withings data has been synchronized"
+      flash[:notice] = I18n.t('controllers.providers.success', default: "Your data has been synchronized.")
       redirect_to user_goals_path(current_user)
     else
-      flash[:alert] = "Unable to synchronize your data"
+      flash[:alert] = I18n.t('controllers.providers.error', default: "Unable to synchronize your data.")
       redirect_to providers_path
     end
   end

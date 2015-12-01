@@ -8,15 +8,15 @@ class GoalPolicy < ApplicationPolicy
   end
 
   def index?
-    user == user_param || user.coach == user_param.adviser
+    ( user == user_param ) || ( user.coach ? ( user.coach == user_param.adviser ) : false )
   end
 
   def create?
-    user.is_adviser && user.coach == user_param.adviser
+    user.is_adviser && ( user.coach == user_param.adviser )
   end
 
   def destroy?
-    true
+    user.is_adviser && ( user.coach == user_param.adviser )
   end
 
   class Scope < Scope

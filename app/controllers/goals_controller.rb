@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
-  before_action :find_user, only: [:index, :create]
+  before_action :find_user, only: [:index, :create, :destroy]
+  after_action :verify_authorized, except: [:index, :create, :destroy], unless: :devise_or_admin_controller?
 
   def index
     # Set messages as read
@@ -25,7 +26,7 @@ class GoalsController < ApplicationController
     # Set goal for modal form
     @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
-    #custom Goal policy with 3 arguments
+    # Custom Goal policy with 3 arguments
     raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).index?
   end
 
@@ -43,6 +44,7 @@ class GoalsController < ApplicationController
     @goal.start_date = Time.now
     raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).create?
     if @goal.save
+      flash[:notice] = I18n.t('controllers.goals.created', default: "Goal has been successfully created.")
       redirect_to user_goals_path(@user)
     else
       render :new
@@ -53,8 +55,13 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).destroy?
 
-    @goal.delete
-    redirect_to user_goals_path()
+    if @goal.delete
+      flash[:notice] = I18n.t('controllers.goals.destroy_success', default: "Goal has been successfully deleted.")
+      redirect_to user_goals_path()
+    else
+      flash[:alert] = I18n.t('controllers.goals.destroy_fail', default: "Goal has been not been deleted.")
+      redirect_to user_goals_path()
+    end
   end
 
   private
