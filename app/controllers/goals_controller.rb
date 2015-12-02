@@ -1,26 +1,19 @@
 class GoalsController < ApplicationController
-  before_action :find_user, only: [:index, :create]
+  before_action :find_user, only: [:index, :create, :destroy]
+  after_action :verify_authorized, except: [:index, :create, :destroy], unless: :devise_or_admin_controller?
 
   def index
-    # Est-ce que le current_user est le patient ? avec un if
-    # Selectionner les messages du coach et les marque comme read_at = Time.now
-    # if current_user == @user
-    # Aller chercher les message où read_at est nil
-    # Aller chercher les messages dont le destinaire est @user (patient)
-      @messages = Message.where(read_at: nil)
-      @messages = @messages.where(recipient: current_user)
-      @messages.each do |message|
-        message.read_at = Time.now
-        message.save
-      end
-    # end
+    # Set messages as read
+    @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
+    @messages.each do |message|
+      message.read_at = Time.now
+      message.save
+    end
 
-
-    #Est-ce que le current_user est le coach ? avec else
-    # Selectionner et marquer les message du patient comme lu read_at = Time.now
-
-    @goals = Goal.where(user: @user)
+    # Set new message for chat form
     @message = Message.new
+
+    # Set the messages to display in chat windows
     @sent_messages = User.find(params[:user_id]).sent_messages
     @received_messages = User.find(params[:user_id]).received_messages
     @messages = []
@@ -28,12 +21,16 @@ class GoalsController < ApplicationController
     @received_messages.each { |message| @messages << message}
     @messages.sort!{ |x,y| y <=> x }
 
-    # modal goal new
-    @goal = Goal.new
+    # Set goals to display
+    @goals = policy_scope(Goal.where(user_id: @user))
+    # Set goal for modal form
+    @goal  = Goal.new
     @measure_types_of_user = @user.measure_types.uniq
-
+    # Custom Goal policy with 3 arguments
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).index?
   end
 
+  # ATTENTION please confirm this method is not used anymore !!!
   def new
     @user = User.find(params[:user_id])
     @measure_types_of_user = @user.measure_types.uniq
@@ -42,10 +39,12 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params_goals)
-    @goal.user_id = params[:user_id] # Je rentre le user_id séparement car il ne passe pas dans les params_goals ???
+    @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
     @goal.start_date = Time.now
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).create?
     if @goal.save
+      flash[:notice] = I18n.t('controllers.goals.created', default: "Goal has been successfully created.")
       redirect_to user_goals_path(@user)
     else
       render :new
@@ -54,8 +53,15 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal = Goal.find(params[:id])
-    @goal.delete
-    redirect_to user_goals_path()
+    raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).destroy?
+
+    if @goal.delete
+      flash[:notice] = I18n.t('controllers.goals.destroy_success', default: "Goal has been successfully deleted.")
+      redirect_to user_goals_path()
+    else
+      flash[:alert] = I18n.t('controllers.goals.destroy_fail', default: "Goal has been not been deleted.")
+      redirect_to user_goals_path()
+    end
   end
 
   private
@@ -63,7 +69,17 @@ class GoalsController < ApplicationController
   def find_user
     @user = User.find(params[:user_id])
   end
+
   def params_goals
     params.require(:goal).permit(:measure_type_id, :user_id, :end_value, :end_date, :title, :cumulative)
+  end
+
+  def user_not_authorized
+    flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
+    if current_user.is_adviser
+      redirect_to(users_path)
+    else
+      redirect_to(user_goals_path(current_user))
+    end
   end
 end

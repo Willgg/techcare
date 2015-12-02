@@ -1,5 +1,10 @@
 module Trainees
- class FetchMeasuresService
+  require 'withings-api'
+  require 'withings'
+  include Withings
+  include Withings::Api
+
+  class FetchMeasuresService
    def initialize(user)
     Withings.consumer_key    = ENV['WITHINGS_OAUTH_CONSUMER_KEY']
     Withings.consumer_secret = ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
@@ -7,11 +12,10 @@ module Trainees
     oauth_token_secret = user.api_consumer_secret
     user_id = user.api_user_id
 
-    response  = Withings::Connection.get_request('/user', oauth_token, oauth_token_secret, :action => :getbyuserid, :userid => user_id)
-    user_data = response['users'].detect { |item| item['id'] == user_id.to_i }
-    @withings_user      = Withings::User.new(user_data.merge({:oauth_token => oauth_token, :oauth_token_secret => oauth_token_secret}))
-    @user = user
-
+    response       = Withings::Connection.get_request('/user', oauth_token, oauth_token_secret, :action => :getbyuserid, :userid => user_id)
+    user_data      = response['users'].detect { |item| item['id'] == user_id.to_i }
+    @withings_user = Withings::User.new(user_data.merge({:oauth_token => oauth_token, :oauth_token_secret => oauth_token_secret}))
+    @user          = user
    end
 
    def fetch!
