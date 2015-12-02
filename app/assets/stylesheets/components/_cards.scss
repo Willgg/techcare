@@ -162,21 +162,6 @@
     width: 100%;
   }
 
-  .message{
-    clear: both;
-    border-bottom: 1px solid #F1F1F1;
-    padding: 20px 0;
-    padding-right: 5px;
-    img {
-      width: 30px;
-      border-radius: 50%;
-    }
-    small{  }
-    span{
-    display: flex;
-    float: right;
-     }
-  }
   #new_message{
     clear: both;
     padding-bottom: 15px;

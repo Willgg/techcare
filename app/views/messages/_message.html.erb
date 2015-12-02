@@ -1,9 +1,14 @@
 <div class="message">
-  <span><small><%=message.created_at.strftime("%b. %d %Y - %H:%M")%></small></span>
-  <p>
+  <div class="header">
     <%= image_tag message.sender.picture.url(:thumb) %>
     <strong><%=message.sender.first_name%></strong>
-  </p>
+    <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
+  </div>
+  <div class="menu">
+    <%= link_to(message_path(message), method: :delete) do %>
+      <i class="fa fa-times"></i>
+    <% end %>
+  </div>
   <p>
     <%=message.content%>
   </p>
