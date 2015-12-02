@@ -21,3 +21,17 @@
 
 en:
   hello: "Hello world"
+  controllers:
+    advisers:
+      coach_not_authorized: "You can't select a coach."
+      user_has_coach: "You already have a coach."
+    selection:
+      adviser_selected: "Adviser has been successfully selected !"
+      adviser_error: "Unable to select this adviser !"
+    providers:
+      success: "Your data has been synchronized."
+      error: "Unable to synchronize your data."
+    goals:
+      created: "Goal has been successfully created."
+      destroy_success: "Goal has been successfully deleted."
+      destroy_fail: "Goal has been not been deleted."

@@ -93,6 +93,7 @@ GEM
       sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    high_voltage (2.4.0)
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -138,6 +139,8 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     puma (2.15.3)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -233,6 +236,7 @@ DEPENDENCIES
   faker
   figaro
   font-awesome-sass
+  high_voltage
   jquery-rails
   letter_opener
   paperclip
@@ -240,6 +244,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  pundit
   quiet_assets
   rack-timeout
   rails (= 4.2.3)

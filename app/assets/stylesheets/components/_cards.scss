@@ -12,8 +12,7 @@
     margin: 10px;
     background-size: cover;
     &:hover{
-      border: 1px solid darken($brand-color,10%);
-      box-shadow: 0px 0px 8px lighten($brand-color,25%);
+      border: 1px solid $brand-color;
     }
   }
 }
@@ -35,7 +34,6 @@
     font-weight: 300;
     font-size: 34px;
     color: #01D48F;
-    margin-top: 30px;
   }
 }
 
@@ -133,7 +131,7 @@
 .chat-card{
   background: white;
   padding: 40px;
-  margin: 40px 0;
+  margin: 40px 0 40px 0;
   box-shadow: 0px 2px 2px $gray-very-light;
   color: #777;
   .coach-info{
@@ -181,6 +179,9 @@
   &:hover {
     background-color: lighten($brand-color, 55%);
     cursor: pointer;
+  }
+  &:last-child{
+    margin-bottom: 40px;
   }
   img {
     border-radius: 50%;

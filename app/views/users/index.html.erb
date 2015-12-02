@@ -21,16 +21,14 @@
       <h1>Your trainees</h1>
 
       <% @users.each do |user| %>
-        <div class="cols-xs-12">
-          <div class="trainee-card text-center" data-user-id="<%= user.id %>">
-            <%= image_tag user.picture.url(:medium) %>
-            <p><%= user.first_name %></p>
-            <!-- affichier le nombre de message avec read_at = nil -->
-            <%if @unread_messages.where(sender: user).count > 0%>
-              <p class="notification"><i class="fa fa-envelope"></i> <%= @unread_messages.where(sender: user).count  %></p>
-            <%end%>
-            <%= link_to "see goals", user_goals_path(user), class: "btn btn-success"%>
-          </div>
+        <div class="trainee-card text-center" data-user-id="<%= user.id %>">
+          <%= image_tag user.picture.url(:medium) %>
+          <p><%= user.first_name %></p>
+          <!-- affichier le nombre de message avec read_at = nil -->
+          <%if @unread_messages.where(sender: user).count > 0%>
+            <p class="notification"><i class="fa fa-envelope"></i> <%= @unread_messages.where(sender: user).count  %></p>
+          <%end%>
+          <%= link_to "see goals", user_goals_path(user), class: "btn btn-success"%>
         </div>
       <% end %>
 

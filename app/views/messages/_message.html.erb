@@ -1,5 +1,6 @@
 <div class="message">
   <div class="header">
+  <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
     <strong><%=message.sender.first_name%></strong>
     <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>

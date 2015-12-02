@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  after_action :verify_authorized, except: :index, unless: :devise_or_admin_controller?
+  after_action :verify_policy_scoped, except: :index, unless: :devise_or_admin_controller?
+
   def index
     @users = User.where(adviser_id: current_user.coach.id)
     @unread_messages = Message.where(read_at: nil)
