@@ -6,13 +6,10 @@
       <% @goals.each do |goal| %>
 
         <% if goal.end_date >= Time.current %>
-
           <div class="goal-card text-center">
 
             <h2><%= goal.title %></h2>
-
             <p><strong><%= (goal.end_date.to_date - Time.current.to_date).to_i %></strong> days left</p>
-
             <div class="fullbar">
               <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%">
                 <div class="current-measure">
@@ -26,12 +23,11 @@
             <% end %>
 
           </div>
-
         <% end %>
 
       <% end %>
 
-      <% if GoalPolicy.new(current_user, @user, Goal).create? && current_user.coach == @user.adviser %>
+      <% if GoalPolicy.new(current_user, @user, Goal).create? %>
         <div class="text-center">
           <%= link_to "+ Add a new goal", '#', class: "btn btn-primary ", data: { toggle: "modal", target: "#myModal" } %>
         </div>
