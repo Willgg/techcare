@@ -6,8 +6,10 @@
     <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
   </div>
   <div class="menu">
-    <%= link_to(message_path(message), remote: true, method: :delete) do %>
-      <i class="fa fa-times"></i>
+    <% if policy(message).destroy? %>
+      <%= link_to(message_path(message), remote: true, method: :delete) do %>
+        <i class="fa fa-times"></i>
+      <% end %>
     <% end %>
   </div>
   <p>

@@ -1,5 +1,3 @@
-$( '.message' ).hover(
-  function() {
+$( '.messages').hover( function() {
     $( '.menu' ).toggle();
-  }
-);
+});
