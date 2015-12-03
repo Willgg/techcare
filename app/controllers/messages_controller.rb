@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :find_user, only: [:create, :index]
-  respond_to :js, only: [:create, :index, :read]
+  respond_to :js, only: [:create, :index, :read, :destroy]
 
   def create
     @message = Message.new(messages_params)

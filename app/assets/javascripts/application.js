@@ -3,6 +3,7 @@
 //= require bootstrap-sprockets
 
 //= require_tree ./app
+//= require app/menu
 
 
 // Please do not put any code in here. Create a new .js file in

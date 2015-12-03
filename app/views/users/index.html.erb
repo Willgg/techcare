@@ -3,18 +3,20 @@
     <div class="col-xs-12 col-md-8 chat-column">
       <div class="chat-card">
 
-        <!-- Affichage des messages  -->
         <% if @default_trainee %>
+          <!-- Formulaire de chat  -->
           <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
             <%= f.error_notification %>
             <%= hidden_field_tag :recipient_id, @default_trainee.id, class: 'js-message-recipient-id' %>
             <%= f.input :content, label: false, placeholder: 'Your message', as: :text, class: "form-control" %>
             <%#= f.association :recipient, collection: @user_names, value_method: :id %>
-
             <%= f.button :submit, class: "btn btn-primary"  %>
           <% end %>
+
+          <!-- List of messages -->
           <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
         <% end %>
+
       </div>
     </div>
     <div class="col-xs-12 col-md-4">

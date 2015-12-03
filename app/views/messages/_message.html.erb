@@ -1,8 +1,17 @@
-<div class="message">
+<div id="message-<%= message.id %>" class="message">
+  <div class="header">
   <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
-    <strong><%=message.sender.first_name%></strong>
-  </p>
+    <strong><%=message.sender.first_name%></strong><br />
+    <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
+  </div>
+  <div class="menu">
+    <% if policy(message).destroy? %>
+      <%= link_to(message_path(message), remote: true, method: :delete) do %>
+        <i class="fa fa-times"></i>
+      <% end %>
+    <% end %>
+  </div>
   <p>
     <%=message.content%>
   </p>

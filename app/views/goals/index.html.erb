@@ -46,9 +46,9 @@
         </div>
         <!-- formulaire du chat -->
         <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
-        <%= f.button :submit, class: "btn btn-primary"  %>
+          <%= f.error_notification %>
+          <%= f.input :content, label: false, placeholder: 'Your message', as: :text %>
+          <%= f.button :submit, class: "btn btn-primary"  %>
         <% end %>
         <!-- Affichage des messages -->
         <div class="messages">
@@ -64,7 +64,7 @@
 
 
 
-<!-- Modal -->
+<!-- New Goal Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
