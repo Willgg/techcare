@@ -2,7 +2,7 @@
   <div class="header">
   <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
-    <strong><%=message.sender.first_name%></strong>
+    <strong><%=message.sender.first_name%></strong><br />
     <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
   </div>
   <div class="menu">

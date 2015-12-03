@@ -4,18 +4,18 @@
   padding: 20px 0;
   padding-right: 5px;
   float: left;
+  width: 100%;
   .header{
     float: left;
     width: 80%;
     img{
       float:left;
-      width: 17%;
+      width: 40px;
       border-radius: 50%;
-      margin-right: 2%;
+      margin-right: 5px;
     }
     strong, small{
       float: left;
-      width: 81%;
     }
     small{
       color: #bbb;
