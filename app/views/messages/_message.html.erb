@@ -1,4 +1,4 @@
-<div class="message">
+<div id="message-<%= message.id %>" class="message">
   <div class="header">
   <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
@@ -6,7 +6,7 @@
     <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
   </div>
   <div class="menu">
-    <%= link_to(message_path(message), method: :delete) do %>
+    <%= link_to(message_path(message), remote: true, method: :delete) do %>
       <i class="fa fa-times"></i>
     <% end %>
   </div>
