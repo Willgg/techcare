@@ -21,6 +21,28 @@
 
 en:
   hello: "Hello world"
+  pages:
+    home:
+      first-claim: "Change your habits"
+      second-claim: "Get healthier today"
+      btn-cta: "Change now"
+      followup-arg: "Personal follow-up"
+      metrics-arg: "Based on actionable metrics"
+      adviser-arg: "Get helped by an expert"
+      dev-arg-1: "Metric-based monitoring."
+      dev-arg-1-content_html: 'Get personalized goals to improve your health condition.<br />You will feel better days after days.'
+      dev-arg-2: "Your health data in one place."
+      dev-arg-2-content_html: 'Synchronize all your connected devices in one place. We give sense to your data and save you time so you can focus on the most important: get healthier habits.'
+      dev-arg-3: "Meet our coaches"
+      cardiologist: "Cardiologist"
+      nutritionist: "Nutritionist"
+      diabetist: "Diabetes Specialist"
+      coach-1-speech: '"I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve health outcomes."'
+      coach-2-speech: '"I’m here to provide support, information, and encouragement to help facilitate your success. I know by the end of this journey, you will have lots of new tools and strategies that you can use in your everyday life."'
+      coach-3-speech: '"I believe people’s paths cross for a purpose and as your techcare coach, my mission is to support you to reach your goals and make positive changes in your life."'
+      newsletter-title: "Get our advices in your inbox"
+      newsletter-sub: "We empower people to keep healthy and avoid chronic conditions."
+      newsletter-submit-value: "Get it"
   controllers:
     advisers:
       coach_not_authorized: "You can't select a coach."
