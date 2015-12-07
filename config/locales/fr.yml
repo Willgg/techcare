@@ -43,7 +43,15 @@ fr:
       newsletter-title: "Nos conseils dans votre messagerie"
       newsletter-sub: "Nous aidons les gens à rester en bonne santé et éviter les maladies chroniques."
       newsletter-submit-value: "Envoyer"
-
+  shared:
+    navbar:
+      sign_in: "Connexion"
+      sign_up: "Inscription"
+      sign_out: "Déconnexion"
+      top_call_to_action: "Ajouter des données"
+      trainees: "Personnes suivies"
+      dashboard: "Progression"
+      profile: "Mon compte"
   controllers:
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."

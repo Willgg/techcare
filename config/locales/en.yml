@@ -43,6 +43,15 @@ en:
       newsletter-title: "Get our advices in your inbox"
       newsletter-sub: "We empower people to keep healthy and avoid chronic conditions."
       newsletter-submit-value: "Get it"
+  shared:
+    navbar:
+      sign_in: "Login"
+      sign_up: "Sign up"
+      sign_out: "Sign out"
+      top_call_to_action: "Add Data Source"
+      trainees: "Trainees list"
+      dashboard: "Dashboard"
+      profile: "Profile"
   controllers:
     advisers:
       coach_not_authorized: "You can't select a coach."
