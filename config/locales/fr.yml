@@ -1,0 +1,80 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fr:
+  hello: "Bonjour"
+  time:
+    formats:
+      short: "%m/%d/%Y - %H:%M"
+  pages:
+    home:
+      first-claim: "Changez de vie"
+      second-claim: "Adoptez des habitudes saines"
+      btn-cta: "Commencer"
+      followup-arg: "Suivi personnalisé"
+      metrics-arg: "Basé sur vos mesures"
+      adviser-arg: "Accompagnement par un expert"
+      dev-arg-1: "Suivi de vos indicateurs clés."
+      dev-arg-1-content_html: 'Recevez des objectifs pour améliorer votre bien-être.<br />Vous vous sentirez au fil des jours.'
+      dev-arg-2: "La puissance de vos donnés."
+      dev-arg-2-content_html: 'Synchronisez tous vos objets connectés à un seul endroit. Nous donnons du sens à vos donnés et vous gagnez du temps pour vous concentrer sur le plus important : adopter une vie plus saine.'
+      dev-arg-3: "Rencontrez nos experts"
+      cardiologist: "Cardiologue"
+      nutritionist: "Nutritionniste"
+      diabetist: "Diabétologue"
+      coach-1-speech: '"I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve health outcomes."'
+      coach-2-speech: '"I’m here to provide support, information, and encouragement to help facilitate your success. I know by the end of this journey, you will have lots of new tools and strategies that you can use in your everyday life."'
+      coach-3-speech: '"I believe people’s paths cross for a purpose and as your techcare coach, my mission is to support you to reach your goals and make positive changes in your life."'
+      newsletter-title: "Nos conseils dans votre messagerie"
+      newsletter-sub: "Nous aidons les gens à rester en bonne santé et éviter les maladies chroniques."
+      newsletter-submit-value: "Envoyer"
+  shared:
+    navbar:
+      sign_in: "Connexion"
+      sign_up: "Inscription"
+      sign_out: "Déconnexion"
+      top_call_to_action: "Ajouter des données"
+      trainees: "Personnes suivies"
+      dashboard: "Progression"
+      profile: "Mon compte"
+  controllers:
+    advisers:
+      coach_not_authorized: "Vous ne pouvez pas choisir de coach."
+      user_has_coach: "Vous avez déjà un coach."
+    selection:
+      adviser_selected: "Vous avez bien selectionné votre coach !"
+      adviser_error: "Impossible de sélectionner ce coach."
+    providers:
+      success: "Vos données ont bien été synchronisée."
+      error: "Impossible de synchroniser vos données."
+    goals:
+      created: "L'objectif a bien été crée."
+      destroy_success: "L'objectif a bien été supprimé."
+      destroy_fail: "L'objectif n'a pas été supprimé."
+  goals:
+    index:
+      days: "jours restants"
+      delete: "supprimer"
+      new-goal: "+ Ajouter un objectif"
+      title-new-goal: "Créer un nouvel objectif"
+      submit-goal: "Créer objectif"
+      submit-message: "Envoyer"
+      placeholder-message: "Votre message"
