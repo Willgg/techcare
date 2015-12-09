@@ -3,7 +3,7 @@
   <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
     <strong><%=message.sender.first_name%></strong><br />
-    <small><%=message.created_at.strftime("%m/%d/%Y - %H:%M")%></small>
+    <small><%= l(message.created_at, format: :short)%></small>
   </div>
   <div class="menu">
     <% if policy(message).destroy? %>

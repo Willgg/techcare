@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  time:
+    formats:
+      short: "%m/%d/%Y - %H:%M"
   pages:
     home:
       first-claim: "Change your habits"
@@ -66,3 +69,12 @@ en:
       created: "Goal has been successfully created."
       destroy_success: "Goal has been successfully deleted."
       destroy_fail: "Goal has been not been deleted."
+  goals:
+    index:
+      days: "days left"
+      delete: "delete"
+      new-goal: "+ Add a new goal"
+      title-new-goal: "Add a new goal"
+      submit-goal: "Create goal"
+      submit-message: "Send"
+      placeholder-message: "Your message"
