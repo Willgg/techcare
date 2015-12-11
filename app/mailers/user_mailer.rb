@@ -4,10 +4,9 @@ class UserMailer < ApplicationMailer
   # with the following lookup:
   #
   #   en.user_mailer.welcome.subject
-  #
-  def welcome
-    @greeting = "Hi"
 
-    mail to: "to@example.org"
+  def welcome(user)
+    @user = user
+    mail(to: @user.email, subject: 'Bienvenue sur Techcare')
   end
 end
