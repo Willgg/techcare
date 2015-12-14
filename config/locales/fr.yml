@@ -69,6 +69,13 @@ fr:
       created: "L'objectif a bien été crée."
       destroy_success: "L'objectif a bien été supprimé."
       destroy_fail: "L'objectif n'a pas été supprimé."
+  advisers:
+    index:
+      title: "Select your adviser to get help"
+  providers:
+    index:
+      title: "Synchroniser vos objets connectés"
+      intro: "Techcare a pour but de vous faire adopter des habitubes saines. Il a besoin pour cela d'accéder à vos données pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
   goals:
     index:
       days: "jours restants"
