@@ -1,5 +1,26 @@
 <html>
-  <body>
-    <%= yield %>
+  <head>
+    <style type="text/css">
+      .mail {
+        background: #efefef;
+      }
+      .mail .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        font-family: "Lato", "Helvetica", "sans-serif";
+        font-size: 15px;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body class="mail">
+    <div class="container">
+      <%= link_to root_url, style: "display: block; text-align: center;" do %>
+        <%= image_tag("logo-green.png", style: "width: 80px") %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

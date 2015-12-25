@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "William de Techcare <will@techcare.io>"
+  default from: I18n.t('mailers.application.sender')
   layout 'mailer'
 end

@@ -85,3 +85,8 @@ en:
       submit-goal: "Create goal"
       submit-message: "Send"
       placeholder-message: "Your message"
+  mailers:
+    application:
+      sender: "William from Techcare <will@techcare.io>
+    user:
+      title: "Bienvenue sur Techcare"
