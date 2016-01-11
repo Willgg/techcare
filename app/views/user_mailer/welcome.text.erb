@@ -1,3 +1,11 @@
-UserMailer#welcome
-
-<%= @greeting %>, find me in app/views/user_mailer/welcome.text.erb
+Hi <%= @user.first_name %>,
+I am very happy to welcome you on techcare. If you have not completed yet your registration please follow the steps below:
+- Choose your coach
+- Synchronize with your connected devices
+- Monitor your progress in your dashboard
+- Ask your coach et read his advice
+Please let me know if you have any idea or notice about techcare by clicking on the feedback tab located at the bottom right of the website pages.
+Tech Care ! :-)
+William,
+techcare founder
+<%= link_to "back to techcare", root_path %>

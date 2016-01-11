@@ -3,6 +3,7 @@ class GoalsController < ApplicationController
   after_action :verify_authorized, except: [:index, :create, :destroy], unless: :devise_or_admin_controller?
 
   def index
+    redirect_to advisers_path if @user.adviser.blank?
     # Set messages as read
     @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
     @messages.each do |message|

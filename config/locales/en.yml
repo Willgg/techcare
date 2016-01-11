@@ -69,6 +69,13 @@ en:
       created: "Goal has been successfully created."
       destroy_success: "Goal has been successfully deleted."
       destroy_fail: "Goal has been not been deleted."
+  advisers:
+    index:
+      title: "Select your adviser to get help"
+  providers:
+    index:
+      title: "Connect to services"
+      intro: "Techcare is built to make you change your habits. The service needs to access some of your data to set personnalized goals. Your coach is going to monitor your progress and to give you many tips to succeed."
   goals:
     index:
       days: "days left"
@@ -78,3 +85,8 @@ en:
       submit-goal: "Create goal"
       submit-message: "Send"
       placeholder-message: "Your message"
+  mailers:
+    application:
+      sender: "William from Techcare <will@techcare.io>
+    user:
+      title: "Bienvenue sur Techcare"
