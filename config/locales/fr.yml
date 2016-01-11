@@ -87,6 +87,6 @@ fr:
       placeholder-message: "Votre message"
   mailers:
     application:
-      sender: "William de Techcare <will@techcare.io>
+      sender: "William de Techcare <will@techcare.io>"
     user:
       title: "Bienvenue sur Techcare"
