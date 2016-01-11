@@ -5,3 +5,4 @@ ActionMailer::Base.smtp_settings = {
   :password =>       ENV['MANDRILL_APIKEY'],
   :domain =>         'techcare.io',
   :authentication => 'login'
+}
