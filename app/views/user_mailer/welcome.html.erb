@@ -1,12 +1,12 @@
-<p>Bonjour <%= @user.first_name %>,</p>
-<p>Je suis très heureux de vous accueillir sur techcare. Si vous n'avez pas complété votre inscription, voici ce qu'il reste à faire :</p>
+<p>Hi <%= @user.first_name %>,</p>
+<p>I am very happy to welcome you to techcare. Here is what you still have to do if you did not complete your registration:</p>
 <ol>
-  <li>Choisir un coach</li>
-  <li>Synchroniser un ou plusieurs objets connectés</li>
-  <li>Visualiser ses progrès sur le tableau de bord</li>
-  <li>Solliciter le coach et lire ses conseils</li>
+  <li>Select your coach</li>
+  <li>Synchronize your external data</li>
+  <li>Check your progress on the dashboard</li>
+  <li>Ask your coach and follow his advice.</li>
 </ol>
-<p>N'hésitez pas à nous faire part de vos idées ou remarques en cliquant sur l'onglet "feedback" en bas à droite de votre tableau de bord</p>
-<p>Portez vous bien ! :-)</p>
-<p>William,<br />fondateur de techcare</p>
-<p><small><%= link_to "revenir sur techcare", user_goals_path(@user) %></small></p>
+<p>You can tell us your feedback or any idea you could have by clicking on the feedback tab at the right bottom of the dashboard.</p>
+<p>Take care ! :-)</p>
+<p>William,<br />techcare founder</p>
+<p><small><%= link_to "back to techcare", root_path %></small></p>
