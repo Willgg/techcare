@@ -9,8 +9,4 @@
 <p>N'hésitez pas à nous faire part de vos idées ou remarques en cliquant sur l'onglet "feedback" en bas à droite de votre tableau de bord</p>
 <p>Portez vous bien ! :-)</p>
 <p>William,<br />fondateur de techcare</p>
-<p>
-  <small>
-    <a href="<%= url_for(controller: 'goals', action: 'index', only_path: false, user_id: @user.id) %>">revenir sur techcare</a>
-  </small>
-</p>
+<p><small><%= link_to "revenir sur techcare", root_path %></small></p>

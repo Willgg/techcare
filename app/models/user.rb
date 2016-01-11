@@ -65,6 +65,7 @@ class User < ActiveRecord::Base
     content_type: /\Aimage\/.*\z/
 
   after_create :send_welcome_email
+  raise
 
   def messages
     sent_messages + received_messages

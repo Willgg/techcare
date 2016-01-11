@@ -1,16 +1,12 @@
 <p>Hi <%= @user.first_name %>,</p>
-<p>I am very happy to welcome you on techcare. If you have not completed your registration yet please follow the steps below:</p>
+<p>I am very happy to welcome you to techcare. If you have not completed your registration yet please follow the steps below:</p>
 <ol>
   <li>Choose your coach</li>
-  <li>Synchronize with your connected devices</li>
-  <li>Monitor your progress in your dashboard</li>
-  <li>Ask your coach et read his advice</li>
+  <li>Synchronize with your external data</li>
+  <li>Check your progress in your dashboard</li>
+  <li>Ask your coach and follow his advice.</li>
 </ol>
-<p>Please let me know if you have any idea or notice about techcare by clicking on the feedback tab located at the right bottom of the website pages.</p>
+<p>Please let me know if you have any idea  or notice about techcare by clicking on the feedback tab located at the right bottom of the website pages.</p>
 <p>Take care of yourself ! :-)</p>
 <p>William,<br />techcare founder</p>
-<p>
-  <small>
-    <a href="<%= url_for(controller: 'goals', action: 'index', only_path: false, user_id: @user.id) %>">back to techcare</a>
-  </small>
-</p>
+<p><small><%= link_to "back to techcare", root_path %></small></p>
