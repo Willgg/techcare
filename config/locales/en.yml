@@ -89,4 +89,4 @@ en:
     application:
       sender: "William from Techcare <will@techcare.io>"
     user:
-      title: "Welcome to Techcare"
+      title: "Welcome %{name}"
