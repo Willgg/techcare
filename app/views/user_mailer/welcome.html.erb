@@ -1,9 +1,9 @@
-<table width="600px" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin:40px 0; padding: 20px;
+<table width="600px" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin: 40px; padding: 20px;
         font-family: 'Lato', 'Helvetica', 'sans-serif';  font-size: 15px; color: #777777;">
   <tr>
     <td width="100%">
       <%= link_to root_url, style: "display: block; text-align: center;" do %>
-        <%= image_tag("logo-green.png", style: "width: 80px") %>
+        <%= image_tag("logo-green.png", style: "width: 80px", alt: "") %>
       <% end %>
     </td>
   </tr>
@@ -11,7 +11,7 @@
     <td width="100%">
       Hi <%= @user.first_name %>,<br><br>
       I am very happy to welcome you to techcare. If you have not completed your registration yet please follow the steps below:<br><br>
-      <ol>
+      <ol style="margin: 0">
         <li>Choose your coach</li>
         <li>Synchronize with your external data</li>
         <li>Check your progress in your dashboard</li>
