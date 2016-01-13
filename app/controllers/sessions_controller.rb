@@ -9,7 +9,6 @@ class SessionsController < Devise::SessionsController
       if resource.api_consumer_key
         Trainees::FetchMeasuresService.new(resource).fetch!
       end
-
       user_goals_path(resource)
     end
   end
