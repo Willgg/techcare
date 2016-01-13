@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
 
   def welcome(user)
     @user = user
+    @locale = (I18n.locale == I18n.default_locale ? nil : I18n.locale)
     mail(to: @user.email, subject: I18n.t('mailers.user.title', name: @user.first_name))
   end
 end

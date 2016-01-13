@@ -1,4 +1,4 @@
-<table width="600px" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin-top: 40px; padding-top: 20px;">
+<table cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin-top: 40px; padding-top: 20px;font-size: 0px;max-width: 600px">
   <tr>
     <td>
       <%= link_to root_url, style: "display: block; text-align: center;" do %>
@@ -8,7 +8,7 @@
   </tr>
 </table>
 
-<table width="600px" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin-bottom: 40px; padding: 20px; font-family: 'Lato', 'Helvetica', 'sans-serif'; font-size: 16px; color: #777777;">
+<table cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" style="margin-bottom: 40px; padding: 20px; font-family: 'Lato', 'Helvetica', 'sans-serif'; font-size: 16px; color: #777777; max-width: 600px">
   <tr>
     <td>
       Hi <%= @user.first_name %>,<br><br>
@@ -22,7 +22,7 @@
       Please let me know if you have any idea  or notice about techcare by clicking on the feedback tab located at the right bottom of the website pages.<br><br>
       Take care of yourself ! :-)<br><br>
       William,<br />techcare founder<br><br>
-      <small><%= link_to "back to techcare", root_path %></small>
+      <small><%= link_to "back to techcare", user_goals_url(@locale, @user) %></small>
     </td>
   </tr>
 </table>
