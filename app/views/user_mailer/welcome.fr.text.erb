@@ -1,3 +1,17 @@
-UserMailer#welcome
+Bienvenue <%= @user.first_name %>
 
-<%= @greeting %>, find me in app/views/user_mailer/welcome.text.erb
+Je suis très heureux de vous accueillir sur TechCare. Vous avez décidé d'adopter des habitudes saines et c'est un très bon début. Notre mission est de vous aider à prendre soin de votre santé. Si vous n'avez pas complété votre inscription, voici ce qu'il reste à faire :
+
+- Choisir votre coach
+- Synchroniser vos services favoris
+- Visualiser vos progrès sur le tableau de bord
+- Discuter avec votre coach et suivre ses conseils
+
+<%= link_to "Continuer", user_goals_url(@locale, @user), target: 'blank' %>
+
+N'hésitez pas à nous faire part de vos idées ou remarques en cliquant sur l'onglet "feedback" en bas à droite de votre tableau de bord.
+
+Prenez soin de vous ! :-)
+
+William
+Fondateur de TechCare
