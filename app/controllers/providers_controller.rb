@@ -66,7 +66,4 @@ class ProvidersController < ApplicationController
     end
   end
 
-  def sign
-
-  end
 end

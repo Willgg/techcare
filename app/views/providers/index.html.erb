@@ -8,8 +8,9 @@
           <div style="margin: 30px 14%; float: left;">
             <%= link_to "", providers_path, method: :post, class: "logo",
             style: "background-image: url( #{asset_path 'withing-logo.png'})" %>
+             <%= link_to "", auth_path(provider: "fitbit"), method: :post, class: "logo",
+            style: "background-image: url( #{asset_path 'fitbit-logo.png'})" %>
             <a href="#" class="logo" style="background-image: url(<%= asset_path 'ihealth-logo.png' %>)"></a>
-            <a href="#" class="logo" style="background-image: url(<%= asset_path 'fitbit-logo.png' %>)"></a>
           </div>
         </div>
       </div>
