@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
   has_many :received_messages, foreign_key: "recipient_id", class_name: "Message"
   has_many :measures
   has_many :goals
+  has_many :authorizations
   has_many :measure_types, through: :measures
   has_one :coach, class_name: "Adviser"
   belongs_to :adviser

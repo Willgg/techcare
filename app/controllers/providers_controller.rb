@@ -65,4 +65,8 @@ class ProvidersController < ApplicationController
       redirect_to providers_path
     end
   end
+
+  def sign
+
+  end
 end
