@@ -38,7 +38,17 @@ class AuthorizationsController < ApplicationController
                       source: params[:provider],
                       uid: uid.values.last
                     )
-    raise
+    options = {
+      provider: @provider.to_sym,
+      token: @authorization.token,
+      secret: @authorization.secret,
+      consumer_key: consumer.key,
+      consumer_secret: consumer.secret,
+      user_id: @authorization.uid
+    }
+
+    Trainees::FetchDataService.new(current_user, options).fetch!
+
     if @authorization.save
       flash[:notice] = I18n.t('controllers.providers.success', default: "Your data has been synchronized.")
       redirect_to user_goals_path(current_user)

@@ -1,6 +1,7 @@
 class ProvidersController < ApplicationController
   require 'withings-api'
   require 'withings'
+  require 'fitgem'
 
   include Withings
   include Withings::Api

@@ -188,6 +188,8 @@ end
   measure.save
 end
 
+# measure_type: Fat avec 2 measures et 1 goal
+
 1.times do
   measure_type = MeasureType.new(
     name: "Fat ratio",
@@ -219,6 +221,47 @@ end
 
   measure = Measure.new(
     value: 35,
+    date: (Time.now),
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
+end
+
+# measure_type: Steps avec 2 measures et 1 goal
+
+1.times do
+  measure_type = MeasureType.new(
+    name: "Steps",
+    unit: "steps",
+    data_type: "StepsTest"
+  )
+  measure_type.save
+
+  measure = Measure.new(
+    value: 2500,
+    date: (Time.now) - 800000,
+    user_id: 2,
+    source: "Withings",
+    measure_type_id: measure_type.id
+  )
+  measure.save
+
+  goal = Goal.new(
+    measure_type_id: measure_type.id,
+    user_id: 2,
+    adviser_id: 1,
+    start_date: (Time.now) - (60*60*24*2),
+    end_value: 10000,
+    end_date: (Time.now) + (60*60*24*5),
+    title: "Walk 10000 steps",
+    cumulative: true
+  )
+  goal.save
+
+  measure = Measure.new(
+    value: 4500,
     date: (Time.now),
     user_id: 2,
     source: "Withings",
