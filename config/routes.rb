@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'auth/:provider', to: 'authorizations#create', as: 'auth'
-  get  'auth/:provider/callback', to: 'authorizations#save_token', as: 'auth_callback'
+  post 'auth/:provider', to: 'authorizations#new', as: 'auth'
+  get  'auth/:provider/callback', to: 'authorizations#create', as: 'auth_callback'
 
 end

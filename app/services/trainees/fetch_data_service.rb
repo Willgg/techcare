@@ -30,7 +30,6 @@ module Trainees
 
         if last_provider_measure
           date_option[:base_date] = last_provider_measure.created_at
-          raise
           activities  = client.activity_on_date_range("steps", date_option[:base_date], date_option[:end_date])
         else
           date_option[:base_date] = Time.current.months_ago(1).strftime("%Y-%m-%d")
@@ -41,6 +40,11 @@ module Trainees
         body_fat    = client.body_fat(date_option)
 
       when :withings
+        activities  = nil
+        body_weight = nil
+        body_fat    = nil
+
+      when :google
         activities  = nil
         body_weight = nil
         body_fat    = nil
@@ -60,22 +64,24 @@ module Trainees
             m.measure_type_id  = 4
             m.value            = i["value"]
             m.date             = Date.parse(i["dateTime"])
-          elsif i.has_key?("weight")
-            raise
-            m.measure_type_id  = 1
-            m.value            = i["value"]
-            m.date             = Date.parse(i["dateTime"])
+            m.save
           end
-          m.save
+          if i.has_key?("weight")
+            m.measure_type_id  = 1
+            m.value            = i["weight"]
+            m.date             = Date.parse(i["dateTime"] ||= i["date"])
+            m.save
+          end
+          if i.has_key?("fat")
+            m.measure_type_id  = 3
+            m.value            = i["fat"]
+            m.date             = Date.parse(i["dateTime"] ||= i["date"])
+            m.save
+          end
         end
-
       end
-
-      #{"activities-log-steps":[{"dateTime":"2011-04-27","value":5490}]}
-      #{"weight":[{"bmi":23.57,"date":"2015-03-05","logId":1330991999000,"time":"23:59:59","weight":73,"source": "API"}]}
-
-      raise
     end
+
   end
 
 end
