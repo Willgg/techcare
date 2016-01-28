@@ -8,7 +8,7 @@ module Trainees
       create_weight_goal
       create_blood_pressure_goal
       create_fat_ratio_goal
-      #create_step_goal
+      create_step_goal
     end
 
     private

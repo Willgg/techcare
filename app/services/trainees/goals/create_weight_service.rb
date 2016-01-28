@@ -7,7 +7,6 @@ module Trainees
 
       def call
         return if measure_type.nil? || already_has_goal?
-
         if last_measure && last_measure.value > goal_value
           g = Goal.new
           g.measure_type    = measure_type

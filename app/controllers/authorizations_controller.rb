@@ -40,19 +40,18 @@ class AuthorizationsController < ApplicationController
                       uid: uid.values.last
                     )
 
-      options = { provider: @provider.to_sym,
-                  token: @authorization.token,
-                  secret: @authorization.secret,
-                  consumer_key: consumer.key,
-                  consumer_secret: consumer.secret,
-                  user_id: @authorization.uid }
+    options = { provider: @provider.to_sym,
+                token: @authorization.token,
+                secret: @authorization.secret,
+                consumer_key: consumer.key,
+                consumer_secret: consumer.secret,
+                user_id: @authorization.uid }
 
-      # User data fetching
-      Trainees::FetchDataService.new(current_user, options).fetch!
+    # User data fetching
+    Trainees::FetchDataService.new(current_user, options).fetch!
 
-      # Default Goals Creation
-      Trainees::CreateGoalsService.new(current_user).call
-      raise
+    # Create goals for user
+    Trainees::CreateGoalsService.new(current_user).call
 
     if @authorization.save
       flash[:notice] = I18n.t('controllers.providers.success', default: "Your data has been synchronized.")
@@ -65,6 +64,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def destroy
+    #FIXME : to do
   end
 
   private
