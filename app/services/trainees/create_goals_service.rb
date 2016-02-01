@@ -8,6 +8,7 @@ module Trainees
       create_weight_goal
       create_blood_pressure_goal
       create_fat_ratio_goal
+      create_step_goal
     end
 
     private
@@ -21,7 +22,11 @@ module Trainees
     end
 
     def create_fat_ratio_goal
-       Trainees::Goals::CreateFatRatioService.new(@trainee).call
+      Trainees::Goals::CreateFatRatioService.new(@trainee).call
+    end
+
+    def create_step_goal
+      Trainees::Goals::CreateStepService.new(@trainee).call
     end
   end
 end

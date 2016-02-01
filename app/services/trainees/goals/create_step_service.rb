@@ -1,23 +1,22 @@
 module Trainees
   module Goals
-    class CreateWeightService
+    class CreateStepService
       def initialize(trainee)
         @trainee = trainee
       end
 
       def call
         return if measure_type.nil? || already_has_goal?
-        if last_measure && last_measure.value > goal_value
+        if last_measure && last_measure.value < goal_value
           g = Goal.new
           g.measure_type    = measure_type
-          g.end_value       = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
-          g.title           = "Keep your weight under #{goal_value} kg"
-          g.cumulative      = false
-          weight_to_lose    = last_measure.value - goal_value
-          g.end_date        = Time.current + ( ( weight_to_lose / ( 0.5 / 7 ) ).round(2).to_f.days ) # Total loss / loss per day = Goal length
+          g.title           = "Walk at least #{goal_value} steps" #FIXME I18n for title
+          g.cumulative      = true
+          g.end_date        = Time.current + 1.week
           g.start_date      = Time.current
+          g.end_value       = goal_value * ((g.end_date - g.start_date) / 1.day).round
           g.save
         end
       end
@@ -25,7 +24,7 @@ module Trainees
       private
 
       def goal_value
-        @goal_value ||= ( 25 * ( ( @trainee.height.to_f / 100 ) ** 2 ) ).round # height in meter
+        @last_measure && @last_measure.value > 0 ? (@last_measure.value + 1000) : 10000
       end
 
       def already_has_goal?
@@ -37,7 +36,7 @@ module Trainees
       end
 
       def measure_type
-        @measure_type ||= MeasureType.find(1) # FIXME: we can't have static IDs !!!
+        @measure_type ||= MeasureType.find(4) # FIXME: we can't have static IDs !!!
       end
     end
   end

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /fr/ do
-    root 'pages#home'
-    get 'providers', to: 'providers#index'
-    post 'providers', to: 'providers#create'
-    get 'providers/callback' , to: 'providers#save_token'
+    root   'pages#home'
+    get    'providers',          to: 'providers#index'
+    post   'providers',          to: 'providers#create'
+    get    'providers/callback', to: 'providers#save_token'
 
     devise_for :users, controllers: { registrations: "registrations", sessions: "sessions" }
 
@@ -22,4 +22,8 @@ Rails.application.routes.draw do
       resource :selection, only: [:create], module: 'advisers' # module permet d'indique que le controller se trouve dans le dossier advisers, on neste pour garder le id de adviser
     end
   end
+
+  post 'auth/:provider', to: 'authorizations#new', as: 'auth'
+  get  'auth/:provider/callback', to: 'authorizations#create', as: 'auth_callback'
+
 end
