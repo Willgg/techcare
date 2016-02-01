@@ -9,6 +9,11 @@ class SessionsController < Devise::SessionsController
       if resource.api_consumer_key
         Trainees::FetchMeasuresService.new(resource).fetch!
       end
+      if resource.authorizations
+        options = {locale: session[:locale] || params[:locale] }
+        raise
+        Trainees::FetchDataService.new(resource, options).update!
+      end
       user_goals_path(resource)
     end
   end

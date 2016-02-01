@@ -14,6 +14,7 @@ class AuthorizationsController < ApplicationController
     request_token  = consumer.get_request_token
     session[:request_token] = { token: request_token.token, secret: request_token.secret}
     session[:request_token_params] = request_token.params
+    session[:locale] = params[:locale]
 
     redirect_to request_token.authorize_url
   end
@@ -40,17 +41,12 @@ class AuthorizationsController < ApplicationController
                       uid: uid.values.last
                     )
 
-    options = { provider: @provider.to_sym,
-                token: @authorization.token,
-                secret: @authorization.secret,
-                consumer_key: consumer.key,
-                consumer_secret: consumer.secret,
-                user_id: @authorization.uid }
+    options = { provider: @provider.to_sym, authorization: @authorization }
 
-    # User data fetching
+    # Fetch data from API and create Measures in database
     Trainees::FetchDataService.new(current_user, options).fetch!
 
-    # Create goals for user
+    # Create goals for User
     Trainees::CreateGoalsService.new(current_user).call
 
     if @authorization.save

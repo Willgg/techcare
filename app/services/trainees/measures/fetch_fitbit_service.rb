@@ -11,7 +11,7 @@ module Trainees
           last_provider_measure = @user.measures.where(source: @provider.to_s).order(created_at: :asc).last
         end
 
-        client = Fitgem::Client.new(consumer_key: @consumer_key, consumer_secret: @consumer_secret, token: @token, secret: @secret, user_id: @user_id)
+        client = Fitgem::Client.new(consumer_key: @consumer_key, consumer_secret: @consumer_secret, token: @token, secret: @secret, user_id: @user_id, unit_system: Fitgem::ApiUnitSystem.METRIC)
         date_option = { end_date: Time.current.strftime("%Y-%m-%d") }
 
         if last_provider_measure
@@ -25,38 +25,43 @@ module Trainees
         body_weight = client.body_weight(date_option)
         body_fat    = client.body_fat(date_option)
 
-        @data = { activities: activities, body_weight: body_weight, body_fat: body_fat }
+        @data = activities.merge!(body_weight).merge!(body_fat)
       end
 
       def save_fitbit_data!
         @data.each do |type,measures|
-          measures.values.flatten.each do |i|
+          measures.each do |h|
             m = Measure.new
             m.user   = @user
             m.source = @provider.to_s
             # Measure of Steps per day
-            if i.has_key?("value")
+            if h.has_key?("value")
               m.measure_type_id  = 4
-              m.value            = i["value"]
-              m.date             = Date.parse(i["dateTime"])
+              m.value            = h["value"]
+              m.date             = Date.parse(h["dateTime"])
               m.save
             # Measure of Weight
-            elsif i.has_key?("weight")
+            elsif h.has_key?("weight")
               m.measure_type_id  = 1
-              m.value            = i["weight"]
-              m.date             = Date.parse(i["dateTime"] ||= i["date"])
+              m.value            = h["weight"]
+              m.date             = Date.parse(h["dateTime"] ||= h["date"])
               m.save
             # Measure of Fat
-            elsif i.has_key?("fat")
+            elsif h.has_key?("fat")
               m.measure_type_id  = 3
-              m.value            = i["fat"]
-              m.date             = Date.parse(i["dateTime"] ||= i["date"])
+              m.value            = h["fat"]
+              m.date             = Date.parse(h["dateTime"] ||= h["date"])
               m.save
             end
           end
         end
       end
 
+      private
+
+      def set_unit_system
+        #FIXME : unit system based on user's :locale
+      end
     end
   end
 end
