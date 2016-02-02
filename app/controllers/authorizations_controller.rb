@@ -41,7 +41,7 @@ class AuthorizationsController < ApplicationController
                       uid: uid.values.last
                     )
 
-    options = { provider: @provider.to_sym, authorization: @authorization }
+    options = { authorization: @authorization, locale: session[:locale] }
 
     # Fetch data from API and create Measures in database
     Trainees::FetchDataService.new(current_user, options).fetch!

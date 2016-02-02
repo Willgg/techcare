@@ -1,6 +1,6 @@
 module Trainees
 
-  attr_reader :user_id, :provider, :user
+  attr_reader :user_id, :provider, :user, :token
 
   class FetchDataService
 
@@ -9,8 +9,9 @@ module Trainees
       @options         = options
       @consumer_key    = ENV['FITBIT_CONSUMER_KEY']
       @consumer_secret = ENV['FITBIT_CONSUMER_SECRET']
-      @provider        = options[:provider] if options.has_key?(:provider)
+      @locale          = options[:locale] || "" if options.has_key?(:locale)
       if options.has_key?(:authorization)
+        @provider      = options[:authorization].source.to_sym
         @token         = options[:authorization].token
         @secret        = options[:authorization].secret
         @user_id       = options[:authorization].uid
@@ -19,14 +20,8 @@ module Trainees
 
     def update!
       @user.authorizations.each do |auth|
-        @options = {
-          provider: auth.source.to_sym,
-          token: auth.token,
-          secret: auth.secret,
-          consumer_key: ENV['FITBIT_CONSUMER_KEY'],
-          consumer_secret: ENV['FITBIT_CONSUMER_SECRET'],
-          user_id: auth.uid }
-        raise
+        @options[:authorization] = auth
+        @provider = auth.source.to_sym
         fetch!
       end
     end
