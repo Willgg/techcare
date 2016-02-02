@@ -60,7 +60,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def destroy
-    #FIXME : to do
+    #FIXME : todo
   end
 
   private

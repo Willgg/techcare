@@ -4,7 +4,7 @@ module Trainees
 
   class FetchDataService
 
-    def initialize(user, options={})
+    def initialize(user, options = {})
       @user            = user
       @options         = options
       @consumer_key    = ENV['FITBIT_CONSUMER_KEY']
