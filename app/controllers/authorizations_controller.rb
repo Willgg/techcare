@@ -34,12 +34,11 @@ class AuthorizationsController < ApplicationController
     uid            = access_token.params.select { |k,v| k.to_s.match(/user|id|uid/) }
 
     @authorization = Authorization.new(
-                      user: current_user,
-                      token: access_token.token,
-                      secret: access_token.secret,
-                      source: params[:provider],
-                      uid: uid.values.last
-                    )
+                       user: current_user,
+                       token: access_token.token,
+                       secret: access_token.secret,
+                       source: params[:provider],
+                       uid: uid.values.last)
 
     options = { authorization: @authorization, locale: session[:locale] }
 
