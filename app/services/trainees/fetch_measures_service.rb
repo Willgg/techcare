@@ -20,15 +20,38 @@ module Trainees
 
     def fetch!
 
-      if @user.measures.exists?
-        last_measure_withings = @user.measures.where(source: "withings").order(created_at: :asc).last
-        data = @withings_user.measurement_groups(start_at: last_measure_withings.created_at, end_at: Time.current)
-      else
-        data = @withings_user.measurement_groups()
-      end
-      #user.measurement_groups(measurement_type: 1)
-      #user.measurement_groups(device: Withings::SCALE)
+      data = {}
 
+      MeasureType.all.each do |mt|
+
+        if @user.measures.exists?(source: "withings", measure_type_id: mt.id)
+          last_measure_withings = @user.measures.where(source: "withings", measure_type_id: mt.id).order(date: :asc).last
+          base_date = last_measure_withings.date + 1.day
+          options = { start_at: base_date, end_at: Time.current }
+        else
+          base_date = Time.current - 1.month
+          options = {}
+        end
+        options_string = { startdateymd: base_date.strftime("%F"), enddateymd: Time.current.strftime("%F") }
+
+        if mt.id == 4
+          activities = @withings_user.get_activities(options_string)
+          data[:activities] = activities["activities"]
+        else
+          if mt.id == 1
+            options[:measurement_type] = Withings::MeasurementGroup::TYPE_WEIGHT
+            data[:weight] = @withings_user.measurement_groups(options)
+          elsif mt.id == 2
+            options[:measurement_type] = Withings::MeasurementGroup::TYPE_SYSTOLIC_BLOOD_PRESSURE
+            data[:systolic_blood_pressure] = @withings_user.measurement_groups(options)
+          elsif mt.id == 3
+            options[:measurement_type] = Withings::MeasurementGroup::TYPE_FAT_RATIO #FIXME API broken for fat
+            data[:fat] = @withings_user.measurement_groups(options)
+          end
+        end
+
+      end
+      #FIXME : revoir la creation des measures
       data.each do |measure|
         if measure.weight
           m = Measure.new

@@ -20,6 +20,5 @@ class Authorization < ActiveRecord::Base
   belongs_to :user
 
   validates :source, presence: true
-  validates :token, :uniqueness => { :scope => :source,
-    message: "token must be unique per source" }
+  validates :token, uniqueness: { scope: :source, message: "must be unique per source" }
 end
