@@ -7,16 +7,17 @@ module Trainees
 
       def call
         return if measure_type.nil? || already_has_goal?
+
         if last_measure && last_measure.value > goal_value
           g = Goal.new
           g.measure_type    = measure_type
           g.end_value       = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
-          g.title           = "Keep your weight under #{goal_value} kg"
+          g.title           = I18n.t('controllers.goals.weight_title', goal_value: goal_value)
           g.cumulative      = false
           weight_to_lose    = last_measure.value - goal_value
-          g.end_date        = Time.current + ( ( weight_to_lose / ( 0.5 / 7 ) ).round(2).to_f.days ) # Total loss / loss per day = Goal length
+          g.end_date        = Time.current + ((weight_to_lose / (0.5 / 7)).round(2).to_f.days) # Total loss / loss per day = Goal length
           g.start_date      = Time.current
           g.save
         end

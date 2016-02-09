@@ -55,6 +55,12 @@ en:
       trainees: "Trainees list"
       dashboard: "Dashboard"
       profile: "Profile"
+  activerecord:
+    models:
+      goal: "Goal"
+    attributes:
+      goal:
+        title: "title"
   controllers:
     advisers:
       coach_not_authorized: "You can't select a coach."
@@ -62,13 +68,17 @@ en:
     selection:
       adviser_selected: "Adviser has been successfully selected !"
       adviser_error: "Unable to select this adviser !"
-    providers:
+    authorizations:
       success: "Your data has been synchronized."
       error: "Unable to synchronize your data."
     goals:
       created: "Goal has been successfully created."
       destroy_success: "Goal has been successfully deleted."
       destroy_fail: "Goal has been not been deleted."
+      weight_title: "Keep your weight under %{goal_value} kg"
+      fat_title: "Reach a fat mass ratio of %{goal_value}%"
+      blood_pressure_title: "Low your blood pressure to %{goal_value} mmHg"
+      step_title: "Walk at least %{goal_value} steps"
   advisers:
     index:
       title: "Select your adviser to get help"

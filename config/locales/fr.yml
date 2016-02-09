@@ -55,6 +55,12 @@ fr:
       trainees: "Personnes suivies"
       dashboard: "Progression"
       profile: "Mon compte"
+  activerecord:
+    models:
+      goal: "Goal"
+    attributes:
+      goal:
+        title: "title"
   controllers:
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
@@ -62,13 +68,17 @@ fr:
     selection:
       adviser_selected: "Vous avez bien selectionné votre coach !"
       adviser_error: "Impossible de sélectionner ce coach."
-    providers:
+    authorizations:
       success: "Vos données ont bien été synchronisée."
       error: "Impossible de synchroniser vos données."
     goals:
       created: "L'objectif a bien été crée."
       destroy_success: "L'objectif a bien été supprimé."
       destroy_fail: "L'objectif n'a pas été supprimé."
+      weight_title: "Conservez un poids en dessous de %{goal_value} kg"
+      fat_title: "Atteignez une proportion de masse grasse de %{goal_value}%"
+      blood_pressure_title: "Atteignez une tension de %{goal_value} mmHg"
+      step_title: "Marchez au moins %{goal_value} pas"
   advisers:
     index:
       title: "Select your adviser to get help"

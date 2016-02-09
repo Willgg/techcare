@@ -14,7 +14,7 @@ module Trainees
           g.end_value       = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
-          g.title           = "Low your blood pressure to #{goal_value.to_i} mmHg"
+          g.title           = I18n.t('controllers.goals.blood_pressure_title', goal_value: goal_value)
           g.cumulative      = false
           g.end_date        = Time.current + 30.days
           g.start_date      = Time.current
