@@ -17,7 +17,7 @@ class ProvidersController < ApplicationController
     consumer_token = ConsumerToken.new(
                       ENV['WITHINGS_OAUTH_CONSUMER_KEY'],
                       ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
-                    )
+                      )
     request_token_response = Withings::Api.create_request_token(consumer_token, callback_url)
     request_token          = request_token_response.request_token
 

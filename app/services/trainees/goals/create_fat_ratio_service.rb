@@ -14,7 +14,7 @@ module Trainees
           g.end_value       = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
-          g.title           = "Reach a fat mass ratio of #{goal_value}%"
+          g.title           = I18n.t('controllers.goals.fat_title', goal_value: goal_value)
           g.cumulative      = false
           g.end_date        = Time.current + 30.days
           g.start_date      = Time.current

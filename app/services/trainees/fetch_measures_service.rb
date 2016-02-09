@@ -51,35 +51,34 @@ module Trainees
         end
 
       end
-      #FIXME : revoir la creation des measures
-      data.each do |measure|
-        if measure.weight
-          m = Measure.new
-          m.measure_type_id  = 1
-          m.value            = measure.weight
-          m.date             = measure.taken_at
-          m.user             = @user
-          m.source           = "withings"
-          m.save
-        end
 
-        if measure.systolic_blood_pressure
-          m = Measure.new
-          m.measure_type_id  = 2
-          m.value            = measure.systolic_blood_pressure
-          m.date             = measure.taken_at
-          m.user             = @user
-          m.source           = "withings"
-          m.save
-        end
+      # Gem withings :
+      #weight, #fat, #size, #ratio, #fat_free,
+      #diastolic_blood_pressure/#systolic_blood_pressure, #heart_pulse,
+      #group_id, #.taken_at
 
-        if measure.ratio
+      data.each do |type,dataset|
+        dataset.each do |measure|
           m = Measure.new
-          m.measure_type_id  = 3
-          m.value            = measure.ratio
-          m.date             = measure.taken_at
-          m.user             = @user
-          m.source           = "withings"
+          m.source = "withings"
+          m.user   = @user
+          if type == :weight || type == :fat || type == :systolic_blood_pressure
+            m.date = measure.taken_at
+            if measure.weight
+              m.measure_type_id  = 1
+              m.value            = measure.weight
+            elsif measure.systolic_blood_pressure
+              m.measure_type_id  = 2
+              m.value            = measure.systolic_blood_pressure
+            elsif measure.ratio
+              m.measure_type_id  = 3
+              m.value            = measure.ratio
+            end
+          else
+            m.measure_type_id   = 4
+            m.value             = measure["steps"]
+            m.date              = measure["date"].to_date
+          end
           m.save
         end
       end
