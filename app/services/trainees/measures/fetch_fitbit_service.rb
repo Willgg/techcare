@@ -28,16 +28,13 @@ module Trainees
             last_provider_measure = @user.measures.where(source: @provider.to_s, measure_type_id: mt.id).order(date: :asc).last
             base_date = last_provider_measure.date + 1.day
           end
-          if last_provider_measure && base_date + 1.month > Time.current
 
+          if last_provider_measure && base_date + 1.month > Time.current
             date_option[:base_date] = base_date
             date_option[:end_date]  = Time.current
-
           else
-
             date_option[:end_date]  = Time.current
             date_option[:base_date] = date_option[:end_date] - 1.month
-
           end
 
           if mt.id == 1

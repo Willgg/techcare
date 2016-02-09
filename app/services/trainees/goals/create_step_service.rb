@@ -7,7 +7,7 @@ module Trainees
 
       def call
         return if measure_type.nil? || already_has_goal?
-        if last_measure && last_measure.value < goal_value
+        if last_measure && last_measure.value <= goal_value
           g = Goal.new
           g.measure_type    = measure_type
           g.user            = @trainee
@@ -24,7 +24,7 @@ module Trainees
       private
 
       def goal_value
-        @last_measure && @last_measure.value > 0 ? (@last_measure.value + 1000) : 10000
+        @last_measure && @last_measure.value > 0 && @last_measure.value <= 10000 ? (@last_measure.value + 1000) : 10000
       end
 
       def already_has_goal?
