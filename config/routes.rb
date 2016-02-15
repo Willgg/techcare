@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   scope '(:locale)', locale: /fr/ do
     root   'pages#home'
     get    'providers',          to: 'providers#index'

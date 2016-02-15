@@ -26,8 +26,8 @@ fr:
       short: "%m/%d/%Y - %H:%M"
   pages:
     home:
-      first-claim: "Changez de vie"
-      second-claim: "Adoptez des habitudes saines"
+      first-claim: "Changez vos habitudes"
+      second-claim: "Adoptez une vie plus saine"
       btn-cta: "Commencer"
       followup-arg: "Suivi personnalisé"
       metrics-arg: "Basé sur vos mesures"
