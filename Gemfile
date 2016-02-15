@@ -28,6 +28,10 @@ gem "withings-api"
 gem "simplificator-withings"
 gem "ruby-hmac"
 
+gem 'sidekiq'
+gem 'sinatra'  # Dependency of sidekiq
+gem 'sidekiq-failures'
+
 group :development, :test do
   gem "spring"
   gem "annotate"

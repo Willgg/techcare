@@ -16,8 +16,8 @@ module Trainees
           g.cumulative      = true
           g.end_date        = Time.current + 1.week
           g.start_date      = Time.current
-          g.end_value       = goal_value * ((g.end_date - g.start_date) / 1.day).round
-          g.title           = I18n.t('controllers.goals.step_title', goal_value: g.end_value)
+          g.goal_value      = goal_value * ((g.end_date - g.start_date) / 1.day).round
+          g.title           = I18n.t('controllers.goals.step_title', goal_value: g.goal_value)
           g.save
         end
       end

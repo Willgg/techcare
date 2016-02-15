@@ -51,7 +51,6 @@ module Trainees
         end
 
       end
-
       # Gem withings :
       #weight, #fat, #size, #ratio, #fat_free,
       #diastolic_blood_pressure/#systolic_blood_pressure, #heart_pulse,

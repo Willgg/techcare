@@ -72,7 +72,7 @@ class GoalsController < ApplicationController
   end
 
   def params_goals
-    params.require(:goal).permit(:measure_type_id, :user_id, :end_value, :end_date, :title, :cumulative)
+    params.require(:goal).permit(:measure_type_id, :user_id, :goal_value, :end_date, :title, :cumulative)
   end
 
   def user_not_authorized

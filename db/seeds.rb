@@ -130,7 +130,7 @@ end
     user_id: 2,
     adviser_id: 1,
     start_date: (Time.now) - 400000,
-    end_value: 80,
+    goal_value: 80,
     end_date: (Time.now) + 300000,
     title: "Keep your weight under 80kg",
     cumulative: false
@@ -171,7 +171,7 @@ end
     user_id: 2,
     adviser_id: 1,
     start_date: (Time.now) - 200000,
-    end_value: 140,
+    goal_value: 140,
     end_date: (Time.now) + 300000,
     title: "Decrease your blood pressure to 140mmHg",
     cumulative: false
@@ -212,7 +212,7 @@ end
     user_id: 2,
     adviser_id: 1,
     start_date: (Time.now) - 400000,
-    end_value: 25,
+    goal_value: 25,
     end_date: (Time.now) + 300000,
     title: "Reach a fat mass ratio of 25%",
     cumulative: false
@@ -253,7 +253,7 @@ end
     user_id: 2,
     adviser_id: 1,
     start_date: (Time.now) - (60*60*24*2),
-    end_value: 10000,
+    goal_value: 10000,
     end_date: (Time.now) + (60*60*24*5),
     title: "Walk 10000 steps",
     cumulative: true

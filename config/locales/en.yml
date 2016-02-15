@@ -27,7 +27,7 @@ en:
   pages:
     home:
       first-claim: "Change your habits"
-      second-claim: "Get healthier today"
+      second-claim: "Start your healthier life today"
       btn-cta: "Change now"
       followup-arg: "Personal follow-up"
       metrics-arg: "Based on actionable metrics"
@@ -36,7 +36,7 @@ en:
       dev-arg-1-content_html: 'Get personalized goals to improve your health condition.<br />You will feel better days after days.'
       dev-arg-2: "Your health data in one place."
       dev-arg-2-content_html: 'Synchronize all your connected devices in one place. We give sense to your data and save you time so you can focus on the most important: get healthier habits.'
-      dev-arg-3: "Meet our coaches"
+      dev-arg-3: "Meet your personal health coach"
       cardiologist: "Cardiologist"
       nutritionist: "Nutritionist"
       diabetist: "Diabetes Specialist"

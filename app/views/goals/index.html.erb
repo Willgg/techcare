@@ -5,30 +5,46 @@
       <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
       <% @goals.each do |goal| %>
 
-        <% if goal.end_date >= Time.current %>
-          <div class="goal-card text-center">
+        <% if goal.is_running? %>
 
+          <div class="goal-card text-center">
             <h2><%= goal.title %></h2>
             <p>
               <strong><%= (goal.end_date.to_date - Time.current.to_date).to_i %></strong>
               <%= t('.days') %>
             </p>
             <div class="fullbar">
-              <div class="fillbar" style="width: <%= goal.progression_for_user(@user) %>%">
+              <div class="fillbar" style="width: <%= goal.progression %>%">
                 <div class="current-measure">
-                  <strong><%= goal.last_measure_for_user(@user).round(1) %></strong><br /><%= goal.measure_type.unit %>
+                  <strong><%= goal.last_measure_for_user.round(1) %></strong><br /><%= goal.measure_type.unit %>
                 </div>
               </div>
             </div>
+
+        <% elsif goal.is_achieved? %>
+
+          <div class="goal-card text-center complete">
+            <h2><%= goal.title %></h2>
+            <p>
+              <strong>achieved on the <%= goal.end_date.strftime('%Y/%m/%d') %></strong>
+            </p>
+            <div class="fullbar">
+              <div class="fillbar" style="width: <%= goal.progression_for_user %>%">
+                <div class="current-measure">
+                  <strong><%= goal.last_measure_for_user.round(1) %></strong><br /><%= goal.measure_type.unit %>
+                </div>
+              </div>
+            </div>
+
+        <% end %>
 
             <% if GoalPolicy.new(current_user, @user, goal).destroy? %>
               <%= link_to(user_goal_path(@user, goal), method: :delete, class: "delete", title: t('.delete')) do %>
                 <i class="fa fa-times"></i>
               <% end %>
             <% end %>
-
           </div>
-        <% end %>
+
 
       <% end %>
 
@@ -83,7 +99,7 @@
           <%= f.input :title %>
           <%= f.input :cumulative %>
           <%= f.input :end_date %>
-          <%= f.input :end_value %>
+          <%= f.input :goal_value %>
           <%= f.button :submit, t('.submit-goal'), class: "btn btn-primary" %>
         <% end %>
       </div>

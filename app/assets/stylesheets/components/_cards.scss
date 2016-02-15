@@ -133,7 +133,12 @@
     }
   }
 }
-
+.complete {
+  background: #F3F9F7;
+  h2 {
+    text-decoration: line-through;
+  }
+}
 .chat-card{
   background: white;
   padding: 40px;

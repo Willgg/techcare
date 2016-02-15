@@ -11,7 +11,7 @@ module Trainees
         if last_measure && last_measure.value > goal_value
           g = Goal.new
           g.measure_type    = measure_type
-          g.end_value       = goal_value
+          g.goal_value      = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
           g.title           = I18n.t('controllers.goals.weight_title', goal_value: goal_value)
