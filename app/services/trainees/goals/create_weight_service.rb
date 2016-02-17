@@ -31,7 +31,6 @@ module Trainees
 
       def already_has_running_goal?
         @trainee.goals.where(measure_type: measure_type).any? { |goal| goal.is_running? }
-        end
       end
 
       def last_measure

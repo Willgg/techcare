@@ -6,12 +6,12 @@ module Trainees
       end
 
       def call
-        return if measure_type.nil? || already_has_goal?
+        return if measure_type.nil? || already_has_running_goal?
 
         if last_measure && last_measure.value > goal_value
           g = Goal.new
           g.measure_type    = measure_type
-          g.goal_value       = goal_value
+          g.goal_value      = goal_value
           g.user            = @trainee
           g.adviser_id      = @trainee.adviser.id
           g.title           = I18n.t('controllers.goals.fat_title', goal_value: goal_value)
@@ -28,8 +28,8 @@ module Trainees
         @goal_value ||= 22
       end
 
-      def already_has_goal?
-        @trainee.goals.where(measure_type: measure_type).exists?
+      def already_has_running_goal?
+        @trainee.goals.where(measure_type: measure_type).any? { |goal| goal.is_running? }
       end
 
       def last_measure

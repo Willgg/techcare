@@ -15,7 +15,13 @@
             <div class="fullbar">
               <div class="fillbar" style="width: <%= goal.progression %>%">
                 <div class="current-measure">
-                  <strong><%= goal.last_measure_for_user.round(1) %></strong><br /><%= goal.measure_type.unit %>
+                  <strong>
+                  <% if goal.cumulative %>
+                    <%= goal.sum_of_measures %>
+                  <% else %>
+                    <%= goal.last_measure_for_user.round(1) %>
+                  <% end %>
+                  </strong><br /><%= goal.measure_type.unit %>
                 </div>
               </div>
             </div>
