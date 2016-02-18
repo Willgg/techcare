@@ -11,6 +11,21 @@ module Trainees
       create_step_goal
     end
 
+    def only_for(measure_type_id)
+      case measure_type_id
+      when 1
+        create_weight_goal
+      when 2
+        create_blood_pressure_goal
+      when 3
+        create_fat_ratio_goal
+      when 4
+        create_step_goal
+      else
+        raise ArgumentError, 'Measure type is not recognized'
+      end
+    end
+
     private
 
     def create_weight_goal

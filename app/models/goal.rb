@@ -40,10 +40,11 @@ class Goal < ActiveRecord::Base
     ratio > 1 ? 100 : (ratio * 100).round(2)
   end
 
-  def last_measure_for_user(&block)
-    query = self.measures.where(user: self.user)
+  def last_measure_for_user(&block) #FIXME: should return a Measure object instead of value
+    query = self.measures.where(user_id: self.user_id)
     query = block.call(query) if block_given?
     query.order(date: :asc).last.value
+    #FIXME : what if 2 measures from different provider for the same day ?
     # goal.measure_type.measures.where(user_id: @user, measure_type_id: self.measure_type_id).order(date: :asc).last.value
   end
 
@@ -81,11 +82,44 @@ class Goal < ActiveRecord::Base
     end
   end
 
-  def is_achieved?
-    self.end_date < Time.current && self.end_value >= self.goal_value
+  def is_running?
+    self.end_date >= Time.current
+  end
+
+  def origin_measure
+    self.last_measure_for_user { |m| m.where("date < ?", self.start_date) }
+  end
+
+  def is_increase?
+    self.cumulative ? true : origin_measure.to_f < self.goal_value.to_f
+  end
+
+  def is_decrease?
+    origin_measure.to_f > self.goal_value.to_f
+  end
+
+  def is_over?
+    self.end_date < Time.current
   end
 
   def is_running?
     self.end_date >= Time.current
+  end
+
+  def is_achieved?
+    # raise ArgumentError, "end_value must not be nil" if self.end_value.nil?
+    end_value  = self.end_value || self.last_measure_for_user
+    if self.is_increase?
+      end_value >= self.goal_value
+    elsif self.is_decrease?
+      end_value <= self.goal_value
+    else
+      raise ArgumentError, 'Goal is neither an increase nor a decrease.'
+    end
+  end
+
+  def is_succeed?
+    return false unless self.is_over?
+    self.is_achieved?
   end
 end

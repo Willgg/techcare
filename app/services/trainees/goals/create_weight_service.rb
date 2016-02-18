@@ -6,7 +6,7 @@ module Trainees
       end
 
       def call
-        return if measure_type.nil? || already_has_goal?
+        return if measure_type.nil? || already_has_running_goal?
 
         if last_measure && last_measure.value > goal_value
           g = Goal.new
@@ -29,8 +29,8 @@ module Trainees
         @goal_value ||= ( 25 * ( ( @trainee.height.to_f / 100 ) ** 2 ) ).round # height in meter
       end
 
-      def already_has_goal?
-        @trainee.goals.where(measure_type: measure_type).exists?
+      def already_has_running_goal?
+        @trainee.goals.where(measure_type: measure_type).any? { |goal| goal.is_running? }
       end
 
       def last_measure
