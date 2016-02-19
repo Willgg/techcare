@@ -3,28 +3,31 @@ class GoalsClosingJob < ActiveJob::Base
   queue_as :default
 
   def perform(*args)
-    puts "*** Performing GoalsClosingJob#perform ***"
-    # Get all the goals that are outdated and with no end_value
-    goals = Goal.where("end_date < ?", Time.current)
+    puts "*** Save the end_value of each outdated goal ***"
 
-    unless goals.empty?
-      goals.each do |goal|
-        puts "*** Processing Goal [id => #{goal.id}, type => #{goal.measure_type_id}]***"
-        # Save the end_value
+    goals_over = Goal.where("end_value IS NULL AND end_date < ?", Time.current)
+
+    unless goals_over.empty?
+      goals_over.each do |goal|
         if goal.end_value.nil?
           goal.end_value = goal.cumulative ? goal.sum_of_measures : goal.last_measure_for_user
-          puts "saved end_value = #{goal.end_value}" if goal.save
-        end
-
-        # Create a new goal if not already succeed
-        unless goal.is_succeed?
-          puts "Goal is failed => CreateGoalService called"
-          trainee = goal.user
-          measure_type_id = goal.measure_type_id
-          Trainees::CreateGoalsService.new(trainee).only_for(measure_type_id)
+          puts "For Goal(#{goal.id}), end_value(#{goal.end_value}) has been saved" if goal.save
         end
       end
     end
-    puts "*** GoalsClosingJob Performed ***"
+
+    puts "*** Check if new goals have to be created ***"
+
+    User.all.each do |user|
+      puts "Analyzing user : #{user.id}"
+      MeasureType.all.each do |mt|
+        goals = user.goals.where(measure_type_id: mt.id)
+        if goals.none? { |g| g.is_running? || g.is_succeed? } # && user.measures.any? { |m| m.measure_type_id == mt.id }
+          puts "New goal on #{mt.name} needed"
+          Trainees::CreateGoalsService.new(user).only_for(mt.id)
+        end
+      end
+    end
+
   end
 end

@@ -23,4 +23,8 @@ class Measure < ActiveRecord::Base
   validates :measure_type_id, presence: true
   validates :value, presence: true
   validates :date, presence: true
+
+  def any_of_type?(measure_type)
+    self.any? { |m| m.measure_type_id == measure_type.id }
+  end
 end
