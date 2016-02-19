@@ -122,4 +122,8 @@ class Goal < ActiveRecord::Base
     return false unless self.is_over?
     self.is_achieved?
   end
+
+  def is_needed?
+    self.any? { |g| g.is_running? || g.is_succeed? }
+  end
 end
