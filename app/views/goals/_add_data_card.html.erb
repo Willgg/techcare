@@ -4,12 +4,12 @@
   </div>
   <div class="info">
     <div class="text">
-      <h2>Connectez vos objets ou applications</h2>
-      <p>Pour améliorer l'efficacité de votre suivi, il est conseillé de synchoniser vos objets connectés ou votre application favorite.</p>
+      <h2><%= t('.add-data-title') %></h2>
+      <p><%= t('.add-data-description') %></p>
     </div>
     <div class="action-links">
-      <%= link_to "Ajouter une source", providers_path %>
-      <%= link_to "Fermer" %>
+      <%= link_to t('.add-data-connect'), providers_path %>
+      <%= link_to t('.add-data-close') %>
     </div>
   </div>
 </div>

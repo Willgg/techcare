@@ -232,7 +232,7 @@
         font-size: 27px;
       }
       p {
-        margin: 10px 0;
+        margin: 10px 0 3px 0;
       }
     }
     .action-links {
@@ -244,7 +244,7 @@
         margin: 0 10px 0 0;
         padding: 7px 10px 10px 10px;
         font-weight: 500;
-        color: #01D48F;
+        color: $brand-color;
         &:first-child {
           margin-left: 0;
         }
@@ -253,7 +253,7 @@
         }
         &:hover {
           text-decoration: none;
-          color: #01A16D;
+          color: $brand-color-dark;
         }
       }
     }

@@ -95,6 +95,11 @@ fr:
       submit-goal: "Créer objectif"
       submit-message: "Envoyer"
       placeholder-message: "Votre message"
+    add_data_card:
+      add-data-title: "Connectez vos objets ou applications"
+      add-data-description: "Pour améliorer l'efficacité de votre suivi, il est conseillé de synchoniser vos objets connectés ou votre application favorite."
+      add-data-connect: "Se connecter"
+      add-data-close: "Fermer"
   mailers:
     application:
       sender: "William de Techcare <will@techcare.io>"
