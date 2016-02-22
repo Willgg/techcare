@@ -3,6 +3,13 @@
     <div class="col-xs-12 col-md-8 goals-column">
       <!-- <h1 class="text-center">Goals dashboard</h1> -->
       <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
+
+      <!-- Disclaimer about connected device synchronization -->
+      <% unless current_user.authorizations.exists? || current_user.api_user_id ||
+                cookies[:data_card_read] = "true" %>
+        <%= render "add_data_card" %>
+      <% end %>
+
       <% @goals.each do |goal| %>
 
         <% if goal.is_running? %>
