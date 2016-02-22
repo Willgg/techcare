@@ -6,7 +6,7 @@
 
       <!-- Disclaimer about connected device synchronization -->
       <% unless current_user.authorizations.exists? || current_user.api_user_id ||
-                cookies[:data_card_read] = "true" %>
+                cookies[:data_card_read] == "true" %>
         <%= render "add_data_card" %>
       <% end %>
 
