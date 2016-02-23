@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215114620) do
+ActiveRecord::Schema.define(version: 20160223151711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 20160215114620) do
   end
 
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id", using: :btree
+
+  create_table "food_pictures", force: :cascade do |t|
+    t.integer  "measure_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  add_index "food_pictures", ["measure_id"], name: "index_food_pictures_on_measure_id", using: :btree
 
   create_table "goals", force: :cascade do |t|
     t.integer  "measure_type_id"
@@ -120,6 +132,7 @@ ActiveRecord::Schema.define(version: 20160215114620) do
 
   add_foreign_key "advisers", "users"
   add_foreign_key "authorizations", "users"
+  add_foreign_key "food_pictures", "measures"
   add_foreign_key "goals", "measure_types"
   add_foreign_key "goals", "users"
   add_foreign_key "measures", "measure_types"

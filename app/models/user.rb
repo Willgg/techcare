@@ -47,11 +47,12 @@ class User < ActiveRecord::Base
 
   has_many :sent_messages, foreign_key: "sender_id", class_name: "Message"
   has_many :received_messages, foreign_key: "recipient_id", class_name: "Message"
+  has_many :goals, dependent: :destroy
+  has_many :authorizations, dependent: :destroy
   has_many :measures
-  has_many :goals
-  has_many :authorizations
   has_many :measure_types, through: :measures
-  has_one :coach, class_name: "Adviser"
+  has_many :food_pictures, through: :measures
+  has_one  :coach, class_name: "Adviser"
   belongs_to :adviser
 
   validates :first_name, presence: true

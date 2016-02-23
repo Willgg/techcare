@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index] do
       resources :goals, only: [:index, :new, :create, :destroy]
       resources :messages, only: [:create]
+      resources :food_pictures, only: [:new, :create]
     end
 
     resources :messages, only: [:destroy, :index] do
