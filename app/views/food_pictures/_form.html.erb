@@ -1,0 +1,5 @@
+<%= simple_form_for [user, food_picture], remote: true, authenticity_token: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :picture %>
+  <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
+<% end %>

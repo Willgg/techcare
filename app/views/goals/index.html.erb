@@ -1,15 +1,20 @@
   <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 goals-column">
-      <!-- <h1 class="text-center">Goals dashboard</h1> -->
-      <!-- <p>Find me in app/views/goals/index.html.erb</p> -->
-      <!-- Add measure bouton -->
-      <%= link_to "Ajouter une photo", '#', class: "btn btn-primary ", data: { toggle: "modal", target: "#addFoodModal" } %>
-      <%= link_to "Photo page", new_user_food_picture_path(@user) %>
+
+      <!-- Add Food Picture -->
+
+      <div class="white-card" id="food-pictures">
+        <% @food_pictures.each do |fp| %>
+          <%= render 'food_pictures/show', fp: fp %>
+        <% end %>
+        <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
+      </div>
+
       <!-- Disclaimer about connected device synchronization -->
       <% unless current_user.authorizations.exists? || current_user.api_user_id ||
                 cookies[:data_card_read] == "true" %>
-        <%= render "add_data_card" %>
+        <%= render 'add_data_card' %>
       <% end %>
 
       <% @goals.each do |goal| %>
@@ -74,6 +79,8 @@
 
     <div class="col-xs-12 col-md-4 chat-column">
       <div class="chat-card">
+
+        <!-- Coach information -->
         <div class="coach-info">
           <%= image_tag @user.adviser.user.picture.url(:medium) %>
           <span class="coach-info-name">
@@ -81,12 +88,14 @@
             <%= @user.adviser.title %>
           </span>
         </div>
+
         <!-- formulaire du chat -->
         <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
           <%= f.error_notification %>
           <%= f.input :content, label: false, placeholder: t('.placeholder-message'), as: :text %>
           <%= f.button :submit, t('.submit-message'), class: "btn btn-primary"  %>
         <% end %>
+
         <!-- Affichage des messages -->
         <div class="messages">
           <% @messages.each do |message| %>
@@ -111,7 +120,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [@user, @goal] do |f| %>
-          <%= f.association :measure_type, collection: @measure_types_of_user%>
+          <%= f.association :measure_type, collection: @measure_types_of_user %>
           <%= f.input :title %>
           <%= f.input :cumulative %>
           <%= f.input :end_date %>
@@ -128,20 +137,20 @@
 </div>
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Ajouter une photo</h4>
-        </div>
-        <div class="modal-body">
-          Exemple de modal
-        </div>
+<!-- Modal -->
+<div class="modal fade" id="addFoodModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Ajouter une photo</h4>
+      </div>
+      <div class="modal-body">
+        Exemple de modal
       </div>
     </div>
   </div>
+</div>
 
 <script>
 $('#myModal').on('shown.bs.modal', function () {

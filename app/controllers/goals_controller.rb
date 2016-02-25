@@ -4,6 +4,10 @@ class GoalsController < ApplicationController
 
   def index
     redirect_to advisers_path if @user.adviser.blank?
+
+    @food_picture = FoodPicture.new
+    @food_pictures = @user.food_pictures.order(created_at: :desc).last(5)
+
     # Set messages as read
     @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
     @messages.each do |message|
@@ -35,6 +39,7 @@ class GoalsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @measure_types_of_user = @user.measure_types.uniq
+    raise
     @goal = Goal.new
   end
 

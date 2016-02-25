@@ -270,11 +270,11 @@ end
   measure.save
 end
 
-# 1.times do
-#   measure_type = MeasureType.new(
-#     name: "Foodstuffs",
-#     unit: "foodstuffs",
-#     data_type: "Foodtest"
-#   )
-#   measure_type.save
-# end
+1.times do
+  measure_type = MeasureType.new(
+    name: "Food picture",
+    unit: "picture",
+    data_type: "image"
+  )
+  measure_type.save
+end

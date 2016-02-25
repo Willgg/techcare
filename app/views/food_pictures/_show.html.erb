@@ -1,0 +1,4 @@
+<figure class="picture" id="<%= fp.id %>">
+  <%= image_tag fp.picture.url(:thumb) %>
+  <figcaption><%= fp.measure.date.strftime("%-d %B %Y") %></figcaption>
+</figure>

@@ -1,6 +1,5 @@
 <div id="message-<%= message.id %>" class="message">
   <div class="header">
-  <p>
     <%= image_tag message.sender.picture.url(:thumb) %>
     <strong><%=message.sender.first_name%></strong><br />
     <small><%= l(message.created_at, format: :short)%></small>

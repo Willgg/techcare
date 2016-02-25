@@ -19,6 +19,8 @@
 class FoodPicture < ActiveRecord::Base
   belongs_to :measure
 
+  validates :picture, presence: true
+
   has_attached_file :picture,
     styles: { large: "1300x1300#", medium: "300x300#", thumb: "100x100#" }
 
