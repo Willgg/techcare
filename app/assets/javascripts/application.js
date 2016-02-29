@@ -1,5 +1,6 @@
 //= require jquery.js
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require bootstrap-sprockets
 
 //= require_tree ./app

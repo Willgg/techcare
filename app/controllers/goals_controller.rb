@@ -5,6 +5,7 @@ class GoalsController < ApplicationController
   def index
     redirect_to advisers_path if @user.adviser.blank?
 
+    # Set food_picture and index for food_picture card
     @food_picture = FoodPicture.new
     @food_pictures = @user.food_pictures.order(created_at: :desc).last(5)
 

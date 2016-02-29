@@ -14,6 +14,7 @@ gem "paperclip"
 gem "aws-sdk", "< 2.0"
 
 gem "jquery-rails"
+gem 'remotipart', '~> 1.2'
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"

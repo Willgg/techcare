@@ -10,12 +10,12 @@ class FoodPicturesController < ApplicationController
       if @measure.save && @food_picture.save
         respond_to do |format|
           format.html { redirect_to user_goals_path(@user) }
-          format.js   {  }
+          format.js
         end
       else
         respond_to do |format|
           format.html { render 'goals/index' }
-          format.js   {  }
+          format.js
         end
       end
     else
