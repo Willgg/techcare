@@ -5,6 +5,10 @@ $(document).ready(function() {
     createCookie("data_card_read", "true", 2);
   });
 
+  $('body').on('change', 'input:file',function (){
+    var fileName = $(this).val();
+    $('label').html(fileName);
+  });
 });
 
 
@@ -17,3 +21,7 @@ function createCookie(name,value,days) {
   else var expires = "";
   document.cookie = name+"="+value+expires+";";
 }
+
+
+
+

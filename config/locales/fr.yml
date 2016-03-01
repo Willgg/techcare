@@ -95,6 +95,7 @@ fr:
       submit-goal: "Créer objectif"
       submit-message: "Envoyer"
       placeholder-message: "Votre message"
+      food-title: "Ajouter des photos de votre nourriture"
     add_data_card:
       add-data-title: "Connectez vos objets ou applications"
       add-data-description: "Pour améliorer l'efficacité de votre suivi, il est conseillé de synchoniser vos objets connectés ou votre application favorite."

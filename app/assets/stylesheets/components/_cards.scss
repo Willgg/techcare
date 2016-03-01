@@ -132,12 +132,14 @@
     }
   }
 }
+
 .complete {
   background: #F3F9F7;
   h2 {
     text-decoration: line-through;
   }
 }
+
 .chat-card{
   background: white;
   padding: 40px;
@@ -259,14 +261,46 @@
     }
   }
 }
+
 #food-pictures {
-  figure {
-
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  margin: 40px 0;
+  padding: 30px 25px 10px 25px;
+  color: $gray-lighter;
+  h2{
+    width: 100%;
+    margin: 20px 0;
+    margin-top: 0;
+    font-family: 'Raleway', 'Open sans', 'sans-serif';
+    font-weight: 300;
+    color: $brand-color;
   }
-  figcaption {
-
+  .food-picture-list {
+    overflow: hidden;
+    display: flex;
+    figure {
+      margin-right: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+      img {
+        width: 132px;
+      }
+    }
+    figcaption {
+      font-size: 14px;
+      padding-top: 3px;
+    }
   }
   form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $gray-lightest;
+    padding-top: 10px;
     #food_picture_picture {
       width: 0.1px;
       height: 0.1px;
@@ -274,24 +308,22 @@
       overflow: hidden;
       position: absolute;
       z-index: -1;
+    }
+    .food_picture_picture {
+      float: left;
+      margin: 0;
       label {
         font-weight: normal;
-        color: white;
-        background-color: black;
+        color: $blue;
         display: inline-block;
-        padding: 6px 12px;
+        padding: 7px 0;
         cursor: pointer;
-          &:hover {
-            background-color: red;
-          }
-          abbr {
-            display: none;
-          }
+        margin: 0;
+        text-align: left;
+        abbr {
+          display: none;
         }
-    }
-
-    #food_picture_picture:focus label {
-      background-color: red;
+      }
     }
   }
 }

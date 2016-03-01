@@ -1,3 +1,3 @@
-$('#food-pictures').prepend("<%= j render 'food_pictures/show', fp: @food_picture %>");
+$('.food-picture-list').prepend("<%= j render 'food_pictures/show', fp: @food_picture %>");
 $('.picture').first().addClass('fadeIn animated');
-$('#food_picture_picture').val('');
+$('.food_picture_picture label').html('Add photos');

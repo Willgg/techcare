@@ -4,10 +4,13 @@
 
       <!-- Add Food Picture -->
 
-      <div class="white-card" id="food-pictures">
+      <div class="white-card text-center" id="food-pictures">
+        <h2><%= t('.food-title') %></h2>
+        <div class="food-picture-list">
         <% @food_pictures.each do |fp| %>
           <%= render 'food_pictures/show', fp: fp %>
         <% end %>
+        </div>
         <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
       </div>
 

@@ -35,22 +35,22 @@
             <li>
               <% if current_user.is_adviser %>
                 <%= link_to users_path do%>
-                  <i class="fa fa-users"></i><%= t ".trainees", default: "My trainees" %>
+                  <i class="fa fa-users"></i>&nbsp;<%= t ".trainees", default: "My trainees" %>
                 <% end %>
               <% else %>
                 <%= link_to user_goals_path(current_user) do %>
-                  <i class="fa fa-calendar-check-o"></i><%= t ".dashboard", default: "Dashboard" %>
+                  <i class="fa fa-calendar-check-o"></i>&nbsp;<%= t ".dashboard", default: "Dashboard" %>
                 <% end %>
               <% end %>
             </li>
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
+                <i class="fa fa-user"></i>&nbsp;<%= t ".profile", default: "Profile" %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
+                <i class="fa fa-sign-out"></i>&nbsp;<%= t ".sign_out", default: "Log out" %>
               <% end %>
             </li>
           </ul>
