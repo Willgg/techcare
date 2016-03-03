@@ -4,7 +4,7 @@
       <div class="white-card">
         <h2>Add a goal</h2>
         <%= simple_form_for [@user, @goal] do |f| %>
-          <%= f.association :measure_type, collection: @measure_types_of_user%>
+          <%= f.association :measure_type, collection: @measure_types_of_user %>
           <%= f.input :title %>
           <%= f.input :cumulative %>
           <%= f.input :end_date %>

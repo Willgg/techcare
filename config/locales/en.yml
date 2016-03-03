@@ -95,11 +95,15 @@ en:
       submit-goal: "Create goal"
       submit-message: "Send"
       placeholder-message: "Your message"
+      food-title: "Add photos of your food"
     add_data_card:
       add-data-title: "Connect to your devices or favorite app"
       add-data-description: "Your can increase the efficiency of techcare by synchonizing external devices such as connected wristband or scale or even your favorite app."
       add-data-connect: "Add connection"
       add-data-close: "Close"
+  food_pictures:
+    form:
+      food_add: "+ Add photos"
   mailers:
     application:
       sender: "William from Techcare <will@techcare.io>"

@@ -1,0 +1,43 @@
+$(document).ready(function() {
+  $('.action-links a:last-of-type').on('click', function(event) {
+    event.preventDefault();
+    $('#add-data-card').hide();
+    createCookie("data_card_read", "true", 2);
+  });
+
+  $('body').on('change', 'input:file',function (){
+    var fileName = $(this).val();
+    $('label').html(fileName);
+    // add icon in form if it does not exist
+    if (!$('#new_food_picture i.fa').length) {
+      $('label').after('<i class="fa fa-times-circle"></i>');
+    }
+    // add class to label if does not exist already
+    if (!$('label').hasClass('withFile')) {
+      $('label').addClass('withFile');
+    };
+  });
+
+});
+
+$(document).on('click', '#new_food_picture i.fa',function (){
+    // delete icon
+    $('#new_food_picture .food_picture_picture i.fa').remove();
+    // delete withFile css class
+    $('label').removeClass('withFile');
+    // clear input value
+    // change label value
+    $('label').html('<%= I18n.t('food_pictures.form.food_add') %>');
+  });
+
+function createCookie(name,value,days) {
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+  }
+  else var expires = "";
+  document.cookie = name+"="+value+expires+";";
+}
+
+

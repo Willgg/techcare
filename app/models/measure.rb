@@ -19,6 +19,8 @@
 class Measure < ActiveRecord::Base
   belongs_to :user
   belongs_to :measure_type
+  has_one   :food_picture, dependent: :destroy
+
   validates :user_id, presence: true
   validates :measure_type_id, presence: true
   validates :value, presence: true

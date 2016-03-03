@@ -1,0 +1,4 @@
+$('.food-picture-list').prepend("<%= j render 'food_pictures/show', fp: @food_picture %>");
+$('.picture').first().addClass('fadeIn animated');
+$('.food_picture_picture label').html('Add photos');
+$('#new_food_picture i').remove();
