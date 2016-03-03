@@ -101,6 +101,9 @@ fr:
       add-data-description: "Pour améliorer l'efficacité de votre suivi, il est conseillé de synchoniser vos objets connectés ou votre application favorite."
       add-data-connect: "Se connecter"
       add-data-close: "Fermer"
+  food_pictures:
+      form:
+        food_add: "Ajouter une photo"
   mailers:
     application:
       sender: "William de Techcare <will@techcare.io>"

@@ -312,9 +312,9 @@
     .food_picture_picture {
       float: left;
       margin: 0;
+      color: $blue;
       label {
         font-weight: normal;
-        color: $blue;
         display: inline-block;
         padding: 7px 0;
         cursor: pointer;
@@ -323,6 +323,13 @@
         abbr {
           display: none;
         }
+      }
+      label.withFile {
+        cursor: auto;
+      }
+      .fa {
+        padding-left: 5px;
+        cursor: pointer;
       }
     }
   }

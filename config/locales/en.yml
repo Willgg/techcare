@@ -101,6 +101,9 @@ en:
       add-data-description: "Your can increase the efficiency of techcare by synchonizing external devices such as connected wristband or scale or even your favorite app."
       add-data-connect: "Add connection"
       add-data-close: "Close"
+  food_pictures:
+    form:
+      food_add: "+ Add photos"
   mailers:
     application:
       sender: "William from Techcare <will@techcare.io>"
