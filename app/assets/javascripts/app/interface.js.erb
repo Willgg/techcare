@@ -25,9 +25,9 @@ $(document).on('click', '#new_food_picture i.fa',function (){
     $('#new_food_picture .food_picture_picture i.fa').remove();
     // delete withFile css class
     $('label').removeClass('withFile');
-    // clear input value
+    // clear input value missing IMPROVE
     // change label value
-    $('label').html('<%= I18n.t('food_pictures.form.food_add') %>');
+    $('label').html('<%= I18n.t(".food_pictures.form.food_add") %>');
   });
 
 function createCookie(name,value,days) {
