@@ -45,7 +45,6 @@ class Goal < ActiveRecord::Base
     query = block.call(query) if block_given?
     query.order(date: :asc).last.value
     #FIXME : what if 2 measures from different provider for the same day ?
-    # goal.measure_type.measures.where(user_id: @user, measure_type_id: self.measure_type_id).order(date: :asc).last.value
   end
 
   def sum_of_measures
@@ -123,7 +122,4 @@ class Goal < ActiveRecord::Base
     self.is_achieved?
   end
 
-  def is_needed?
-    self.any? { |g| g.is_running? || g.is_succeed? }
-  end
 end
