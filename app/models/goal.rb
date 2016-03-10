@@ -107,7 +107,7 @@ class Goal < ActiveRecord::Base
 
   def is_achieved?
     # raise ArgumentError, "end_value must not be nil" if self.end_value.nil?
-    end_value  = self.end_value || self.last_measure_for_user
+    end_value = self.end_value || self.last_measure_for_user
     if self.is_increase?
       end_value >= self.goal_value
     elsif self.is_decrease?
