@@ -3,18 +3,16 @@
     <div class="col-xs-12 col-md-8 goals-column">
 
       <!-- Add Food Picture -->
-
       <div class="white-card text-center" id="food-pictures">
         <h2><%= t('.food_title') %></h2>
         <div class="food-picture-list">
-        <% if @food_pictures.empty? %>
-          <p><%= t('.food_empty') %></p>
-        <% else %>
-
-          <% @food_pictures.each do |fp| %>
-            <%= render 'food_pictures/show', fp: fp %>
+          <% if @food_pictures.empty? %>
+           <p><%= t('.food_empty') %></p>
+          <% else %>
+            <% @food_pictures.each do |fp| %>
+              <%= render 'food_pictures/show', fp: fp %>
+            <% end %>
           <% end %>
-        <% end %>
         </div>
         <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
       </div>
@@ -25,9 +23,10 @@
         <%= render 'add_data_card' %>
       <% end %>
 
+      <!-- Goals listing -->
       <% @goals.each do |goal| %>
 
-        <% if goal.is_running? %>
+        <% if goal.is_running? && !goal.is_achieved? %>
           <div class="goal-card text-center">
             <h2><%= goal.title %></h2>
             <p>
@@ -53,11 +52,11 @@
               <% end %>
             <% end %>
           </div>
-        <% elsif goal.is_succeed? %>
+        <% elsif goal.is_succeed? || goal.is_achieved? %>
           <div class="goal-card text-center complete">
             <h2><%= goal.title %></h2>
             <p>
-              <strong>achieved on the <%= goal.end_date.strftime('%Y/%m/%d') %></strong>
+              <strong>achieved on the <%= goal.end_date.strftime('%d/%m/%Y') %></strong>
             </p>
             <div class="fullbar">
               <div class="fillbar" style="width: <%= goal.progression %>%">
@@ -77,6 +76,7 @@
 
       <% end %>
 
+      <!-- New goal Button -->
       <% if GoalPolicy.new(current_user, @user, Goal).create? %>
         <div class="text-center">
           <%= link_to t('.new-goal'), '#', class: "btn btn-primary ", data: { toggle: "modal", target: "#myModal" } %>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- formulaire du chat -->
-        <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
+        <%= simple_form_for [@user, @message], remote: true, html: { class: "text-right"} do |f| %>
           <%= f.error_notification %>
           <%= f.input :content, label: false, placeholder: t('.placeholder-message'), as: :text %>
           <%= f.button :submit, t('.submit-message'), class: "btn btn-primary"  %>
