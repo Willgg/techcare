@@ -110,6 +110,6 @@ en:
         food_add: "+ Add photos"
   mailers:
     application:
-      sender: "William from Techcare <will@techcare.io>"
+      sender: "William from Techcare <william@techcare.io>"
     user:
       title: "Welcome %{name}"
