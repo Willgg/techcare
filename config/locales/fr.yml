@@ -111,6 +111,6 @@ fr:
           food_add: "Ajouter une photo"
   mailers:
     application:
-      sender: "William de Techcare <will@techcare.io>"
+      sender: "William de Techcare <william@techcare.io>"
     user:
       title: "Bienvenue %{name}"
