@@ -41,15 +41,15 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  SEXE = ["male", "female"]
+  SEXE = ["Male", "Female"]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :sent_messages, foreign_key: "sender_id", class_name: "Message"
   has_many :received_messages, foreign_key: "recipient_id", class_name: "Message"
-  has_many :goals, dependent: :destroy
+  has_many :goals, dependent: :nullify
   has_many :authorizations, dependent: :destroy
-  has_many :measures
+  has_many :measures, dependent: :destroy
   has_many :measure_types, through: :measures
   has_many :food_pictures, through: :measures
   has_one  :coach, class_name: "Adviser"
