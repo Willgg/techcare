@@ -44,6 +44,11 @@ fr:
       signed_in: "Connecté avec succès."
       signed_out: "Déconnecté avec succès."
       already_signed_out: "Déconnecté avec succès."
+      new:
+        remember_me: "Se souvenir de moi"
+        forgot_your_password: "Mot de passe oublié ?"
+        new_account: "Vous n'avez pas de compte ?"
+        sign_up: "S'inscrire"
     unlocks:
       send_instructions: 'Vous allez recevoir les instructions nécessaires au déverrouillage de votre compte dans quelques instants'
       send_paranoid_instructions: 'Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller.'
