@@ -53,6 +53,7 @@ fr:
       sign_up: "Inscription"
       sign_out: "Déconnexion"
       top_call_to_action: "Ajouter des données"
+      add_measure: "Enregistrer une mesure"
       trainees: "Personnes suivies"
       dashboard: "Progression"
       profile: "Mon compte"
@@ -93,8 +94,10 @@ fr:
       delete: "supprimer"
       new-goal: "+ Ajouter un objectif"
       title-new-goal: "Créer un nouvel objectif"
+      title_new_measure: "Ajouter une mesure"
       submit-goal: "Créer objectif"
       submit-message: "Envoyer"
+      submit_measure: "Enregistrer"
       placeholder-message: "Votre message"
       food_title: "Ajouter des photos de votre nourriture"
       food_empty: "Ajouter des photos de ce que vous avez mangé afin que votre coach puisse mieux comprendre vos habitudes alimentaires."
@@ -109,6 +112,9 @@ fr:
       create:
         form:
           food_add: "Ajouter une photo"
+  measures:
+    create:
+      success: "Votre mesure a bien été ajouté !"
   mailers:
     application:
       sender: "William de Techcare <william@techcare.io>"

@@ -15,4 +15,6 @@ class MeasureType < ActiveRecord::Base
   has_many :measures
   validates :unit, presence: true
   validates :name, presence: true
+
+  scope :all_except, -> (id) { where("id < ?", id) }
 end

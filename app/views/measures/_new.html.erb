@@ -1,0 +1,6 @@
+<%= simple_form_for [user, measure] do |f| %>
+  <%= f.association :measure_type, collection: measure_types %>
+  <%= f.input :value %>
+  <%= f.input :date %>
+  <%= f.button :submit, t('.submit_measure'), class: "btn btn-primary" %>
+<% end %>

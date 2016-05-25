@@ -17,7 +17,7 @@ class GoalsClosingJob < ActiveJob::Base
     puts "*** Check if new goals have to be created ***"
 
     User.all.each do |user|
-      puts ">> Analyzing user:(#{user.id})"
+      puts ">> Analyzing user(#{user.id})"
       all_measure_type_before(5).all.each do |mt|
         puts "Analyzing goals for #{mt.name}"
         goals = user.goals.where(measure_type_id: mt.id)
