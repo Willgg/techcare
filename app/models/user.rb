@@ -77,6 +77,10 @@ class User < ActiveRecord::Base
     self.first_name + ' ' + self.last_name
   end
 
+  def is_trainee?
+    !self.is_adviser?
+  end
+
   def notify_coach(coach)
     # Call method for different channel (emails, sms etc.)
     email_new_coach(coach)

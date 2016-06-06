@@ -53,7 +53,7 @@ fr:
       sign_in: "Connexion"
       sign_up: "Inscription"
       sign_out: "Déconnexion"
-      top_call_to_action: "Ajouter des données"
+      top_call_to_action: "Connecter une application"
       add_measure: "Enregistrer une mesure"
       trainees: "Personnes suivies"
       dashboard: "Progression"
