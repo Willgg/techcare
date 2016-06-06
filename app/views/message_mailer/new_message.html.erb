@@ -1,0 +1,80 @@
+<table cellspacing="0" cellpadding="0" border="0">
+  <!-- margin-top -->
+  <tr>
+    <td width="600" height="20"></td>
+  </tr>
+  <tr>
+    <td width="600" height="40" bgcolor="#FFFFFF" style="background-color: #FFFFFF"></td>
+  </tr>
+  <!-- Logo zone -->
+  <tr>
+    <td width="600" bgcolor="#FFFFFF">
+      <table cellspacing="0" cellpadding="0" width="100" border="0" bgcolor="#FFFFFF" align="center">
+        <tr>
+          <td width="100" valign="middle">
+            <%= link_to root_url(locale: @locale), style: "display: block; text-align: center;" do %>
+              <%= image_tag("logo-green.png", style: "width: 100px; height: 100px; text-decoration: none; display: block; color:#476688; font-size:30px;", alt: "Techcare",) %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="600" height="15" bgcolor="#ffffff" style="background-color: #ffffff"></td>
+  </tr>
+  <!-- Content Zone -->
+  <tr>
+    <td width="600" bgcolor="#FFFFFF">
+      <table cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" width="600" style="font-family: 'Lato', 'Helvetica', 'sans-serif'; font-size: 16px; line-height: 24px; color: #555555; width: 600px">
+        <tr>
+          <td width="80"></td>
+          <td width="440">
+            <div style="text-align: center">
+              <p style="text-align: center; font-weight: bold">
+                Vous avez reçu un message de <%= @sender.first_name %>
+              </p>
+              <%= image_tag @sender.picture(:medium), style: 'border-radius: 50%; width: 100px; margin-bottom: 10px' %>
+              <div style="border-radius: 8px; border: 1px solid #dedede; padding: 20px">
+                <p style="margin: 0; padding: 0; color: #999"><%= @message.content %></p>
+              </div>
+            </div>
+          </td>
+          <td width="80"></td>
+        <tr>
+          <td width="80"></td>
+          <td width="440">
+            <table style="text-align: center; width: 180px; margin-top: 20px; margin-bottom: 5px" width="180" border="0" cellpadding="0" cellspacing="0" align="center">
+              <tbody>
+                <tr>
+                  <td width="180" style="font-size: 14px; font-family: 'Lato', 'Helvetica', 'sans-serif'; font-weight: normal; color: #ffffff; text-decoration: none; border-radius: 3px; display: block; text-align: center; background-color: #01D48F; padding: 10px">
+                  <%= link_to "Répondre à #{@sender.first_name}", users_url(locale: @locale), style: "font-family: 'Lato', 'Helvetica', 'sans-serif';font-weight: normal; font-size: 16px; font-weight: normal; color: #ffffff; text-decoration: none" %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td width="80"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <!-- padding bottom -->
+  <tr>
+    <td width="600" height="40" bgcolor="#FFFFFF" style="background-color: #FFFFFF"></td>
+  </tr>
+  <!-- margin bottom -->
+  <tr>
+    <td width="600" height="40"></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+

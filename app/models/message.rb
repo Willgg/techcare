@@ -17,4 +17,20 @@ class Message < ActiveRecord::Base
   validates :sender_id, presence: true
   validates :recipient_id, presence: true
   validates :content, presence: true, length: { in: 1..1000 }
+
+  after_commit :send_new_message_email, on: :create
+
+  def notify
+    send_new_message_email
+    send_new_message_sms
+  end
+
+  private
+
+  def send_new_message_email
+    MessageMailer.new_message(self).deliver_later
+  end
+
+  def send_new_message_sms
+  end
 end
