@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :goals, only: [:index, :new, :create, :destroy]
       resources :messages, only: [:create]
       resources :food_pictures, only: [:create]
+      resources :measures, only: [:create, :update,]
     end
 
     resources :messages, only: [:destroy, :index] do
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'auth/:provider', to: 'authorizations#new', as: 'auth'
+  post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'
   get  'auth/:provider/callback', to: 'authorizations#create', as: 'auth_callback'
 
 end

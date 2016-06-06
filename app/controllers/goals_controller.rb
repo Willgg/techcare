@@ -9,6 +9,10 @@ class GoalsController < ApplicationController
     @food_picture = FoodPicture.new
     @food_pictures = @user.food_pictures.order(created_at: :desc).last(5)
 
+    # Set a new Measure and get Measure Types for new form
+    @measure = Measure.new
+    @measure_types = MeasureType.all_except(5)
+
     # Set messages as read
     @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
     @messages.each do |message|

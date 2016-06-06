@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
   belongs_to :adviser
 
   validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :sexe, presence: true, inclusion: { in: SEXE }
   validates :birthday, presence: true
   validates :height, presence: true
