@@ -162,6 +162,22 @@
       margin-top: 16px;
     }
   }
+  .user-info {
+    float: left;
+    padding-bottom: 20px;
+    width: 100%;
+    img{
+      float: left;
+      width: 30%;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    &-name{
+      float: left;
+      width: 66%;
+      margin-top: 16px;
+    }
+  }
   .messages {
     position: relative;
     min-height: 350px;

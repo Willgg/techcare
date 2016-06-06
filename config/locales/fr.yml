@@ -85,6 +85,9 @@ fr:
     providers:
       success: "Vos données ont bien été synchronisée."
       error: "Impossible de synchroniser vos données."
+  user_mailer:
+    new_coach:
+      new_user_subject: "Vous avez été choisi par %{user}"
   advisers:
     index:
       title: "Sélectionner un professionnel pour votre accompagnement"

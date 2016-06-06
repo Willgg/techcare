@@ -1,0 +1,32 @@
+=> [32m#<User:0x007fed661c94a8[0m
+ id: [1;34m5[0m,
+ email: [31m[1;31m"[0m[31mtest@mail.com[1;31m"[0m[31m[0m,
+ encrypted_password:
+  [31m[1;31m"[0m[31m$2a$10$m/PH8dBjzP.TrT9bU7aEXugZFL18tXAC/jCWKQC472n7KEc5E7JNe[1;31m"[0m[31m[0m,
+ reset_password_token: [1;36mnil[0m,
+ reset_password_sent_at: [1;36mnil[0m,
+ remember_created_at: [1;36mnil[0m,
+ sign_in_count: [1;34m1[0m,
+ current_sign_in_at: [1;34;4mMon[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m11[0m:[1;34m42[0m:[1;34m49[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ last_sign_in_at: [1;34;4mMon[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m11[0m:[1;34m42[0m:[1;34m49[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ current_sign_in_ip: [32m#<IPAddr: IPv4:127.0.0.1/255.255.255.255>[0m,
+ last_sign_in_ip: [32m#<IPAddr: IPv4:127.0.0.1/255.255.255.255>[0m,
+ created_at: [1;34;4mMon[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m11[0m:[1;34m42[0m:[1;34m45[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ updated_at: [1;34;4mMon[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m11[0m:[1;34m59[0m:[1;34m35[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ picture_file_name: [31m[1;31m"[0m[31mIMG_20150921_081127.jpg[1;31m"[0m[31m[0m,
+ picture_content_type: [31m[1;31m"[0m[31mimage/jpeg[1;31m"[0m[31m[0m,
+ picture_file_size: [1;34m960187[0m,
+ picture_updated_at: [1;34;4mMon[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m2016[0m [1;34m11[0m:[1;34m42[0m:[1;34m43[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ adviser_id: [1;34m3[0m,
+ first_name: [31m[1;31m"[0m[31mWilliam[1;31m"[0m[31m[0m,
+ last_name: [31m[1;31m"[0m[31mGodard[1;31m"[0m[31m[0m,
+ sexe: [31m[1;31m"[0m[31mMale[1;31m"[0m[31m[0m,
+ birthday: [1;34;4mThu[0m, [1;34m06[0m [1;34;4mJun[0m [1;34m1985[0m [1;34m00[0m:[1;34m00[0m:[1;34m00[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ is_adviser: [1;36mfalse[0m,
+ api_provider: [1;36mnil[0m,
+ api_consumer_key:
+  [31m[1;31m"[0m[31m52df5c04f036c7e812698c4755ce0405e2be1436ce8916f95b73c1f7c01[1;31m"[0m[31m[0m,
+ api_consumer_secret:
+  [31m[1;31m"[0m[31mcd7c1d6997c75321de5b4975f7cecd18f8b678621d18f1b258ffdb11d48[1;31m"[0m[31m[0m,
+ api_user_id: [31m[1;31m"[0m[31m3527432[1;31m"[0m[31m[0m,
+ height: [1;34m180[0m[32m>[0m

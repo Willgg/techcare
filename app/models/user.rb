@@ -67,10 +67,19 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
-  after_create :send_welcome_email
+  after_commit :send_welcome_email, on: :create
 
   def messages
     sent_messages + received_messages
+  end
+
+  def full_name
+    self.first_name + ' ' + self.last_name
+  end
+
+  def notify_coach(coach)
+    # Call method for different channel (emails, sms etc.)
+    email_new_coach(coach)
   end
 
   private
@@ -78,4 +87,9 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.welcome(self).deliver_later
   end
+
+  def email_new_coach(coach)
+    UserMailer.new_coach(self, coach).deliver_later
+  end
+
 end
