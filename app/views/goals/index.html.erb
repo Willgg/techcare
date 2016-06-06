@@ -18,7 +18,7 @@
       </div>
 
       <!-- Disclaimer about connected device synchronization -->
-      <% unless current_user.authorizations.exists? || current_user.api_user_id ||
+      <% unless @user.authorizations.exists? || @user.api_user_id.present? ||
                 cookies[:data_card_read] == "true" %>
         <%= render 'add_data_card' %>
       <% end %>
@@ -89,13 +89,25 @@
       <div class="chat-card">
 
         <!-- Coach information -->
-        <div class="coach-info">
-          <%= image_tag @user.adviser.user.picture.url(:medium) %>
-          <span class="coach-info-name">
-            <strong><%= @user.adviser.user.first_name %> <%= @user.adviser.user.last_name %></strong><br />
-            <%= @user.adviser.title %>
-          </span>
-        </div>
+        <% if current_user == @user.adviser.user %>
+          <div class="user-info">
+            <%= image_tag @user.picture.url(:medium) %>
+            <span class="user-info-name">
+              <strong>
+                <%= @user.full_name %>
+              </strong><br />
+            </span>
+          </div>
+        <% else %>
+          <div class="coach-info">
+            <%= image_tag @user.adviser.user.picture.url(:medium) %>
+            <span class="coach-info-name">
+              <strong><%= @user.adviser.user.first_name %> <%= @user.adviser.user.last_name %></strong><br />
+              <%= @user.adviser.title %>
+            </span>
+          </div>
+        <% end %>
+
 
         <!-- formulaire du chat -->
         <%= simple_form_for [@user, @message], remote: true, html: { class: "text-right"} do |f| %>

@@ -1,0 +1,19 @@
+Bonjour <%= @coach.first_name %>
+
+Un nouvel utilisateur, <%= @user.first_name %> vous a choisi pour être son coach sur techcare !
+La première chose à faire serait de lui souhaiter la bienvenue et
+de commencer à analyser ses premières données.
+
+Il est très important que <%= @user.first_name %> connaisse au plus vite:
+- Ses faiblesses (nutrition, sédentarité etc.)
+- Ce qu'il doit faire dans la pratique (diminution des rations, éducation alimentaire etc.)
+- Le temps pour parvenir à réussir son obectif
+
+<%= link_to "Voir le profil de #{@user.first_name}", users_url(@locale) %>
+
+N'oubliez pas que maintenir le contact avec les utilisateurs est primordial pour le changement de comportement de ces derniers.
+
+Prenez soin de vous !
+
+William,
+fondateur de techcare

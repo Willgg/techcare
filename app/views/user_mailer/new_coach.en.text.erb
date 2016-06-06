@@ -1,0 +1,18 @@
+Hi <%= @coach.first_name %>
+
+A new user named <%= @user.first_name %> just choose you to be his coach on techcare !
+The first thing to do is to welcome him and to start analysing his first dataset.
+
+It is very important than <%= @user.first_name %> becomes as soon as possible aware of:
+- His weaknesses (nutrition, sedentarity etc.)
+- What should he has to do in practice (reduce food rations, food education etc.)
+- How long he has to achieve its goals
+
+<%= link_to "Look at #{@user.first_name} profil", users_url(@locale) %>
+
+Don't forget to keep in touch with your trainees because it the most significant factor to improve your users' behavior.
+
+Take care of yourself !
+
+William
+TechCare founder

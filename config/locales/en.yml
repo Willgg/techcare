@@ -21,6 +21,8 @@
 
 en:
   hello: "Hello world"
+  food_add: "Ajouter une photo"
+  submit_message: "Send"
   time:
     formats:
       short: "%m/%d/%Y - %H:%M"
@@ -80,9 +82,16 @@ en:
       fat_title: "Reach a fat mass ratio of %{goal_value}%"
       blood_pressure_title: "Low your blood pressure to %{goal_value} mmHg"
       step_title: "Walk at least %{goal_value} steps"
+    providers:
+      success: "Your data has been synchronized."
+      error: "Synchronization of your data has failed."
+  user_mailer:
+    new_coach:
+      new_user_subject: "You have been chosen by %{user}"
   advisers:
     index:
       title: "Select your adviser to get help"
+      select_coach: "Choose"
   providers:
     index:
       title: "Connect to services"
@@ -116,3 +125,7 @@ en:
       sender: "William from Techcare <william@techcare.io>"
     user:
       title: "Welcome %{name}"
+  users:
+    index:
+      trainee_list: "Your trainees"
+      trainee_dashboard: "look at details"

@@ -22,6 +22,7 @@
 fr:
   hello: "Bonjour"
   food_add: "Ajouter une photo"
+  submit_message: "Envoyer"
   time:
     formats:
       short: "%m/%d/%Y - %H:%M"
@@ -78,16 +79,23 @@ fr:
       destroy_success: "L'objectif a bien été supprimé."
       destroy_fail: "L'objectif n'a pas été supprimé."
       weight_title: "Conservez un poids en dessous de %{goal_value} kg"
-      fat_title: "Atteignez une proportion de masse grasse de %{goal_value}%"
+      fat_title: "Atteignez un ratio de masse grasse de %{goal_value}%"
       blood_pressure_title: "Atteignez une tension de %{goal_value} mmHg"
       step_title: "Marchez au moins %{goal_value} pas"
+    providers:
+      success: "Vos données ont bien été synchronisée."
+      error: "Impossible de synchroniser vos données."
+  user_mailer:
+    new_coach:
+      new_user_subject: "Vous avez été choisi par %{user}"
   advisers:
     index:
-      title: "Select your adviser to get help"
+      title: "Sélectionner un professionnel pour votre accompagnement"
+      select_coach: "Choisir"
   providers:
     index:
       title: "Synchroniser vos objets connectés"
-      intro: "Techcare a pour but de vous faire adopter des habitubes saines. Il a besoin pour cela d'accéder à vos données pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
+      intro: "Techcare a pour objectif de vous faire adopter des habitubes saines. Il a besoin pour cela d'accéder à vos données pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
   goals:
     index:
       days: "jours restants"
@@ -120,3 +128,7 @@ fr:
       sender: "William de Techcare <william@techcare.io>"
     user:
       title: "Bienvenue %{name}"
+  users:
+    index:
+      trainee_list: "Vos clients"
+      trainee_dashboard: "Voir le détail"
