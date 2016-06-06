@@ -88,6 +88,9 @@ fr:
   user_mailer:
     new_coach:
       new_user_subject: "Vous avez été choisi par %{user}"
+  message_mailer:
+    new_message:
+      subject: "Vous avez reçu un message de %{user}"
   advisers:
     index:
       title: "Sélectionner un professionnel pour votre accompagnement"

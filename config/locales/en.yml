@@ -88,6 +88,9 @@ en:
   user_mailer:
     new_coach:
       new_user_subject: "You have been chosen by %{user}"
+  message_mailer:
+    new_message:
+      subject: "Vous have received a message from %{user}"
   advisers:
     index:
       title: "Select your adviser to get help"
