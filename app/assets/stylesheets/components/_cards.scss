@@ -182,10 +182,18 @@
   }
 }
 
+.trainees-list {
+  margin-top: 40px;
+  h1 {
+    background: #fff;
+    margin-bottom: 1px;
+    padding: 15px 20px;
+  }
+}
+
 .trainee-card{
   background: white;
   margin-bottom: 1px;
-  height: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -197,10 +205,17 @@
   &:last-child{
     margin-bottom: 40px;
   }
+  .btn {
+    margin-left: 10px;
+  }
+  p {
+    margin: 0;
+  }
   img {
+    margin-right: 10px;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
   }
   i {
     color: red;

@@ -15,7 +15,8 @@
                     <h2><%= adviser.user.first_name %> <%= adviser.user.last_name %></h2>
                     <p><%= adviser.title %><p>
                     <p><%= adviser.description %></p>
-                    <%= link_to "Select this coach", adviser_selection_path(adviser), method: :post, class: "btn btn-primary" %>
+                    <%= link_to t('.select_coach') + ' ' + adviser.user.first_name,
+                        adviser_selection_path(adviser), method: :post, class: "btn btn-primary" %>
                   </div>
                 </div>
               <% end %>

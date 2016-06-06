@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :goals, only: [:index, :new, :create, :destroy]
       resources :messages, only: [:create]
       resources :food_pictures, only: [:create]
-      resources :measures, only: [:create, :update,]
+      resources :measures, only: [:create]
     end
 
     resources :messages, only: [:destroy, :index] do

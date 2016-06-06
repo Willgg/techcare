@@ -21,6 +21,8 @@
 
 en:
   hello: "Hello world"
+  food_add: "Ajouter une photo"
+  submit_message: "Send"
   time:
     formats:
       short: "%m/%d/%Y - %H:%M"
@@ -83,6 +85,7 @@ en:
   advisers:
     index:
       title: "Select your adviser to get help"
+      select_coach: "Choose"
   providers:
     index:
       title: "Connect to services"
@@ -116,3 +119,7 @@ en:
       sender: "William from Techcare <william@techcare.io>"
     user:
       title: "Welcome %{name}"
+  users:
+    index:
+      trainee_list: "Your trainees"
+      trainee_dashboard: "look at details"

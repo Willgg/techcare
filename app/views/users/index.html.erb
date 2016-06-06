@@ -10,7 +10,7 @@
             <%= hidden_field_tag :recipient_id, @default_trainee.id, class: 'js-message-recipient-id' %>
             <%= f.input :content, label: false, placeholder: 'Your message', as: :text, class: "form-control" %>
             <%#= f.association :recipient, collection: @user_names, value_method: :id %>
-            <%= f.button :submit, class: "btn btn-primary"  %>
+            <%= f.button :submit, value: t('submit_message'),class: "btn btn-primary"  %>
           <% end %>
 
           <!-- List of messages -->
@@ -20,20 +20,21 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-4">
-      <h1>Your trainees</h1>
+      <div class="trainees-list">
+        <h1><%= t('.trainee_list') %></h1>
 
-      <% @users.each do |user| %>
-        <div class="trainee-card text-center" data-user-id="<%= user.id %>">
-          <%= image_tag user.picture.url(:medium) %>
-          <p><%= user.first_name %></p>
-          <!-- affichier le nombre de message avec read_at = nil -->
-          <%if @unread_messages.where(sender: user).count > 0%>
-            <p class="notification"><i class="fa fa-envelope"></i> <%= @unread_messages.where(sender: user).count  %></p>
-          <%end%>
-          <%= link_to "see goals", user_goals_path(user), class: "btn btn-success"%>
-        </div>
-      <% end %>
-
+        <% @users.each do |user| %>
+          <div class="trainee-card text-center" data-user-id="<%= user.id %>">
+            <%= image_tag user.picture.url(:medium) %>
+            <p><%= user.first_name %></p>
+            <!-- affichier le nombre de message avec read_at = nil -->
+            <%if @unread_messages.where(sender: user).count > 0%>
+              <p class="notification"><i class="fa fa-envelope"></i> <%= @unread_messages.where(sender: user).count  %></p>
+            <%end%>
+            <%= link_to t('.trainee_dashboard'), user_goals_path(user), class: "btn btn-success", target: 'blank' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
