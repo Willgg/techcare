@@ -1,0 +1,6 @@
+You have received a new message from <%= @sender.first_name %>
+at <%= l(@message.created_at, format: :short) %> :
+
+<%= @message.content %>
+
+<%= link_to "Reply to #{@sender.first_name}", users_url(locale: @locale), target: 'blank' %>

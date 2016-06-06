@@ -32,9 +32,15 @@
           <td width="440">
             <div style="text-align: center">
               <p style="text-align: center; font-weight: bold">
-                Vous avez reçu un message de <%= @sender.first_name %>
+                You have received a new message !
               </p>
-              <%= image_tag @sender.picture(:medium), style: 'border-radius: 50%; width: 100px; margin-bottom: 10px' %>
+              <%= image_tag @sender.picture(:medium), style: 'border-radius: 50%; width: 100px; margin-bottom: 0px' %>
+              <p style="text-align: center; margin-top: 0">
+                <strong><%= @sender.first_name %></strong><br />
+                <span style="color: #ccc;font-size: 13px">
+                  <%= l(@message.created_at, format: :short) %>
+                </span>
+              </p>
               <div style="border-radius: 8px; border: 1px solid #dedede; padding: 20px">
                 <p style="margin: 0; padding: 0; color: #999"><%= @message.content %></p>
               </div>
@@ -48,7 +54,7 @@
               <tbody>
                 <tr>
                   <td width="180" style="font-size: 14px; font-family: 'Lato', 'Helvetica', 'sans-serif'; font-weight: normal; color: #ffffff; text-decoration: none; border-radius: 3px; display: block; text-align: center; background-color: #01D48F; padding: 10px">
-                  <%= link_to "Répondre à #{@sender.first_name}", users_url(locale: @locale), style: "font-family: 'Lato', 'Helvetica', 'sans-serif';font-weight: normal; font-size: 16px; font-weight: normal; color: #ffffff; text-decoration: none" %>
+                  <%= link_to "Reply to #{@sender.first_name}", users_url(locale: @locale), style: "font-family: 'Lato', 'Helvetica', 'sans-serif';font-weight: normal; font-size: 16px; font-weight: normal; color: #ffffff; text-decoration: none", target: 'blank' %>
                   </td>
                 </tr>
               </tbody>
@@ -68,13 +74,3 @@
     <td width="600" height="40"></td>
   </tr>
 </table>
-
-
-
-
-
-
-
-
-
-
