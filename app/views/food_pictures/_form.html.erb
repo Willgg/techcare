@@ -1,4 +1,4 @@
 <%= simple_form_for [user, food_picture], remote: true, authenticity_token: true do |f| %>
   <%= f.input :picture, label: t('.food_add') %>
-  <%= f.button :submit, 'Post', class: 'btn-techcare' %>
+  <%= f.button :submit, t('.food_submit'), class: 'btn-techcare' %>
 <% end %>

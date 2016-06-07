@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
 
     # Set food_picture and index for food_picture card
     @food_picture = FoodPicture.new
-    @food_pictures = @user.food_pictures.order(created_at: :desc).last(5)
+    @food_pictures = @user.food_pictures.order(created_at: :desc)
 
     # Set a new Measure and get Measure Types for new form
     @measure = Measure.new

@@ -5,14 +5,18 @@
       <!-- Add Food Picture -->
       <div class="white-card text-center" id="food-pictures">
         <h2><%= t('.food_title') %></h2>
-        <div class="food-picture-list">
-          <% if @food_pictures.empty? %>
-           <p><%= t('.food_empty') %></p>
-          <% else %>
-            <% @food_pictures.each do |fp| %>
-              <%= render 'food_pictures/show', fp: fp %>
+        <div class="food_picture-container">
+          <button id="prev_pic"></button>
+          <div class="food-picture-list">
+            <% if @food_pictures.empty? %>
+             <p><%= t('.food_empty') %></p>
+            <% else %>
+              <% @food_pictures.each do |fp| %>
+                <%= render 'food_pictures/show', fp: fp %>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
+          <button id="next_pic"></button>
         </div>
         <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
       </div>
@@ -186,5 +190,12 @@
 $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').focus()
 })
+
+$('#prev_pic').click(function() {
+
+});
+$('#next_pic').click(function() {
+
+});
 </script>
 

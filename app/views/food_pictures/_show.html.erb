@@ -1,4 +1,4 @@
 <figure class="picture" id="food-picture-<%= fp.id %>">
-  <%= image_tag fp.picture.url(:medium) %>
-  <figcaption><%= fp.measure.date.strftime("%-d %B %Y") %></figcaption>
+  <%= image_tag fp.picture.url(:thumb) %>
+  <figcaption><%= l(fp.measure.date, format: :day) %></figcaption>
 </figure>
