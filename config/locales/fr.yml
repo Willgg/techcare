@@ -122,7 +122,7 @@ fr:
   food_pictures:
       form:
         food_add: "Ajouter une photo"
-        food_submit: "Envoyer"
+        food_submit: "Publier"
       create:
         form:
           food_add: "Ajouter une photo"
