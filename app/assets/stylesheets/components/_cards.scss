@@ -313,30 +313,67 @@
     font-weight: 300;
     color: $brand-color;
   }
+  #prev_pic, #next_pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 10;
+    margin: 0 10px 0 0;
+    padding: 0;
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    height: 112px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.3);
+    button {
+      border: 1px solid $brand-color;
+      background: #fff;
+      color: $brand-color;
+      font-weight: bold;
+      font-size: 20px;
+      height: 30px;
+      width: 30px;
+    }
+    &:hover{
+      text-decoration: none;
+    }
+  }
+  #prev_pic {
+    display: none;
+    &.active{
+      display: flex;
+    }
+  }
+  #next_pic {
+    margin: 0;
+    right: 40px;
+    &.active{
+      display: flex;
+    }
+  }
+  #prev_pic:hover, #next_pic:hover {
+    background-color: rgba(255,255,255,0.8);
+    button {
+      background: $brand-color;
+      color: #fff;
+    }
+  }
   .food_picture-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    button {
-      border: 0;
-      margin: 0 10px 0 0;
-      padding: 0;
-      background: #ccc;
-      width: 40px;
-      min-width: 40px;
-      max-width: 40px;
-      cursor: pointer;
-      z-index: 10;
-      &:last-child {
-        margin: 0;
-      }
-    }
+
     .food-picture-list {
       display: flex;
       flex-direction: column;
       position: relative;
-      width: 610px;
       z-index: 0;
+      right: 0;
+      -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+      transition: width 2s;
       figure {
         margin-bottom: 10px;
         &:last-child{
@@ -408,6 +445,7 @@
       flex-direction: row;
       .food-picture-list {
         flex-direction: row;
+        width: 100%;
         figure {
           margin-right: 10px;
           &:first-child {
