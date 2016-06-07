@@ -201,7 +201,9 @@
 
     $('#prev_pic').click(function() {
       var food_list   = $('.food-picture-list');
+
       if (right(food_list) > 0) {
+        $('#next_pic').addClass('active');
         var unit_size = $('figure').outerWidth(true);
         $('.food-picture-list').animate({right: "-=" + unit_size},200,function() {
           if (right(food_list) <= 0) {
@@ -214,14 +216,17 @@
 
     $('#next_pic').click(function() {
       var food_list = $('.food-picture-list');
-      var max_size  = $('figure').outerWidth(true) * <%= @food_pictures.count %>;
-      var max_position = max_size - $('.food-picture-list').width();
-      $('#prev_pic').addClass('active');
+      var figure_size = $('figure').outerWidth(true);
+      var figure_margin = parseInt( $('figure').css("marginRight") );
+      var max_size  = (figure_size * <%= @food_pictures.count %>) - figure_margin;
+      var max_position = max_size - $('.food-picture-list').outerWidth(true);
+
       if (right(food_list) < max_position) {
+        $('#prev_pic').addClass('active');
         var unit_size = $('figure').outerWidth(true);
         $('.food-picture-list').animate({ right: "+=" + unit_size},200,function() {
           if (right(food_list) >= max_position) {
-            $('#next_pic').removeClass('active');
+            $('#next_pic').removeClass("active");
             $('.food-picture-list').animate({right: max_position},200,function() {});
           }
         });
