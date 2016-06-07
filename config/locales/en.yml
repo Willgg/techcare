@@ -26,6 +26,7 @@ en:
   time:
     formats:
       short: "%m/%d/%Y - %H:%M"
+      day: "%d %B %Y"
   pages:
     home:
       first-claim: "Change your habits"
@@ -45,9 +46,10 @@ en:
       coach-1-speech: '"I have treated hundreds of patients and studied web-based therapy programs for over a decade, and I know that personal attention and the use of evidence based techniques significantly improve health outcomes."'
       coach-2-speech: '"I’m here to provide support, information, and encouragement to help facilitate your success. I know by the end of this journey, you will have lots of new tools and strategies that you can use in your everyday life."'
       coach-3-speech: '"I believe people’s paths cross for a purpose and as your techcare coach, my mission is to support you to reach your goals and make positive changes in your life."'
-      newsletter-title: "Get our advices in your inbox"
-      newsletter-sub: "We empower people to keep healthy and avoid chronic conditions."
-      newsletter-submit-value: "Get it"
+      newsletter_title: "Get our advices in your inbox"
+      newsletter_sub: "We empower people to keep healthy and avoid chronic conditions."
+      newsletter_submit: "Get it"
+      newsletter_placeholder : "Your email"
   shared:
     navbar:
       sign_in: "Login"
@@ -120,6 +122,7 @@ en:
   food_pictures:
     form:
       food_add: "+ Add photos"
+      food_submit: "Post"
     create:
       form:
         food_add: "+ Add photos"
