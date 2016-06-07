@@ -6,7 +6,7 @@
       <div class="white-card text-center" id="food-pictures">
         <h2><%= t('.food_title') %></h2>
         <div class="food_picture-container">
-          <button id="prev_pic"></button>
+          <a id="prev_pic"><button>&lt;</button></a>
           <div class="food-picture-list">
             <% if @food_pictures.empty? %>
              <p><%= t('.food_empty') %></p>
@@ -16,7 +16,7 @@
               <% end %>
             <% end %>
           </div>
-          <button id="next_pic"></button>
+          <a id="next_pic" class="active"><button>&gt;</button></a>
         </div>
         <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
       </div>
@@ -186,16 +186,48 @@
   </div>
 </div>
 
-<script>
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
-})
+<% content_for(:after_js) do %>
+  <script>
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').focus()
+    });
 
-$('#prev_pic').click(function() {
 
-});
-$('#next_pic').click(function() {
+    function right(element){
+      console.log(element.css('right'));
+      var right_value = parseInt( element.css('right') );
+      return right_value
+    };
 
-});
-</script>
+    $('#prev_pic').click(function() {
+      var food_list   = $('.food-picture-list');
+      if (right(food_list) > 0) {
+        var unit_size = $('figure').outerWidth(true);
+        $('.food-picture-list').animate({right: "-=" + unit_size},200,function() {
+          if (right(food_list) <= 0) {
+            $('#prev_pic').removeClass('active');
+            $('.food-picture-list').animate({right: 0},200,function() {});
+          }
+        });
+      }
+    });
+
+    $('#next_pic').click(function() {
+      var food_list = $('.food-picture-list');
+      var max_size  = $('figure').outerWidth(true) * <%= @food_pictures.count %>;
+      var max_position = max_size - $('.food-picture-list').width();
+      $('#prev_pic').addClass('active');
+      if (right(food_list) < max_position) {
+        var unit_size = $('figure').outerWidth(true);
+        $('.food-picture-list').animate({ right: "+=" + unit_size},200,function() {
+          if (right(food_list) >= max_position) {
+            $('#next_pic').removeClass('active');
+            $('.food-picture-list').animate({right: max_position},200,function() {});
+          }
+        });
+      }
+    });
+
+  </script>
+<% end %>
 
