@@ -314,7 +314,7 @@
     color: $brand-color;
   }
   #prev_pic, #next_pic {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -325,9 +325,9 @@
     width: 40px;
     min-width: 40px;
     max-width: 40px;
-    height: 112px;
+    height: 132px;
     cursor: pointer;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.4);
     button {
       border: 1px solid $brand-color;
       background: #fff;
@@ -336,13 +336,13 @@
       font-size: 20px;
       height: 30px;
       width: 30px;
+      border-radius: 4px;
     }
     &:hover{
       text-decoration: none;
     }
   }
   #prev_pic {
-    display: none;
     &.active{
       display: flex;
     }
@@ -455,7 +455,7 @@
             margin-right: 0;
           }
           img {
-            width: 112px;
+            width: 132px;
           }
         }
       }
