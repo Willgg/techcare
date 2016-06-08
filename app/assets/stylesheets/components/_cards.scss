@@ -244,7 +244,7 @@
 #add-data-card {
   position: relative;
   background: white;
-  margin: 40px 0;
+  margin: 30px 0;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
   color: #aaa;
   display: flex;
@@ -313,59 +313,14 @@
     font-weight: 300;
     color: $brand-color;
   }
-  #prev_pic, #next_pic {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    z-index: 10;
-    margin: 0 10px 0 0;
-    padding: 0;
-    width: 40px;
-    min-width: 40px;
-    max-width: 40px;
-    height: 132px;
-    cursor: pointer;
-    background-color: rgba(255,255,255,0.4);
-    button {
-      border: 1px solid $brand-color;
-      background: #fff;
-      color: $brand-color;
-      font-weight: bold;
-      font-size: 20px;
-      height: 30px;
-      width: 30px;
-      border-radius: 4px;
-    }
-    &:hover{
-      text-decoration: none;
-    }
-  }
-  #prev_pic {
-    &.active{
-      display: flex;
-    }
-  }
-  #next_pic {
-    margin: 0;
-    right: 40px;
-    &.active{
-      display: flex;
-    }
-  }
-  #prev_pic:hover, #next_pic:hover {
-    background-color: rgba(255,255,255,0.8);
-    button {
-      background: $brand-color;
-      color: #fff;
-    }
-  }
+
   .food_picture-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-
+    #prev_pic, #next_pic {
+      display: none;
+    }
     .food-picture-list {
       display: flex;
       flex-direction: column;
@@ -460,6 +415,40 @@
         }
       }
     }
+    #prev_pic, #next_pic {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 10;
+      width: 40px;
+      height: 132px;
+      background-color: rgba(255,255,255,0.4);
+      button {
+        border: 1px solid $brand-color;
+        background: #fff;
+        color: $brand-color;
+        font-weight: bold;
+        font-size: 20px;
+        height: 30px;
+        width: 30px;
+        border-radius: 4px;
+      }
+      &:hover{
+        text-decoration: none;
+        background-color: rgba(255,255,255,0.8);
+        button {
+          background: $brand-color;
+          color: #fff;
+        }
+      }
+      &.active {
+        display: flex;
+      }
+    }
+    #next_pic {
+      right: 40px;
+    }
   }
-
 }

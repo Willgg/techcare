@@ -20,12 +20,14 @@ $(document).ready(function() {
 
 });
 
+// When user removes selected file
 $(document).on('click', '#new_food_picture i.fa',function (){
+    // clear input value
+    $('#new_food_picture')[0].reset();
     // delete icon
     $('#new_food_picture .food_picture_picture i.fa').remove();
     // delete withFile css class
     $('label').removeClass('withFile');
-    // clear input value missing IMPROVE
     // change label value
     $('label').html('<%= I18n.t(".food_pictures.form.food_add") %>');
   });
