@@ -22,7 +22,7 @@ class FoodPicture < ActiveRecord::Base
   validates :picture, presence: true
 
   has_attached_file :picture,
-    styles: { large: "1300x1300#", medium: "300x300#", thumb: "100x100#" }
+    styles: { large: "800x800#", medium: "300x300#", thumb: "150x150#" }
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
