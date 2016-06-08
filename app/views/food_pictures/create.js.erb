@@ -2,5 +2,6 @@ $('.food-picture-list p').remove();
 $('.food-picture-list').prepend("<%= j render 'food_pictures/show', fp: @food_picture %>");
 $('.picture').first().addClass('fadeIn animated');
 $('.food_picture_picture label').html('<%= t('.form.food_add') %>');
+$('#new_food_picture')[0].reset();
 $('label').removeClass('withFile');
 $('#new_food_picture i').remove();
