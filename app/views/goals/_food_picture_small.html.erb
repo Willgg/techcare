@@ -1,0 +1,7 @@
+<figure class="picture" id="food-picture-<%= fp.id %>">
+  <%= link_to user_food_picture_path(user, fp), remote: true,
+      data: { toggle: "modal", target: "#food-pic-modal" } do %>
+    <%= image_tag fp.picture.url(:thumb) %>
+  <% end %>
+  <figcaption><%= l(fp.measure.date, format: :day) %></figcaption>
+</figure>

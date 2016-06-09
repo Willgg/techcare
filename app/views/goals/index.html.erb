@@ -14,9 +14,7 @@
             <a id="prev_pic"><button>&lt;</button></a>
             <div class="food-picture-list">
               <% @food_pictures.each do |fp| %>
-                <%= link_to user_food_picture_path(@user, fp) do %>
-                  <%= render 'food_pictures/show', fp: fp %>
-                <% end %>
+                <%= render 'food_picture_small', user: @user, fp: fp %>
               <% end %>
             </div>
             <a id="next_pic" class="active"><button>&gt;</button></a>
@@ -180,8 +178,19 @@
                               end_year: Date.today.year, order: [:day, :month, :year] %>
           <%= f.button :submit, t('.submit_measure'), class: "btn btn-primary" %>
         <% end %>
-
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- New Goal Modal -->
+<div class="modal fade" id="food-pic-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+      <div class="modal-body"></div>
     </div>
   </div>
 </div>
@@ -197,13 +206,12 @@
     var figure_margin = parseInt( $('figure').css("marginRight") );
     var pic_size_total  = (figure_size * <%= @food_pictures.count %>) - figure_margin;
     var pic_size_displayed = $('.food-picture-list').outerWidth(true);
-    console.log('total: ' + pic_size_total + 'displayed: ' + pic_size_displayed);
+
     if (pic_size_total < pic_size_displayed) {
       $('#next_pic').removeClass('active');
     }
 
     function right(element){
-      console.log(element.css('right'));
       var right_value = parseInt( element.css('right') );
       return right_value
     };

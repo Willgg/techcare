@@ -313,7 +313,6 @@
     font-weight: 300;
     color: $brand-color;
   }
-
   .food_picture-container {
     display: flex;
     flex-direction: column;
@@ -333,6 +332,9 @@
         margin: 0 0 15px 0;
         &:last-child{
           margin-bottom: 0;
+        }
+        a {
+          display: block;
         }
         img {
           width: 100%;

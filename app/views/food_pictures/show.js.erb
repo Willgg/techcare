@@ -1,0 +1,4 @@
+// clean modal of previous food_picture
+$('#food-pic-modal .modal-body figure').remove();
+// ajouter le render show dans le body de la modal
+$('#food-pic-modal .modal-body').append("<%= j render 'food_pictures/show' %>");

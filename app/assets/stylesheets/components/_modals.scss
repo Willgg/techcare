@@ -1,0 +1,20 @@
+#food-pic-modal {
+  img {
+    width: 100%;
+  }
+  .modal-body{
+    padding: 0;
+  }
+  .close {
+    position: relative;
+    top: -15px;
+    right: 5px;
+    font-size: 30px;
+    line-height: 0;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0;
+    cursor: pointer;
+    z-index: 100;
+  }
+}
