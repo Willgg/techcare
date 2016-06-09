@@ -330,9 +330,6 @@
       transition: width 2s;
       figure {
         margin: 0 0 15px 0;
-        &:last-child{
-          margin-bottom: 0;
-        }
         a {
           display: block;
         }
@@ -348,7 +345,7 @@
     }
   }
   form {
-    margin-top: 0;
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid $gray-lightest;
