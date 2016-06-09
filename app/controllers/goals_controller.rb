@@ -87,10 +87,10 @@ class GoalsController < ApplicationController
 
   def user_not_authorized
     flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
-    if current_user.is_adviser
-      redirect_to(users_path)
+    if current_user.is_adviser?
+      return users_path(current_user)
     else
-      redirect_to(user_goals_path(current_user))
+      return user_goals_path(@user)
     end
   end
 end

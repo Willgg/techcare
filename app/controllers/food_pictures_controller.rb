@@ -1,5 +1,5 @@
 class FoodPicturesController < ApplicationController
-  before_action :find_user, only: [:new, :create]
+  before_action :find_user, only: [:show, :new, :create]
   respond_to :js, only: [:show, :create]
 
   def show
