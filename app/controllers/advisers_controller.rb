@@ -5,7 +5,6 @@ class AdvisersController < ApplicationController
   end
 
   def user_not_authorized
-
     if current_user.is_adviser?
       flash[:alert] = I18n.t('controllers.advisers.coach_not_authorized', default: "You can't select a coach.")
       redirect_to users_path

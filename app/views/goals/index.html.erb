@@ -14,7 +14,7 @@
             <a id="prev_pic"><button>&lt;</button></a>
             <div class="food-picture-list">
               <% @food_pictures.each do |fp| %>
-                <%= render 'food_picture_small', user: @user, fp: fp %>
+                <%= render 'food_pictures/show_small', user: @user, fp: fp %>
               <% end %>
             </div>
             <a id="next_pic" class="active"><button>&gt;</button></a>
