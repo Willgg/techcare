@@ -1,0 +1,32 @@
+#food-pic-modal {
+  img {
+    width: 100%;
+  }
+  .modal-dialog{
+    margin: 50px 10px 10px 10px;
+  }
+  .modal-body{
+    padding: 0;
+  }
+  .close {
+    position: relative;
+    top: -20px;
+    right: 5px;
+    font-size: 30px;
+    line-height: 0;
+    color: #fff;
+    opacity: 1;
+    text-shadow: 0;
+    cursor: pointer;
+    z-index: 100;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #food-pic-modal {
+    .modal-dialog{
+      margin: 40px auto;
+      margin-bottom: 0;
+    }
+  }
+}

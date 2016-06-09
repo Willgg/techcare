@@ -1,4 +1,4 @@
-<figure class="picture" id="food-picture-<%= fp.id %>">
-  <%= image_tag fp.picture.url(:thumb) %>
-  <figcaption><%= l(fp.measure.date, format: :day) %></figcaption>
+<figure>
+  <%= image_tag @food_picture.picture.url(:large) %>
+  <!-- <figcaption><%= l(@food_picture.measure.date, format: :day) %></figcaption> -->
 </figure>

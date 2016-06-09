@@ -1,5 +1,11 @@
 class FoodPicturesController < ApplicationController
   before_action :find_user, only: [:new, :create]
+  respond_to :js, only: [:show, :create]
+
+  def show
+    @food_picture = FoodPicture.find(params[:id])
+    authorize @food_picture
+  end
 
   def create
     if params.has_key? :food_picture
