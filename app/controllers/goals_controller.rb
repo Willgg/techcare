@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   after_action :verify_authorized, except: [:index, :create, :destroy], unless: :devise_or_admin_controller?
 
   def index
-    redirect_to advisers_path if @user.adviser.blank?
+    # redirect_to advisers_path if @user.adviser.blank?
 
     # Set food_picture and index for food_picture card
     @food_picture = FoodPicture.new
@@ -88,9 +88,10 @@ class GoalsController < ApplicationController
   def user_not_authorized
     flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
     if current_user.is_adviser?
-      return users_path(current_user)
+      redirect_to(users_path)
     else
-      return user_goals_path(@user)
+      current_user.adviser.present? ?
+        redirect_to(user_goals_path(current_user)) : redirect_to(advisers_path)
     end
   end
 end

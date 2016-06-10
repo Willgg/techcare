@@ -317,6 +317,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    margin-bottom: 10px;
     #prev_pic, #next_pic {
       display: none;
     }
@@ -345,7 +346,6 @@
     }
   }
   form {
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     border-top: 1px solid $gray-lightest;
@@ -397,6 +397,7 @@
     .food_picture-container {
       display: flex;
       flex-direction: row;
+      margin-bottom: 20px;
       .food-picture-list {
         flex-direction: row;
         width: 100%;
@@ -448,9 +449,6 @@
     }
     #next_pic {
       right: 40px;
-    }
-    form {
-      margin-top: 20px;
     }
   }
 }

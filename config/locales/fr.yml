@@ -67,6 +67,8 @@ fr:
       goal:
         title: "title"
   controllers:
+    application:
+      user_not_authorized: "Vous ne pouvez pas accéder à cette page"
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
       user_has_coach: "Vous avez déjà un coach."
@@ -95,7 +97,7 @@ fr:
       subject: "Vous avez reçu un message de %{user}"
   advisers:
     index:
-      title: "Sélectionner un professionnel pour votre accompagnement"
+      title: "Sélectionnez un professionnel pour votre accompagnement"
       select_coach: "Choisir"
   providers:
     index:
