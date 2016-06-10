@@ -1,7 +1,7 @@
 class FoodPicturePolicy < ApplicationPolicy
 
   def create?
-    true
+    !user.is_adviser
   end
 
   class Scope < Scope

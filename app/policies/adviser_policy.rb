@@ -1,7 +1,7 @@
 class AdviserPolicy < ApplicationPolicy
 
   def index?
-    user.adviser.blank? && user.is_adviser != true
+    user.is_trainee? && user.adviser.blank?
   end
 
   def create?

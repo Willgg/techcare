@@ -27,8 +27,12 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:error] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
-    redirect_to(root_path)
+    flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
+    if current_user.is_adviser?
+      redirect_to(users_path)
+    else
+      redirect_to(user_goals_path(current_user))
+    end
   end
 
   protected

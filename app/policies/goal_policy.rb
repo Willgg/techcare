@@ -8,7 +8,12 @@ class GoalPolicy < ApplicationPolicy
   end
 
   def index?
-    ( user == user_param ) || ( user.coach ? ( user.coach == user_param.adviser ) : false )
+    # Check if user has an adviser and if he can to read index
+    if user.is_adviser
+      user_param.adviser == user.coach
+    else
+      user.adviser.present? && user == user_param
+    end
   end
 
   def create?
