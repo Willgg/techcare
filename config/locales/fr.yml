@@ -58,7 +58,7 @@ fr:
       top_call_to_action: "Connecter une application"
       add_measure: "Enregistrer une mesure"
       trainees: "Personnes suivies"
-      dashboard: "Progression"
+      dashboard: "Tableau de bord"
       profile: "Mon compte"
   activerecord:
     models:
