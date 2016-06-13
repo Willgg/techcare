@@ -135,7 +135,7 @@
     font-size: 42px;
     font-weight: 300;
     color: $brand-color;
-    margin:50px;
+    margin: 50px 0;
 
   }
   h3{
@@ -149,11 +149,11 @@
   }
 
   .img-circle {
-  width: 250px;
-  height: 250px;
-  border-radius: 150px;
-  -webkit-border-radius: 150px;
-  -moz-border-radius: 150px;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
   }
 }
