@@ -27,6 +27,7 @@ fr:
     formats:
       short: "%m/%d/%Y - %H:%M"
       day: "%-d %B %Y"
+      food_pic: "%-d %b - %Hh"
   pages:
     home:
       first-claim: "Changez vos habitudes"

@@ -340,13 +340,45 @@
         }
       }
       figcaption {
+        position: relative;
         font-size: 14px;
-        padding-top: 3px;
+        margin-top: 3px;
+        display: flex;
+        justify-content: center;
+        .date{
+          cursor: pointer;
+          display: flex;
+        }
+        p{
+          margin: 0;
+          font-size: 16px;
+        }
+        a {
+          margin-left: 10px;
+          padding: 0 5px;
+          font-size: 20px;
+          line-height: 1.2;
+          color: $gray-lighter;
+          &:hover, &:active {
+            color: $gray-light;
+          }
+        }
+        &:hover, &:active {
+          color: $gray-light;
+        }
+      }
+      .display {
+        display: block;
+      }
+      .nodisplay {
+        display: flex;
+        justify-content: center;
       }
     }
   }
   form {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     border-top: 1px solid $gray-lightest;
     padding-top: 10px;
@@ -363,10 +395,11 @@
       margin: 0;
       color: $blue;
       display: flex;
+      justify-content: center;
       label {
         font-weight: normal;
         display: inline-block;
-        padding: 7px 0;
+        padding: 7px 0 15px 0;
         cursor: pointer;
         margin: 0;
         text-align: left;
@@ -382,7 +415,7 @@
       }
       .fa {
         padding-left: 8px;
-        padding-top: 13px;
+        padding-top: 11px;
         cursor: pointer;
         &:hover {
           color: $blue-dark;
@@ -403,14 +436,42 @@
         width: 100%;
         figure {
           margin: 0 10px 0 0;
+          min-width: 132px;
           &:first-child {
             margin-left: 0;
           }
-          &:last-child{
+          &:last-child {
             margin-right: 0;
           }
+          .display {
+            display: block;
+          }
+          .nodisplay {
+            display: none;
+          }
           img {
-            width: 132px;
+            width: 100%;
+          }
+          figcaption {
+            display: block;
+            p {
+              font-size: 14px;
+            }
+            a {
+              font-size: 14px;
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: none;
+              line-height: 1.4;
+            }
+            .date {
+              display: flex;
+              justify-content: center;
+            }
+            &:hover {
+              color: $gray-light;
+            }
           }
         }
       }
@@ -450,5 +511,13 @@
     #next_pic {
       right: 40px;
     }
+    form {
+      flex-direction: row;
+      text-align: center;
+      label {
+        padding: 7px 0;
+      }
+    }
   }
+
 }
