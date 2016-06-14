@@ -25,8 +25,18 @@ class Measure < ActiveRecord::Base
   validates :measure_type_id, presence: true
   validates :value, presence: true
   validates :date, presence: true
+  validate :date_cannot_be_in_the_past, on: :update
+
+  scope :food_pics_by, ->(order) { where(measure_type: 5).order(date: order) }
 
   def any_of_type?(measure_type)
     self.any? { |m| m.measure_type_id == measure_type.id }
+  end
+
+  def date_cannot_be_in_the_past
+    if self.date > Time.current
+      message = I18n.t('.activerecord.errors.models.measure.attributes.date.past')
+      errors.add(:date, message)
+    end
   end
 end

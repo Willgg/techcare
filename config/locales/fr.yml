@@ -66,6 +66,13 @@ fr:
   activerecord:
     models:
       goal: "Goal"
+      measure: "Mesure"
+    errors:
+      models:
+        measure:
+          attributes:
+            date:
+              past: "La date ne peut pas être dans le futur"
     attributes:
       goal:
         title: "title"
@@ -131,6 +138,9 @@ fr:
       create:
         form:
           food_add: "Ajouter une photo"
+      measure:
+        update:
+          at: "à"
   measures:
     create:
       success: "Votre mesure a bien été ajouté !"

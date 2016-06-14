@@ -254,11 +254,8 @@
     );
 
     $('.date').click(function(){
-      $(this.closest('figcaption')).toggleClass('nodisplay');
-      var id = $(this).closest('figure').attr('id');
-      var date_form = "";
-      $('#' + id + ' a:first').replaceWith('toto');
-
+      $('figure.picture').children('a').show();
+      $(this).parents('figure.picture ').children('a').hide();
       // pour les controllers: #edit permet juste de toucher la date #destroy pour l'image)
     });
 

@@ -66,10 +66,19 @@ en:
   activerecord:
     models:
       goal: "Goal"
+      measure: "Measure"
+    errors:
+      models:
+        measure:
+          attributes:
+            date:
+              past: "The date can not be in the future"
     attributes:
       goal:
         title: "title"
   controllers:
+    application:
+      user_not_authorized: "You can not access to this page."
     advisers:
       coach_not_authorized: "You can't select a coach."
       user_has_coach: "You already have a coach."
@@ -129,6 +138,9 @@ en:
     create:
       form:
         food_add: "+ Add photos"
+    measure:
+      update:
+        at: "at"
   mailers:
     application:
       sender: "William from Techcare <william@techcare.io>"

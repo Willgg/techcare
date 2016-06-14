@@ -376,7 +376,7 @@
       }
     }
   }
-  form {
+  #new_food_picture {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -511,7 +511,7 @@
     #next_pic {
       right: 40px;
     }
-    form {
+    #new_food_picture {
       flex-direction: row;
       text-align: center;
       label {
