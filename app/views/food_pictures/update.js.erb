@@ -1,0 +1,10 @@
+<% if @measure.valid? %>
+  $('#food-picture-<%= @measure.food_picture.id %> .date p').replaceWith(
+    '<p><%= l(@measure.date, format: :food_pic) %></p>');
+
+  $('#food-picture-<%= @measure.food_picture.id %> .date').show();
+  $('#food-picture-<%= @measure.food_picture.id %> a:first').show();
+  $('#food-picture-<%= @measure.food_picture.id %> form.edit_measure').hide();
+<% else %>
+  $('form.edit_measure select').toggleClass('error');
+<% end %>

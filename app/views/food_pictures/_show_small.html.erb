@@ -3,5 +3,11 @@
       data: { toggle: "modal", target: "#food-pic-modal" } do %>
     <%= image_tag fp.picture.url(:thumb) %>
   <% end %>
-  <figcaption><%= l(fp.measure.date, format: :day) %></figcaption>
+  <figcaption>
+    <div class="date">
+      <p><%= l(fp.measure.date, format: :food_pic) %></p>
+      <a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+    </div>
+  </figcaption>
+  <%= render 'food_pictures/measure/update', user: user, measure: fp.measure %>
 </figure>

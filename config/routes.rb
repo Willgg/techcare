@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope '(:locale)', locale: /fr/ do
+  scope '(:locale)', locale: /fr|en/ do
     root   'pages#home'
     get    'providers',          to: 'providers#index'
     post   'providers',          to: 'providers#create'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :goals, only: [:index, :new, :create, :destroy]
       resources :messages, only: [:create]
       resources :food_pictures, only: [:show, :create]
-      resources :measures, only: [:create]
+      resources :measures, only: [:create, :update]
     end
 
     resources :messages, only: [:destroy, :index] do

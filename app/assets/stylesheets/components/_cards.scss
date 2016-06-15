@@ -340,13 +340,44 @@
         }
       }
       figcaption {
+        position: relative;
         font-size: 14px;
-        padding-top: 3px;
+        margin-top: 3px;
+        display: flex;
+        justify-content: center;
+        color: $gray-lighter;
+        .date{
+          cursor: pointer;
+          display: flex;
+          &:hover, &:active {
+            color: $brand-color;
+          }
+        }
+        p{
+          margin: 0;
+          font-size: 16px;
+        }
+        a {
+          margin-left: 10px;
+          padding: 0 5px;
+          font-size: 20px;
+          line-height: 1.2;
+          color: $gray-lighter;
+        }
+      }
+      .display {
+        display: block;
+        color: $brand-color;
+      }
+      .nodisplay {
+        display: flex;
+        justify-content: center;
       }
     }
   }
-  form {
+  #new_food_picture {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     border-top: 1px solid $gray-lightest;
     padding-top: 10px;
@@ -363,10 +394,11 @@
       margin: 0;
       color: $blue;
       display: flex;
+      justify-content: center;
       label {
         font-weight: normal;
         display: inline-block;
-        padding: 7px 0;
+        padding: 7px 0 15px 0;
         cursor: pointer;
         margin: 0;
         text-align: left;
@@ -382,12 +414,41 @@
       }
       .fa {
         padding-left: 8px;
-        padding-top: 13px;
+        padding-top: 11px;
         cursor: pointer;
         &:hover {
           color: $blue-dark;
         }
       }
+    }
+  }
+  .edit_measure {
+    select {
+      cursor: pointer;
+      border: 1px solid #ccc;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: none;
+      padding: 3px 9px;
+      &:hover {
+        border-color: $brand-color;
+        box-shadow: 0px 0px 3px 0px rgba($brand-color, 0.5)
+      }
+      &.error {
+        border-color: $red;
+        color: $red;
+      }
+    }
+    #measure_date_4i {
+      margin-left: 10px;
+    }
+    #measure_date_2i {
+      margin-right: 8px;
+    }
+    #measure_update_submit {
+      max-width: 200px;
+      margin: 10px auto auto;
     }
   }
 }
@@ -403,14 +464,43 @@
         width: 100%;
         figure {
           margin: 0 10px 0 0;
+          min-width: 132px;
           &:first-child {
             margin-left: 0;
           }
-          &:last-child{
+          &:last-child {
             margin-right: 0;
           }
+          .display {
+            display: block;
+          }
+          .nodisplay {
+            display: none;
+          }
           img {
-            width: 132px;
+            width: 100%;
+          }
+          figcaption {
+            display: block;
+            p {
+              font-size: 14px;
+            }
+            a {
+              font-size: 14px;
+              position: absolute;
+              top: 0;
+              right: 0;
+              display: none;
+              line-height: 1.4;
+              color: $brand-color;
+            }
+            .date {
+              display: flex;
+              justify-content: center;
+            }
+            &:hover {
+              color: $brand-color;
+            }
           }
         }
       }
@@ -435,7 +525,7 @@
         width: 30px;
         border-radius: 4px;
       }
-      &:hover{
+      &:hover {
         text-decoration: none;
         background-color: rgba(255,255,255,0.8);
         button {
@@ -449,6 +539,25 @@
     }
     #next_pic {
       right: 40px;
+    }
+    #new_food_picture {
+      flex-direction: row;
+      text-align: center;
+      label {
+        padding: 7px 0;
+      }
+    }
+    .edit_measure {
+      select {
+        font-size: 13px;
+        padding: 5px 2px;
+      }
+      #measure_date_4i {
+        margin-left: 3px;
+      }
+      #measure_date_2i {
+      margin-right: 0;
+    }
     }
   }
 }
