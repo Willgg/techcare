@@ -248,15 +248,25 @@
       }
     });
 
+    $('figure form.edit_measure').hide();
+
     $('.date').hover(
       function(){ $(this).children('a').toggleClass('display'); },
       function(){ $(this).children('a').toggleClass('display'); }
     );
 
     $('.date').click(function(){
+      // date display rules
+      $('figure.picture .date').show();
+      $(this).hide();
+
+      // image display rules
       $('figure.picture').children('a').show();
       $(this).parents('figure.picture ').children('a').hide();
-      // pour les controllers: #edit permet juste de toucher la date #destroy pour l'image)
+
+      // form display rules
+      $('figure form.edit_measure').hide();
+      $(this).parents('figure.picture ').children('form.edit_measure').show();
     });
 
   </script>

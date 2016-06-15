@@ -25,10 +25,9 @@ class MeasuresController < ApplicationController
       flash[:alert] = @measure.errors.messages.values.join(', ')
     end
     respond_to do |format|
-      format.html { redirect_to user_goals_path(@user) }
+      format.html { redirect_to(user_goals_path(@user)) }
       format.js   { render 'food_pictures/update.js.erb' }
     end
-
   end
 
   def destroy

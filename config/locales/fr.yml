@@ -141,6 +141,7 @@ fr:
       measure:
         update:
           at: "à"
+          submit: "Enregistrer"
   measures:
     create:
       success: "Votre mesure a bien été ajouté !"

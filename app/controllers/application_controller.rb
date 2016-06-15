@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pundit
-
+  after_action :flash_to_headers
   after_action :verify_authorized, except: :index, unless: :devise_or_admin_controller?
   after_action :verify_policy_scoped, only: :index, unless: :devise_or_admin_controller?
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
+
+  def flash_to_headers
+    return unless request.xhr?
+    x_message = flash_message.gsub("ê","&ecirc;").gsub("é","&eacute;").gsub("è","&egrave;")
+    response.headers['X-Message'] = x_message
+    response.headers["X-Message-Type"] = flash_type.to_s
+    flash.discard
   end
 
   private
@@ -33,6 +41,20 @@ class ApplicationController < ActionController::Base
     else
       redirect_to(user_goals_path(current_user))
     end
+  end
+
+  def flash_message
+    [:error, :alert, :notice].each do |type|
+      return flash[type] unless flash[type].blank?
+    end
+    return ''
+  end
+
+  def flash_type
+    [:error, :alert, :notice].each do |type|
+      return type unless flash[type].blank?
+    end
+    return :empty
   end
 
   protected

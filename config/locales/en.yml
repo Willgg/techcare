@@ -141,6 +141,7 @@ en:
     measure:
       update:
         at: "at"
+        submit: "Save"
   mailers:
     application:
       sender: "William from Techcare <william@techcare.io>"
