@@ -2,11 +2,12 @@
 .btn-techcare:active {
   background-color: $brand-color;
   color: #fff;
-  border: none;
+  border-color: $brand-color;
   border-radius: 2px;
   padding: 6px 20px;
   &:hover{
     color: white;
     background: darken($brand-color,10%);
+    border-color: darken($brand-color,10%);
   }
 }
