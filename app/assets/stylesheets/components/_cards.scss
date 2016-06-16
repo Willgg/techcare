@@ -423,14 +423,23 @@
     }
   }
   .edit_measure {
+    max-width: 200px;
+    margin: auto;
+    .date-field {
+      display: flex;
+      justify-content: space-between;
+      line-height: 30px;
+    }
     select {
+      width: 100%;
+      margin-right: 8px;
       cursor: pointer;
       border: 1px solid #ccc;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
       background: none;
-      padding: 3px 9px;
+      padding: 0 5px;
       &:hover {
         border-color: $brand-color;
         box-shadow: 0px 0px 3px 0px rgba($brand-color, 0.5)
@@ -441,10 +450,7 @@
       }
     }
     #measure_date_4i {
-      margin-left: 10px;
-    }
-    #measure_date_2i {
-      margin-right: 8px;
+      margin-left: 8px;
     }
     #measure_update_submit {
       max-width: 200px;
@@ -550,14 +556,13 @@
     .edit_measure {
       select {
         font-size: 13px;
-        padding: 5px 2px;
+        padding: 0 5px;
+        margin: 0 3px 0 0;
+        width: auto;
       }
       #measure_date_4i {
         margin-left: 3px;
       }
-      #measure_date_2i {
-      margin-right: 0;
-    }
     }
   }
 }

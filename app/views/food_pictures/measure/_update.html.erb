@@ -1,5 +1,7 @@
 <%= simple_form_for [user, measure], remote: true, authenticity_token: true do |f| %>
-  <%= f.datetime_select :date, datetime_separator: t('.at'),
+  <span class="date-field">
+    <%= f.datetime_select :date, datetime_separator: t('.at'),
       discard_minute: true, use_short_month: true, order: [:day, :month, :hour] %>h
+  </span>
   <%= f.button :submit, t('.submit'), class: 'btn-techcare btn-block', id: 'measure_update_submit' %>
 <% end %>
