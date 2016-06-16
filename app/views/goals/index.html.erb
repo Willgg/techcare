@@ -261,12 +261,17 @@
       $(this).hide();
 
       // image display rules
-      $('figure.picture').children('a').show();
-      $(this).parents('figure.picture ').children('a').hide();
+      // $('figure.picture').children('a').show();
+      // $(this).parents('figure.picture ').children('a').hide();
 
       // form display rules
       $('figure form.edit_measure').hide();
       $(this).parents('figure.picture ').children('form.edit_measure').show();
+    });
+
+    $('.measure-update-cancel').click(function() {
+      $(this).parents('form.edit_measure').hide();
+      $(this).parents('figure.picture').find('.date').show();
     });
 
   </script>

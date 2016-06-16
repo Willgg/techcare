@@ -3,5 +3,8 @@
     <%= f.datetime_select :date, datetime_separator: t('.at'),
       discard_minute: true, use_short_month: true, order: [:day, :month, :hour] %>h
   </span>
-  <%= f.button :submit, t('.submit'), class: 'btn-techcare btn-block', id: 'measure_update_submit' %>
+  <span class="date-button">
+    <%= f.button :submit, t('.submit'), class: 'btn-techcare measure-update-submit' %>
+    <a class="btn btn-default measure-update-cancel">x</a>
+  </span>
 <% end %>
