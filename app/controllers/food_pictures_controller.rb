@@ -19,14 +19,14 @@ class FoodPicturesController < ApplicationController
         if @food_picture.save
           # flash[:notice] = '@food_picture saved'
         else
-          flash[:alert] = 'Problem with @food_picture'
+          flash[:alert] = 'Problem with your picture'
           @measure.delete
         end
       else
-        flash[:alert] = 'Problem with @measure'
+        flash[:alert] = 'Problem with the new measure'
       end
     else
-      flash[:alert] = 'Problem with param[:picture]'
+      flash[:alert] = 'Problem with the picture form'
     end
 
     respond_to do |format|
