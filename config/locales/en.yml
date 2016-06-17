@@ -142,6 +142,11 @@ en:
       update:
         at: "at"
         submit: "Save"
+  measures:
+    create:
+      success: "Your data has been successfully saved"
+    update:
+      success: "This data has been successfully updated"
   mailers:
     application:
       sender: "William from Techcare <william@techcare.io>"

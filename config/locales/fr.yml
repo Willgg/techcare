@@ -145,6 +145,8 @@ fr:
   measures:
     create:
       success: "Votre mesure a bien été ajouté !"
+    update:
+      success: "Cette donnée a bien été mise à jour !"
   mailers:
     application:
       sender: "William de Techcare <william@techcare.io>"

@@ -20,7 +20,7 @@ class MeasuresController < ApplicationController
   def update
     authorize @measure
     if @measure.update(params_measure)
-      flash[:notice] = @measure.class.name + " has been successfully updated."
+      flash[:notice] = t('.success')
     else
       flash[:alert] = @measure.errors.messages.values.join(', ')
     end
