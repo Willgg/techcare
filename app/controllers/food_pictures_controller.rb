@@ -17,7 +17,7 @@ class FoodPicturesController < ApplicationController
         @food_picture.measure = @measure
         authorize @food_picture
         if @food_picture.save
-          flash[:notice] = '@food_picture saved'
+          # flash[:notice] = '@food_picture saved'
         else
           flash[:alert] = 'Problem with @food_picture'
           @measure.delete
