@@ -12,7 +12,7 @@ class GoalsController < ApplicationController
     @user.measures.food_pics_by(:desc).each { |m| @food_pictures << m.food_picture }
 
     # Set a new Measure and get Measure Types for new form
-    @measure = Measure.new
+    @measure = Measure.new(user: @user)
     @measure_types = MeasureType.all_except(5)
 
     # Set messages as read

@@ -20,8 +20,8 @@
             <a id="next_pic" class="active"><button>&gt;</button></a>
           <% end %>
         </div>
-        <% if policy(@food_picture).new? %>
-        <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
+        <% if policy(@measure).new? %>
+          <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
         <% end %>
       </div>
 
