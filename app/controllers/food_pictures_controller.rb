@@ -8,26 +8,30 @@ class FoodPicturesController < ApplicationController
   end
 
   def create
+    @measure = Measure.new(user: @user, value: 1, measure_type_id: 5, date: Time.current, source: "techcare")
+    authorize @measure
+
     if params.has_key? :food_picture
-      @measure = Measure.new(user: @user, value: 1, measure_type_id: 5, date: Time.current, source: "techcare")
-      @food_picture = FoodPicture.new(food_picture_params)
-      @food_picture.measure = @measure
-      authorize @food_picture
-      if @measure.save && @food_picture.save
-        respond_to do |format|
-          format.html { redirect_to user_goals_path(@user) }
-          format.js
+      if @measure.save
+        @food_picture = FoodPicture.new(food_picture_params)
+        @food_picture.measure = @measure
+        authorize @food_picture
+        if @food_picture.save
+          flash[:notice] = '@food_picture saved'
+        else
+          flash[:alert] = 'Problem with @food_picture'
+          @measure.delete
         end
       else
-        respond_to do |format|
-          format.html { render 'goals/index' }
-          format.js
-        end
+        flash[:alert] = 'Problem with @measure'
       end
     else
-      @food_picture = FoodPicture.new
-      authorize @food_picture
-      render 'goals/index'
+      flash[:alert] = 'Problem with param[:picture]'
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(user_goals_path(@user)) }
+      format.js
     end
   end
 

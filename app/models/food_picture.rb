@@ -10,7 +10,6 @@
 #  picture_content_type :string
 #  picture_file_size    :integer
 #  picture_updated_at   :datetime
-#  date                 :datetime
 #
 # Indexes
 #
@@ -27,4 +26,8 @@ class FoodPicture < ActiveRecord::Base
 
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  def user
+    self.measure.user
+  end
 end
