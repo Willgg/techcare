@@ -205,7 +205,7 @@
     var pic_size_total  = (figure_size * <%= @food_pictures.count %>) - figure_margin;
     var pic_size_displayed = $('.food-picture-list').outerWidth(true);
 
-    if (pic_size_total < pic_size_displayed) {
+    if (pic_size_total <= pic_size_displayed) {
       $('#next_pic').removeClass('active');
     }
 
