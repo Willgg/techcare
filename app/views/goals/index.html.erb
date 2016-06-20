@@ -199,6 +199,14 @@
       $('#myInput').focus()
     });
 
+    $('#food_picture_submit').click(function() {
+      var img = '<div class="loader">' +
+                '<%= image_tag("ldr.gif", height: 11, alt: "loader") %>' +
+                '</div>';
+      $('#new_food_picture').append(img);
+      $(this).hide();
+    });
+
     // Display or hide slider's buttons
     var figure_size = $('figure').outerWidth(true);
     var figure_margin = parseInt( $('figure').css("marginRight") );
@@ -255,21 +263,17 @@
       function(){ $(this).children('a').toggleClass('display'); }
     );
 
-    $('.date').click(function(){
-      // date display rules
+    $('#food-pictures').on('click', '.date', function(){
+      // hides this date and shows others
       $('figure.picture .date').show();
       $(this).hide();
 
-      // image display rules
-      // $('figure.picture').children('a').show();
-      // $(this).parents('figure.picture ').children('a').hide();
-
-      // form display rules
+      // hides all date forms and shows this clicked one
       $('figure form.edit_measure').hide();
       $(this).parents('figure.picture ').children('form.edit_measure').show();
     });
 
-    $('.measure-update-cancel').click(function() {
+    $('#food-pictures').on('click', '.measure-update-cancel', function() {
       $(this).parents('form.edit_measure').hide();
       $(this).parents('figure.picture').find('.date').show();
     });

@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
 
   def flash_to_headers
     return unless request.xhr?
-    x_message = flash_message.gsub("ê","&ecirc;").gsub("é","&eacute;").gsub("è","&egrave;")
-    response.headers['X-Message'] = x_message
-    response.headers["X-Message-Type"] = flash_type.to_s
+    # x_message = flash_message.gsub("ê","&ecirc;").gsub("é","&eacute;").gsub("è","&egrave;")
+    # response.headers['X-Message'] = x_message
+    # response.headers["X-Message-Type"] = flash_type.to_s
     flash.discard
   end
 

@@ -492,6 +492,7 @@
         figure {
           margin: 0 10px 0 0;
           min-width: 132px;
+          max-width: 132px;
           &:first-child {
             margin-left: 0;
           }
@@ -532,6 +533,16 @@
         }
       }
     }
+    #new_food_picture {
+      .food_picture_picture {
+        label {
+          padding: 0;
+        }
+      .fa {
+        padding-top: 5px;
+      }
+      }
+    }
     #prev_pic, #next_pic {
       display: none;
       flex-direction: column;
@@ -570,6 +581,8 @@
     #new_food_picture {
       flex-direction: row;
       text-align: center;
+      align-items: center;
+      flex-wrap: wrap;
       label {
         padding: 7px 0;
       }
