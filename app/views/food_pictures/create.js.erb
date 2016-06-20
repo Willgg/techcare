@@ -5,22 +5,24 @@ $('form.edit_measure').hide();
 $('.date').show();
 
 <% if flash[:alert] %>
-// Add error message
-if (!$('#new_food_picture .alert-danger').length) {
-var error_html = '<div class="alert alert-danger" style="width: 100%">' +
-  '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
-  '<%= flash[:alert] %></div>';
-$('#new_food_picture').prepend(error_html);
-}
+  // Add error message
+  if (!$('#new_food_picture .alert-danger').length) {
+  var error_html = '<div class="alert alert-danger" style="width: 100%">' +
+    '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+    '<%= flash[:alert] %></div>';
+  $('#new_food_picture').prepend(error_html);
+  }
 <% else %>
-// Add food picture
-$('.food-picture-list').prepend("<%= j render 'show_small', user: @user, fp: @food_picture %>");
-$('.food-picture-list').css({'right':'0px'});
-$('#edit_measure_'+<%= @measure.id %>).hide();
-$('.picture').first().addClass('fadeIn animated');
+  // Add food picture
+  $('.food-picture-list').prepend("<%= j render 'show_small', user: @user, fp: @food_picture %>");
+  $('.food-picture-list').css({'right':'0px'});
+  $('#prev_pic').removeClass('active');
+  $('#edit_measure_'+<%= @measure.id %>).hide();
+  $('.picture').first().addClass('fadeIn animated');
+
 <% end %>
 
-// reset form label
+// Reset form label
 $('.food_picture_picture label').html('<%= t('.form.food_add') %>');
 $('#new_food_picture')[0].reset();
 $('label').removeClass('withFile');
