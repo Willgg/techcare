@@ -6,19 +6,20 @@
       <div class="white-card text-center" id="food-pictures">
         <h2><%= t('.food_title') %></h2>
         <div class="food_picture-container">
+          <a id="prev_pic"><button>&lt;</button></a>
           <% if @food_pictures.empty? %>
             <div class="food-picture-list">
               <p><%= t('.food_empty') %></p>
             </div>
           <% else %>
-            <a id="prev_pic"><button>&lt;</button></a>
+
             <div class="food-picture-list">
               <% @food_pictures.each do |fp| %>
                 <%= render 'food_pictures/show_small', user: @user, fp: fp %>
               <% end %>
             </div>
-            <a id="next_pic" class="active"><button>&gt;</button></a>
           <% end %>
+          <a id="next_pic"><button>&gt;</button></a>
         </div>
         <% if policy(@measure).new? %>
           <%= render 'food_pictures/form', user: @user, food_picture: @food_picture %>
@@ -199,54 +200,68 @@
       $('#myInput').focus()
     });
 
-    // Display or hide slider's buttons
-    var figure_size = $('figure').outerWidth(true);
-    var figure_margin = parseInt( $('figure').css("marginRight") );
-    var pic_size_total  = (figure_size * <%= @food_pictures.count %>) - figure_margin;
-    var pic_size_displayed = $('.food-picture-list').outerWidth(true);
+    $('#food_picture_submit').click(function() {
+      var img = '<div class="loader">' +
+                '<%= image_tag("ldr.gif", height: 11, alt: "loader") %>' +
+                '</div>';
+      $('#new_food_picture').append(img);
+      $(this).hide();
+    });
 
-    if (pic_size_total < pic_size_displayed) {
-      $('#next_pic').removeClass('active');
+    function display_next_button() {
+      var figure_size = $('figure').outerWidth(true) || 0;
+      var figure_margin = parseInt( $('figure').css("marginRight") ) || 0;
+      var number_figure = $('#food-pictures figure').length || 0;
+      var pic_size_total  = (figure_size * number_figure) - figure_margin;
+      var pic_size_displayed = $('.food-picture-list').outerWidth(true);
+
+      if (pic_size_total > pic_size_displayed) {
+        $('#next_pic').addClass('active');
+      }
     }
+    display_next_button();
 
     function right(element){
       var right_value = parseInt( element.css('right') );
       return right_value
     };
 
-    $('#prev_pic').click(function() {
-      var food_list   = $('.food-picture-list');
+    function display_slider_buttons() {
+      $('#food-pictures').on('click', '#prev_pic', function() {
+        var food_list   = $('.food-picture-list');
+        if (right(food_list) > 0) {
+          $('#next_pic').addClass('active');
+          var unit_size = $('figure').outerWidth(true);
+          $('.food-picture-list').animate({right: "-=" + unit_size},200,function() {
+            if (right(food_list) <= 0) {
+              $('#prev_pic').removeClass('active');
+              $('.food-picture-list').animate({right: 0},200,function() {});
+            }
+          });
+        }
+      });
 
-      if (right(food_list) > 0) {
-        $('#next_pic').addClass('active');
-        var unit_size = $('figure').outerWidth(true);
-        $('.food-picture-list').animate({right: "-=" + unit_size},200,function() {
-          if (right(food_list) <= 0) {
-            $('#prev_pic').removeClass('active');
-            $('.food-picture-list').animate({right: 0},200,function() {});
-          }
-        });
-      }
-    });
+      $('#food-pictures').on('click', '#next_pic', function() {
+        var food_list = $('.food-picture-list');
+        var figure_size = $('figure').outerWidth(true);
+        var figure_margin = parseInt( $('figure').css("marginRight") );
+        var number_figure = $('#food-pictures figure').length || 0;
+        var max_size  = (figure_size * number_figure) - figure_margin;
+        var max_position = max_size - $('.food-picture-list').outerWidth(true);
 
-    $('#next_pic').click(function() {
-      var food_list = $('.food-picture-list');
-      var figure_size = $('figure').outerWidth(true);
-      var figure_margin = parseInt( $('figure').css("marginRight") );
-      var max_size  = (figure_size * <%= @food_pictures.count %>) - figure_margin;
-      var max_position = max_size - $('.food-picture-list').outerWidth(true);
-
-      if (right(food_list) < max_position) {
-        $('#prev_pic').addClass('active');
-        var unit_size = $('figure').outerWidth(true);
-        $('.food-picture-list').animate({ right: "+=" + unit_size},200,function() {
-          if (right(food_list) >= max_position) {
-            $('#next_pic').removeClass("active");
-            $('.food-picture-list').animate({right: max_position},200,function() {});
-          }
-        });
-      }
-    });
+        if (right(food_list) < max_position) {
+          $('#prev_pic').addClass('active');
+          var unit_size = $('figure').outerWidth(true);
+          $('.food-picture-list').animate({ right: "+=" + unit_size},200,function() {
+            if (right(food_list) >= max_position) {
+              $('#next_pic').removeClass("active");
+              $('.food-picture-list').animate({right: max_position},200,function() {});
+            }
+          });
+        }
+      });
+    }
+    display_slider_buttons();
 
     $('figure form.edit_measure').hide();
 
@@ -255,21 +270,17 @@
       function(){ $(this).children('a').toggleClass('display'); }
     );
 
-    $('.date').click(function(){
-      // date display rules
+    $('#food-pictures').on('click', '.date', function(){
+      // hides this date and shows others
       $('figure.picture .date').show();
       $(this).hide();
 
-      // image display rules
-      // $('figure.picture').children('a').show();
-      // $(this).parents('figure.picture ').children('a').hide();
-
-      // form display rules
+      // hides all date forms and shows this clicked one
       $('figure form.edit_measure').hide();
       $(this).parents('figure.picture ').children('form.edit_measure').show();
     });
 
-    $('.measure-update-cancel').click(function() {
+    $('#food-pictures').on('click', '.measure-update-cancel', function() {
       $(this).parents('form.edit_measure').hide();
       $(this).parents('figure.picture').find('.date').show();
     });

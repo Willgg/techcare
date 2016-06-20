@@ -19,10 +19,10 @@ var show_ajax_message = function(msg, type) {
   fade_flash();
 };
 
-$(document).ajaxComplete(function(event, request) {
-  if (request.getResponseHeader('X-Message-Type').indexOf('empty') != 0) {
-    var msg = request.getResponseHeader('X-Message');
-    var type = request.getResponseHeader('X-Message-Type');
-    show_ajax_message(msg, type);
-  }
-});
+// $(document).ajaxComplete(function(event, request) {
+//   if (request.getResponseHeader('X-Message-Type').indexOf('empty') != 0) {
+//     var msg = request.getResponseHeader('X-Message');
+//     var type = request.getResponseHeader('X-Message-Type');
+//     show_ajax_message(msg, type);
+//   }
+// });

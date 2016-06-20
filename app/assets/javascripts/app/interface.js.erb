@@ -22,15 +22,11 @@ $(document).ready(function() {
 
 // When user removes selected file
 $(document).on('click', '#new_food_picture i.fa',function (){
-    // clear input value
-    $('#new_food_picture')[0].reset();
-    // delete icon
-    $('#new_food_picture .food_picture_picture i.fa').remove();
-    // delete withFile css class
-    $('label').removeClass('withFile');
-    // change label value
-    $('label').html('<%= I18n.t(".food_pictures.form.food_add") %>');
-  });
+  $('#new_food_picture')[0].reset();
+  $('#new_food_picture .food_picture_picture i.fa').remove();
+  $('label').removeClass('withFile');
+  $('label').html('<%= I18n.t(".food_pictures.form.food_add") %>');
+});
 
 function createCookie(name,value,days) {
   if (days) {
@@ -38,8 +34,8 @@ function createCookie(name,value,days) {
     date.setTime(date.getTime()+(days*24*60*60*1000));
     var expires = "; expires="+date.toGMTString();
   }
-  else var expires = "";
-  document.cookie = name+"="+value+expires+";";
+  else { var expires = "";
+    document.cookie = name+"="+value+expires+";";
+  }
 }
-
 

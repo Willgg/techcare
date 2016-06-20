@@ -17,7 +17,7 @@ class FoodPicturesController < ApplicationController
         @food_picture.measure = @measure
         authorize @food_picture
         if @food_picture.save
-          # flash[:notice] = '@food_picture saved'
+          flash[:notice] = 'Your picture has been added'
         else
           flash[:alert] = 'Problem with your picture'
           @measure.delete
@@ -26,7 +26,7 @@ class FoodPicturesController < ApplicationController
         flash[:alert] = 'Problem with the new measure'
       end
     else
-      flash[:alert] = 'Problem with the picture form'
+      flash[:alert] = 'Veuillez sélectionner une image à télécharger'
     end
 
     respond_to do |format|
