@@ -29,6 +29,7 @@
       <!-- Disclaimer about connected device synchronization -->
       <% unless @user.authorizations.exists? || @user.api_user_id.present? ||
                 cookies[:data_card_read] == "true" %>
+
         <%= render 'add_data_card' %>
       <% end %>
 
@@ -117,7 +118,6 @@
           </div>
         <% end %>
 
-
         <!-- formulaire du chat -->
         <%= simple_form_for [@user, @message], remote: true, html: { class: "text-right"} do |f| %>
           <%= f.error_notification %>
@@ -136,8 +136,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- New Goal Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
