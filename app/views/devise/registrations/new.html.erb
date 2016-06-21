@@ -13,9 +13,10 @@
           <%= f.input :last_name %>
           <%= f.input :sexe, collection: User::SEXE %>
           <%= f.input :height, placeholder: "ex: 170cm" %>
-          <%= f.input :birthday, as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12,
-                              order: [:day, :month, :year] %>
+          <%= f.input :birthday, as: :date, start_year: Date.current.year - 90,
+                              end_year: Date.current.year - 18,
+                              order: [:day, :month, :year],
+                              default: 40.years.ago %>
           <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
         <% end %>
 

@@ -1,4 +1,4 @@
-<% if @measure.valid? %>
+<% unless flash[:alert] %>
   $('#food-picture-<%= @measure.food_picture.id %> .date p').replaceWith(
     '<p><%= l(@measure.date, format: :food_pic) %></p>');
 
@@ -7,4 +7,11 @@
   $('#food-picture-<%= @measure.food_picture.id %> form.edit_measure').hide();
 <% else %>
   $('form.edit_measure select').toggleClass('error');
+  // Add error message
+  if (!$('#new_food_picture .alert-danger').length) {
+  var error_html = '<div class="alert alert-danger" style="width: 100%">' +
+    '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>' +
+    '<%= flash[:alert] %></div>';
+  $('#new_food_picture').prepend(error_html);
+  }
 <% end %>

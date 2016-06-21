@@ -27,6 +27,10 @@ class Measure < ActiveRecord::Base
   validates :date, presence: true
   validate :date_cannot_be_in_the_past, on: :update
 
+  scope :weight, ->(order) { where(measure_type: 1).order(date: order) }
+  scope :blood_pressure, ->(order) { where(measure_type: 2).order(date: order) }
+  scope :fat_ratio, ->(order) { where(measure_type: 3).order(date: order) }
+  scope :activities, ->(order) { where(measure_type: 4).order(date: order) }
   scope :food_pics_by, ->(order) { where(measure_type: 5).order(date: order) }
 
   def any_of_type?(measure_type)
