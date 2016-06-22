@@ -17,13 +17,13 @@ class FoodPicturesController < ApplicationController
         @food_picture.measure = @measure
         authorize @food_picture
         if @food_picture.save
-          flash[:notice] = 'Your picture has been added'
+          flash[:notice] = 'Votre image a bien été ajoutée'
         else
-          flash[:alert] = 'Problem with your picture'
+          flash[:alert] = 'Il y a eu un problème avec votre image'
           @measure.delete
         end
       else
-        flash[:alert] = 'Problem with the new measure'
+        flash[:alert] = 'Il y a eu un problème avec l\'enregistrement '
       end
     else
       flash[:alert] = 'Veuillez sélectionner une image à télécharger'
