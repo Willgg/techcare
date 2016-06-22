@@ -26,13 +26,16 @@ module Trainees
 
         if @user.measures.exists?(source: "withings", measure_type_id: mt.id)
           last_measure_withings = @user.measures.where(source: "withings", measure_type_id: mt.id).order(date: :asc).last
-          base_date = last_measure_withings.date + 1.day
-          options = { start_at: base_date, end_at: Time.current }
+          base_date = last_measure_withings.date.beginning_of_day + 1.day
+          options = { start_at: base_date, end_at: 1.day.ago }
         else
-          base_date = Time.current - 1.month
+          base_date = 15.days.ago
           options = {}
         end
-        options_string = { startdateymd: base_date.strftime("%F"), enddateymd: Time.current.strftime("%F") }
+        options_string = {
+          startdateymd: base_date.strftime("%F"),
+          enddateymd:   1.days.ago.strftime("%F")
+        }
 
         if mt.id == 4
           activities = @withings_user.get_activities(options_string)

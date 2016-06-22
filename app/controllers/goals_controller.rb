@@ -18,7 +18,7 @@ class GoalsController < ApplicationController
     # Set messages as read
     @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
     @messages.each do |message|
-      message.read_at = Time.now
+      message.read_at = Time.current
       message.save
     end
 
@@ -54,7 +54,7 @@ class GoalsController < ApplicationController
     @goal = Goal.new(params_goals)
     @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
-    @goal.start_date = Time.now
+    @goal.start_date = Time.current
     raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).create?
     if @goal.save
       flash[:notice] = I18n.t('controllers.goals.created', default: "Goal has been successfully created.")

@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
   def read
     @messages = Message.where(recipient: current_user, read_at: nil)
     @messages.each do |message|
-      message.read_at = Time.now
+      message.read_at = Time.current
       message.save
     end
     head :ok
