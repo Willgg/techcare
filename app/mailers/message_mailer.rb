@@ -7,10 +7,11 @@ class MessageMailer < ApplicationMailer
   #
   def new_message(message)
     @recipient = User.find(message.recipient_id)
-    @sender = User.find(message.sender_id)
-    @message = message
-    @locale = (I18n.locale == I18n.default_locale ? nil : I18n.locale)
-
+    @sender    = User.find(message.sender_id)
+    @message   = message
+    @locale    = I18n.locale
+    @url       = @recipient.is_adviser ? users_url(locale: @locale) : user_goals_url(locale: @locale, user_id: @recipient.id)
     mail to: @recipient.email, subject: t('.subject', user: @sender.first_name)
+
   end
 end

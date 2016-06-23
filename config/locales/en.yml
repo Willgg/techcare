@@ -25,7 +25,7 @@ en:
   submit_message: "Send"
   time:
     formats:
-      short: "%m/%d/%Y - %H:%M"
+      short: "%d/%m/%Y - %H:%M"
       day: "%d %B %Y"
       food_pic: "%-d %b - %Hh"
   pages:
@@ -99,12 +99,9 @@ en:
     providers:
       success: "Your data has been synchronized."
       error: "Synchronization of your data has failed."
-  user_mailer:
-    new_coach:
-      new_user_subject: "You have been chosen by %{user}"
   message_mailer:
     new_message:
-      subject: "Vous have received a message from %{user}"
+      subject: "Vous have a message from %{user}"
   advisers:
     index:
       title: "Select your adviser to get help"
@@ -149,9 +146,12 @@ en:
       success: "This data has been successfully updated"
   mailers:
     application:
-      sender: "William from Techcare <william@techcare.io>"
+      sender: "Techcare <william@techcare.io>"
     user:
-      title: "Welcome %{name}"
+      welcome:
+        title: "Welcome %{name}"
+      trainee:
+        title: "%{trainee} is your new trainee"
   users:
     index:
       trainee_list: "Your trainees"
