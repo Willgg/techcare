@@ -27,8 +27,8 @@
       </div>
 
       <!-- Disclaimer about connected device synchronization -->
-      <% unless @user.authorizations.exists? || @user.api_user_id.present? ||
-                cookies[:data_card_read] == "true" %>
+      <% unless @user != current_user || @user.authorizations.exists? ||
+                @user.api_user_id.present? || cookies[:data_card_read] == "true" %>
 
         <%= render 'add_data_card' %>
       <% end %>

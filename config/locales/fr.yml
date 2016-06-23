@@ -25,7 +25,7 @@ fr:
   submit_message: "Envoyer"
   time:
     formats:
-      short: "%m/%d/%Y - %H:%M"
+      short: "%d/%m/%Y - %H:%M"
       day: "%-d %B %Y"
       food_pic: "%-d %b - %Hh"
   pages:
@@ -99,9 +99,6 @@ fr:
     providers:
       success: "Vos données ont bien été synchronisée."
       error: "Impossible de synchroniser vos données."
-  user_mailer:
-    new_coach:
-      new_user_subject: "Vous avez été choisi par %{user}"
   message_mailer:
     new_message:
       subject: "Vous avez reçu un message de %{user}"
@@ -149,9 +146,12 @@ fr:
       success: "Cette donnée a bien été mise à jour !"
   mailers:
     application:
-      sender: "William de Techcare <william@techcare.io>"
+      sender: "Techcare <william@techcare.io>"
     user:
-      title: "Bienvenue %{name}"
+      welcome:
+        title: "Bienvenue %{name}"
+      trainee:
+        title: "Vous avez été choisi par %{trainee}"
   users:
     index:
       trainee_list: "Vos clients"

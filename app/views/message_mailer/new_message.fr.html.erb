@@ -54,7 +54,7 @@
               <tbody>
                 <tr>
                   <td width="180" style="font-size: 14px; font-family: 'Lato', 'Helvetica', 'sans-serif'; font-weight: normal; color: #ffffff; text-decoration: none; border-radius: 3px; display: block; text-align: center; background-color: #01D48F; padding: 10px">
-                  <%= link_to "Répondre à #{@sender.first_name}", users_url(locale: @locale), style: "font-family: 'Lato', 'Helvetica', 'sans-serif';font-weight: normal; font-size: 16px; font-weight: normal; color: #ffffff; text-decoration: none", target: 'blank' %>
+                  <%= link_to "Répondre à #{@sender.first_name}", @url, style: "font-family: 'Lato', 'Helvetica', 'sans-serif';font-weight: normal; font-size: 16px; font-weight: normal; color: #ffffff; text-decoration: none", target: 'blank' %>
                   </td>
                 </tr>
               </tbody>
