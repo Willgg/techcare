@@ -7,8 +7,7 @@ module Trainees
 
       def call
         return if measure_type.nil? || already_has_running_goal?
-
-        if last_measure && last_measure.value <= goal_value
+        if last_measure && average_measure_value <= goal_value
           g = Goal.new
           g.measure_type    = measure_type
           g.user            = @trainee
@@ -25,7 +24,7 @@ module Trainees
       private
 
       def goal_value
-        @last_measure && @last_measure.value > 0 && @last_measure.value <= 10000 ? (@last_measure.value + 1000) : 10000
+        average_measure_value > 0 && average_measure_value <= 9000 ? (average_measure_value + 1000) : 10000
       end
 
       def already_has_running_goal?
@@ -34,6 +33,14 @@ module Trainees
 
       def last_measure
         @last_measure ||= @trainee.measures.where(measure_type: measure_type).order(date: :desc).first
+      end
+
+      def average_measure_value
+        return @average_measure_value if @average_measure_value
+        count = sum = 0
+        measures = @trainee.measures.activities(:desc)
+        measures.each { |m| count += 1; sum += m.value.to_f }
+        @average_measure_value = (sum / count)
       end
 
       def measure_type
