@@ -1,4 +1,7 @@
 <% unless flash[:alert] %>
+  if ($('#new_food_picture .alert-danger').length) {
+    $('#new_food_picture .alert-danger').remove();
+  }
   $('#food-picture-<%= @measure.food_picture.id %> .date p').replaceWith(
     '<p><%= l(@measure.date, format: :food_pic) %></p>');
 
