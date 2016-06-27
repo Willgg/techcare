@@ -106,8 +106,7 @@ class Goal < ActiveRecord::Base
   end
 
   def is_achieved?
-    # raise ArgumentError, "end_value must not be nil" if self.end_value.nil?
-    end_value = self.end_value || self.last_measure_for_user
+    end_value = self.end_value || self.current_value
     if self.is_increase?
       end_value >= self.goal_value
     elsif self.is_decrease?
@@ -120,6 +119,15 @@ class Goal < ActiveRecord::Base
   def is_succeed?
     return false unless self.is_over?
     self.is_achieved?
+  end
+
+  def current_value
+    if self.cumulative
+      meas = self.measures.where(measure_type: self.measure_type, date: (self.start_date..self.end_date))
+      meas.sum("value")
+    else
+      self.last_measure_for_user
+    end
   end
 
 end
