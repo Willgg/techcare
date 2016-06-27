@@ -52,6 +52,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(params_goals)
+    @goal.cumulative = (@goal.measure_type.id == 4 ? true : false)
     @goal.user_id = params[:user_id]
     @goal.adviser = current_user.coach
     @goal.start_date = Time.current

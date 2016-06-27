@@ -40,7 +40,9 @@
           <div class="goal-card text-center">
             <h2><%= goal.title %></h2>
             <p>
-              <strong><%= (goal.end_date.to_date - Time.current.to_date).to_i %></strong>
+              <strong>
+                <%= (goal.end_date.to_date - Time.current.to_date).to_i %>
+              </strong>
               <%= t('.days') %>
             </p>
             <div class="fullbar">
@@ -64,7 +66,7 @@
               <% end %>
             <% end %>
           </div>
-        <% elsif goal.is_succeed? || goal.is_achieved? %>
+        <% elsif goal.is_achieved? || goal.is_succeed? %>
           <div class="goal-card text-center complete">
             <h2><%= goal.title %></h2>
             <p>
@@ -151,8 +153,7 @@
         <%= simple_form_for [@user, @goal] do |f| %>
           <%= f.association :measure_type, collection: @measure_types_of_user %>
           <%= f.input :title %>
-          <%= f.input :cumulative %>
-          <%= f.input :end_date %>
+          <%= f.input :end_date, as: :date %>
           <%= f.input :goal_value %>
           <%= f.button :submit, t('.submit-goal'), class: "btn btn-primary" %>
         <% end %>
