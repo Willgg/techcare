@@ -76,6 +76,13 @@ en:
     attributes:
       goal:
         title: "title"
+      measure_type:
+        unit:
+          _kg: "kg"
+          _mmHg: "mmHg"
+          _%: "%"
+          _steps: "steps"
+          _picture: "photo"
   controllers:
     application:
       user_not_authorized: "You can not access to this page."

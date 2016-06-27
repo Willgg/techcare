@@ -52,7 +52,9 @@
                   <% else %>
                     <%= goal.last_measure_for_user.round(1) %>
                   <% end %>
-                  </strong><br /><%= goal.measure_type.unit %>
+                  </strong><br />
+                  <%= t('activerecord.attributes.measure_type.unit._' +
+                         goal.measure_type.unit) %>
                 </div>
               </div>
             </div>
