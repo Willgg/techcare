@@ -35,6 +35,8 @@ class Goal < ActiveRecord::Base
   validates :title, presence: true, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 
+  before_validation :dates_to_beginning_of_day, on: [:create,:update]
+
   def progression
     ratio = self.cumulative ? cumulative_progression : progression_for_user
     ratio > 1 ? 100 : (ratio * 100).round(2)
@@ -56,8 +58,7 @@ class Goal < ActiveRecord::Base
   end
 
   def progression_for_user
-    origin_measure  = self.last_measure_for_user { |m| m.where("date < ?", self.start_date) }
-    origin_measure  = origin_measure.to_f
+    origin_measure  = self.origin_measure.to_f
     last_measure    = self.last_measure_for_user.to_f
     goal_value      = self.goal_value.to_f
     # Objectif est diminution
@@ -106,7 +107,7 @@ class Goal < ActiveRecord::Base
   end
 
   def is_achieved?
-    end_value = self.end_value || self.current_value
+    end_value = self.end_value || current_value
     if self.is_increase?
       end_value >= self.goal_value
     elsif self.is_decrease?
@@ -121,6 +122,8 @@ class Goal < ActiveRecord::Base
     self.is_achieved?
   end
 
+  private
+
   def current_value
     if self.cumulative
       meas = self.measures.where(measure_type: self.measure_type, date: (self.start_date..self.end_date))
@@ -130,4 +133,8 @@ class Goal < ActiveRecord::Base
     end
   end
 
+  def dates_to_beginning_of_day
+    self.start_date = self.start_date.beginning_of_day
+    self.end_date = self.end_date.beginning_of_day
+  end
 end
