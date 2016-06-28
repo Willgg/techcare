@@ -83,6 +83,15 @@ en:
           _%: "%"
           _steps: "steps"
           _picture: "photo"
+    goal:
+      weight:
+        set_title: "Keep your weight at %{value} %{unit}"
+      blood_pressure:
+        set_title: "Reach a blood pressure of %{value} %{unit}"
+      fat_ratio:
+        set_title: "Reach a fat mass ratio of %{value}%{unit}"
+      steps:
+        set_title: "Walk at least %{value} %{unit}"
   controllers:
     application:
       user_not_authorized: "You can not access to this page."

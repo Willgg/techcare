@@ -83,6 +83,15 @@ fr:
           _%: "%"
           _steps: "pas"
           _picture: "photo"
+    goal:
+      weight:
+        set_title: "Conservez un poids de %{value} %{unit}"
+      blood_pressure:
+        set_title: "Atteignez une tension de %{value} %{unit}"
+      fat_ratio:
+        set_title: "Atteignez un ratio de masse grasse de %{value}%{unit}"
+      steps:
+        set_title: "Marchez au moins %{value} %{unit}"
   controllers:
     application:
       user_not_authorized: "Vous ne pouvez pas accéder à cette page"

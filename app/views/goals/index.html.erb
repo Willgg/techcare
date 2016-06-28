@@ -38,7 +38,10 @@
 
         <% if goal.is_running? && !goal.is_achieved? %>
           <div class="goal-card text-center">
-            <h2><%= goal.title %></h2>
+            <h2>
+              <%= t(goal.title, value: goal.goal_value,
+                    unit: t('activerecord.attributes.measure_type.unit._'+ goal.unit)) %>
+            </h2>
             <p>
               <strong>
                 <%= (goal.end_date.to_date - Time.current.to_date).to_i %>

@@ -32,10 +32,11 @@ class Goal < ActiveRecord::Base
   validates :goal_value, presence: true
   validates :end_date, presence: true
   validates :start_date, presence: true
-  validates :title, presence: true, length: { in: 1..50 }
+  validates :title, length: { in: 1..50 }
   validates :cumulative, inclusion: { in: [ true , false ]}
 
   before_validation :dates_to_beginning_of_day, on: [:create,:update]
+  before_validation :set_title, on: :create
 
   def progression
     ratio = self.cumulative ? cumulative_progression : progression_for_user
@@ -122,6 +123,10 @@ class Goal < ActiveRecord::Base
     self.is_achieved?
   end
 
+  def unit
+    self.measure_type.unit
+  end
+
   private
 
   def current_value
@@ -136,5 +141,19 @@ class Goal < ActiveRecord::Base
   def dates_to_beginning_of_day
     self.start_date = self.start_date.beginning_of_day
     self.end_date = self.end_date.beginning_of_day
+  end
+
+  def set_title
+    self.title =
+      case self.measure_type_id
+        when 1
+          'activerecord.goal.weight.set_title'
+        when 2
+          'activerecord.goal.blood_pressure.set_title'
+        when 3
+          'activerecord.goal.fat_ratio.set_title'
+        when 4
+          'activerecord.goal.steps.set_title'
+      end
   end
 end
