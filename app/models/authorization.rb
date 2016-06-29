@@ -21,4 +21,6 @@ class Authorization < ActiveRecord::Base
 
   validates :source, presence: true
   validates :token, uniqueness: { scope: :source, message: "must be unique per source" }
+
+  scope :owned_by, -> (user) { where(user_id: user.id).order(created_at: :asc) }
 end

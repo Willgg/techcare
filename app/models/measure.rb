@@ -32,6 +32,7 @@ class Measure < ActiveRecord::Base
   scope :fat_ratio, ->(order) { where(measure_type: 3).order(date: order) }
   scope :activities, ->(order) { where(measure_type: 4).order(date: order) }
   scope :food_pics_by, ->(order) { where(measure_type: 5).order(date: order) }
+  scope :from_source, ->(source) { where(source: source.to_s).order(date: :asc) }
 
   def any_of_type?(measure_type)
     self.any? { |m| m.measure_type_id == measure_type.id }
