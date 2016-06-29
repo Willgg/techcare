@@ -55,7 +55,7 @@ class Goal < ActiveRecord::Base
   end
 
   def cumulative_progression
-    sum_of_measures.to_f / self.goal_value.to_f
+    current_value.to_f / self.goal_value.to_f
   end
 
   def progression_for_user
