@@ -131,8 +131,7 @@ class Goal < ActiveRecord::Base
 
   def current_value
     if self.cumulative
-      meas = self.measures.where(measure_type: self.measure_type, date: (self.start_date..self.end_date))
-      meas.sum("value")
+      self.sum_of_measures
     else
       self.last_measure_for_user
     end
