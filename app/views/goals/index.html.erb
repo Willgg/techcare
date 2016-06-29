@@ -71,7 +71,10 @@
           </div>
         <% elsif goal.is_achieved? || goal.is_succeed? %>
           <div class="goal-card text-center complete">
-            <h2><%= goal.title %></h2>
+            <h2>
+              <%= t(goal.title, value: goal.goal_value,
+                    unit: t('activerecord.attributes.measure_type.unit._'+ goal.unit)) %>
+            </h2>
             <p>
               <strong>achieved on the <%= goal.end_date.strftime('%d/%m/%Y') %></strong>
             </p>
