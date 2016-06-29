@@ -123,19 +123,16 @@ class Goal < ActiveRecord::Base
     self.is_achieved?
   end
 
+  def current_value
+    return self.end_value if self.end_value
+    self.cumulative ? self.sum_of_measures : self.last_measure_for_user
+  end
+
   def unit
     self.measure_type.unit
   end
 
   private
-
-  def current_value
-    if self.cumulative
-      self.sum_of_measures
-    else
-      self.last_measure_for_user
-    end
-  end
 
   def dates_to_beginning_of_day
     self.start_date = self.start_date.beginning_of_day
