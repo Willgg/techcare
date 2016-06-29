@@ -81,7 +81,11 @@
             <div class="fullbar">
               <div class="fillbar" style="width: <%= goal.progression %>%">
                 <div class="current-measure">
-                  <strong><%= goal.current_value %></strong><br /><%= goal.measure_type.unit %>
+                  <strong>
+                    <%= goal.current_value %>
+                  </strong><br />
+                  <%= t('activerecord.attributes.measure_type.unit._' +
+                         goal.measure_type.unit) %>
                 </div>
               </div>
             </div>

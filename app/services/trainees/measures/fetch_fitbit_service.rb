@@ -26,16 +26,11 @@ module Trainees
 
           if @user.measures.exists?(source: @provider.to_s, measure_type_id: mt.id)
             last_provider_measure = @user.measures.where(source: @provider.to_s, measure_type_id: mt.id).order(date: :asc).last
-            base_date = last_provider_measure.date + 1.day
-          end
-
-          if last_provider_measure && base_date + 1.month > Time.current
-            date_option[:base_date] = base_date
-            date_option[:end_date]  = Time.current
+            date_option[:base_date] = last_provider_measure.date + 1.day
           else
-            date_option[:end_date]  = Time.current
-            date_option[:base_date] = date_option[:end_date] - 1.month
+            date_option[:base_date] = 15.days.ago
           end
+          date_option[:end_date]  = 1.days.ago
 
           if mt.id == 1
             body_weight = client.body_weight(date_option)
@@ -44,7 +39,7 @@ module Trainees
             body_fat    = client.body_fat(date_option)
             @data.merge!(body_fat)
           elsif mt.id == 4
-            activities  = client.activity_on_date_range("steps", date_option[:base_date], date_option[:end_date])
+            activities  = client.activity_on_date_range("steps", date_option[:base_date].to_date, date_option[:end_date].to_date)
             @data.merge!(activities)
           else
             raise Trainees::ArgumentError, "The #{@provider.to_s} API do not provide data with this MeasureType"
@@ -87,14 +82,16 @@ module Trainees
 
       def set_unit_system
         #IMPROVE : 1 locale can match with 2 unit systems. Should be part of user's config
-          case @locale.upcase
+        return Fitgem::ApiUnitSystem.METRIC unless @locale
+        case @locale.upcase
 
-          when "US"
-            Fitgem::ApiUnitSystem.US
-          else
-            Fitgem::ApiUnitSystem.METRIC
-          end
+        when "US"
+          Fitgem::ApiUnitSystem.US
+        else
+          Fitgem::ApiUnitSystem.METRIC
+        end
       end
+
     end
   end
 end
