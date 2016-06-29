@@ -12,8 +12,8 @@ module Trainees
 
       def fetch_fitbit_data
 
-        client = Fitgem::Client.new(consumer_key: @consumer_key,
-                                    consumer_secret: @consumer_secret,
+        client = Fitgem::Client.new(consumer_key: ENV['FITBIT_CONSUMER_KEY'],
+                                    consumer_secret: ENV['FITBIT_CONSUMER_SECRET'],
                                     token: @token,
                                     secret: @secret,
                                     user_id: @user_id,

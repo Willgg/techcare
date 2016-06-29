@@ -10,10 +10,8 @@ class SessionsController < Devise::SessionsController
       Trainees::FetchMeasuresService.new(resource).fetch! if resource.api_user_id
 
       # Update Providers DataSet
-      if resource.authorizations
-        options = {locale: params[:locale]}
-        Trainees::FetchDataService.new(resource, options).update!
-      end
+      options = {locale: params[:locale]}
+      Trainees::FetchDataService.new(resource, options).update! if resource.authorizations
 
       # Redirect user
       resource.adviser.present? ? user_goals_path(resource) : advisers_path
