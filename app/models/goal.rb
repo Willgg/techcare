@@ -36,7 +36,7 @@ class Goal < ActiveRecord::Base
   validates :cumulative, inclusion: { in: [ true , false ]}
 
   before_validation :dates_to_beginning_of_day, on: [:create,:update]
-  before_validation :set_title, on: :create
+  before_validation :set_title, on: [:create, :update]
 
   def progression
     ratio = self.cumulative ? cumulative_progression : progression_for_user
