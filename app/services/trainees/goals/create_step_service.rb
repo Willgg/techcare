@@ -6,17 +6,17 @@ module Trainees
       end
 
       def call
-        return if measure_type.nil? || already_has_running_goal?
+        return unless new_goal_is_required?
         if last_measure && average_measure_value <= goal_value
           g = Goal.new
-          g.measure_type    = measure_type
-          g.user            = @trainee
-          g.adviser_id      = @trainee.adviser.id
-          g.cumulative      = true
-          g.end_date        = Time.current + 1.week
-          g.start_date      = Time.current
-          g.goal_value      = goal_value * ((g.end_date - g.start_date) / 1.day).round
-          g.title           = I18n.t('controllers.goals.step_title', goal_value: g.goal_value)
+          g.measure_type = measure_type
+          g.user         = @trainee
+          g.adviser_id   = @trainee.adviser.id
+          g.cumulative   = true
+          g.end_date     = Time.current + 1.week
+          g.start_date   = Time.current
+          g.goal_value   = goal_value * ((g.end_date - g.start_date) / 1.day).round
+          g.title        = I18n.t('controllers.goals.step_title', goal_value: g.goal_value)
           g.save
         end
       end
@@ -25,6 +25,10 @@ module Trainees
 
       def goal_value
         average_measure_value > 0 && average_measure_value <= 9000 ? (average_measure_value + 1000) : 10000
+      end
+
+      def new_goal_is_required?
+        @trainee.goals.where(measure_type: measure_type).none? { |g| g.is_running? && !g.is_achieved? }
       end
 
       def already_has_running_goal?

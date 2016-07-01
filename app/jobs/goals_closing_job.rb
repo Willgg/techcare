@@ -21,8 +21,8 @@ class GoalsClosingJob < ActiveJob::Base
       all_measure_type_before(5).all.each do |mt|
         puts "Analyzing goals for #{mt.name}"
         goals = user.goals.where( measure_type_id: mt.id )
-        # Create a goal if goal is failed or does not exist
-        if goals.none? { |g| g.is_running? } # && user.measures.any? { |m| m.measure_type_id == mt.id }
+        #FIXME DRY new_goal_required method
+        if goals.none? { |g| g.is_running? && !g.is_achieved? } # && user.measures.any? { |m| m.measure_type_id == mt.id }
           puts "No Goals running nor succeed: request for new goal"
           Trainees::CreateGoalsService.new(user).only_for(mt.id)
         end
