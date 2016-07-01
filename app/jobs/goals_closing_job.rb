@@ -5,7 +5,7 @@ class GoalsClosingJob < ActiveJob::Base
   def perform(*args)
     puts "*** Save the end_value for outdated goals ***"
 
-    goals_over = Goal.where("end_value IS NULL AND end_date < ?", Time.current)
+    goals_over = Goal.where("end_value IS NULL AND end_date < ?", Time.current.beginning_of_day)
 
     unless goals_over.empty?
       goals_over.each do |goal|
