@@ -38,6 +38,8 @@ class Goal < ActiveRecord::Base
   before_validation :dates_to_beginning_of_day, on: [:create,:update]
   before_validation :set_title, on: [:create, :update]
 
+  scope :running, -> { where('end_date >= ?', Time.current) }
+
   def progression
     ratio = self.cumulative ? cumulative_progression : progression_for_user
     ratio > 1 ? 100 : (ratio * 100).round(2)
