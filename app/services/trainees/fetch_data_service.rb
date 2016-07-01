@@ -45,7 +45,7 @@ module Trainees
     end
 
     def fetch_withings_data
-      Trainees::Measures::FetchWithingsService.new(@user, @options).call
+      # Trainees::Measures::FetchWithingsService.new(@user, @options).call
     end
   end
 
