@@ -51,6 +51,14 @@ class ProvidersController < ApplicationController
     current_user.api_user_id = params[:userid]
     current_user.save
 
+    # Persisiting in Authorizations
+    auth = Authorization.new(source: 'withings',
+                      uid: params[:userid],
+                      token: oauth_token,
+                      secret: oauth_token_secret,
+                      user_id: current_user.id)
+    auth.save
+
     # User data fetching
     Trainees::FetchMeasuresService.new(current_user).fetch!
 
