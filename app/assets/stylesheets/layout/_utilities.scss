@@ -57,3 +57,20 @@ form {
     align-items: center
   }
 }
+
+h3.past_title {
+  color: $gray-lighter;
+  font-weight: 300;
+  font-size: 22px;
+  text-align: center;
+  margin: 30px 20px;
+  white-space: nowrap;
+}
+.filter {
+  display: flex;
+  align-items: center;
+  hr {
+    width: 100%;
+    border-color: $gray-very-light;
+  }
+}

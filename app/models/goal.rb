@@ -38,7 +38,8 @@ class Goal < ActiveRecord::Base
   before_validation :dates_to_beginning_of_day, on: [:create,:update]
   before_validation :set_title, on: [:create, :update]
 
-  scope :running, -> { where('end_date >= ?', Time.current) }
+  scope :running, -> { where('end_date >= ?', Time.current).order(end_date: :desc) }
+  scope :over, -> { where('end_date < ?', Time.current).order(end_date: :desc) }
 
   def progression
     ratio = self.cumulative ? cumulative_progression : progression_for_user
@@ -101,12 +102,12 @@ class Goal < ActiveRecord::Base
     origin_measure.to_f > self.goal_value.to_f
   end
 
-  def is_over?
-    self.end_date < Time.current
+  def is_running?
+    end_date >= Time.current
   end
 
-  def is_running?
-    self.end_date >= Time.current
+  def is_over?
+    !is_running?
   end
 
   def is_achieved?

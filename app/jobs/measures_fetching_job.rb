@@ -4,12 +4,12 @@ class MeasuresFetchingJob < ActiveJob::Base
   def perform(*args)
     Authorization.all.each do |auth|
       case auth.source.to_sym
-        when :withings
-          Trainees::FetchMeasuresService.new(auth.user).fetch!
-        when :fitbit
-          Trainees::FetchDataService.new(auth.user, authorization: auth).fetch!
-        else
-          puts 'source not recognized for ' + auth.inspect
+      when :withings
+        Trainees::FetchMeasuresService.new(auth.user).fetch!
+      when :fitbit
+        Trainees::FetchDataService.new(auth.user, authorization: auth).fetch!
+      else
+        puts 'source not recognized for ' + auth.inspect
       end
     end
   end

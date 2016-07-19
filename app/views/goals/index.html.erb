@@ -33,71 +33,29 @@
         <%= render 'add_data_card' %>
       <% end %>
 
-      <!-- Goals listing -->
-      <% @goals.each do |goal| %>
-
-        <% if goal.is_running? && !goal.is_achieved? %>
-          <div class="goal-card text-center">
-            <h2>
-              <%= t(goal.title, value: goal.goal_value,
-                    unit: t('activerecord.attributes.measure_type.unit._'+ goal.unit)) %>
-            </h2>
-            <p>
-              <strong>
-                <%= (goal.end_date.to_date - Time.current.to_date).to_i %>
-              </strong>
-              <%= t('.days') %>
-            </p>
-            <div class="fullbar">
-              <div class="fillbar" style="width: <%= goal.progression %>%">
-                <div class="current-measure">
-                  <strong>
-                  <% if goal.cumulative %>
-                    <%= goal.sum_of_measures %>
-                  <% else %>
-                    <%= goal.last_measure_for_user.round(1) %>
-                  <% end %>
-                  </strong><br />
-                  <%= t('activerecord.attributes.measure_type.unit._' +
-                         goal.measure_type.unit) %>
-                </div>
-              </div>
-            </div>
-            <% if GoalPolicy.new(current_user, @user, goal).destroy? %>
-              <%= link_to(user_goal_path(@user, goal), method: :delete, class: "delete", title: t('.delete')) do %>
-                <i class="fa fa-times"></i>
-              <% end %>
-            <% end %>
-          </div>
-        <% elsif goal.is_achieved? || goal.is_succeed? %>
-          <div class="goal-card text-center complete">
-            <h2>
-              <%= t(goal.title, value: goal.goal_value,
-                    unit: t('activerecord.attributes.measure_type.unit._'+ goal.unit)) %>
-            </h2>
-            <p>
-              <strong>achieved on the <%= goal.end_date.strftime('%d/%m/%Y') %></strong>
-            </p>
-            <div class="fullbar">
-              <div class="fillbar" style="width: <%= goal.progression %>%">
-                <div class="current-measure">
-                  <strong>
-                    <%= goal.current_value %>
-                  </strong><br />
-                  <%= t('activerecord.attributes.measure_type.unit._' +
-                         goal.measure_type.unit) %>
-                </div>
-              </div>
-            </div>
-
-            <% if GoalPolicy.new(current_user, @user, goal).destroy? %>
-              <%= link_to(user_goal_path(@user, goal), method: :delete, class: "delete", title: t('.delete')) do %>
-                <i class="fa fa-times"></i>
-              <% end %>
-            <% end %>
-          </div>
+      <!-- Goals running listing -->
+      <% @goals.running.each do |goal| %>
+        <% unless goal.is_achieved? %>
+          <%= render 'goals_open', goal: goal %>
+        <% else %>
+          <%= render 'goals_achieved', goal: goal %>
         <% end %>
+      <% end %>
 
+      <!-- Goal Over Listing-->
+      <% if @goals.over.count > 0 %>
+        <div class="filter">
+          <hr />
+          <h3 class="past_title"><%= t('.past_title') %></h3>
+          <hr />
+        </div>
+      <% end %>
+      <% @goals.over.each do |goal| %>
+        <% unless goal.is_achieved? %>
+          <%= render 'goals_open', goal: goal %>
+        <% else %>
+          <%= render 'goals_achieved', goal: goal %>
+        <% end %>
       <% end %>
 
       <!-- New goal Button -->
