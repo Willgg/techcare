@@ -38,25 +38,25 @@ class ProvidersController < ApplicationController
     consumer_secret = ENV['WITHINGS_OAUTH_CONSUMER_SECRET']
     consumer_token  = ConsumerToken.new( consumer_key, consumer_secret )
 
-    # Get access token
+    # Get access tokens
     access_token_response = Withings::Api.create_access_token(request_token, consumer_token, "user_id_not_currently_required_by_withings")
     access_token          = access_token_response.access_token
     user_id               = access_token_response.user_id
     oauth_token           = access_token.key
     oauth_token_secret    = access_token.secret
 
-    # Persisting access token
+    # Persisting access tokens in existing User
     current_user.api_consumer_key = oauth_token
     current_user.api_consumer_secret = oauth_token_secret
     current_user.api_user_id = params[:userid]
     current_user.save
 
-    # Persisiting in Authorizations
+    # Persisiting as a new Authorization
     auth = Authorization.new(source: 'withings',
-                      uid: params[:userid],
-                      token: oauth_token,
-                      secret: oauth_token_secret,
-                      user_id: current_user.id)
+                             uid: params[:userid],
+                             token: oauth_token,
+                             secret: oauth_token_secret,
+                             user_id: current_user.id)
     auth.save
 
     # User data fetching
