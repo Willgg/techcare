@@ -128,7 +128,6 @@ en:
       intro: "Techcare is built to make you change your habits. The service needs to access some of your data to set personnalized goals. Your coach is going to monitor your progress and to give you many tips to succeed."
   goals:
     index:
-      days: "days left"
       delete: "delete"
       new-goal: "+ Add a new goal"
       title-new-goal: "Add a new goal"
@@ -139,6 +138,11 @@ en:
       placeholder-message: "Your message"
       food_title: "Add photos of your food"
       food_empty: "Upload photos of everything you eat to let your coach understand your food habits."
+      past_title: "Past Goals"
+    goals_open:
+      days: "days left"
+    goals_achieved:
+      achieved_on: "Achieved on the "
     add_data_card:
       add-data-title: "Connect to your devices or favorite app"
       add-data-description: "Your can increase the efficiency of techcare by synchonizing external devices such as connected wristband or scale or even your favorite app."

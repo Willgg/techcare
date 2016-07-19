@@ -1,0 +1,28 @@
+<div class="goal-card text-center complete">
+  <h2>
+    <%= t(goal.title, value: goal.goal_value,
+          unit: t('activerecord.attributes.measure_type.unit._'+ goal.unit)) %>
+  </h2>
+  <p>
+    <strong>
+      <%= t('.achieved_on') %><%= l(goal.end_date, format: :day) %>
+    </strong>
+  </p>
+  <div class="fullbar">
+    <div class="fillbar" style="width: <%= goal.progression %>%">
+      <div class="current-measure">
+        <strong>
+          <%= goal.current_value %>
+        </strong><br />
+        <%= t('activerecord.attributes.measure_type.unit._' +
+               goal.measure_type.unit) %>
+      </div>
+    </div>
+  </div>
+
+  <% if GoalPolicy.new(current_user, @user, goal).destroy? %>
+    <%= link_to(user_goal_path(@user, goal), method: :delete, class: "delete", title: t('.delete')) do %>
+      <i class="fa fa-times"></i>
+    <% end %>
+  <% end %>
+</div>
