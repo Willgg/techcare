@@ -22,8 +22,9 @@
       </div>
     </div>
   </div>
-  <% if GoalPolicy.new(current_user, @user, goal).destroy? %>
-    <%= link_to(user_goal_path(@user, goal), method: :delete, class: "delete", title: t('.delete')) do %>
+  <% if GoalPolicy.new(current_user, @user, goal).destroy? && goal.is_running? %>
+    <%= link_to user_goal_path(@user, goal),
+                method: :delete, class: "delete", title: t('.delete') do %>
       <i class="fa fa-times"></i>
     <% end %>
   <% end %>

@@ -52,7 +52,7 @@
       <% end %>
       <% @goals.over.each do |goal| %>
         <% unless goal.is_achieved? %>
-          <%= render 'goals_open', goal: goal %>
+          <%= render 'goals_failed', goal: goal %>
         <% else %>
           <%= render 'goals_achieved', goal: goal %>
         <% end %>

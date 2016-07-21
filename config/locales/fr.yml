@@ -128,7 +128,6 @@ fr:
       intro: "Techcare a pour objectif de vous faire adopter des habitubes saines. Il a besoin pour cela d'accéder à vos données pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
   goals:
     index:
-      delete: "supprimer"
       new-goal: "+ Ajouter un objectif"
       title-new-goal: "Créer un nouvel objectif"
       title_new_measure: "Ajouter une mesure"
@@ -141,6 +140,9 @@ fr:
       past_title: "Objectifs passés"
     goals_open:
       days: "jours restants"
+      delete: "supprimer"
+    goals_failed:
+      achieved_on: "Terminé le "
     goals_achieved:
       achieved_on: "Terminé le "
     add_data_card:
