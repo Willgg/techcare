@@ -128,7 +128,6 @@ en:
       intro: "Techcare is built to make you change your habits. The service needs to access some of your data to set personnalized goals. Your coach is going to monitor your progress and to give you many tips to succeed."
   goals:
     index:
-      delete: "delete"
       new-goal: "+ Add a new goal"
       title-new-goal: "Add a new goal"
       title_new_measure: "Add a measurement"
@@ -141,6 +140,9 @@ en:
       past_title: "Past Goals"
     goals_open:
       days: "days left"
+      delete: "delete"
+    goals_failed:
+      achieved_on: "Achieved on the "
     goals_achieved:
       achieved_on: "Achieved on the "
     add_data_card:

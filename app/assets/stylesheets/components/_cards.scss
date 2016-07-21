@@ -141,6 +141,22 @@
   }
 }
 
+.red {
+  background: #fcf6f6;
+  h2 {
+    color: $brand-danger;
+  }
+  .fullbar {
+    .fillbar {
+      background-color: $brand-danger;
+      .current-measure {
+        color: $brand-danger;
+        border-color: $brand-danger;
+      }
+    }
+  }
+}
+
 .chat-card{
   background: white;
   padding: 20px;
