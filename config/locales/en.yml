@@ -75,7 +75,14 @@ en:
               past: "The date can not be in the future"
     attributes:
       goal:
-        title: "title"
+        title: "Title"
+        measure_type: "Type of measurement"
+        end_date: "End date"
+        goal_value: "Value"
+      measure:
+        measure_type: "Type of measurement"
+        value: "Value"
+        date: "Date"
       measure_type:
         unit:
           _kg: "kg"
