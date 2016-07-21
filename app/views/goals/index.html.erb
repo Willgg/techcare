@@ -120,7 +120,6 @@
       <div class="modal-body">
         <%= simple_form_for [@user, @goal] do |f| %>
           <%= f.association :measure_type, collection: @measure_types_of_user %>
-          <%= f.input :title %>
           <%= f.input :end_date, as: :date %>
           <%= f.input :goal_value %>
           <%= f.button :submit, t('.submit-goal'), class: "btn btn-primary" %>
