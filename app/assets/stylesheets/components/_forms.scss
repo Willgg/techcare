@@ -2,6 +2,9 @@
   abbr {
     display: none;
   }
+  select {
+    text-transform: capitalize;
+  }
   option {
     text-transform: capitalize;
   }

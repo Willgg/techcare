@@ -90,6 +90,11 @@ fr:
           _%: "%"
           _steps: "pas"
           _picture: "photo"
+        name:
+          weight: "poids"
+          blood_pressure: "tension"
+          fat_ratio: "masse grasse"
+          steps: "pas"
     goal:
       weight:
         set_title: "Conservez un poids de %{value} %{unit}"

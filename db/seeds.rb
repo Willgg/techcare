@@ -72,7 +72,7 @@ end
 
 # measure_type: poids (id: 1)
 measure_type_1 = MeasureType.new(
-  name: "poids",
+  name: "weight",
   unit: "kg",
   data_type: "test"
 )
@@ -80,7 +80,7 @@ measure_type_1.save
 
 # measure_type: tension (id: 2)
 measure_type_2 = MeasureType.new(
-  name: "tension",
+  name: "blood_pressure",
   unit: "mmHg",
   data_type: "tensiontest"
 )
@@ -88,7 +88,7 @@ measure_type_2.save
 
 # measure_type: Fat (id: 3)
 measure_type_3 = MeasureType.new(
-  name: "Fat ratio",
+  name: "fat_ratio",
   unit: "%",
   data_type: "FatRatioTest"
 )
@@ -96,7 +96,7 @@ measure_type_3.save
 
 # measure_type: Steps (id: 4)
 measure_type_4 = MeasureType.new(
-  name: "Steps",
+  name: "steps",
   unit: "steps",
   data_type: "StepsTest"
 )

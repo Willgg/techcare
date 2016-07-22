@@ -13,7 +13,6 @@ class GoalsController < ApplicationController
 
     # Set a new Measure and get Measure Types for new form
     @measure = Measure.new(user: @user)
-    @measure_types = MeasureType.all_except(5)
 
     # Set messages as read
     @messages = policy_scope(Message.where(read_at: nil, recipient: current_user))
@@ -35,9 +34,14 @@ class GoalsController < ApplicationController
 
     # Set goals to display
     @goals = policy_scope(Goal.where(user_id: @user))
-    # Set goal for modal form
+    # Set goal and measure type for modal form
     @goal  = Goal.new
-    @measure_types_of_user = @user.measure_types.uniq
+    @measure_types = {}
+    MeasureType.all_except(5).each do |k|
+      name = I18n.t(k.name, scope: "activerecord.attributes.measure_type.name")
+      @measure_types[name.to_sym] = k.id
+    end
+
     # Custom Goal policy with 3 arguments
     raise Pundit::NotAuthorizedError unless GoalPolicy.new(current_user, @user, @goal).index?
   end

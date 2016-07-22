@@ -90,6 +90,11 @@ en:
           _%: "%"
           _steps: "steps"
           _picture: "photo"
+        name:
+          weight: "weight"
+          blood_pressure: "blood pressure"
+          fat_ratio: "fat ratio"
+          steps: "steps"
     goal:
       weight:
         set_title: "Keep your weight at %{value} %{unit}"
