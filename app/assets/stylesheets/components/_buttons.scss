@@ -1,9 +1,8 @@
-.btn-techcare, .btn-techcare:focus,
-.btn-techcare:active {
+.btn-techcare, .btn-techcare:focus, .btn-techcare:active {
   background-color: $brand-color;
   color: #fff;
   border-color: $brand-color;
-  border-radius: 2px;
+  border-radius: 3px;
   padding: 6px 20px;
   &:hover{
     color: white;

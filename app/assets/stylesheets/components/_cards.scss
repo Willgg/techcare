@@ -625,3 +625,21 @@
     }
   }
 }
+
+.sub{
+  padding: 25px 15px;
+  border: 1px solid $gray-very-light;
+  text-align: center;
+  h2 {
+    color: $brand-color;
+    margin: 0;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 26px;
+  }
+  ul {
+    margin: 10.5px 0;
+    padding-left: 30px;
+    text-align: left;
+  }
+}

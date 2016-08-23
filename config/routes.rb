@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'subscriptions/show'
+
+  get 'subscriptions/create'
+
+  get 'subscriptions/destroy'
+
   scope '(:locale)', locale: /fr|en/ do
     root   'pages#home'
     get    'providers',          to: 'providers#index'
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
     resources :advisers, only: [:index] do
       resource :selection, only: [:create], module: 'advisers' # module permet d'indique que le controller se trouve dans le dossier advisers, on neste pour garder le id de adviser
     end
+
+    resources :subscriptions, only: [:show, :create, :destroy]
   end
 
   post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'

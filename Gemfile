@@ -33,6 +33,8 @@ gem 'sidekiq'
 gem 'sinatra'  # Dependency of sidekiq
 gem 'sidekiq-failures'
 
+gem 'stripe'
+
 group :development, :test do
   gem "spring"
   gem "annotate"
