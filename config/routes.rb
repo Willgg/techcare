@@ -31,7 +31,7 @@ Rails.application.routes.draw do
       resource :selection, only: [:create], module: 'advisers' # module permet d'indique que le controller se trouve dans le dossier advisers, on neste pour garder le id de adviser
     end
 
-    resources :subscriptions, only: [:show, :create, :destroy]
+    resources :subscriptions, only: [:show, :new, :create, :destroy]
   end
 
   post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'

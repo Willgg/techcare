@@ -16,7 +16,9 @@
                 <li>Objectifs personnalisés</li>
               </ul>
               <p style="color: $brand-color"><strong>15 jours gratuits</strong></p>
-              <a href="#" class="btn btn-techcare"><strong>S’abonner à 69€/mois</strong></a>
+              <%= link_to new_subscription_path(plan: "sub-1"), class: "btn btn-techcare" do %>
+                <strong>S’abonner à 69€/mois</strong>
+              <% end %>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
@@ -29,7 +31,9 @@
                 <li>Objectifs personnalisés</li>
               </ul>
               <p style="color: $brand-color"><strong>20 jours gratuits</strong></p>
-              <a href="#" class="btn btn-techcare"><strong>S’abonner à 54€/mois</strong></a>
+              <%= link_to new_subscription_path(plan: "sub-3"), class: "btn btn-techcare" do %>
+                <strong>S’abonner à 54€/mois</strong>
+              <% end %>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
@@ -42,7 +46,9 @@
                 <li>Objectifs personnalisés</li>
               </ul>
               <p style="color: $brand-color"><strong>1 mois gratuit</strong></p>
-              <a href="#" class="btn btn-techcare"><strong>S’abonner à 49€/mois</strong></a>
+              <%= link_to new_subscription_path(plan: "sub-6"), class: "btn btn-techcare" do %>
+                <strong>S’abonner à 49€/mois</strong>
+              <% end %>
             </div>
           </div>
         </div>
