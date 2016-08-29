@@ -13,7 +13,7 @@
           <div class="col-xs-12 col-md-offset-3 col-md-6">
             <form action="<%= subscriptions_path %>" method="POST" id="payment-form">
               <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-              <input name="plan" value="<%= @plan %>" type="hidden">
+              <input name="plan" value="<%= @subscription.name %>" type="hidden">
               <div class="form-group col-xs-12">
                 <span class="control-label payment-errors"></span>
               </div>
