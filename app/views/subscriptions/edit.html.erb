@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <ul>
+        <li><%= link_to "Editer profile", edit_user_registration_path %></li>
+        <li><%= link_to "Subscription", edit_user_subscription_path(@user, @subscription) %></li>
+      </ul>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="white-card">
+        <h2>Votre abonnement</h2>
+        <p>Fin de votre période d'essai
+          <% if @trial_left >= 1 %>
+            <%= @trial_left %> jours</p>
+          <% else %>
+            <%= @trial_left / 60 %> minutes</p>
+          <% end %>
+        </p>
+        <p>Début de votre abonnement: <%= Time.at(@stripe_sub.current_period_start).to_datetime %></p>
+        <p>Fin de l'abonnement: <%= Time.at(@stripe_sub.current_period_end).to_datetime %></p>
+        <hr />
+
+        <p>Voulez-vous
+          <%= link_to "arrêter votre abonnement", user_subscription_path(@user, @subscription.stripe_id), method: :delete %> ?
+      </div>
+    </div>
+  </div>
+</div>

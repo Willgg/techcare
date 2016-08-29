@@ -74,3 +74,19 @@ h3.past_title {
     border-color: $gray-very-light;
   }
 }
+
+.subscriptions-index, .subscriptions-new {
+  body {
+    background-color: #fff;
+  }
+}
+
+.subscriptions-index, .subscriptions-new {
+  h1 {
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 34px;
+    color: $brand-color;
+    margin-top: 30px;
+  }
+}

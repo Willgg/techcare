@@ -53,6 +53,7 @@ class User < ActiveRecord::Base
   has_many :measure_types, through: :measures
   has_many :food_pictures, through: :measures
   has_one  :coach, class_name: "Adviser"
+  has_one  :subscription, dependent: :nullify
   belongs_to :adviser
 
   validates :first_name, presence: true
