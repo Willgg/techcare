@@ -2,10 +2,10 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500|Roboto:100,300,400,500,700");
-$base-font: "Open sans", "Helvetica", "sans-serif";
+@import url("http://fonts.googleapis.com/css?family=Raleway:400,100,300,700,500|Roboto:100,300,400,500,700");
+$base-font: "Roboto", "Helvetica", "sans-serif";
 $base-font-weight: 300;
-$header-font: "Lato", "Helvetica", "sans-serif";
+$header-font: "Raleway", "Helvetica", "sans-serif";
 $heading-font-weight: 300;
 
 // Local fonts (uncomment following lines)

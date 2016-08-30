@@ -1,27 +1,44 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <ul>
-        <li><%= link_to "Editer profile", edit_user_registration_path %></li>
-        <li><%= link_to "Subscription", edit_user_subscription_path(@user, @subscription) %></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="white-card">
-        <h2>Votre abonnement</h2>
-        <p>Fin de votre période d'essai
-          <% if @trial_left >= 1 %>
-            <%= @trial_left %> jours</p>
-          <% else %>
-            <%= @trial_left / 60 %> minutes</p>
-          <% end %>
-        </p>
-        <p>Début de votre abonnement: <%= Time.at(@stripe_sub.current_period_start).to_datetime %></p>
-        <p>Fin de l'abonnement: <%= Time.at(@stripe_sub.current_period_end).to_datetime %></p>
-        <hr />
-
-        <p>Voulez-vous
-          <%= link_to "arrêter votre abonnement", user_subscription_path(@user, @subscription.stripe_id), method: :delete %> ?
+    <div class="col-xs-12 col-md-offset-1 col-md-10 marged-top">
+      <div class="row">
+        <div class="col-xs-3">
+          <ul class="menu-left">
+            <li><%= link_to "Editer mon profil", edit_user_registration_path %></li>
+            <li><%= link_to "Abonnement", edit_user_subscription_path(@user, @subscription) %></li>
+          </ul>
+        </div>
+        <div class="col-xs-9">
+          <div class="panel panel-default">
+            <div class="panel-heading">Votre abonnement</div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-6">
+                  <p>Fin de votre période d'essai:</p>
+                  <p>Début de votre abonnement:</p>
+                  <p>Fin de l'abonnement:</p>
+                </div>
+                <div class="col-xs-6">
+                  <% if @trial_left >= 1 %>
+                    <p><%= @trial_left %> jours</p>
+                  <% else %>
+                    <p><%= @trial_left / 60 %> minutes</p>
+                  <% end %>
+                  <p><%= l(Time.at(@stripe_sub.current_period_start), format: :day) %></p>
+                  <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">Annuler l'abonnement</div>
+            <div class="panel-body">
+              <p>
+                Voulez-vous
+                <%= link_to "arrêter votre abonnement", user_subscription_path(@user, @subscription), method: :delete %> ?
+              </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
