@@ -65,9 +65,13 @@
     }
   }
   &-link {
-    color: #616668;
+    color: $brand-text;
     &:hover {
-      color: #da552f;
+      color: $brand-color-dark;
+      text-decoration: none;
+    }
+    &:focus {
+      color: $brand-color-dark;
       text-decoration: none;
     }
   }

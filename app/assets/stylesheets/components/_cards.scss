@@ -628,7 +628,8 @@
 
 .sub{
   padding: 25px 15px;
-  border: 1px solid $gray-very-light;
+  border: 1px solid $gray-lightest;
+  border-radius: 3px;
   text-align: center;
   h2 {
     color: $brand-color;

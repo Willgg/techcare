@@ -191,11 +191,37 @@ fr:
       trainee_list: "Vos clients"
       trainee_dashboard: "Voir le détail"
   subscriptions:
+    index:
+      title: "Choisissez votre formule d’abonnement"
+      sub-1_title: "Découverte"
+      sub-1_arg1: "Suivi d'un coach personnel"
+      sub-1_arg2: "2 entretiens-bilans par mois"
+      sub-1_arg3: "Objectifs personnalisés"
+      sub-1_trial:
+        one: "%{count} jour gratuit"
+        other: "%{count} jours gratuits"
+      sub-1_submit: "Subscribe for 69€/mois"
+      sub-3_title: "Standard"
+      sub-3_arg1: "Suivi d'un coach personnel"
+      sub-3_arg2: "2 entretiens-bilans par mois"
+      sub-3_arg3: "Objectifs personnalisés"
+      sub-3_trial:
+        one: "%{count} jour gratuit"
+        other: "%{count} jours gratuits"
+      sub-3_submit: "S'abonner pour' 54€/mois"
+      sub-6_title: "Maintien"
+      sub-6_arg1: "Suivi d'un coach personnel"
+      sub-6_arg2: "2 entretiens-bilans par mois"
+      sub-6_arg3: "Objectifs personnalisés"
+      sub-6_trial:
+        one: "%{count} mois gratuit"
+        other: "%{count} mois gratuits"
+      sub-6_submit: "S'abonner pour 49€/mois"
     new:
-      title: "Démarrez votre essai gratuit dès maintenant"
+      title: "Démarrez votre essai gratuit"
       intro: >
-             %{name}, commencez à utiliser techcare gratuitement pour découvrir les
-             bénéfices d’une hygiène de vie plus saine. Votre abonnement sera facturé
+             %{name}, débutez gratuitement avec techcare pour découvrir les
+             bénéfices d’une vie plus active et plus saine. Votre abonnement sera facturé
              après votre période d'essai et vous pourrez vous désabonner à tout moment.
       cardholder: "Nom sur la carte"
       cardnumber: "Numéro de carte"

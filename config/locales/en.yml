@@ -191,6 +191,32 @@ en:
       trainee_list: "Your trainees"
       trainee_dashboard: "look at details"
   subscriptions:
+    index:
+      title: "Choose your plan"
+      sub-1_title: "Discovery"
+      sub-1_arg1: "Personal coach monitoring"
+      sub-1_arg2: "2 interviews per month"
+      sub-1_arg3: "Personalized goals"
+      sub-1_trial:
+        one: "%{count} free day"
+        other: "%{count} free days"
+      sub-1_submit: "Subscribe for 69€/month"
+      sub-3_title: "Standard"
+      sub-3_arg1: "Personal coach monitoring"
+      sub-3_arg2: "2 interviews per month"
+      sub-3_arg3: "Personalized goals"
+      sub-3_trial:
+        one: "%{count} free day"
+        other: "%{count} free days"
+      sub-3_submit: "Subscribe for 54€/month"
+      sub-6_title: "Long run"
+      sub-6_arg1: "Personal coach monitoring"
+      sub-6_arg2: "4 interviews per month"
+      sub-6_arg3: "Personalized goals"
+      sub-6_trial:
+        one: "%{count} free month"
+        other: "%{count} free months"
+      sub-6_submit: "Subscribe for 49€/month"
     new:
       title: "Start your free trial now"
       intro: >
