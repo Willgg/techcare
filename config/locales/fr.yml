@@ -31,7 +31,7 @@ fr:
   pages:
     home:
       first-claim: "Changez vos habitudes"
-      second-claim: "Adoptez une vie plus saine"
+      second-claim: "Adoptez une vie active et saine"
       btn-cta: "Commencer"
       followup-arg: "Suivi personnalisé"
       metrics-arg: "Basé sur vos mesures"
@@ -190,3 +190,17 @@ fr:
     index:
       trainee_list: "Vos clients"
       trainee_dashboard: "Voir le détail"
+  subscriptions:
+    new:
+      title: "Démarrez votre essai gratuit dès maintenant"
+      intro: >
+             %{name}, commencez à utiliser techcare gratuitement pour découvrir les
+             bénéfices d’une hygiène de vie plus saine. Votre abonnement sera facturé
+             après votre période d'essai et vous pourrez vous désabonner à tout moment.
+      cardholder: "Nom sur la carte"
+      cardnumber: "Numéro de carte"
+      expdate: "Expiration (MM/YY)"
+      cvc: "CVC"
+      submit_sub-1: "S'abonner pour 69€/mois"
+      submit_sub-3: "S'abonner pour 54€/mois"
+      submit_sub-6: "S'abonner pour 49€/mois"

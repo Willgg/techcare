@@ -13,6 +13,10 @@ class SubscriptionsController < ApplicationController
       authorize @subscription
       redirect_to edit_user_subscription_path(current_user, @subscription)
     else
+      unless ['sub-1', 'sub-3', 'sub-6'].include?(params[:plan])
+        flash[:alert] = "Cet abonnement n'existe pas. Veuillez choisir un des abonnements ci-dessous."
+        redirect_to subscriptions_path
+      end
       @subscription = Subscription.new(name: params[:plan])
       authorize @subscription
     end

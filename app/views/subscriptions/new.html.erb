@@ -3,11 +3,9 @@
     <div class="row">
       <div class="col-xs-12 col-md-offset-2 col-md-8">
         <div class="row">
-          <div class="col-xs-12">
-            <h1 class="text-center">Démarrez votre essai gratuit dès maintenant</h1>
-            <p><%= current_user.first_name.capitalize %>, commencez à utiliser
-              techcare gratuitement pour découvrir les bénéfices d’une hygiène
-              de vie plus saine. Vous pourrez vous désabonner à tout moment.</p>
+          <div class="col-xs-12 text-center">
+            <h2><%= t('.title') %></h2>
+            <p><%= t('.intro', name: current_user.first_name.capitalize) %></p>
           </div>
 
           <div class="col-xs-12 col-md-offset-3 col-md-6">
@@ -19,17 +17,17 @@
               </div>
 
               <div class="form-group col-xs-12">
-                <label>Cardholder name</label>
+                <label><%= t('.cardholder') %></label>
                 <input type="text" size="20" class="form-control" placeholder="Nom sur la carte" data-stripe="name">
               </div>
 
               <div class="form-group col-xs-12">
-                <label>Card Number</label>
+                <label><%= t('.cardnumber') %></label>
                 <input type="text" size="20" class="form-control" placeholder="Numéro de carte" data-stripe="number">
               </div>
 
               <div class="form-group col-xs-6">
-                <label>Expiration (MM/YY)</label>
+                <label><%= t('.expdate') %></label>
                 <div class="form-inline">
                   <input type="text" size="2" class="form-control" placeholder="MM" data-stripe="exp_month">
                   <span>/</span>
@@ -38,12 +36,13 @@
               </div>
 
               <div class="form-group col-xs-6">
-                <label>CVC</label>
+                <label><%= t('.cvc') %></label>
                 <input type="text" size="4" class="form-control" placeholder="CVC" data-stripe="cvc">
               </div>
 
               <div class="form-group col-xs-12 text-center">
-                <input type="submit" class="btn btn-techcare" value="S'abonner pour 49€/mois">
+                <input type="submit" class="btn btn-techcare"
+                       value="<%= t('.submit_' + params[:plan]) %>">
               </div>
             </form>
           </div>

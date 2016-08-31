@@ -190,3 +190,18 @@ en:
     index:
       trainee_list: "Your trainees"
       trainee_dashboard: "look at details"
+  subscriptions:
+    new:
+      title: "Start your free trial now"
+      intro: >
+             %{name}, you can start using techcare for free today and discover
+             the benefits of keeping with a healthy life. Your subscription will
+             be invoiced after your free trial end. You can unsubscribe at any time.
+      cardholder: "Cardholder name"
+      cardnumber: "Card number"
+      expdate: "Expiration (MM/YY)"
+      cvc: "CVC"
+      submit_sub-1: "Subscribe for 69€/month"
+      submit_sub-3: "Subscribe for 54€/month"
+      submit_sub-6: "Subscribe for 49€/month"
+
