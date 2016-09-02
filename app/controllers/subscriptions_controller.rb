@@ -59,6 +59,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    @subscription.active = false
+    authorize @subscription
+    if @subscription.save
+      # API subscription cancellation
+      flash[:notice] = "Votre abonnement a bien été supprimé"
+      redirect_to subscriptions_path
+    else
+      flash[:alert] = "Votre abonnement n'a pas pu être supprimé"
+      render :edit
+    end
   end
 
   private

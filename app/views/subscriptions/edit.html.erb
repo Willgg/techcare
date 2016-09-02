@@ -10,7 +10,7 @@
         </div>
         <div class="col-xs-9">
           <div class="panel panel-default">
-            <div class="panel-heading">Votre abonnement</div>
+            <div class="panel-heading">Abonnement en cours</div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-xs-6">
@@ -31,15 +31,44 @@
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading">Annuler l'abonnement</div>
+            <div class="panel-heading"><%= t('.title_delete') %></div>
             <div class="panel-body">
               <p>
                 Voulez-vous
-                <%= link_to "arrêter votre abonnement", user_subscription_path(@user, @subscription), method: :delete %> ?
+                <%= link_to "arrêter votre abonnement", "#", data: { toggle: "modal", target: "#deleteModal" } %> ?
+
               </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+  aria-labelledby="deleteModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><%= t('.title_delete') %></h4>
+        </div>
+        <div class="modal-body">
+          <p>Nous sommes désolé de vous voir partir.
+             Peut-être avez-vous réussi à adopter des habitudes saines et à reprendre une vie active et nous en serions très heureux.</p>
+          <p>Êtes-vous sur de vouloir supprimer votre abonnement ?</p>
+          <div class="text-center row">
+            <div class="col-xs-6 text-left">
+              <a href="#" class="btn btn-techcare" data-dismiss="modal" aria-label="Close">&lt; Continuer l'abonnement</a>
+            </div>
+            <div class="col-xs-6 text-right">
+              <%= link_to "Se désabonner", user_subscription_path(@user, @subscription), method: :delete, class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

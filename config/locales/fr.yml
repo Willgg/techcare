@@ -230,3 +230,5 @@ fr:
       submit_sub-1: "S'abonner pour 69€/mois"
       submit_sub-3: "S'abonner pour 54€/mois"
       submit_sub-6: "S'abonner pour 49€/mois"
+    edit:
+      title_delete: "Annuler votre abonnement"

@@ -1,49 +1,73 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-      <div class="white-card">
-        <h2><%= t('.title', :resource => resource_class.model_name.human , :default => "Edit #{resource_name.to_s.humanize}") %></h2>
-        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-          <%= devise_error_messages! %>
+    <div class="col-xs-12 col-md-offset-1 col-md-10 marged-top">
+      <div class="row">
+        <div class="col-xs-3">
+          <ul class="menu-left">
+            <li><%= link_to "Editer mon profil", edit_user_registration_path %></li>
+            <li><%= link_to "Abonnement", edit_user_subscription_path(@user, @user.subscription) %></li>
+          </ul>
+        </div>
+        <div class="col-xs-9">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= t('.title', :resource => resource_class.model_name.human , :default => "Edit #{resource_name.to_s.humanize}") %></div>
+            <div class="panel-body">
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+                <%= devise_error_messages! %>
 
-          <div><%= f.label :email %><br />
-          <%= f.email_field :email %></div>
+              <div class="form-group"><%= f.label :email %><br />
+              <%= f.email_field :email, class: "form-control"  %></div>
 
-          <div><%= f.label :first_name %><br />
-          <%= f.text_field :first_name %></div>
+              <div class="form-group"><%= f.label :first_name %><br />
+              <%= f.text_field :first_name, class: "form-control" %></div>
 
-          <div><%= f.label :last_name %><br />
-          <%= f.text_field :last_name %></div>
+              <div class="form-group"><%= f.label :last_name %><br />
+              <%= f.text_field :last_name, class: "form-control"  %></div>
 
-          <div><%= f.label :height %><br />
-          <%= f.text_field :height, :placeholder => "ex: 170cm" %></div>
+              <div class="form-group"><%= f.label :height %><br />
+              <%= f.text_field :height, :placeholder => "ex: 170cm", class: "form-control"  %></div>
 
-          <div><%= f.label :picture %><br />
-            <%= f.file_field :picture %></div>
+              <div class="form-group"><%= f.label :picture %><br />
+                <%= f.file_field :picture %></div>
 
-          <%- if devise_mapping.confirmable? && resource.pending_reconfirmation? -%>
-            <p>
-              <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>
-            </p>
-          <%- end -%>
+              <%- if devise_mapping.confirmable? && resource.pending_reconfirmation? -%>
+                <p>
+                  <%= t('.currently_waiting_confirmation_for_email', :email => resource.unconfirmed_email, :default => "Currently waiting confirmation for: %{email}") %>
+                </p>
+              <%- end -%>
 
-          <div><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
-          <%= f.password_field :password, :autocomplete => "off" %></div>
+              <div class="form-group">
+                <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it', :default => "leave blank if you don't want to change it") %>)</i><br />
+                <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
+              </div>
 
-          <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation %></div>
+              <div class="form-group"><%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, class: "form-control" %></div>
 
-          <div><%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i><br />
-          <%= f.password_field :current_password %></div>
+              <div class="form-group">
+                <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>)</i><br />
+                <%= f.password_field :current_password, class: "form-control" %>
+              </div>
 
-          <div><%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %></div>
-        <% end %>
-
-        <h3><%= t('.cancel_my_account', :default => 'Cancel my account') %></h3>
-
-        <p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
-
-        <%= link_to t('devise.shared.links.back', :default => "Back"), :back %>
+              <div class="form-group">
+                <%= f.submit t('.update', :default => "Update"), class: "btn btn-primary" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <%= t('.cancel_my_account', :default => 'Cancel my account') %>
+            </div>
+            <div class="panel-body">
+              <p>
+                <%= t('.unhappy', :default => 'Unhappy') %>?
+                <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.
+              </p>
+            </div>
+            <!-- <%= link_to t('devise.shared.links.back', :default => "Back"), :back %> -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
