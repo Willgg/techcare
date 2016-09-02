@@ -21,10 +21,9 @@ class Subscription < ActiveRecord::Base
   validates_presence_of :user_id, :name, :start_date, :stripe_id
   validates :name, inclusion: { in: [ "sub-1" , "sub-3", "sub-6" ]}
 
-  def create_stripe_sub(options)
+  def create_stripe_sub!(options)
     token = options[:token]
     plan = options[:plan]
-
     begin
       customer = Stripe::Customer.create(source: token,
                                          plan: plan,
@@ -66,5 +65,10 @@ class Subscription < ActiveRecord::Base
 
   def get_stripe_sub
     Stripe::Subscription.retrieve(stripe_id)
+  end
+
+  def cancel_stripe_sub
+    sub = Stripe::Subscription.retrieve(stripe_id)
+    sub.delete
   end
 end

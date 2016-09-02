@@ -230,6 +230,12 @@ en:
       submit_sub-1: "Subscribe for 69€/month"
       submit_sub-3: "Subscribe for 54€/month"
       submit_sub-6: "Subscribe for 49€/month"
+    create:
+      success: "Your card has been registered. Welcome!"
+      error: "Your card has not been registered"
     edit:
-      title_delete: "Annuler votre abonnement"
+      title_delete: "Unsubscribe"
+    destroy:
+      success: "Your subscription has been canceled"
+      error: "Your subscription can not be canceled"
 

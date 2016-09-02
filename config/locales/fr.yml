@@ -230,5 +230,11 @@ fr:
       submit_sub-1: "S'abonner pour 69€/mois"
       submit_sub-3: "S'abonner pour 54€/mois"
       submit_sub-6: "S'abonner pour 49€/mois"
+    create:
+      success: "Votre moyen de paiement a bien été enregistré. Bienvenue!"
+      error: "Votre moyen de paiement n'a pas été enregistré."
     edit:
       title_delete: "Annuler votre abonnement"
+    destroy:
+      success: "Votre abonnement a bien été supprimé"
+      error: "Votre abonnement n'a pas pu être supprimé"
