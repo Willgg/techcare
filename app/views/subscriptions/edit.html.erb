@@ -10,20 +10,20 @@
         </div>
         <div class="col-xs-9">
           <div class="panel panel-default">
-            <div class="panel-heading">Abonnement en cours</div>
+            <div class="panel-heading"><%= t('.title_sub') %></div>
             <div class="panel-body">
               <% if @subscription.active %>
                 <div class="row">
                   <div class="col-xs-6">
-                    <p>Fin de votre période d'essai:</p>
-                    <p>Début de votre abonnement:</p>
-                    <p>Fin de l'abonnement:</p>
+                    <p><%= t('.trial_end') %>:</p>
+                    <p><%= t('.start_date') %>:</p>
+                    <p><%= t('.end_date') %>:</p>
                   </div>
                   <div class="col-xs-6">
                     <% if @trial_left >= 1 %>
-                      <p><%= @trial_left %> jours</p>
+                      <p><%= @trial_left %> <%= t('.days') %></p>
                     <% else %>
-                      <p><%= @trial_left / 60 %> minutes</p>
+                      <p><%= @trial_left / 60 %> <%= t('.minutes') %></p>
                     <% end %>
                     <p><%= l(Time.at(@stripe_sub.current_period_start), format: :day) %></p>
                     <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
@@ -31,8 +31,7 @@
                 </div>
               <% else %>
                 <p>
-                  Vous n'avez aucun abonnement actuellement.
-                  <%= link_to "S'abonner maintenant", subscriptions_path %>
+                  <%= t('.no_sub') %> <%= link_to t('.subscribe'), subscriptions_path %>
                 </p>
               <% end %>
             </div>
@@ -41,7 +40,7 @@
             <div class="panel panel-default">
               <div class="panel-heading"><%= t('.title_delete') %></div>
               <div class="panel-body">
-                <p>Voulez-vous <%= link_to "arrêter votre abonnement", "#", data: { toggle: "modal", target: "#deleteModal" } %> ?</p>
+                <p><%= t('.sub_question')%><%= link_to t('.sub_cancel'), "#", data: { toggle: "modal", target: "#deleteModal" } %> ?</p>
               </div>
             </div>
           <% end %>

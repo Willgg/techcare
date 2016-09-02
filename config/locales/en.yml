@@ -234,7 +234,17 @@ en:
       success: "Your card has been registered. Welcome!"
       error: "Your card has not been registered"
     edit:
+      title_sub: "Abonnement en cours"
       title_delete: "Unsubscribe"
+      trial_end: "End of your trial"
+      start_date: "Start of current period"
+      end_date: "End of current period"
+      days: "days"
+      minutes: "minutes"
+      no_sub: "You have no active subscription."
+      subscribe: "Subscribe now"
+      sub_question: "Do you want to "
+      sub_cancel: "cancel your subscription"
     destroy:
       success: "Your subscription has been canceled"
       error: "Your subscription can not be canceled"
