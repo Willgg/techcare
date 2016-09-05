@@ -10,15 +10,16 @@
             <div class="white-card sub monthly">
               <h2><%= t('.sub-1_title') %></h2>
               <img />
-              <p>Pour découvrir les bienfaits d'une vie plus saine et active</p>
-              <p style="color: $brand-color"><strong>69€/mois</strong><br />(facturation mensuelle)</p>
-              <%= link_to new_subscription_path(plan: "sub-1"), class: "btn btn-techcare" do %>
-                <strong><%= t('.sub-1_trial', count: 15) %></strong>
-              <% end %>
+              <p>Pour entrevoir les bienfaits d'une vie plus saine et active</p>
+              <h3><strong>69€</strong><br />
+                <small>par mois, facture mensuelle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-1"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-1_trial', count: 15) %></strong>
+                <% end %>
               <ul>
-                <li><%= t('.sub-1_arg1') %></li>
-                <li><%= t('.sub-1_arg2') %></li>
-                <li><%= t('.sub-1_arg3') %></li>
+                <li><span><%= t('.sub-1_arg1') %></span></li>
+                <li><span><%= t('.sub-1_arg2') %></span></li>
+                <li><span><%= t('.sub-1_arg3') %></span></li>
               </ul>
             </div>
           </div>
@@ -27,15 +28,16 @@
               <h2><%= t('.sub-3_title') %></h2>
               <img />
               <p>Pour s'impliquer activement dans le changement de ses habitudes</p>
-              <p style="color: $brand-color"><strong>54€/mois</strong><br />(facturation trimestrielle)</p>
-              <%= link_to new_subscription_path(plan: "sub-3"), class: "btn btn-techcare" do %>
-                <strong><%= t('.sub-3_trial', count: 20) %></strong>
-              <% end %>
+              <h3><strong>54€</strong><br />
+                <small>par mois, facture trimestrielle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-3"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-3_trial', count: 20) %></strong>
+                <% end %>
               <ul>
-                <li><%= t('.sub-3_arg1') %></li>
-                <li><%= t('.sub-3_arg2') %></li>
-                <li><%= t('.sub-3_arg4') %></li>
-                <li><%= t('.sub-3_arg3') %></li>
+                <li><span><%= t('.sub-3_arg1') %></span></li>
+                <li><span><%= t('.sub-3_arg2') %></span></li>
+                <li><span><%= t('.sub-3_arg4') %></span></li>
+                <li><span><%= t('.sub-3_arg3') %></span></li>
               </ul>
             </div>
           </div>
@@ -44,15 +46,16 @@
               <h2><%= t('.sub-6_title') %></h2>
               <img />
               <p>Pour maintenir ses saines habitudes sur le long terme</p>
-              <p style="color: $brand-color"><strong>49€/mois</strong><br />(facturation biannuelle)</p>
-              <%= link_to new_subscription_path(plan: "sub-6"), class: "btn btn-techcare" do %>
-                <strong><%= t('.sub-6_trial', count: 1) %></strong>
-              <% end %>
+              <h3><strong>49€</strong><br />
+                <small>par mois, facture biannuelle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-6"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-6_trial', count: 1) %></strong>
+                <% end %>
               <ul>
-                <li><%= t('.sub-6_arg1') %></li>
-                <li><%= t('.sub-6_arg2') %></li>
-                <li><%= t('.sub-6_arg4') %></li>
-                <li><%= t('.sub-6_arg3') %></li>
+                <li><span><%= t('.sub-6_arg1') %></span></li>
+                <li><span><%= t('.sub-6_arg2') %></span></li>
+                <li><span><%= t('.sub-6_arg4') %></span></li>
+                <li><span><%= t('.sub-6_arg3') %></span></li>
               </ul>
             </div>
           </div>

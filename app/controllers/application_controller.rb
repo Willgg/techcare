@@ -35,11 +35,18 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
+
     if current_user.is_adviser?
       redirect_to(users_path)
+    elsif !Subscription.exists?(user: current_user, active: true)
+      flash[:notice] = I18n.t('controllers.application.sub_required')
+      redirect_to(subscriptions_path)
+    elsif !current_user.adviser.present?
+      flash[:alert] = I18n.t('controllers.application.adviser_required')
+      redirect_to(advisers_path(current_user))
     else
-      redirect_to(user_goals_path(current_user))
+      flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "Sorry, you can't access this page.")
+      redirect_to root_path
     end
   end
 

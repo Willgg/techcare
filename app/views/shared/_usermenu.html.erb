@@ -1,0 +1,8 @@
+<ul class="menu-left">
+  <li><%= link_to "Editer mon profil", edit_user_registration_path %></li>
+  <% if Subscription.exists?(user: @user, active: true)  %>
+    <li><%= link_to "Mon abonnement", edit_user_subscription_path(@user, @user.subscription) %></li>
+  <% else %>
+    <li><%= link_to "Ajouter un abonnement", subscriptions_path %></li>
+  <% end %>
+</ul>

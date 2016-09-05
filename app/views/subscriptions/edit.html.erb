@@ -3,10 +3,7 @@
     <div class="col-xs-12 col-md-offset-1 col-md-10 marged-top">
       <div class="row">
         <div class="col-xs-3">
-          <ul class="menu-left">
-            <li><%= link_to "Editer mon profil", edit_user_registration_path %></li>
-            <li><%= link_to "Abonnement", edit_user_subscription_path(@user, @subscription) %></li>
-          </ul>
+          <%= render "shared/usermenu" %>
         </div>
         <div class="col-xs-9">
           <div class="panel panel-default">
@@ -18,14 +15,18 @@
                     <p><%= t('.trial_end') %>:</p>
                     <p><%= t('.start_date') %>:</p>
                     <p><%= t('.end_date') %>:</p>
+                    <p><%= t('.next_billing') %>:</p>
                   </div>
                   <div class="col-xs-6">
                     <% if @trial_left >= 1 %>
                       <p><%= @trial_left %> <%= t('.days') %></p>
+                    <% elsif ( @trial_left < 1 ) && ( @trial_left * 24 >= 1 ) %>
+                      <p><%= @trial_left * 24 %> <%= t('.hours') %></p>
                     <% else %>
-                      <p><%= @trial_left / 60 %> <%= t('.minutes') %></p>
+                      <p><%= @trial_left * 24 * 60 %> <%= t('.minutes') %></p>
                     <% end %>
                     <p><%= l(Time.at(@stripe_sub.current_period_start), format: :day) %></p>
+                    <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
                     <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
                   </div>
                 </div>

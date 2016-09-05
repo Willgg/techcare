@@ -205,6 +205,7 @@ en:
       sub-3_arg1: "Personal coach monitoring"
       sub-3_arg2: "2 interviews per month"
       sub-3_arg3: "Personalized goals"
+      sub-3_arg4: "Live video with your coach"
       sub-3_trial:
         one: "%{count} free day"
         other: "%{count} free days"
@@ -213,6 +214,7 @@ en:
       sub-6_arg1: "Personal coach monitoring"
       sub-6_arg2: "4 interviews per month"
       sub-6_arg3: "Personalized goals"
+      sub-6_arg4: "Live video with your coach"
       sub-6_trial:
         one: "%{count} free month"
         other: "%{count} free months"
@@ -239,7 +241,9 @@ en:
       trial_end: "End of your trial"
       start_date: "Start of current period"
       end_date: "End of current period"
+      next_billing: "Next billing date"
       days: "days"
+      hours: "hours"
       minutes: "minutes"
       no_sub: "You have no active subscription."
       subscribe: "Subscribe now"

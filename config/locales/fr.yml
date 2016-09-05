@@ -107,11 +107,15 @@ fr:
   controllers:
     application:
       user_not_authorized: "Vous ne pouvez pas accéder à cette page"
+      adviser_required: |
+                        You have to choose an adviser to user techcare.
+                        Please choose the coach that match best with your needs.
+      sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
       user_has_coach: "Vous avez déjà un coach."
     selection:
-      adviser_selected: "Vous avez bien selectionné votre coach !"
+      adviser_selected: "Votre coach a bien été selectionné !"
       adviser_error: "Impossible de sélectionner ce coach."
     authorizations:
       success: "Vos données ont bien été synchronisée."
@@ -198,8 +202,8 @@ fr:
       sub-1_arg2: "2 entretiens-bilans par mois"
       sub-1_arg3: "Objectifs personnalisés"
       sub-1_trial:
-        one: "Commencez votre jour gratuit"
-        other: "Commencez vos %{count} jours gratuits"
+        one: "Démarrez votre jour gratuit"
+        other: "Démarrez %{count} jours gratuits"
       sub-1_submit: "Subscribe for 69€/mois"
       sub-3_title: "Standard"
       sub-3_arg1: "Suivi d'un coach personnel"
@@ -207,8 +211,8 @@ fr:
       sub-3_arg3: "Objectifs personnalisés"
       sub-3_arg4: "Vidéo live avec le coach"
       sub-3_trial:
-        one: "Commencez votre jour gratuit"
-        other: "Commencez vos %{count} jours gratuits"
+        one: "Démarrez votre jour gratuit"
+        other: "Démarrez %{count} jours gratuits"
       sub-3_submit: "S'abonner pour' 54€/mois"
       sub-6_title: "Maintien"
       sub-6_arg1: "Suivi d'un coach personnel"
@@ -216,8 +220,8 @@ fr:
       sub-6_arg3: "Objectifs personnalisés"
       sub-6_arg4: "Vidéo live avec le coach"
       sub-6_trial:
-        one: "Commencez votre mois gratuit"
-        other: "Commencez vos %{count} mois gratuits"
+        one: "Démarrez un mois gratuit"
+        other: "Démarrez %{count} mois gratuits"
       sub-6_submit: "S'abonner pour 49€/mois"
     new:
       title: "Démarrez votre essai gratuit"
@@ -241,7 +245,9 @@ fr:
       trial_end: "Fin de votre période d'essai"
       start_date: "Début de la période"
       end_date: "Fin de la période"
+      next_billing: "Prochain débit"
       days: "jours"
+      hours: "heures"
       minutes: "minutes"
       no_sub: "Vous n'avez aucun abonnement actuellement."
       subscribe: "S'abonner maintenant"
