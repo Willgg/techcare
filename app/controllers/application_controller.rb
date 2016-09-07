@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-
     if current_user.is_adviser?
       redirect_to(users_path)
     elsif !Subscription.exists?(user: current_user, active: true)

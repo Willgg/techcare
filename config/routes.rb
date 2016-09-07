@@ -30,6 +30,12 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:index, :new, :create]
   end
 
+  namespace :hooks do
+    namespace :stripe do
+      post 'events/charge_failed', to: 'events#charge_failed', as: 'cf'
+    end
+  end
+
   post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'
   get  'auth/:provider/callback', to: 'authorizations#create', as: 'auth_callback'
 
