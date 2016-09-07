@@ -92,13 +92,13 @@ class GoalsController < ApplicationController
     params.require(:goal).permit(:measure_type_id, :user_id, :goal_value, :end_date, :title, :cumulative)
   end
 
-  def user_not_authorized
-    flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
-    if current_user.is_adviser?
-      redirect_to(users_path)
-    else
-      current_user.adviser.present? ?
-        redirect_to(user_goals_path(current_user)) : redirect_to(advisers_path)
-    end
-  end
+  # def user_not_authorized
+  #   flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "You can't access this page.")
+  #   if current_user.is_adviser?
+  #     redirect_to(users_path)
+  #   else
+  #     current_user.adviser.present? ?
+  #       redirect_to(user_goals_path(current_user)) : redirect_to(advisers_path)
+  #   end
+  # end
 end

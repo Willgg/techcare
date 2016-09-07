@@ -8,36 +8,42 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    if current_user.subscription
+    if current_user.subscription.present? && current_user.subscription.active
       @subscription = current_user.subscription
       authorize @subscription
       redirect_to edit_user_subscription_path(current_user, @subscription)
     else
-      @subscription = Subscription.new(name: params[:plan])
-      authorize @subscription
+      if ['sub-1', 'sub-3', 'sub-6'].include?(params[:plan])
+        @subscription = Subscription.new(name: params[:plan])
+        authorize @subscription
+      else
+        flash[:alert] = "Cet abonnement n'existe pas. Veuillez choisir un des abonnements ci-dessous."
+        redirect_to subscriptions_path
+      end
     end
   end
 
   def create
     # See your keys here: https://dashboard.stripe.com/account/apikeys
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-
     token = params[:stripeToken]
     name  = params[:plan]
 
-    @subscription = Subscription.new(user_id: current_user.id, name: name)
-    @subscription.create_stripe_sub(token: token, plan: name)
+    @subscription = current_user.subscription.present? ?
+                      current_user.subscription :
+                      Subscription.new(user_id: current_user.id)
+    @subscription.name = name
+    @subscription.create_stripe_sub!(token: token, plan: name)
     authorize @subscription
-
     if @subscription.save
-      flash[:notice] = "Votre moyen de paiement a bien été enregistré. Bienvenue!"
-      if current_user.adviser_id.nil?
-        redirect_to advisers_path
+      flash[:notice] = t('.success')
+      if current_user.adviser.present?
+        redirect_to user_goals_path(current_user)
       else
-        user_goals_path(current_user)
+        redirect_to advisers_path
       end
     else
-      flash[:alert] = "Votre moyen de paiement n'a pas été enregistré."
+      flash[:alert] = t('.error')
       render :new
     end
   end
@@ -45,8 +51,6 @@ class SubscriptionsController < ApplicationController
   def edit
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     @stripe_sub = @subscription.get_stripe_sub
-    @plan = @stripe_sub.plan
-    @time = Time.at(@stripe_sub.trial_end)
     @trial_left = (@stripe_sub.trial_end - @stripe_sub.trial_start) / (60*60*24)
     authorize @subscription
   end
@@ -55,6 +59,21 @@ class SubscriptionsController < ApplicationController
   end
 
   def destroy
+    authorize @subscription
+    stripe_sub = @subscription.cancel_stripe_sub
+    if stripe_sub.status == "canceled"
+      @subscription.active = false
+      if @subscription.save
+        flash[:notice] = t('.success')
+        redirect_to subscriptions_path
+      else
+        flash[:alert] = t('.error')
+        render :edit
+      end
+    else
+      flash[:alert] = t('.error')
+      render :edit
+    end
   end
 
   private

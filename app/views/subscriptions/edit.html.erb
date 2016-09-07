@@ -1,28 +1,79 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <ul>
-        <li><%= link_to "Editer profile", edit_user_registration_path %></li>
-        <li><%= link_to "Subscription", edit_user_subscription_path(@user, @subscription) %></li>
-      </ul>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <div class="white-card">
-        <h2>Votre abonnement</h2>
-        <p>Fin de votre période d'essai
-          <% if @trial_left >= 1 %>
-            <%= @trial_left %> jours</p>
-          <% else %>
-            <%= @trial_left / 60 %> minutes</p>
+    <div class="col-xs-12 col-md-offset-1 col-md-10 marged-top">
+      <div class="row">
+        <div class="col-xs-3">
+          <%= render "shared/usermenu" %>
+        </div>
+        <div class="col-xs-9">
+          <div class="panel panel-default">
+            <div class="panel-heading"><%= t('.title_sub') %></div>
+            <div class="panel-body">
+              <% if @subscription.active %>
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p><%= t('.trial_end') %>:</p>
+                    <p><%= t('.start_date') %>:</p>
+                    <p><%= t('.end_date') %>:</p>
+                    <p><%= t('.next_billing') %>:</p>
+                  </div>
+                  <div class="col-xs-6">
+                    <% if @trial_left >= 1 %>
+                      <p><%= @trial_left %> <%= t('.days') %></p>
+                    <% elsif ( @trial_left < 1 ) && ( @trial_left * 24 >= 1 ) %>
+                      <p><%= @trial_left * 24 %> <%= t('.hours') %></p>
+                    <% else %>
+                      <p><%= @trial_left * 24 * 60 %> <%= t('.minutes') %></p>
+                    <% end %>
+                    <p><%= l(Time.at(@stripe_sub.current_period_start), format: :day) %></p>
+                    <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
+                    <p><%= l(Time.at(@stripe_sub.current_period_end), format: :day) %></p>
+                  </div>
+                </div>
+              <% else %>
+                <p>
+                  <%= t('.no_sub') %> <%= link_to t('.subscribe'), subscriptions_path %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+          <% if @subscription.active %>
+            <div class="panel panel-default">
+              <div class="panel-heading"><%= t('.title_delete') %></div>
+              <div class="panel-body">
+                <p><%= t('.sub_question')%><%= link_to t('.sub_cancel'), "#", data: { toggle: "modal", target: "#deleteModal" } %> ?</p>
+              </div>
+            </div>
           <% end %>
-        </p>
-        <p>Début de votre abonnement: <%= Time.at(@stripe_sub.current_period_start).to_datetime %></p>
-        <p>Fin de l'abonnement: <%= Time.at(@stripe_sub.current_period_end).to_datetime %></p>
-        <hr />
-
-        <p>Voulez-vous
-          <%= link_to "arrêter votre abonnement", user_subscription_path(@user, @subscription.stripe_id), method: :delete %> ?
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+  aria-labelledby="deleteModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><%= t('.title_delete') %></h4>
+        </div>
+        <div class="modal-body">
+          <p>Nous sommes désolé de vous voir partir.
+             Peut-être avez-vous réussi à adopter des habitudes saines et à reprendre une vie active et nous en serions très heureux.</p>
+          <p>Êtes-vous sur de vouloir supprimer votre abonnement ?</p>
+          <div class="text-center row">
+            <div class="col-xs-6 text-left">
+              <a href="#" class="btn btn-techcare" data-dismiss="modal" aria-label="Close">&lt; Continuer l'abonnement</a>
+            </div>
+            <div class="col-xs-6 text-right">
+              <%= link_to "Se désabonner", user_subscription_path(@user, @subscription), method: :delete, class: "btn btn-danger" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

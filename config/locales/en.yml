@@ -107,6 +107,10 @@ en:
   controllers:
     application:
       user_not_authorized: "You can not access to this page."
+      adviser_required: |
+                        You have to choose an adviser to user techcare.
+                        Please choose the coach that match best with your needs.
+      sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
     advisers:
       coach_not_authorized: "You can't select a coach."
       user_has_coach: "You already have a coach."
@@ -190,3 +194,68 @@ en:
     index:
       trainee_list: "Your trainees"
       trainee_dashboard: "look at details"
+  subscriptions:
+    index:
+      title: "Choose your plan"
+      sub-1_title: "Discovery"
+      sub-1_arg1: "Personal coach monitoring"
+      sub-1_arg2: "2 interviews per month"
+      sub-1_arg3: "Personalized goals"
+      sub-1_trial:
+        one: "%{count} free day"
+        other: "%{count} free days"
+      sub-1_submit: "Subscribe for 69€/month"
+      sub-3_title: "Standard"
+      sub-3_arg1: "Personal coach monitoring"
+      sub-3_arg2: "2 interviews per month"
+      sub-3_arg3: "Personalized goals"
+      sub-3_arg4: "Live video with your coach"
+      sub-3_trial:
+        one: "%{count} free day"
+        other: "%{count} free days"
+      sub-3_submit: "Subscribe for 54€/month"
+      sub-6_title: "Long run"
+      sub-6_arg1: "Personal coach monitoring"
+      sub-6_arg2: "4 interviews per month"
+      sub-6_arg3: "Personalized goals"
+      sub-6_arg4: "Live video with your coach"
+      sub-6_trial:
+        one: "%{count} free month"
+        other: "%{count} free months"
+      sub-6_submit: "Subscribe for 49€/month"
+    new:
+      title: "Start your free trial now"
+      intro: >
+             %{name}, to choose your coach and start your trial, add a payment
+             card to your account. You can unsubscribe at any time.
+             Your subscription will be invoiced after your free trial end.
+             Complete this step and start with your healthy life now.
+      cardholder: "Cardholder name"
+      cardnumber: "Card number"
+      expdate: "Expiration (MM/YY)"
+      label_cvc: "Crytogramme visuel"
+      cvc: "CVC"
+      submit_sub-1: "Subscribe for 69€/month"
+      submit_sub-3: "Subscribe for 54€/month"
+      submit_sub-6: "Subscribe for 49€/month"
+    create:
+      success: "Your card has been registered. Welcome!"
+      error: "Your card has not been registered"
+    edit:
+      title_sub: "Abonnement en cours"
+      title_delete: "Unsubscribe"
+      trial_end: "End of your trial"
+      start_date: "Start of current period"
+      end_date: "End of current period"
+      next_billing: "Next billing date"
+      days: "days"
+      hours: "hours"
+      minutes: "minutes"
+      no_sub: "You have no active subscription."
+      subscribe: "Subscribe now"
+      sub_question: "Do you want to "
+      sub_cancel: "cancel your subscription"
+    destroy:
+      success: "Your subscription has been canceled"
+      error: "Your subscription can not be canceled"
+

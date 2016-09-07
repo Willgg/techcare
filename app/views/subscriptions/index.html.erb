@@ -4,51 +4,59 @@
       <div class="col-xs-12 col-md-offset-1 col-md-10">
         <div class="row">
           <div class="col-xs-12">
-            <h1 class="text-center">Choisissez votre formule d’abonnement</h1>
+            <h2 class="text-center"><%= t('.title') %></h2>
           </div>
           <div class="col-xs-12 col-md-4">
             <div class="white-card sub monthly">
-              <h2>Découverte</h2>
+              <h2><%= t('.sub-1_title') %></h2>
               <img />
+              <p>Pour entrevoir les bienfaits d'une vie plus saine et active</p>
+              <h3>69€<br />
+                <small>par mois, facture mensuelle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-1"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-1_trial', count: 15) %></strong>
+                <% end %>
               <ul>
-                <li>Un coach personnel pour 1 mois</li>
-                <li>2 entretiens-bilans par mois</li>
-                <li>Objectifs personnalisés</li>
+                <li><span><%= t('.sub-1_arg1') %></span></li>
+                <li><span><%= t('.sub-1_arg2') %></span></li>
+                <li><span><%= t('.sub-1_arg3') %></span></li>
               </ul>
-              <p style="color: $brand-color"><strong>15 jours gratuits</strong></p>
-              <%= link_to new_subscription_path(plan: "sub-1"), class: "btn btn-techcare" do %>
-                <strong>S’abonner à 69€/mois</strong>
-              <% end %>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
             <div class="white-card sub quarterly">
-              <h2>Standard</h2>
+              <h2><%= t('.sub-3_title') %></h2>
               <img />
+              <p>Pour s'impliquer activement dans le changement de ses habitudes</p>
+              <h3>54€<br />
+                <small>par mois, facture trimestrielle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-3"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-3_trial', count: 20) %></strong>
+                <% end %>
               <ul>
-                <li>Un coach personnel pour 3 mois</li>
-                <li>2 entretiens-bilans par mois</li>
-                <li>Objectifs personnalisés</li>
+                <li><span><%= t('.sub-3_arg1') %></span></li>
+                <li><span><%= t('.sub-3_arg2') %></span></li>
+                <li><span><%= t('.sub-3_arg4') %></span></li>
+                <li><span><%= t('.sub-3_arg3') %></span></li>
               </ul>
-              <p style="color: $brand-color"><strong>20 jours gratuits</strong></p>
-              <%= link_to new_subscription_path(plan: "sub-3"), class: "btn btn-techcare" do %>
-                <strong>S’abonner à 54€/mois</strong>
-              <% end %>
             </div>
           </div>
           <div class="col-xs-12 col-md-4">
             <div class="white-card sub quarterly">
-              <h2>Expert</h2>
+              <h2><%= t('.sub-6_title') %></h2>
               <img />
+              <p>Pour maintenir ses saines habitudes sur le long terme</p>
+              <h3>49€<br />
+                <small>par mois, facture biannuelle</small></h3>
+                <%= link_to new_subscription_path(plan: "sub-6"), class: "btn btn-techcare" do %>
+                  <strong><%= t('.sub-6_trial', count: 1) %></strong>
+                <% end %>
               <ul>
-                <li>Un coach personnel pour 6 mois</li>
-                <li>4 entretiens-bilans par mois</li>
-                <li>Objectifs personnalisés</li>
+                <li><span><%= t('.sub-6_arg1') %></span></li>
+                <li><span><%= t('.sub-6_arg2') %></span></li>
+                <li><span><%= t('.sub-6_arg4') %></span></li>
+                <li><span><%= t('.sub-6_arg3') %></span></li>
               </ul>
-              <p style="color: $brand-color"><strong>1 mois gratuit</strong></p>
-              <%= link_to new_subscription_path(plan: "sub-6"), class: "btn btn-techcare" do %>
-                <strong>S’abonner à 49€/mois</strong>
-              <% end %>
             </div>
           </div>
         </div>

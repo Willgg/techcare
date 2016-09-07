@@ -10,6 +10,11 @@
   padding-bottom: 5em;
 }
 
+// Margins
+.marged-top {
+  margin-top: 25px;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -56,6 +61,13 @@ form {
     display: flex;
     align-items: center
   }
+  legend {
+    border: none;
+    margin: 0;
+    padding-left: 15px;
+    color: $brand-text;
+    font-size: 18px;
+  }
 }
 
 h3.past_title {
@@ -82,11 +94,19 @@ h3.past_title {
 }
 
 .subscriptions-index, .subscriptions-new {
-  h1 {
+  h2 {
     font-family: "Lato";
     font-weight: 300;
     font-size: 34px;
     color: $brand-color;
-    margin-top: 30px;
+    margin: 30px 0 20px 0;
+  }
+}
+
+.subscriptions-index{
+  h2 {
+    color: $gray-very-light;
+    font-size: 28px;
+    margin: 50px 0 0 0;
   }
 }

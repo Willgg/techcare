@@ -14,7 +14,11 @@ class SessionsController < Devise::SessionsController
       Trainees::FetchDataService.new(resource, options).update! if resource.authorizations
 
       # Redirect user
-      resource.adviser.present? ? user_goals_path(resource) : advisers_path
+      if resource.subscription.present?
+        resource.adviser.present? ? user_goals_path(resource) : advisers_path
+      else
+        subscriptions_path
+      end
     end
   end
 end

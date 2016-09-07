@@ -31,7 +31,7 @@ fr:
   pages:
     home:
       first-claim: "Changez vos habitudes"
-      second-claim: "Adoptez une vie plus saine"
+      second-claim: "Adoptez une vie active et saine"
       btn-cta: "Commencer"
       followup-arg: "Suivi personnalisé"
       metrics-arg: "Basé sur vos mesures"
@@ -107,11 +107,14 @@ fr:
   controllers:
     application:
       user_not_authorized: "Vous ne pouvez pas accéder à cette page"
+      adviser_required: |
+                        Choisissez le coach par qui vous souhaitez être accompagner.
+      sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
       user_has_coach: "Vous avez déjà un coach."
     selection:
-      adviser_selected: "Vous avez bien selectionné votre coach !"
+      adviser_selected: "Votre coach a bien été selectionné !"
       adviser_error: "Impossible de sélectionner ce coach."
     authorizations:
       success: "Vos données ont bien été synchronisée."
@@ -190,3 +193,66 @@ fr:
     index:
       trainee_list: "Vos clients"
       trainee_dashboard: "Voir le détail"
+  subscriptions:
+    index:
+      title: "Choisissez votre formule d’abonnement"
+      sub-1_title: "Découverte"
+      sub-1_arg1: "Suivi d'un coach personnel"
+      sub-1_arg2: "2 entretiens-bilans par mois"
+      sub-1_arg3: "Objectifs personnalisés"
+      sub-1_trial:
+        one: "Démarrez votre jour gratuit"
+        other: "Démarrez %{count} jours gratuits"
+      sub-1_submit: "Subscribe for 69€/mois"
+      sub-3_title: "Standard"
+      sub-3_arg1: "Suivi d'un coach personnel"
+      sub-3_arg2: "2 entretiens-bilans par mois"
+      sub-3_arg3: "Objectifs personnalisés"
+      sub-3_arg4: "Vidéo live avec le coach"
+      sub-3_trial:
+        one: "Démarrez votre jour gratuit"
+        other: "Démarrez %{count} jours gratuits"
+      sub-3_submit: "S'abonner pour' 54€/mois"
+      sub-6_title: "Maintien"
+      sub-6_arg1: "Suivi d'un coach personnel"
+      sub-6_arg2: "2 entretiens-bilans par mois"
+      sub-6_arg3: "Objectifs personnalisés"
+      sub-6_arg4: "Vidéo live avec le coach"
+      sub-6_trial:
+        one: "Démarrez un mois gratuit"
+        other: "Démarrez %{count} mois gratuits"
+      sub-6_submit: "S'abonner pour 49€/mois"
+    new:
+      title: "Démarrez votre essai gratuit"
+      intro: |
+             %{name}, pour choisir votre coach et ainsi débuter un essai gratuit,
+             ajoutez une carte de paiement à votre compte.
+             Vous pourrez vous désabonner à tout moment.
+      cardholder: "Nom du titulaire"
+      cardnumber: "Numéro de carte"
+      expdate: "Expiration (MM/YY)"
+      label_cvc: "Crytogramme visuel"
+      cvc: "CVC"
+      submit_sub-1: "S'abonner pour 69€/mois"
+      submit_sub-3: "S'abonner pour 54€/mois"
+      submit_sub-6: "S'abonner pour 49€/mois"
+    create:
+      success: "Votre moyen de paiement a bien été enregistré. Bienvenue!"
+      error: "Votre moyen de paiement n'a pas été enregistré."
+    edit:
+      title_sub: "Abonnement en cours"
+      title_delete: "Annuler votre abonnement"
+      trial_end: "Fin de votre période d'essai"
+      start_date: "Début de la période"
+      end_date: "Fin de la période"
+      next_billing: "Prochain débit"
+      days: "jours"
+      hours: "heures"
+      minutes: "minutes"
+      no_sub: "Vous n'avez aucun abonnement actuellement."
+      subscribe: "S'abonner maintenant"
+      sub_question: "Voulez-vous "
+      sub_cancel: "arrêter votre abonnement"
+    destroy:
+      success: "Votre abonnement a bien été supprimé"
+      error: "Votre abonnement n'a pas pu être supprimé"
