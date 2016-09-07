@@ -627,33 +627,35 @@
 }
 
 .sub{
-  padding: 25px 15px;
-  margin-bottom: 60px;
-  border: 1px solid $gray-lightest;
+  padding: 25px;
+  margin: 40px 0 60px 0;
+  border: 1px solid rgba(1, 212, 143, 0.4);
   border-radius: 3px;
   text-align: center;
-  color: #aaa;
-  font-size: 16px;
+  color: $gray-very-light;
   h2 {
     color: $brand-color;
-    margin: 0;
-    font-family: "Lato";
+    margin: 0 0 30px 0;
     font-weight: 300;
-    font-size: 26px;
+    font-size: 28px;
   }
   h3 {
     font-size: 40px;
-    margin: 20px;
+    margin: 30px 0 20px 0;
+    line-height: 1.5em;
     font-family: "Roboto", "Helvetica", "sans-serif";
+    font-weight: normal;
     small {
-      font-size: 16px;
-      color: #aaa;
+      font-size: 14px;
+      color: $gray-very-light;
     }
   }
-  p { }
+  p {
+    font-size: 16px;
+  }
   ul {
-    margin: 30px 0 0 0;
-    padding-top: 15px;
+    margin: 35px 0 0 0;
+    padding-top: 25px;
     padding-left: 30px;
     border-top: 1px solid $gray-lightest;
     text-align: left;
@@ -663,7 +665,7 @@
       line-height: 2;
     }
     li span{
-      color: #aaa;
+      color: $gray-very-light;
     }
   }
   .btn {
