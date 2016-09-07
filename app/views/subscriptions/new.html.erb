@@ -10,6 +10,7 @@
 
           <div class="col-xs-12 col-md-offset-3 col-md-6">
             <form action="<%= subscriptions_path %>" method="POST" id="payment-form">
+              <legend>Enregistrer une carte de paiement</legend>
               <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
               <input name="plan" value="<%= @subscription.name %>" type="hidden">
               <div class="form-group col-xs-12">
@@ -18,18 +19,18 @@
 
               <div class="form-group col-xs-12">
                 <label><%= t('.cardholder') %></label>
-                <input type="text" size="20" class="form-control" placeholder="Nom sur la carte" data-stripe="name">
+                <input type="text" size="20" class="form-control" placeholder="<%= t('.cardholder') %>" data-stripe="name">
               </div>
 
               <div class="form-group col-xs-12">
                 <label><%= t('.cardnumber') %></label>
-                <input type="text" size="20" class="form-control" placeholder="Numéro de carte" data-stripe="number">
+                <input type="text" size="20" class="form-control" placeholder="<%= t('.cardnumber') %>" data-stripe="number">
               </div>
 
               <div class="form-group col-xs-6">
                 <label><%= t('.expdate') %></label>
                 <div class="form-inline">
-                  <input type="text" size="2" class="form-control" placeholder="MM" data-stripe="exp_month">
+                  <input type="text" size="2" class="form-control" titre="Mois d'expiration" placeholder="MM" data-stripe="exp_month">
                   <span>/</span>
                   <input type="text" size="2" class="form-control" placeholder="YY" data-stripe="exp_year">
                 </div>

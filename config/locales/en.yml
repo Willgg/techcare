@@ -107,6 +107,10 @@ en:
   controllers:
     application:
       user_not_authorized: "You can not access to this page."
+      adviser_required: |
+                        You have to choose an adviser to user techcare.
+                        Please choose the coach that match best with your needs.
+      sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
     advisers:
       coach_not_authorized: "You can't select a coach."
       user_has_coach: "You already have a coach."
@@ -222,12 +226,14 @@ en:
     new:
       title: "Start your free trial now"
       intro: >
-             %{name}, you can start using techcare for free today and discover
-             the benefits of keeping with a healthy life. Your subscription will
-             be invoiced after your free trial end. You can unsubscribe at any time.
+             %{name}, to choose your coach and start your trial, add a payment
+             card to your account. You can unsubscribe at any time.
+             Your subscription will be invoiced after your free trial end.
+             Complete this step and start with your healthy life now.
       cardholder: "Cardholder name"
       cardnumber: "Card number"
       expdate: "Expiration (MM/YY)"
+      label_cvc: "Crytogramme visuel"
       cvc: "CVC"
       submit_sub-1: "Subscribe for 69€/month"
       submit_sub-3: "Subscribe for 54€/month"

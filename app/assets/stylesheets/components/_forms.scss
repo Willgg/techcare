@@ -9,3 +9,10 @@
     text-transform: capitalize;
   }
 }
+
+#payment-form {
+  margin-top: 10px;
+  label {
+    display: none;
+  }
+}

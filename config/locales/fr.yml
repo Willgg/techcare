@@ -108,8 +108,7 @@ fr:
     application:
       user_not_authorized: "Vous ne pouvez pas accéder à cette page"
       adviser_required: |
-                        You have to choose an adviser to user techcare.
-                        Please choose the coach that match best with your needs.
+                        Choisissez le coach par qui vous souhaitez être accompagner.
       sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
@@ -225,13 +224,14 @@ fr:
       sub-6_submit: "S'abonner pour 49€/mois"
     new:
       title: "Démarrez votre essai gratuit"
-      intro: >
-             %{name}, débutez gratuitement avec techcare pour découvrir les
-             bénéfices d’une vie plus active et plus saine. Votre abonnement sera facturé
-             après votre période d'essai et vous pourrez vous désabonner à tout moment.
-      cardholder: "Nom sur la carte"
+      intro: |
+             %{name}, pour choisir votre coach et ainsi débuter un essai gratuit,
+             ajoutez une carte de paiement à votre compte.
+             Vous pourrez vous désabonner à tout moment.
+      cardholder: "Nom du titulaire"
       cardnumber: "Numéro de carte"
       expdate: "Expiration (MM/YY)"
+      label_cvc: "Crytogramme visuel"
       cvc: "CVC"
       submit_sub-1: "S'abonner pour 69€/mois"
       submit_sub-3: "S'abonner pour 54€/mois"
