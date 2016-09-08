@@ -30,6 +30,10 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:index, :new, :create]
   end
 
+  namespace :hooks do
+    post 'stripe', to: 'stripe#call'
+  end
+
   post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'
   get  'auth/:provider/callback', to: 'authorizations#create', as: 'auth_callback'
 
