@@ -31,9 +31,7 @@ Rails.application.routes.draw do
   end
 
   namespace :hooks do
-    namespace :stripe do
-      post 'events/charge_failed', to: 'events#charge_failed', as: 'cf'
-    end
+    post 'stripe', to: 'stripe#call'
   end
 
   post 'auth/:provider', to: 'authorizations#new', as: 'new_auth'
