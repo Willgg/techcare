@@ -12,6 +12,7 @@
             style: "background-image: url( #{asset_path 'fitbit-logo.png'})" %>
             <a href="#" class="logo" style="background-image: url(<%= asset_path 'ihealth-logo.png' %>)"></a>
           </div>
+          <p><%= link_to "Je n'utilise aucun de ces services >", user_goals_path(current_user) %></p>
         </div>
       </div>
     </div>

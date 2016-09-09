@@ -7,18 +7,15 @@
         <h2><%= t('.food_title') %></h2>
         <div class="food_picture-container">
           <a id="prev_pic"><button>&lt;</button></a>
-          <% if @food_pictures.empty? %>
-            <div class="food-picture-list">
+          <div class="food-picture-list">
+            <% if @food_pictures.empty? %>
               <p><%= t('.food_empty') %></p>
-            </div>
-          <% else %>
-
-            <div class="food-picture-list">
+            <% else %>
               <% @food_pictures.each do |fp| %>
                 <%= render 'food_pictures/show_small', user: @user, fp: fp %>
               <% end %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
           <a id="next_pic"><button>&gt;</button></a>
         </div>
         <% if policy(@measure).new? %>
