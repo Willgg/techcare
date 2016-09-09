@@ -9,8 +9,8 @@ module Hooks
     def call
 
       # Retrieving the event from the Stripe API guarantees its authenticity
-
       event = Stripe::Event.retrieve(params[:id])
+
       logger.info "Event reçu le " + Time.now.strftime("%m/%d/%Y @ %R") + " " +
                   event.data.object.inspect
 
@@ -24,9 +24,7 @@ module Hooks
         else
           sub.active = true
         end
-        if sub.save
-          # send notification
-        end
+        sub.save
       end
       render text: 'success'
     end
