@@ -24,17 +24,16 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    # See your keys here: https://dashboard.stripe.com/account/apikeys
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-    token = params[:stripeToken]
-    name  = params[:plan]
 
-    @subscription = current_user.subscription.present? ?
-                      current_user.subscription :
-                      Subscription.new(user_id: current_user.id)
-    @subscription.name = name
-    @subscription.create_stripe_sub!(token: token, plan: name)
+    @subscription =
+      current_user.subscription.present? ?
+        current_user.subscription :
+        Subscription.new(user_id: current_user.id)
+    @subscription.name = params[:plan]
+    @subscription.create_stripe_sub!(token: params[:stripeToken], plan: params[:plan])
     authorize @subscription
+
     if @subscription.save
       flash[:notice] = t('.success')
       if current_user.adviser.present?
