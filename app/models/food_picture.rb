@@ -22,6 +22,7 @@ class FoodPicture < ActiveRecord::Base
   validates :picture, presence: true
 
   has_attached_file :picture,
+    s3_protocol: :https,
     styles: { large: "800x800#", medium: "300x300#", thumb: "150x150#" }
 
   validates_attachment_content_type :picture,
