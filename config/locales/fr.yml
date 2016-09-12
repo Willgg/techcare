@@ -67,6 +67,7 @@ fr:
     models:
       goal: "Goal"
       measure: "Mesure"
+      user: "Utilisateur"
     errors:
       models:
         measure:
@@ -74,6 +75,18 @@ fr:
             date:
               past: "La date ne peut pas être dans le futur"
     attributes:
+      user:
+        email: "Email"
+        password: "Mot de passe"
+        picture: "Image"
+        first_name: "Prénom"
+        last_name: "Nom"
+        sexe: "Sexe"
+        sexe_option:
+          male: "Homme"
+          female: "Femme"
+        height: "Taille"
+        birthday: "Date de naissance"
       goal:
         title: "Titre"
         measure_type: "Type de mesure"

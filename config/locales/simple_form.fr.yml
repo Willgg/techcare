@@ -1,4 +1,4 @@
-en:
+fr:
   simple_form:
     "yes": 'Oui'
     "no": 'Non'
@@ -10,10 +10,10 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Veuillez corriger les problèmes ci-dessous:"
-    # Examples
     labels:
       defaults:
         remember_me: "Se souvenir de moi"
+    # Examples
     #   user:
     #     new:
     #       email: 'E-mail to sign in.'
