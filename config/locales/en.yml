@@ -67,6 +67,7 @@ en:
     models:
       goal: "Goal"
       measure: "Measure"
+      user: "User"
     errors:
       models:
         measure:
@@ -74,6 +75,18 @@ en:
             date:
               past: "The date can not be in the future"
     attributes:
+      user:
+        email: "Email"
+        password: "Password"
+        picture: "Picture"
+        first_name: "First name"
+        last_name: "Last name"
+        sexe: "Sexe"
+        sexe_option:
+          male: "Male"
+          female: "Female"
+        height: "Height"
+        birthday: "Birthday"
       goal:
         title: "Title"
         measure_type: "Type of measurement"

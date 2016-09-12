@@ -1,27 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-      <div class="white-card">
-        <h2><%= t('.sign_up', default: "Sign up") %></h2>
+        <h2><!-- <%= t('.sign_up', default: "Sign up") %> -->Pas encore membre ?</h2>
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
-
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :password, required: true %>
-          <%= f.input :picture %>
-          <%= f.input :first_name %>
-          <%= f.input :last_name %>
-          <%= f.input :sexe, collection: User::SEXE %>
-          <%= f.input :height, placeholder: "ex: 170cm" %>
-          <%= f.input :birthday, as: :date, start_year: Date.current.year - 90,
-                              end_year: Date.current.year - 18,
-                              order: [:day, :month, :year],
-                              default: 40.years.ago %>
+          <%= field_set_tag 'Identifiants de compte' do %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :password, required: true %>
+          <% end %>
+          <%= field_set_tag 'Informations pour mieux vous connaître' do %>
+            <%= f.input :sexe, collection: translate_collection(User::SEXE), as: :radio_buttons, label: false %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :picture %>
+            <%= f.input :height, placeholder: "ex: 170cm" %>
+            <%= f.input :birthday, as: :date, start_year: Date.current.year - 90,
+                                end_year: Date.current.year - 18,
+                                order: [:day, :month, :year],
+                                default: 40.years.ago %>
+          <% end %>
           <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
         <% end %>
 
         <%= render "devise/shared/links" %>
-      </div>
+
     </div>
   </div>
 </div>
