@@ -63,6 +63,7 @@ class User < ActiveRecord::Base
   validates :height, presence: true
 
   has_attached_file :picture,
+    s3_protocol: :https,
     styles: { medium: "300x300#", thumb: "100x100#" }
 
   validates_attachment_content_type :picture,
