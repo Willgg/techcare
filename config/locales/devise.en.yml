@@ -35,6 +35,22 @@ en:
     registrations:
       edit:
         title: "Profil"
+      new:
+        title: "Join Techcare"
+        sub_title: "We help you to adopt healthy and active habits."
+        account_legend: "Account details"
+        profile_legend: "We need to know more about you"
+        agreements_html: |
+          By clicking on « %{word} » below, you are agreeing to the <a href="">
+          Terms and Conditions</a> and the <a href="">Privacy policy</a>.
+        submit: "Create an account"
+        confidence_title: "You will love"
+        confidence_item1: "Personnal coach"
+        confidence_item2: "Live communication"
+        confidence_item3: "Tailored follow-up"
+        confidence_item4: "Food tracking"
+        confidence_item5: "Activity tracking"
+        confidence_item6: "Weight loss tracking"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -51,6 +67,9 @@ en:
         forgot_your_password: "Forgot password?"
         new_account: "Don't have an account ?"
         sign_up: "Sign up"
+    shared:
+      links:
+        already_member: "Already a member ?"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

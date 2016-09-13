@@ -103,6 +103,24 @@ h3.past_title {
   }
 }
 
+.registrations-new {
+  h2 {
+    font-size: 45px;
+    margin: 50px 0 40px 0;
+    line-height: 0.7em;
+    font-weight: 400;
+    small {
+      font-size: 22px;
+      font-weight: 300;
+    }
+  }
+  .shared-links {
+    margin: 30px 0;
+    padding-top: 15px;
+    font-size: 13px;
+  }
+}
+
 .subscriptions-index{
   h2 {
     color: $gray-very-light;

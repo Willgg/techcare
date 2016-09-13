@@ -1,30 +1,64 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=156614926997";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-        <h2><!-- <%= t('.sign_up', default: "Sign up") %> -->Pas encore membre ?</h2>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
-          <%= field_set_tag 'Identifiants de compte' do %>
-            <%= f.input :email, required: true, autofocus: true %>
-            <%= f.input :password, required: true %>
-          <% end %>
-          <%= field_set_tag 'Informations pour mieux vous connaître' do %>
-            <%= f.input :sexe, collection: translate_collection(User::SEXE), as: :radio_buttons, label: false %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :picture %>
-            <%= f.input :height, placeholder: "ex: 170cm" %>
-            <%= f.input :birthday, as: :date, start_year: Date.current.year - 90,
-                                end_year: Date.current.year - 18,
-                                order: [:day, :month, :year],
-                                default: 40.years.ago %>
-          <% end %>
-          <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
-
+    <div class="col-xs-12 col-sm-offset-2 col-sm-5">
+      <h2><%= t('.title') %>
+        <br /><small><%= t('.sub_title') %></small>
+      </h2>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-5">
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <%= field_set_tag t('.account_legend') do %>
+          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :password, required: true %>
+        <% end %>
+        <%= field_set_tag t('.profile_legend') do %>
+          <%= f.input :sexe, collection: translate_collection(User::SEXE), as: :radio_buttons, label: false %>
+          <%= f.input :first_name %>
+          <%= f.input :last_name %>
+          <%= f.input :picture %>
+          <%= f.input :height, placeholder: "ex: 170cm" %>
+          <%= f.input :birthday, as: :date, start_year: Date.current.year - 90,
+                              end_year: Date.current.year - 18,
+                              order: [:day, :month, :year],
+                              default: 40.years.ago %>
+          <div class="form-group agreement">
+            <%= t('.agreements_html', word: t('.submit')) %>
+          </div>
+        <% end %>
+        <div class="form-group text-center">
+          <%= f.button :submit, t('.submit'), class: "btn-techcare btn-block" %>
+        </div>
+      <% end %>
+      <div class="shared-links text-center">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="confidence">
+        <div class="fb-page" data-href="https://www.facebook.com/techcare.io/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/techcare.io/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/techcare.io/">Techcare</a></blockquote></div>
+        <h4><%= t('.confidence_title')%></h4>
+        <ul>
+          <li><%= t('.confidence_item1')%></li>
+          <li><%= t('.confidence_item2')%></li>
+          <li><%= t('.confidence_item3')%></li>
+          <li><%= t('.confidence_item4')%></li>
+          <li><%= t('.confidence_item5')%></li>
+          <li><%= t('.confidence_item6')%></li>
+        </ul>
+      </div>
   </div>
 </div>
 
