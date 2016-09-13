@@ -1,3 +1,12 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=156614926997";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-offset-2 col-sm-5">
@@ -11,11 +20,11 @@
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
-        <%= field_set_tag 'Identifiants de compte' do %>
+        <%= field_set_tag t('.account_legend') do %>
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true %>
         <% end %>
-        <%= field_set_tag 'Informations pour mieux vous connaître' do %>
+        <%= field_set_tag t('.profile_legend') do %>
           <%= f.input :sexe, collection: translate_collection(User::SEXE), as: :radio_buttons, label: false %>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
@@ -37,7 +46,19 @@
         <%= render "devise/shared/links" %>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-3">reassurance</div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="confidence">
+        <div class="fb-page" data-href="https://www.facebook.com/techcare.io/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/techcare.io/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/techcare.io/">Techcare</a></blockquote></div>
+        <h4><%= t('.confidence_title')%></h4>
+        <ul>
+          <li><%= t('.confidence_item1')%></li>
+          <li><%= t('.confidence_item2')%></li>
+          <li><%= t('.confidence_item3')%></li>
+          <li><%= t('.confidence_item4')%></li>
+          <li><%= t('.confidence_item5')%></li>
+          <li><%= t('.confidence_item6')%></li>
+        </ul>
+      </div>
   </div>
 </div>
 

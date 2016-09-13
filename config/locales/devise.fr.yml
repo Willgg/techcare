@@ -38,12 +38,21 @@ fr:
       new:
         title: "Rejoindre Techcare"
         sub_title: "Adopter une hygiène de vie saine et active"
+        account_legend: "Identifiants de compte"
+        profile_legend: "Informations pour mieux vous connaître"
         agreements_html: |
           En cliquant sur « %{word} », vous confirmez accepter nos <a href="">
           Conditions d'utilisation</a> et notre <a href="">Politique de confidentialité.</a>
         submit: "Créer un compte"
+        confidence_title: "Vous allez adorer"
+        confidence_item1: "Coach personnel"
+        confidence_item2: "Communication en direct"
+        confidence_item3: "Objectifs sur-mesure"
+        confidence_item4: "Suivi de l'alimentation"
+        confidence_item5: "Suivi de l'activité"
+        confidence_item6: "Suivi du poids"
       destroyed: 'Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt.'
-      signed_up: 'Bienvenue, vous êtes connecté.'
+      signed_up: 'Bienvenue, vous venez de créer votre compte.'
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé."
       signed_up_but_locked: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte est verrouillé."
       signed_up_but_unconfirmed: 'Un message contenant un lien de confirmation a été envoyé à votre adresse email. Ouvrez ce lien pour confirmer votre compte.'
