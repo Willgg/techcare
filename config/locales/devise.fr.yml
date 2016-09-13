@@ -35,6 +35,13 @@ fr:
     registrations:
       edit:
         title: "Profil"
+      new:
+        title: "Rejoindre Techcare"
+        sub_title: "Adopter une hygiène de vie saine et active"
+        agreements_html: |
+          En cliquant sur « %{word} », vous confirmez accepter nos <a href="">
+          Conditions d'utilisation</a> et notre <a href="">Politique de confidentialité.</a>
+        submit: "Créer un compte"
       destroyed: 'Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt.'
       signed_up: 'Bienvenue, vous êtes connecté.'
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé."
@@ -50,7 +57,10 @@ fr:
         remember_me: "Se souvenir de moi"
         forgot_your_password: "Mot de passe oublié ?"
         new_account: "Vous n'avez pas de compte ?"
-        sign_up: "S'inscrire"
+        sign_up: "Créer un compte"
+    shared:
+      links:
+        already_member: "Déjà membre ?"
     unlocks:
       send_instructions: 'Vous allez recevoir les instructions nécessaires au déverrouillage de votre compte dans quelques instants'
       send_paranoid_instructions: 'Si votre compte existe, vous allez bientôt recevoir un email contenant les instructions pour le déverrouiller.'

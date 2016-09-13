@@ -35,6 +35,10 @@ en:
     registrations:
       edit:
         title: "Profil"
+      new:
+        title: "Join Techcare"
+        sub_title: "We help you to adopt healthy and active habits."
+        submit: "Create an account"
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
@@ -51,6 +55,9 @@ en:
         forgot_your_password: "Forgot password?"
         new_account: "Don't have an account ?"
         sign_up: "Sign up"
+    shared:
+      links:
+        already_member: "Déjà membre ?"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
