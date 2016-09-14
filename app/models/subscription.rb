@@ -27,7 +27,8 @@ class Subscription < ActiveRecord::Base
     begin
       customer = Stripe::Customer.create(source: token,
                                          plan: plan,
-                                         email: user.email)
+                                         email: user.email,
+                                         tax_percent: Pricing::TAX)
       self.stripe_id = customer.subscriptions["data"][0]["id"]
       self.active = true
       self.start_date = Time.current
