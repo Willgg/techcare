@@ -216,8 +216,8 @@ fr:
       sub-1_arg2: "2 entretiens-bilans par mois"
       sub-1_arg3: "Objectifs personnalisés"
       sub-1_trial:
-        one: "Démarrez votre jour gratuit"
-        other: "Démarrez %{count} jours gratuits"
+        one: "Essayez votre jour gratuit"
+        other: "Essayez %{count} jours gratuits"
       sub-1_submit: "Subscribe for 69€/mois"
       sub-3_title: "Standard"
       sub-3_intro: "Pour s'impliquer activement dans le changement de ses habitudes"
@@ -227,8 +227,8 @@ fr:
       sub-3_arg3: "Objectifs personnalisés"
       sub-3_arg4: "Vidéo live avec le coach"
       sub-3_trial:
-        one: "Démarrez votre jour gratuit"
-        other: "Démarrez %{count} jours gratuits"
+        one: "Essayez votre jour gratuit"
+        other: "Essayez %{count} jours gratuits"
       sub-3_submit: "S'abonner pour' 54€/mois"
       sub-6_title: "Maintien"
       sub-6_intro: "Pour maintenir ses saines habitudes sur le long terme"
@@ -238,8 +238,8 @@ fr:
       sub-6_arg3: "Objectifs personnalisés"
       sub-6_arg4: "Vidéo live avec le coach"
       sub-6_trial:
-        one: "Démarrez un mois gratuit"
-        other: "Démarrez %{count} mois gratuits"
+        one: "Essayez un mois gratuit"
+        other: "Essayez %{count} mois gratuits"
       sub-6_submit: "S'abonner pour 49€/mois"
     new:
       title: "Démarrez votre essai gratuit"
