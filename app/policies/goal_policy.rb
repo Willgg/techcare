@@ -11,8 +11,9 @@ class GoalPolicy < ApplicationPolicy
     if user.is_adviser
       user_param.adviser == user.coach
     else
+      user == user_param &&
       user.subscription.present? && user.subscription.active &&
-      user.adviser.present? && user == user_param
+      user.adviser.present?
     end
   end
 
