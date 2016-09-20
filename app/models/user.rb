@@ -96,6 +96,7 @@ class User < ActiveRecord::Base
 
   def email_new_coach(coach)
     UserMailer.new_coach(self, coach).deliver_later
+    #Hello Hello
   end
 
 end
