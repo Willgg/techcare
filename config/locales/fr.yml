@@ -121,8 +121,8 @@ fr:
     application:
       user_not_authorized: "Vous ne pouvez pas accéder à cette page"
       adviser_required: |
-                        Choisissez le coach par qui vous souhaitez être accompagner.
-      sub_required: "You have to subscribe to a plan before using techcare. Please choose one :)"
+                        Choisissez le coach par qui vous souhaitez être accompagné.
+      sub_required: "Vous devez avoir un abonnement actif pour utiliser techcare. Veuillez choisir un abonnement ci-dessous."
     advisers:
       coach_not_authorized: "Vous ne pouvez pas choisir de coach."
       user_has_coach: "Vous avez déjà un coach."
