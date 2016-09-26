@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
       redirect_to(subscriptions_path)
     elsif !current_user.adviser.present?
       flash[:alert] = I18n.t('controllers.application.adviser_required')
-      redirect_to(advisers_path(current_user))
+      redirect_to(advisers_path)
     else
       flash[:alert] = I18n.t('controllers.application.user_not_authorized', default: "Sorry, you can't access this page.")
       redirect_to root_path
