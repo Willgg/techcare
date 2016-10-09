@@ -9,57 +9,103 @@
   </div>
 </div>
 
-<!-- Pourquoi on le propose -->
-<div class = "icon-section">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-heartbeat fa-3x"></i>
-      <h3><%= t('.followup-arg') %></h3>
-    </div>
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-line-chart fa-3x"></i>
-      <h3><%= t('.metrics-arg') %></h3>
-    </div>
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-eye fa-3x"></i>
-      <h3><%= t('.adviser-arg') %></h3>
-    </div>
-​  </div>
-</div>
-
-<!-- Product section -->
-<div class="product-section">
+<!-- How we do -->
+<div id="features-section">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-xs-12">
-        <h2><%= t('.dev-arg-1') %></h2>
-        <p>
-          <%= t('.dev-arg-1-content_html') %>
-         </p>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <h3 class="text-center">How Techcare helps you take care of you</h3>
+        <p class="text-center">Techcare vous aide à améliorer votre hygiène de vie à votre rythme, selon des objectifs précis et en soutenant votre motivation.</p>
       </div>
-      <div class="col-sm-6 hidden-xs">
-        <%= image_tag "screen-app.png", class: "screen-app" %>
+    </div>
+    <div class="feature coach">
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <%= image_tag("iphone-white.png") %>
+        </div>
+        <div class="col-xs-4">
+          <h4>Accompagnement d’un coach</h4>
+          <p>Chaque adhérent choisit un professionnel référent qui suit ses progrès et le conseille par message et téléphone. Vous ne serez plus seul pour surmonter vos challenges.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Tools section  -->
-<div class="tools-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-5 text-right">
-          <%= image_tag "slice-app.png", class: "slice-app" %>
+  <div class="feature goals bg-sport">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5 col-sm-offset-2">
+          <h4>Objectifs personnalisés</h4>
+          <p>Chaque semaine vos objectifs sont adaptés selon votre progression et votre motivation/ vos possibilités logistiques. Avancer à votre rythme est le moyen le plus efficace pour changer vos habitudes durablement.</p>
+        </div>
+        <div class="col-xs-5 text-left">
+          <%= image_tag("iphone-white.png") %>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-7">
-        <div class="text-tools">
-          <h2><%= t('.dev-arg-2') %></h2>
-          <p><%= t('.dev-arg-2-content_html') %></p>
+    </div>
+  </div>
+  <div class="feature tracking bg-nutrition">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5">
+          <%= image_tag("screen-app.png") %>
+        </div>
+        <div class="col-xs-7">
+          <h4>Suivi de votre progression</h4>
+          <p>Synchroniser vos applications ou objets connectés pour enregistrer votre activité. Permettez à votre coach d’analyse votre alimentation à l’aide d’une simple photo et suivez l’évolution de vos habitudes.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Who is it made for -->
+<div id="pains-section">
+  <h3>Résoudre vos principales préoccupations au sujet de votre santé</h3>
+  <div class="pain">
+    <h4>Perte de poids</h4>
+    <p>
+      Une prise de poids peut entraîner une perte de confiance en soi et des sensations physiques dégradées qui vous donne envie d’agir (sur son poids). Vous avez les bon réflexe car c’est un des facteurs de risque prédominant de certaines complications (diabète type 2, problèmes cardiovasculaires, cancers).(Selon les études, la meilleure approche pour perdre du poids est de prendre en compte la dimension psychologique et être adaptée au rythme de chacun.)
+    </p>
+  </div>
+  <div class="pain">
+    <h4>Hypertension</h4>
+    <p> Elle est caractérisée par une augmentation de la pression des artères à long terme. N’ayant pas de conséquences visibles sur votre dans le quotidien, l’hypertension augmente pourtant le risque de maladies cardiovasculaires et peut endommager le coeur, le cerveau ou les reins. Une bonne alimentation, une activité régulière et une bonne gestion du stress peut réduire l’hypertension.</p>
+  </div>
+  <div class="pain">
+    <h4>Maladies cardiovasculaires</h4>
+    <p>
+      Si vous êtes à risque ou vous avez déjà subit un accident cardiovasculaire (AVC, infarctus du myocarde, insuffisance cardiaque, AOMI), c’est le moment d’adopter des habitudes plus saines. L’alimentation et l’activité physique permettent de prévenir ces maladies ou compléter un traitement médical.
+    </p>
+  </div>
+  <div class="pain">
+    <h4>Remise en forme</h4>
+    <p>
+      Retrouver une vie pleine d’entrain est une aspiration qui apparaît selon l’âge, l’état de santé et les envies. Un professionnel peut aider à trouver les solutions qui conviennent à chacun pour augmenter sa confiance, sa motivation et enfin changer ses habitudes.
+    </p>
+  </div>
+  <div class="pain">
+    <h4>Diabète de type 2</h4>
+    <p>
+      Ce diabète est en partie lié à une mauvaise alimentation et à nos modes de vie sédentaires. Cette maladie en constante augmentation, est difficile à déceler car elle se développe silencieusement pendant plusieurs années. Nous aidons les personnes à risque sur le diabète à adopter des habitudes qui leur permettront de le réduire ou à les aider à ce qu’il ne s’aggrave pas.
+    </p>
+  </div>
+  <div class="pain">
+    <h4>Cholestérol</h4>
+    <p>
+      Un excès de mauvais cholestérol, favorise les maladies cardio-vasculaires et concerne environ un tiers de la population française. Au delà de 40 ans, le risque d’excès de “mauvais cholestérol” augmente pour toucher environ la moitié des plus de 65 ans. Il est possible de le prévenir ou de le diminuer en adoptant un mode de vie plus sain. Techcare permet d’adopter ces bonnes habitudes en se faisant aider par un coach et en réalisant des objectifs progressifs portant sur la reprise d’une activité physique et d’une alimentation équilibrée.
+    <p>
+  </div>
+  <div class="pain">
+    <h4>Cancer</h4>
+    <p>
+      Le cancer peut être issu de différents facteurs de risque dont ceux liés à notre mode de vie et à notre environnements. Il est difficile d’agir directement sur notre environnement autant il est possible de modifier individuellement son mode de vie. Techcare est conçu pour vous aider à adopter ce mode de vie de manière progressive et individualisée.
+    </p>
+  </div>
+</div>
+
+
+<!-- Tools section  -->
+
 
 <!-- Coach section  -->
 <div class="coach-section">
