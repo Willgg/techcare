@@ -9,58 +9,118 @@
   </div>
 </div>
 
-<!-- Pourquoi on le propose -->
-<div class = "icon-section">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-heartbeat fa-3x"></i>
-      <h3><%= t('.followup-arg') %></h3>
-    </div>
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-line-chart fa-3x"></i>
-      <h3><%= t('.metrics-arg') %></h3>
-    </div>
-    <div class="col-xs-12 col-sm-4 text-center">
-      <i class="fa fa-eye fa-3x"></i>
-      <h3><%= t('.adviser-arg') %></h3>
-    </div>
-​  </div>
-</div>
-
-<!-- Product section -->
-<div class="product-section">
+<!-- How we do -->
+<div id="features-section">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6 col-xs-12">
-        <h2><%= t('.dev-arg-1') %></h2>
-        <p>
-          <%= t('.dev-arg-1-content_html') %>
-         </p>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+        <h3 class="text-center">How Techcare helps you take care of you</h3>
+        <p class="text-center">Techcare vous aide à améliorer votre hygiène de vie à votre rythme, selon des objectifs précis tout en soutenant votre motivation.</p>
       </div>
-      <div class="col-sm-6 hidden-xs">
-        <%= image_tag "screen-app.png", class: "screen-app" %>
+    </div>
+    <div class="feature coach">
+      <div class="row">
+        <div class="col-xs-6 text-right">
+          <%= image_tag("iphone-white.png") %>
+        </div>
+        <div class="col-xs-4">
+          <h4>Accompagnement d’un coach</h4>
+          <p>Chaque adhérent choisit un professionnel référent qui suit ses progrès et le conseille par message et téléphone. Vous ne serez plus seul pour surmonter vos challenges.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- Tools section  -->
-<div class="tools-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-md-5 text-right">
-          <%= image_tag "slice-app.png", class: "slice-app" %>
+  <div class="feature goals bg-sport">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5 col-sm-offset-2">
+          <h4>Objectifs personnalisés</h4>
+          <p>Chaque semaine vos objectifs sont adaptés selon votre progression, votre motivation et vos possibilités logistiques. Avancer à votre rythme est le moyen le plus efficace pour changer vos habitudes durablement.</p>
+        </div>
+        <div class="col-xs-5 text-left">
+          <%= image_tag("iphone-white.png") %>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-7">
-        <div class="text-tools">
-          <h2><%= t('.dev-arg-2') %></h2>
-          <p><%= t('.dev-arg-2-content_html') %></p>
+    </div>
+  </div>
+  <div class="feature tracking bg-nutrition">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5">
+          <%= image_tag("screen-app.png") %>
+        </div>
+        <div class="col-xs-7">
+          <h4>Suivi de votre progression</h4>
+          <p>Permettez à votre coach d’analyser votre alimentation à l’aide d’une simple photo. Synchronisez vos applications ou objets connectés pour enregistrer votre activité et suivez l’évolution de vos habitudes.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Who is it made for -->
+<div id="pains-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-2 col-sm-8 text-center">
+        <h3>Agissez sur vos principales préoccupations de santé</h3>
+      </div>
+      <div class="col-xs-12 col-sm-offset-2 col-sm-4">
+        <div class="pain">
+          <div class="picto green"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
+          <h4>Perte de poids</h4>
+          <p>
+            Une prise de poids peut entraîner une perte de confiance en soi et des sensations physiques dégradées. Le surpoids est aussi un des facteurs de risque prédominant de certaines maladies chroniques. Techcare vous aide à améliorer votre confiance, vore motivation et enfin changer vos habitudes.
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="pain">
+          <div class="picto red"><i class="fa fa-heartbeat" aria-hidden="true"></i></div>
+          <h4>Hypertension</h4>
+          <p>
+            Elle est caractérisée par une augmentation de la pression des artères à long terme. L’hypertension augmente le risque de maladies cardiovasculaires et peut endommager certains organes. Une bonne alimentation, une activité régulière et une bonne gestion du stress peut réduire l’hypertension.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-2 col-sm-4">
+        <div class="pain">
+          <div class="picto blue"><i class="fa fa-cube" aria-hidden="true"></i></div>
+          <h4>Diabète de type 2</h4>
+          <p>
+            Il est en partie lié à une mauvaise alimentation, à nos modes de vie sédentaires et se développe silencieusement durant des années. Nous aidons les personnes à risque sur le diabète à adopter des habitudes qui leur permettront de ne pas l'aggraver et même le réduire.
+          </p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="pain">
+          <div class="picto yellow"><i class="fa fa-tint" aria-hidden="true"></i></div>
+          <h4>Cholestérol</h4>
+          <p>
+            L'excès de mauvais cholestérol favorise les maladies cardio-vasculaires. Il concerne environ un tiers de la population française et la moitié des plus de 65 ans. Il est possible de le prévenir ou le diminuer en adoptant un mode de vie plus sain en complément d'un traitement médical.
+          <p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="col-xs-6">
+        <div class="pain">
+          <h4>Cancer</h4>
+          <p>
+            Le cancer peut être issu de différents facteurs de risque dont ceux liés à notre mode de vie et à notre environnements. Il est difficile d’agir directement sur notre environnement autant il est possible de modifier individuellement son mode de vie. Techcare est conçu pour vous aider à adopter ce mode de vie de manière progressive et individualisée.
+          </p>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+
+<!-- Tools section  -->
+
+<% if false %>
 <!-- Coach section  -->
 <div class="coach-section">
   <div class="container">
@@ -97,6 +157,7 @@
     </div>
   </div>
 </div>
+<% end %>
 <div class="newsletter-section">
   <div class="container">
     <div class="row">
