@@ -49,6 +49,13 @@
       font-size: 22px;
       margin-top: 50px;
     }
+    p {
+      font-family: 'Roboto', 'Open sans', 'sans-serif';
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 300;
+      font-size: 20px;
+      margin-top: 10px;
+    }
     .feature {
       padding: 50px 0 0 0;
       img {
@@ -59,13 +66,6 @@
         font-size: 18px;
         color: #fff;
       }
-    }
-    p {
-      font-family: 'Roboto', 'Open sans', 'sans-serif';
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 300;
-      font-size: 20px;
-      margin-top: 10px;
     }
     .bg-sport {
       background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(image-path('bg-sport.jpg'));
@@ -100,7 +100,49 @@
       }
     }
   }
-
+  #pains-section {
+    background-color: #fff;
+    padding: 60px 0;
+    h3 {
+      font-family: 'Roboto', 'Open sans', 'sans-serif';
+      font-size: 40px;
+      font-weight: 300;
+      margin: 0 0 30px 0;
+    }
+    h4 {
+      font-family: "Roboto", 'Open sans', 'sans-serif';
+      font-weight: 300;
+      font-size: 22px;
+    }
+    .pain {
+      margin-bottom: 20px;
+      p {
+        color: $gray-lighter;
+      }
+    }
+    .picto {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding-top: 17px;
+      font-size: 20px;
+    }
+    .red {
+      background-color: #f36161;
+    }
+    .yellow {
+      background-color: #f1d251;
+    }
+    .blue {
+      background-color: #6dbdf1;
+    }
+    .green {
+      background-color: #6dde81;
+    }
+  }
 
  .detail-section{
   background-color: #fff;
