@@ -3,32 +3,6 @@
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
 
- /* -------------------------------------
- *                  BANNER
- * ------------------------------------- */
-
-  // .icon-section{
-  // position: relative;
-  // z-index: 99;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
-  // background: darken($brand-color, 6%);
-  // color: white;
-  // padding: 50px;
-  // padding-bottom: 0;
-  //   .fa {
-  //     font-size: 2.5em;
-  //   }
-  //   h3 {
-  //     font-family: 'Raleway', 'Open sans', 'sans-serif';
-  //     font-size: 25px;
-  //     font-weight: 300;
-  //     margin-top: 10px;
-  //     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  //   }
-  // }
-
   #features-section {
     background: darken($brand-color, 6%);
 
@@ -69,13 +43,16 @@
     .bg-sport {
       background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)),url(image-path('bg-sport.jpg'));
       background-size: cover;
-      //linear-gradient(to left, rgba(20, 107, 77, 0.2), rgba(1, 183, 122, 0.2))
     }
     .bg-nutrition {
       background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
       background-size: cover;
     }
     .coach {
+      .wrapper-img{
+        height: 468px;
+        overflow: hidden;
+      }
     }
     .goals {
       height: 101vh;
@@ -216,6 +193,9 @@
     .coach {
       height: 80vh;
       overflow: hidden;
+      .wrapper-img{
+        height: auto;
+      }
     }
     .tracking {
       text-align: left;
