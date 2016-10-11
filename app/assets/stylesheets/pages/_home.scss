@@ -29,25 +29,25 @@
   //   }
   // }
 
-  #features-section{
+  #features-section {
     background: darken($brand-color, 6%);
 
     @media (max-width: $screen-sm) {
-      padding: 50px;
+      padding: 50px 0 0 0;
     }
     h3 {
-    font-family: 'Roboto', 'Open sans', 'sans-serif';
-    color: white;
-    font-size: 40px;
-    font-weight: 300;
-    margin: 50px 0 0 0;
+      font-family: 'Roboto', 'Open sans', 'sans-serif';
+      color: white;
+      font-size: 40px;
+      font-weight: 300;
+      margin: 0;
     }
     h4 {
       font-family: "Roboto";
       color: #fff;
       font-weight: 500;
       font-size: 22px;
-      margin-top: 50px;
+      margin-top: 20px;
     }
     p {
       font-family: 'Roboto', 'Open sans', 'sans-serif';
@@ -57,10 +57,9 @@
       margin-top: 10px;
     }
     .feature {
-      padding: 50px 0 0 0;
+      padding: 20px 0;
       img {
-        width: 370px;
-        margin-right: 20px;
+        width: 100%;
       }
       p {
         font-size: 18px;
@@ -77,24 +76,25 @@
       background-size: cover;
     }
     .coach {
-      height: 80vh;
-      overflow: hidden;
     }
     .goals {
       height: 101vh;
       overflow: hidden;
       padding-top: 80px;
+      text-align: center;
       img {
-        width: 260px;
+        width: 83%;
+        margin-top: 90px;
       }
       h4 {
-        margin-top: 125px;
+        margin-top: 20px;
       }
     }
     .tracking {
       height: 85vh;
       overflow: hidden;
       padding: 150px 0 0 0;
+      text-align: center;
       img {
         border-radius: 0 8px 0 0;
         height: 70vh;
@@ -195,6 +195,41 @@
     h2 {
       color: $brand-color;
     }
+}
+@media screen and (min-width: 768px) {
+  #features-section {
+    h3 {
+      margin: 50px 0 0 0;
+    }
+    h4 {
+      margin-top: 50px;
+    }
+    .feature {
+      padding: 50px 0 0 0;
+      img {
+        width: 370px;
+        margin-right: 20px;
+      }
+    }
+    .goals {
+      padding-top: 80px;
+      text-align: right;
+      h4 {
+        margin-top: 125px;
+      }
+      img {
+        width: 260px;
+        margin-top: 0px;
+      }
+    }
+    .coach {
+      height: 80vh;
+      overflow: hidden;
+    }
+    .tracking {
+      text-align: left;
+    }
+  }
 }
 
  /* -------------------------------------
