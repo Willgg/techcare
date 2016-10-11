@@ -5,7 +5,7 @@
 
   #features-section {
     background: darken($brand-color, 6%);
-
+    text-align: center;
     @media (max-width: $screen-sm) {
       padding: 50px 0 0 0;
     }
@@ -58,7 +58,6 @@
       height: 101vh;
       overflow: hidden;
       padding-top: 80px;
-      text-align: center;
       img {
         width: 83%;
         margin-top: 90px;
@@ -69,7 +68,6 @@
     }
     .tracking {
       padding: 84px 0;
-      text-align: center;
     }
   }
   #pains-section {
@@ -209,7 +207,7 @@
   color: white;
   h3{
     font-family: 'Raleway', 'Open sans', 'sans-serif';
-    font-size: 36px;
+    font-size: 31px;
     font-weight: 300;
     margin-top: 0;
   }
@@ -266,6 +264,7 @@
     .coach {
       height: 80vh;
       overflow: hidden;
+      text-align: left;
       .wrapper-img{
         height: auto;
       }
@@ -300,6 +299,9 @@
     }
   }
   .newsletter-section{
+    h3 {
+      font-size: 36px;
+    }
     .form-control {
       width: 77%;
       margin: 0;
