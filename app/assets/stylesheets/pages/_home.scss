@@ -74,7 +74,7 @@
   }
   #pains-section {
     background-color: #fff;
-    padding: 60px 0;
+    padding: 50px 0;
     h3 {
       font-family: 'Roboto', 'Open sans', 'sans-serif';
       font-size: 40px;
@@ -84,7 +84,8 @@
     h4 {
       font-family: "Roboto", 'Open sans', 'sans-serif';
       font-weight: 300;
-      font-size: 22px;
+      font-size: 26px;
+      text-align: center;
     }
     .pain {
       margin-bottom: 20px;
@@ -101,6 +102,7 @@
       text-align: center;
       padding-top: 17px;
       font-size: 20px;
+      margin: auto;
     }
     .red {
       background-color: #f36161;
@@ -214,6 +216,16 @@
     .bg-nutrition {
       background-image: linear-gradient(to left bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
       background-size: cover;
+    }
+  }
+  #pains-section {
+    padding: 60px 0;
+    h4 {
+      font-size: 22px;
+      text-align: left;
+    }
+    .picto {
+      margin: 0;
     }
   }
 }
