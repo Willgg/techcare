@@ -72,7 +72,7 @@
       //linear-gradient(to left, rgba(20, 107, 77, 0.2), rgba(1, 183, 122, 0.2))
     }
     .bg-nutrition {
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(image-path('bg-nutrition.jpg'));
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
       background-size: cover;
     }
     .coach {
@@ -91,17 +91,8 @@
       }
     }
     .tracking {
-      height: 85vh;
-      overflow: hidden;
-      padding: 150px 0 0 0;
+      padding: 84px 0;
       text-align: center;
-      img {
-        border-radius: 0 8px 0 0;
-        height: 70vh;
-        width: auto;
-        position: absolute;
-        right: 0;
-      }
     }
   }
   #pains-section {
@@ -228,6 +219,21 @@
     }
     .tracking {
       text-align: left;
+      height: 85vh;
+      h4 {
+        margin-top: 185px;
+      }
+      img {
+        border-radius: 0 8px 0 0;
+        height: 70vh;
+        width: auto;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .bg-nutrition {
+      background-image: linear-gradient(to left bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
+      background-size: cover;
     }
   }
 }
