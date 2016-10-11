@@ -166,6 +166,77 @@
       color: $brand-color;
     }
 }
+
+ /* -------------------------------------
+ *            COACH SECTION
+ * ------------------------------------- */
+
+.coach-section{
+  background: white;
+  padding: 0 30px 50px 30px;
+  color: $gray-light;
+  h2{
+    font-family: 'Raleway', 'Open sans', 'sans-serif';
+    font-size: 42px;
+    font-weight: 300;
+    color: $brand-color;
+    margin: 50px 0;
+
+  }
+  h3{
+    font-family: 'Raleway', 'Open sans', 'sans-serif';
+    font-size: 32px;
+    font-weight: 300;
+    color: $brand-color;
+  }
+  h4{
+    font-weight: 300;
+  }
+
+  .img-circle {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  }
+}
+
+.newsletter-section{
+  padding: 55px 0;
+  background: darken($brand-color, 6%);
+  color: white;
+  h3{
+    font-family: 'Raleway', 'Open sans', 'sans-serif';
+    font-size: 36px;
+    font-weight: 300;
+    margin-top: 0;
+  }
+  .form-control{
+    height: 50px;
+    font-size: 20px;
+    color: $gray-lighter;
+    border: none;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+  .btn{
+    line-height: 38px;
+    background: darken($brand-color, 15%);
+    border: none;
+    padding: 6px 26px;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 100%;
+    &:hover, &:focus{
+      background: darken($brand-color, 22%);
+    }
+  }
+}
+
 @media screen and (min-width: 768px) {
   #features-section {
     h3 {
@@ -228,71 +299,13 @@
       margin: 0;
     }
   }
-}
-
- /* -------------------------------------
- *            COACH SECTION
- * ------------------------------------- */
-
-.coach-section{
-  background: white;
-  padding: 0 30px 50px 30px;
-  color: $gray-light;
-  h2{
-    font-family: 'Raleway', 'Open sans', 'sans-serif';
-    font-size: 42px;
-    font-weight: 300;
-    color: $brand-color;
-    margin: 50px 0;
-
-  }
-  h3{
-    font-family: 'Raleway', 'Open sans', 'sans-serif';
-    font-size: 32px;
-    font-weight: 300;
-    color: $brand-color;
-  }
-  h4{
-    font-weight: 300;
-  }
-
-  .img-circle {
-  width: 100%;
-  max-width: 250px;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  }
-}
-
-.newsletter-section{
-  padding: 55px 0;
-  background: darken($brand-color, 6%);
-  color: white;
-  h3{
-    font-family: 'Raleway', 'Open sans', 'sans-serif';
-    font-size: 36px;
-    font-weight: 300;
-    margin-top: 0;
-  }
-  .form-control{
-    height: 50px;
-    font-size: 20px;
-    color: $gray-lighter;
-    border: none;
-    float: left;
-    width: 77%;
-  }
-  .btn{
-    line-height: 38px;
-    background: darken($brand-color, 15%);
-    border: none;
-    padding: 6px 26px;
-    font-size: 14px;
-    text-transform: uppercase;
-    &:hover, &:focus{
-      background: darken($brand-color, 22%);
+  .newsletter-section{
+    .form-control {
+      width: 77%;
+      margin: 0;
+    }
+    .btn {
+      width: auto;
     }
   }
 }
