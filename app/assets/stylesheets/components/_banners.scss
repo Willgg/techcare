@@ -1,6 +1,7 @@
 .banner {
   background-image: url(image-path('banner-2000.jpg'));
   background-size: cover;
+  background-position: -521px center;
   color: white;
   padding: 110px 20px;
   position: relative;
@@ -8,13 +9,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 .banner h1 {
   font-family: 'Lato', 'Open sans', 'sans-serif';
   font-weight: bold;
   text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.17);
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: 50px;
   margin-bottom: 15px;
 }
 .banner h2 {
@@ -30,7 +32,7 @@
   margin-bottom: 18px;
 }
 .banner-gradient {
-  background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.2) 50%);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -53,12 +55,15 @@
   line-height: 30px;
   text-transform: uppercase;
   background-color: $brand-color;
+  &:hover {
+    background-color: $brand-color-dark;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .banner {
     min-height: 630px;
-    height: 90vh;
+    background-position: center;
     padding: 100px;
   }
   .banner h1 {
