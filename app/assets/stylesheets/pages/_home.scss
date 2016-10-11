@@ -74,7 +74,7 @@
   }
   #pains-section {
     background-color: #fff;
-    padding: 60px 0;
+    padding: 50px 0;
     h3 {
       font-family: 'Roboto', 'Open sans', 'sans-serif';
       font-size: 40px;
@@ -84,7 +84,8 @@
     h4 {
       font-family: "Roboto", 'Open sans', 'sans-serif';
       font-weight: 300;
-      font-size: 22px;
+      font-size: 26px;
+      text-align: center;
     }
     .pain {
       margin-bottom: 20px;
@@ -101,6 +102,7 @@
       text-align: center;
       padding-top: 17px;
       font-size: 20px;
+      margin: auto;
     }
     .red {
       background-color: #f36161;
@@ -164,59 +166,6 @@
       color: $brand-color;
     }
 }
-@media screen and (min-width: 768px) {
-  #features-section {
-    h3 {
-      margin: 50px 0 0 0;
-    }
-    h4 {
-      margin-top: 50px;
-    }
-    .feature {
-      padding: 50px 0 0 0;
-      img {
-        width: 370px;
-        margin-right: 20px;
-      }
-    }
-    .goals {
-      padding-top: 80px;
-      text-align: right;
-      h4 {
-        margin-top: 125px;
-      }
-      img {
-        width: 260px;
-        margin-top: 0px;
-      }
-    }
-    .coach {
-      height: 80vh;
-      overflow: hidden;
-      .wrapper-img{
-        height: auto;
-      }
-    }
-    .tracking {
-      text-align: left;
-      height: 85vh;
-      h4 {
-        margin-top: 185px;
-      }
-      img {
-        border-radius: 0 8px 0 0;
-        height: 70vh;
-        width: auto;
-        position: absolute;
-        right: 0;
-      }
-    }
-    .bg-nutrition {
-      background-image: linear-gradient(to left bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
-      background-size: cover;
-    }
-  }
-}
 
  /* -------------------------------------
  *            COACH SECTION
@@ -270,7 +219,9 @@
     color: $gray-lighter;
     border: none;
     float: left;
-    width: 77%;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 15px;
   }
   .btn{
     line-height: 38px;
@@ -279,8 +230,82 @@
     padding: 6px 26px;
     font-size: 14px;
     text-transform: uppercase;
+    width: 100%;
     &:hover, &:focus{
       background: darken($brand-color, 22%);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #features-section {
+    h3 {
+      margin: 50px 0 0 0;
+    }
+    h4 {
+      margin-top: 50px;
+    }
+    .feature {
+      padding: 50px 0 0 0;
+      img {
+        width: 370px;
+        margin-right: 20px;
+      }
+    }
+    .goals {
+      padding-top: 80px;
+      text-align: right;
+      h4 {
+        margin-top: 125px;
+      }
+      img {
+        width: 260px;
+        margin-top: 0px;
+      }
+    }
+    .coach {
+      height: 80vh;
+      overflow: hidden;
+      .wrapper-img{
+        height: auto;
+      }
+    }
+    .tracking {
+      text-align: left;
+      height: 85vh;
+      h4 {
+        margin-top: 185px;
+      }
+      img {
+        border-radius: 0 8px 0 0;
+        height: 70vh;
+        width: auto;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .bg-nutrition {
+      background-image: linear-gradient(to left bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)),url(image-path('bg-nutrition.jpg'));
+      background-size: cover;
+    }
+  }
+  #pains-section {
+    padding: 60px 0;
+    h4 {
+      font-size: 22px;
+      text-align: left;
+    }
+    .picto {
+      margin: 0;
+    }
+  }
+  .newsletter-section{
+    .form-control {
+      width: 77%;
+      margin: 0;
+    }
+    .btn {
+      width: auto;
     }
   }
 }
