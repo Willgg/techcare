@@ -13,8 +13,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-        <h3 class="text-center">How Techcare helps you take care of you</h3>
-        <p class="text-center">Techcare vous aide à améliorer votre hygiène de vie à votre rythme, selon des objectifs précis tout en soutenant votre motivation.</p>
+        <h3 class="text-center"><%= t('.features_section_title') %></h3>
+        <p class="text-center"><%= t('.features_section_desc') %></p>
       </div>
     </div>
     <div class="feature coach">
@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="col-xs-12 col-sm-4">
-          <h4>Accompagnement d’un coach</h4>
-          <p>Chaque adhérent choisit un professionnel référent qui suit ses progrès et le conseille par message et téléphone. Vous ne serez plus seul pour surmonter vos challenges.</p>
+          <h4><%= t('.coach_title') %></h4>
+          <p><%= t('.coach_desc') %></p>
         </div>
       </div>
     </div>
@@ -35,8 +35,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-5 col-sm-offset-2">
-          <h4>Objectifs personnalisés</h4>
-          <p>Chaque semaine vos objectifs sont adaptés selon votre progression, votre motivation et vos possibilités logistiques. Avancer à votre rythme est le moyen le plus efficace pour changer vos habitudes durablement.</p>
+          <h4><%= t('.goals_title') %></h4>
+          <p><%= t('.goals_desc') %></p>
         </div>
         <div class="col-xs-12 col-sm-5">
           <%= image_tag("iphone-goals.png") %>
@@ -51,8 +51,8 @@
           <%= image_tag("screen-food.png") %>
         </div> -->
         <div class="col-xs-12 col-sm-5">
-          <h4>Suivi de votre progression</h4>
-          <p>Prenez une simple photo pour que votre coach analyse votre alimentation. Synchronisez vos applications ou objets connectés pour enregistrer votre activité et suivez l’évolution de vos habitudes.</p>
+          <h4><%= t('.tracking_title') %></h4>
+          <p><%= t('.tracking_desc') %></p>
         </div>
       </div>
     </div>
@@ -64,24 +64,20 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-offset-3 col-sm-6 text-center">
-        <h3>Agissez sur vos principaux risques de santé</h3>
+        <h3><%= t('.pains_section_title') %></h3>
       </div>
       <div class="col-xs-12 col-sm-offset-2 col-sm-4">
         <div class="pain">
           <div class="picto green"><i class="fa fa-arrow-down" aria-hidden="true"></i></div>
-          <h4>Perte de poids</h4>
-          <p>
-            Une prise de poids peut entraîner une perte de confiance en soi et des sensations physiques dégradées. Le surpoids est aussi un des facteurs de risque prédominant de certaines maladies chroniques. Techcare vous aide à améliorer votre confiance, vore motivation et enfin changer vos habitudes.
-          </p>
+          <h4><%= t('.weight_title') %></h4>
+          <p><%= t('.weight_desc') %></p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="pain">
           <div class="picto red"><i class="fa fa-heartbeat" aria-hidden="true"></i></div>
-          <h4>Hypertension</h4>
-          <p>
-            Elle est caractérisée par une augmentation de la pression des artères à long terme. L’hypertension augmente le risque de maladies cardiovasculaires et peut endommager certains organes. Une bonne alimentation, une activité régulière et une bonne gestion du stress peut réduire l’hypertension.
-          </p>
+          <h4><%= t('.bloodpressure_title') %></h4>
+          <p><%= t('.bloodpressure_desc') %></p>
         </div>
       </div>
     </div>
@@ -89,19 +85,15 @@
       <div class="col-xs-12 col-sm-offset-2 col-sm-4">
         <div class="pain">
           <div class="picto blue"><i class="fa fa-cube" aria-hidden="true"></i></div>
-          <h4>Diabète de type 2</h4>
-          <p>
-            Il est en partie lié à une mauvaise alimentation, à nos modes de vie sédentaires et se développe silencieusement durant des années. Nous aidons les personnes à risque sur le diabète à adopter des habitudes qui leur permettront de ne pas l'aggraver et même le réduire.
-          </p>
+          <h4><%= t('.diabete_title') %></h4>
+          <p><%= t('.diabete_desc') %></p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="pain">
           <div class="picto yellow"><i class="fa fa-tint" aria-hidden="true"></i></div>
-          <h4>Cholestérol</h4>
-          <p>
-            L'excès de mauvais cholestérol favorise les maladies cardio-vasculaires. Il concerne environ un tiers de la population française et la moitié des plus de 65 ans. Il est possible de le prévenir ou le diminuer en adoptant un mode de vie plus sain en complément d'un traitement médical.
-          <p>
+          <h4><%= t('.cholesterol_title') %></h4>
+          <p><%= t('.cholesterol_desc') %><p>
         </div>
       </div>
     </div>
@@ -127,7 +119,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 text-center">
-        <h2><%= t('.dev-arg-3') %></h2>
+        <h2><%= t('.coach_section_title') %></h2>
       </div>
     </div>
     <div class="row">
