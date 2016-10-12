@@ -163,7 +163,7 @@ fr:
   providers:
     index:
       title: "Synchroniser vos objets connectés"
-      intro: "Techcare a pour objectif de vous faire adopter des habitubes saines. Il a besoin pour cela d'accéder à vos données pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
+      intro: "Techcare a besoin d'accéder à vos données d'activité pour vous définir des objectifs personnalisés. Votre coach va ensuite suivre vos progrès et vous donner les meilleurs conseils pour y parvenir."
   goals:
     index:
       new-goal: "+ Ajouter un objectif"
@@ -174,7 +174,7 @@ fr:
       submit_measure: "Enregistrer"
       placeholder-message: "Votre message"
       food_title: "Ajouter des photos de votre nourriture"
-      food_empty: "Ces photos permettront à votre coach de comprendre vos habitudes alimentaires."
+      food_empty: "Ces photos permettent à votre coach de comprendre vos habitudes alimentaires."
       past_title: "Objectifs passés"
     goals_open:
       days: "jours restants"
