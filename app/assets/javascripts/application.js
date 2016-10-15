@@ -4,6 +4,7 @@
 //= require bootstrap-sprockets
 
 //= require_tree ./app
+//= require_tree .
 //= require app/menu
 
 
