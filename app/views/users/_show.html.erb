@@ -8,7 +8,7 @@
   </div>
   <div class="user-bodymetric">
     <%= user.age %> ans<br />
-    <%= user.weight %>Kg | <%= user.height %>cm<br />
+    <%= round_weight(user.weight) %>kg | <%= user.height %>cm<br />
     IMC: <%= user.bmi %>
   </div>
 </div>
