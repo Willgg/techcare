@@ -79,6 +79,19 @@ class User < ActiveRecord::Base
     self.first_name + ' ' + self.last_name
   end
 
+  def age
+    now = Time.current.utc.to_date
+    now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  end
+
+  def weight
+    measures.weight(:desc).first.value.to_f
+  end
+
+  def bmi
+     (weight / ((height.to_f / 100) ** 2)).round(1)
+  end
+
   def is_trainee?
     !self.is_adviser?
   end

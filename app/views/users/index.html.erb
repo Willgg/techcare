@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 chat-column">
+      <%= render 'show', user: @default_trainee %>
       <div class="chat-card">
 
         <% if @default_trainee %>
@@ -59,6 +60,7 @@
       $(this).find(".notification").hide();
       $.get('/messages/read', function(data) {});
       $('.js-message-recipient-id').val(user_id);
+      $.get('/users/' + user_id, function(data) {});
     });
 
     var height = $('.trainee').outerHeight();

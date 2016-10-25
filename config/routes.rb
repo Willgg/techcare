@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :subscriptions, only: [:edit, :destroy]
     end
 
+    resources :users, only: :show
+
     resources :messages, only: [:destroy, :index] do
       collection do
         get "/read" => "messages#read"
