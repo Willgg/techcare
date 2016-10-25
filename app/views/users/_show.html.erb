@@ -2,13 +2,13 @@
   <div class="user-details">
     <%= image_tag user.picture.url(:medium), class: 'avatar' %>
     <div>
-      <%= user.full_name %><br />
+      <span class="fullname"><%= user.full_name %></span><br />
       <%= user.email %>
     </div>
   </div>
   <div class="user-bodymetric">
     <%= user.age %> ans<br />
     <%= user.weight %>Kg | <%= user.height %>cm<br />
-    <%= user.bmi %>
+    IMC: <%= user.bmi %>
   </div>
 </div>
