@@ -5,12 +5,28 @@
         <div class="white-card text-center providers-card" style="float:left">
           <h1><%= t('.title') %></h1>
           <p><%= t('.intro') %></p>
-          <div style="margin: 30px 13%; float: left;">
-            <%= link_to "", providers_path, method: :post, class: "logo",
-            style: "background-image: url( #{asset_path 'withing-logo.png'})" %>
-            <%= link_to "", new_auth_path(:fitbit), method: :post, class: "logo",
-            style: "background-image: url( #{asset_path 'fitbit-logo.png'})" %>
-            <a href="#" class="logo" style="background-image: url(<%= asset_path 'ihealth-logo.png' %>)"></a>
+          <div style="margin: 30px 13%;">
+            <div class="row">
+              <div class="col-xs-4">
+                <%= link_to "", providers_path, method: :post, class: "logo",
+                style: "background-image: url( #{asset_path 'withing-logo.png'})" %>
+              </div><div class="col-xs-4">
+                <%= link_to "", new_auth_path(:fitbit), method: :post, class: "logo",
+                style: "background-image: url( #{asset_path 'fitbit-logo.png'})" %>
+              </div><div class="col-xs-4">
+                <a href="#" class="logo" style="background-image: url(<%= asset_path 'ihealth-logo.png' %>)"></a>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; align-items: flex-start">
+            <%= image_tag 'health-mate_icon', style: "width: 60px" %>
+            <div style="display: flex; align-items: flex-start; flex-direction: column">
+              <h3>Withings Health Mate</h3>
+              <p>Pour suivre vos pas, nous vous recommandons cette application gratuite.</p>
+              <a href='https://play.google.com/store/apps/details?id=com.withings.wiscale2&hl=fr&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                <%= image_tag 'fr_badge_android', style: "width: 200px",  alt: 'Disponible sur Google Play' %>
+              </a>
+            </div>
           </div>
           <p><%= link_to "Je n'utilise aucun de ces services >", user_goals_path(current_user) %></p>
         </div>
