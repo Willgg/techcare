@@ -30,6 +30,7 @@
 #  api_consumer_secret    :string
 #  api_user_id            :string
 #  height                 :integer
+#  phone_number           :string
 #
 # Indexes
 #
@@ -41,7 +42,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  SEXE = ["Male", "Female"]
+  SEXE = ["male", "female"]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
