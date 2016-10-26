@@ -3,12 +3,18 @@
     <%= image_tag user.picture.url(:medium), class: 'avatar' %>
     <div>
       <span class="fullname"><%= user.full_name %></span><br />
-      <%= user.email %>
+      <%= link_to user.email, 'mailto:'+ user.email %><br />
+      <%= user.phone_number %>
     </div>
   </div>
   <div class="user-bodymetric">
+    <% if user.sexe.downcase == 'female' %>
+      <i class="fa fa-venus" style="color: pink; font-weight: bold" aria-hidden="true"></i>
+    <% elsif user.sexe.downcase == 'male' %>
+      <i class="fa fa-mars" style="color: blue; font-weight: bold" aria-hidden="true"></i>
+    <% end %>
     <%= user.age %> ans<br />
-    <%= round_weight(user.weight) %>kg | <%= user.height %>cm<br />
+    <%= round_weight(user.weight) %> kg | <%= user.height %> cm<br />
     IMC: <%= user.bmi %>
   </div>
 </div>

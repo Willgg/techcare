@@ -97,6 +97,7 @@ en:
           female: "Female"
         height: "Height"
         birthday: "Birthday"
+        phone_number: "Phone number"
       goal:
         title: "Title"
         measure_type: "Type of measurement"
