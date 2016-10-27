@@ -5,11 +5,10 @@
   margin: 20px 0;
   .logo {
     display: block;
-    float:left;
     height: 150px;
     width: 150px;
     border: 1px solid #000;
-    margin: 10px;
+    margin: 10px auto;
     background-size: cover;
     &:hover{
       border: 1px solid $brand-color;
@@ -29,6 +28,7 @@
 }
 .providers-card {
   color: $gray-light;
+  margin-top: 0;
   h1{
     font-family: "Lato";
     font-weight: 300;
@@ -72,8 +72,8 @@
     background-size: cover;
     background-position: center center;
     float: left;
-    width: 30%;
-    margin-right: 3%;
+    width: 23%;
+    margin-right: 2%;
     img{
       width: 100%;
       border-radius: 50%;
@@ -81,10 +81,15 @@
   }
   .info{
     float: left;
-    width: 67%;
+    width: 75%;
     h2 {
-      font-size: 20px;
-      margin-top: 10px;
+      font-size: 16px;
+      margin: 5px 0 10px 0;
+      font-weight: bold;
+      small {
+        font-size: 14px;
+        color: #aaa;
+      }
     }
   }
   &:last-child{
@@ -92,6 +97,7 @@
   }
   &:first-child{
     border-top: none;
+    margin-top: 10px;
   }
 }
 
