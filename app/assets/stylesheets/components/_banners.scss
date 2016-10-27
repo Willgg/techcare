@@ -60,6 +60,33 @@
   }
 }
 
+.banner-app {
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  .logo-app {
+    width: 28px;
+    margin: 0 5px 0 0;
+  }
+  .badge-store {
+    width: 100px;
+    &:first-child {
+      margin-right: 5px;
+    }
+  }
+  h3 {
+    font-size: 20px;
+    color: #777;
+    margin: 0;
+    font-weight: bold;
+  }
+  p {
+    color: $brand-color;
+    margin: 5px 0 10px 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .banner {
     min-height: 630px;

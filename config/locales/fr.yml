@@ -159,7 +159,7 @@ fr:
       subject: "Vous avez reçu un message de %{user}"
   advisers:
     index:
-      title: "Sélectionnez un professionnel pour votre accompagnement"
+      title_html: "Sélectionnez un professionnel<br /> pour vous accompagner"
       select_coach: "Choisir"
   providers:
     index:
