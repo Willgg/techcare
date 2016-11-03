@@ -1,24 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 chat-column">
-      <%= render 'show', user: @default_trainee %>
-      <div class="chat-card">
+      <% if @default_trainee && @default_trainee.present? %>
+        <%= render 'show', user: @default_trainee %>
+        <div class="chat-card">
 
-        <% if @default_trainee %>
-          <!-- Formulaire de chat  -->
-          <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
-            <%= f.error_notification %>
-            <%= hidden_field_tag :recipient_id, @default_trainee.id, class: 'js-message-recipient-id' %>
-            <%= f.input :content, label: false, placeholder: 'Your message', as: :text, class: "form-control" %>
-            <%#= f.association :recipient, collection: @user_names, value_method: :id %>
-            <%= f.button :submit, value: t('submit_message'),class: "btn btn-primary"  %>
+          <% if @default_trainee %>
+            <!-- Formulaire de chat  -->
+            <%= simple_form_for [@user, @message], remote: true, class: 'chat-form' do |f| %>
+              <%= f.error_notification %>
+              <%= hidden_field_tag :recipient_id, @default_trainee.id, class: 'js-message-recipient-id' %>
+              <%= f.input :content, label: false, placeholder: 'Your message', as: :text, class: "form-control" %>
+              <%#= f.association :recipient, collection: @user_names, value_method: :id %>
+              <%= f.button :submit, value: t('submit_message'),class: "btn btn-primary"  %>
+            <% end %>
+
+            <!-- List of messages -->
+            <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
           <% end %>
 
-          <!-- List of messages -->
-          <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
-        <% end %>
-
-      </div>
+        </div>
+      <% end %>
     </div>
     <div class="col-xs-12 col-md-4">
       <div class="trainees-list">

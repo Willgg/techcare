@@ -18,7 +18,7 @@
     first_name: "Prakasch",
     last_name: "Pavadepoulle",
     birthday: Time.new(1985, 10, 20),
-    sexe: "Male",
+    sexe: "male",
     is_adviser: true,
     height: 170
   )
@@ -37,7 +37,7 @@
     first_name: "Yohan",
     last_name: "Sorin",
     birthday: Time.new(1985, 10, 20),
-    sexe: "Male",
+    sexe: "male",
     is_adviser: true,
     height: 170
   )
@@ -56,7 +56,7 @@
     first_name: "Julien",
     last_name: "Lalous",
     birthday: Time.new(1985, 10, 20),
-    sexe: "Male",
+    sexe: "male",
     is_adviser: true,
     height: 170
   )
