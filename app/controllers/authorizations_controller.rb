@@ -1,22 +1,24 @@
-class AuthorizationsController < ApplicationController
-  require 'oauth'
-  include OAuth
 
+class AuthorizationsController < ApplicationController
+
+  require 'oauth2'
   before_action :find_provider, only: [:new, :create]
   skip_after_action :verify_authorized
 
   def new
     callback_url   = ENV['HOST'] + "/auth/#{@provider}/callback"
-    consumer       = OAuth::Consumer.new(
+    client         = OAuth2::Client.new(
                       ENV['FITBIT_CONSUMER_KEY'],
                       ENV['FITBIT_CONSUMER_SECRET'],
-                      :site => "https://api.fitbit.com")
-    request_token  = consumer.get_request_token
-    session[:request_token] = { token: request_token.token, secret: request_token.secret}
-    session[:request_token_params] = request_token.params
+                      :site => 'https://www.fitbit.com')
+    # request_token  = consumer.get_request_token
+    # session[:request_token] = { token: request_token.token, secret: request_token.secret}
+    # session[:request_token_params] = request_token.params
     session[:locale] = params[:locale]
-
-    redirect_to request_token.authorize_url
+    url = client.auth_code.authorize_url(:redirect_uri => callback_url)
+    url.gsub!(/oauth/, 'oauth2')
+    raise
+    redirect_to url + '&scope=activity%20sleep%20weight%20&expires_in='
   end
 
   def create

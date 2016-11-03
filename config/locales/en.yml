@@ -216,6 +216,7 @@ en:
         title: "%{trainee} is your new trainee"
   users:
     index:
+      no_trainee: "You have not any trainee yet."
       trainee_list: "Your trainees"
       trainee_dashboard: "look at details"
   subscriptions:
