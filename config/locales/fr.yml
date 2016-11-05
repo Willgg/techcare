@@ -215,6 +215,7 @@ fr:
         title: "Vous avez été choisi par %{trainee}"
   users:
     index:
+      no_trainee: "Vous n'avez aucun adhérent pour le moment."
       trainee_list: "Vos clients"
       trainee_dashboard: "Voir le détail"
   subscriptions:

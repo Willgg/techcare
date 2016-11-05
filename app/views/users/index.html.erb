@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-md-8 chat-column">
       <% if @default_trainee && @default_trainee.present? %>
         <%= render 'show', user: @default_trainee %>
-        <div class="chat-card">
+        <div class="chat-card" style="margin-top: 20px">
 
           <% if @default_trainee %>
             <!-- Formulaire de chat  -->
@@ -19,6 +19,10 @@
             <%= render 'messages/index', messages: @messages, trainee: @default_trainee %>
           <% end %>
 
+        </div>
+      <% else %>
+        <div class="user-info-card">
+          <%= t('.no_trainee') %>
         </div>
       <% end %>
     </div>

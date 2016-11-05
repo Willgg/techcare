@@ -28,6 +28,8 @@ gem "fitgem"
 gem "withings-api"
 gem "simplificator-withings"
 gem "ruby-hmac"
+gem "oauth2"
+gem 'fitbit-api-client', require: 'fitbit'
 
 gem 'sidekiq'
 gem 'sinatra'  # Dependency of sidekiq
