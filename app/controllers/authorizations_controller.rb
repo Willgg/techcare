@@ -2,46 +2,42 @@
 class AuthorizationsController < ApplicationController
 
   require 'oauth2'
+  require 'base64'
   before_action :find_provider, only: [:new, :create]
   skip_after_action :verify_authorized
 
   def new
-    callback_url   = ENV['HOST'] + "/auth/#{@provider}/callback"
     client         = OAuth2::Client.new(
                       ENV['FITBIT_CONSUMER_KEY'],
                       ENV['FITBIT_CONSUMER_SECRET'],
                       :site => 'https://www.fitbit.com')
-    # request_token  = consumer.get_request_token
-    # session[:request_token] = { token: request_token.token, secret: request_token.secret}
-    # session[:request_token_params] = request_token.params
     session[:locale] = params[:locale]
-    url = client.auth_code.authorize_url(:redirect_uri => callback_url)
+    url = client.auth_code.authorize_url(:redirect_uri => callback_url(@provider))
     url.gsub!(/oauth/, 'oauth2')
-    raise
-    redirect_to url + '&scope=activity%20sleep%20weight%20&expires_in='
+    redirect_to url + '&scope=activity%20sleep%20weight%20&expires_in=604800'
   end
 
   def create
-
-    # Rebuild the Consumer
-    consumer       = OAuth::Consumer.new(
-                      ENV['FITBIT_CONSUMER_KEY'],
-                      ENV['FITBIT_CONSUMER_SECRET'],
-                      :site => "https://api.fitbit.com")
-
-    # Rebuild the RequestToken from user's session
-    request_token  = OAuth::RequestToken.from_hash(consumer, {oauth_token: session[:request_token]["token"], oauth_token_secret: session[:request_token]["secret"]})
-
-    access_token   = request_token.get_access_token(oauth_verifier: params[:oauth_verifier])
-    uid            = access_token.params.select { |k,v| k.to_s.match(/user|id|uid/) }
-
+    client      = OAuth2::Client.new( ENV['FITBIT_CONSUMER_KEY'],
+                                      ENV['FITBIT_CONSUMER_SECRET'],
+                                      :site => "https://api.fitbit.com" )
+    ids_encoded = "Basic " + Base64::strict_encode64("#{client.id}:#{client.secret}")
+    headers     = { 'Authorization' => ids_encoded,
+                    'Content-Type' => 'application/x-www-form-urlencoded' }
+    body        = { 'code' => params[:code],
+                    'grant_type' => 'authorization_code',
+                    'client_id' => client.id,
+                    'redirect_uri' => callback_url(@provider),
+                    'expires_in' => '31536000' }
+    response = client.request(:post, 'https://api.fitbit.com/oauth2/token', :headers => headers, :body => body )
+    access_token   = OAuth2::AccessToken.from_hash(client, response.parsed)
     @authorization = Authorization.new(
                        user: current_user,
                        token: access_token.token,
-                       secret: access_token.secret,
+                       refresh_token: access_token.refresh_token,
                        source: params[:provider],
-                       uid: uid.values.last)
-
+                       uid: access_token.params['user_id'])
+    raise
     options = { authorization: @authorization, locale: session[:locale] }
 
     # Fetch data from API and create Measures in database
@@ -70,5 +66,8 @@ class AuthorizationsController < ApplicationController
     @provider = params[:provider]
   end
 
+  def callback_url(provider)
+    ENV['HOST'] + "/auth/#{provider}/callback"
+  end
 
 end
