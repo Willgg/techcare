@@ -2,14 +2,15 @@
 #
 # Table name: authorizations
 #
-#  id         :integer          not null, primary key
-#  source     :string
-#  uid        :string
-#  token      :string
-#  secret     :string
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :integer          not null, primary key
+#  source        :string
+#  uid           :string
+#  token         :string
+#  secret        :string
+#  user_id       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  refresh_token :string
 #
 # Indexes
 #
