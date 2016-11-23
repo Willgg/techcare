@@ -10,11 +10,10 @@ class MeasuresController < ApplicationController
     authorize @measure
     if @measure.save
       flash[:notice] = t('.success')
-      redirect_to user_goals_path(@user)
     else
-      raise
-      render :new
+      flash[:alert] = t('.failure')
     end
+    redirect_to user_goals_path(@user)
   end
 
   def update

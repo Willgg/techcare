@@ -14,7 +14,7 @@
         <% if goal.cumulative %>
           <%= goal.sum_of_measures %>
         <% else %>
-          <%= goal.last_measure_for_user.round(1) %>
+          <%= goal.last_measure_for_user.value.round(1) %>
         <% end %>
         </strong><br />
         <%= t('activerecord.attributes.measure_type.unit._' +
