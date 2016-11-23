@@ -47,9 +47,13 @@ class Goal < ActiveRecord::Base
   end
 
   def last_measure_for_user(&block) #FIXME: should return a Measure object instead of value
-    query = self.measures.where(user_id: self.user_id)
-    query = block.call(query) if block_given?
-    query.order(date: :asc).last.value
+    measures = self.measures.where(user_id: self.user_id)
+    query = block.call(measures) if block_given?
+    unless query.blank?
+      query.order(date: :asc).last
+    else
+      measures.order(date: :asc).last
+    end
     #FIXME : what if 2 measures from different provider for the same day ?
   end
 
@@ -63,7 +67,7 @@ class Goal < ActiveRecord::Base
 
   def progression_for_user
     origin_measure  = self.origin_measure.to_f
-    last_measure    = self.last_measure_for_user.to_f
+    last_measure    = self.last_measure_for_user.value.to_f
     goal_value      = self.goal_value.to_f
     # Objectif est diminution
     if origin_measure > goal_value
@@ -91,7 +95,8 @@ class Goal < ActiveRecord::Base
   end
 
   def origin_measure
-    self.last_measure_for_user { |m| m.where("date < ?", self.start_date) }
+    measure = last_measure_for_user { |m| m.where("date < ?", self.start_date) }
+    measure.value
   end
 
   def is_increase?
@@ -128,7 +133,7 @@ class Goal < ActiveRecord::Base
 
   def current_value
     return self.end_value if self.end_value
-    self.cumulative ? self.sum_of_measures : self.last_measure_for_user
+    self.cumulative ? self.sum_of_measures : self.last_measure_for_user.value
   end
 
   def unit

@@ -37,7 +37,7 @@ class AuthorizationsController < ApplicationController
                        refresh_token: access_token.refresh_token,
                        source: params[:provider],
                        uid: access_token.params['user_id'])
-    raise
+    raise #TODEV
     options = { authorization: @authorization, locale: session[:locale] }
 
     # Fetch data from API and create Measures in database

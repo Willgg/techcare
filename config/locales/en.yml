@@ -204,6 +204,7 @@ en:
   measures:
     create:
       success: "Your data has been successfully saved"
+      failure: "Your data has not been saved"
     update:
       success: "This data has been successfully updated"
   mailers:
