@@ -152,3 +152,25 @@ goal = Goal.new(
         start_date: Time.current
        )
 goal.save
+
+user_5 = User.new(
+  email: "grenier_godard@hotmail.fr",
+  password: "billyboy",
+  first_name: "Will",
+  last_name: "Hotmail",
+  birthday: Time.new(1985, 07, 16),
+  sexe: "male",
+  is_adviser: false,
+  adviser_id: 3,
+  height: 180
+)
+user_5.save
+
+sub = Subscription.new(
+      start_date: Time.current,
+      user_id: user_5.id,
+      active: true,
+      name: 'sub-6',
+      stripe_id: 'fake_id'
+      )
+sub.save
