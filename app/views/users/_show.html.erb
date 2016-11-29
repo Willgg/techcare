@@ -14,7 +14,9 @@
       <i class="fa fa-mars" style="color: blue; font-weight: bold" aria-hidden="true"></i>
     <% end %>
     <%= user.age %> ans<br />
-    <%= round_weight(user.weight) %> kg | <%= user.height %> cm<br />
-    IMC: <%= user.bmi %>
+    <% unless user.weight.nil? %>
+      <%= round_weight(user.weight) %> kg | <%= user.height %> cm<br />
+      IMC: <%= user.bmi %>
+    <% end %>
   </div>
 </div>
