@@ -60,7 +60,7 @@
     //   $.get('/messages?user_id=' + trainee_id, function(data) {})
     // }, 10000);
 
-    $(".trainee-card .trainee-card > *").on("click", function(){
+    $(".trainee-card, .trainee-card > *").on("click", function(){
       var user_id = $(this).data("user-id");
       $.get('/messages?user_id=' + user_id, function(data) {});
       $(this).find(".notification").hide();
