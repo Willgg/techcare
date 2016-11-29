@@ -86,7 +86,9 @@ class User < ActiveRecord::Base
   end
 
   def weight
-    measures.weight(:desc).first.value.to_f
+    weight = measures.weight(:desc).first
+    return nil if weight.nil?
+    weight.value.to_f
   end
 
   def bmi
